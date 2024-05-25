@@ -17,6 +17,23 @@
     }
 };
 
+
+
+// Function to fetch data from Hadith API
+const searchHadith = async (query) => {
+    try {
+        const response = await fetch(`https://www.hadithapi.com/api/hadiths/?apiKey=$2y$10$mSMZREZf0fTOkCoskvkMxetPgCBh8Z4RU7mPRj9qUmtViZj0Gstx6&query=${query}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data.data || []; // Ensure data is an array
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+    }
+};
+
 document.getElementById('searchBox').addEventListener('input', function() {
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(async () => {

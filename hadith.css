@@ -1,0 +1,63 @@
+#searchBox {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 1rem;
+
+  /* Chatgpt style */
+
+  /* width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px; */
+}
+
+/* chatgpt style   */
+#suggestions {
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+#ayahBox {
+  margin-top: 20px;
+  background-color: burlywood;
+}
+
+#ayahBox {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#ayahBox h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#ayahBox p {
+  margin: 0;
+  line-height: 1.6;
+}
