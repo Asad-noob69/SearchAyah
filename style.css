@@ -3,6 +3,7 @@
   padding: 0;
 }
 body {
+  margin-top: 0.5rem;
   min-height: 100vh;
   /* background-image: url(laptop.jpg);
   background-size: cover;
@@ -132,6 +133,15 @@ nav li:first-child {
   margin: 0;
   line-height: 1.6;
 }
+#arab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+}
+#arab img {
+  width: 10rem;
+}
 
 .sidebar {
   position: fixed;
@@ -157,6 +167,12 @@ nav li:first-child {
 .menu-btn {
   display: none;
 }
+input[type="text"] {
+  width: 100%; /* Ensures input fields use full width */
+  box-sizing: border-box; /* Ensures padding and borders are included in the width */
+  max-width: 100%; /* Prevents the input from exceeding 100% of the parent width */
+  margin-bottom: 10px; /* Adds spacing below the input */
+}
 @media (max-width: 800px) {
   .hideOnMobile {
     display: none;
@@ -168,5 +184,12 @@ nav li:first-child {
 @media (max-width: 400px) {
   .sidebar {
     width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  input[type="text"] textarea {
+    width: 100%; /* Ensures input fields and text areas use full width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    margin-bottom: 10px; /* Adds spacing between inputs */
   }
 }

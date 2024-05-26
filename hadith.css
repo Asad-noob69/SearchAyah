@@ -1,3 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin-top: 0.5rem;
+  min-height: 100vh;
+  /* background-image: url(laptop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+}
+nav li {
+  height: 50px;
+}
+nav ul li a img {
+  width: 5rem;
+}
+nav a {
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+nav a:hover {
+  background-color: #f0f0f0;
+}
+
+nav ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+nav ul li:hover::after {
+  width: 100%;
+}
+nav li:first-child {
+  margin-right: auto;
+}
+
 #searchBox {
   width: 100%;
   padding: 10px;
@@ -7,11 +66,24 @@
   /* Chatgpt style */
 
   /* width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px; */
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px; */
+}
+
+#suggestions {
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+.suggestion:hover {
+  background-color: #f0f0f0;
 }
 
 /* chatgpt style   */
@@ -38,12 +110,12 @@
   background-color: #f0f0f0;
 }
 
-#ayahBox {
+#hadithBox {
   margin-top: 20px;
   background-color: burlywood;
 }
 
-#ayahBox {
+#hadithBox {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -51,13 +123,75 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#ayahBox h3 {
+#hadithBox h3 {
   margin-top: 0;
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-#ayahBox p {
+#hadithBox p {
   margin: 0;
   line-height: 1.6;
+}
+#arab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+}
+#arab img {
+  width: 10rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.sidebar li {
+  width: 100%;
+}
+.sidebar a {
+  width: 100%;
+}
+.menu-btn {
+  display: none;
+}
+
+input[type="text"] {
+  width: 100%; /* Ensures input fields use full width */
+  box-sizing: border-box; /* Ensures padding and borders are included in the width */
+  max-width: 100%; /* Prevents the input from exceeding 100% of the parent width */
+  margin-bottom: 10px; /* Adds spacing below the input */
+}
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  input[type="text"] textarea {
+    width: 100%; /* Ensures input fields and text areas use full width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    margin-bottom: 10px; /* Adds spacing between inputs */
+  }
 }

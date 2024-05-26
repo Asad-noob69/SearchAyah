@@ -5,15 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>hadithPage</title>
-    <script src="script.js"></script>
+
     <link rel="stylesheet" href="hadith.css" />
   </head>
   <body>
-    <div class="logo">
-      <img src="" alt="" />
-      <input type="text" id="searchBox" placeholder="Search Hadith..." />
-      <div id="suggestions"></div>
-      <div id="ayahBox"></div>
+    <nav>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              /></svg
+          ></a>
+        </li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Info</a></li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="#"><img src="quran.png" alt="SearchAyah" /></a>
+        </li>
+
+        <li class="hideOnMobile"><a href="index.html">QURAN</a></li>
+        <li class="hideOnMobile"><a href="hadith.html">HADITH</a></li>
+        <li class="hideOnMobile"><a href="#">CONTACT</a></li>
+        <li class="hideOnMobile"><a href="#">INSTA</a></li>
+        <!-- <li class="hideOnMobile"><a href="#">ABOUTUS</a></li> -->
+        <li class="menu-btn" onclick="showSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              /></svg
+          ></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="logo" id="arab">
+      <img src="hadith.jpg" alt="" />
     </div>
+    <input type="text" id="searchBox" placeholder="Search Hadith..." />
+    <div id="suggestions"></div>
+    <div id="hadithBox"></div>
+
+    <script src="hadith.js" defer></script>
+    <script src="responsive.js" defer></script>
   </body>
 </html>
