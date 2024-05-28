@@ -31,6 +31,7 @@
                 const query = this.value;
                 if (query.length > 2) {
                     const matches = await searchHadith(query);
+                    console.log('Search query:', query);
                     displaySuggestions(matches, query);
                 }
             }, 300); // Adjust delay as needed
