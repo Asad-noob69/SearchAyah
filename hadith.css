@@ -73,11 +73,6 @@ nav li:first-child {
   margin-bottom: 20px; */
 }
 
-#suggestions {
-  border: 1px solid #ddd;
-  max-height: 200px;
-  overflow-y: auto;
-}
 .suggestion {
   padding: 10px;
   cursor: pointer;
@@ -88,6 +83,7 @@ nav li:first-child {
 
 /* chatgpt style   */
 #suggestions {
+  display: block;
   border: 1px solid #ddd;
   max-height: 200px;
   overflow-y: auto;

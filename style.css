@@ -3,17 +3,18 @@
   padding: 0;
 }
 body {
+  /* background-color: #d4af37; */
   margin-top: 0.5rem;
   min-height: 100vh;
-  /* background-image: url(laptop.jpg);
+  background-image: url("white.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-position: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 nav {
-  background-color: white;
+  /* background-color: #5f9999;  */
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul {
@@ -62,6 +63,8 @@ nav li:first-child {
   padding: 10px;
   margin: 20px 0;
   border-radius: 1rem;
+  /* background-color: black;  */
+  color: black;
 
   /* Chatgpt style */
 
@@ -88,6 +91,8 @@ nav li:first-child {
 
 /* chatgpt style   */
 #suggestions {
+  /* background-color: black;  */
+  color: black;
   border: 1px solid #ddd;
   max-height: 200px;
   overflow-y: auto;
@@ -112,14 +117,14 @@ nav li:first-child {
 
 #ayahBox {
   margin-top: 20px;
-  background-color: burlywood;
+  background-color: transparent;
 }
 
 #ayahBox {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -174,6 +179,41 @@ input[type="text"] {
   margin-bottom: 10px; /* Adds spacing below the input */
 }
 @media (max-width: 800px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  nav img {
+    margin-top: 0.5rem;
+  }
+  nav {
+    background-color: #5f9999;
+  }
+  #searchBox {
+    font-size: 16px;
+    padding-right: 2.7em;
+
+    /* font-size: 18px; */
+    width: 100%;
+    height: 40px;
+    border: 0px;
+    border-radius: 8px;
+    padding: 0 2.25em 0 0.8em;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0px 0px 9pt 2pt #ccc;
+    color: #2d2d2d;
+  }
+  .searchayah {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: "Courier New", Courier, monospace; /* Custom font for the logo */
+    font-weight: bold; /* Make the text bold */
+    flex-grow: 1; /*Allow the element to grow and take up available space  */
+    margin-right: 1.7rem;
+    color: #fafad2;
+  }
   .hideOnMobile {
     display: none;
   }
@@ -191,5 +231,10 @@ input[type="text"] {
     width: 100%; /* Ensures input fields and text areas use full width */
     box-sizing: border-box; /* Ensures padding and borders are included in the width */
     margin-bottom: 10px; /* Adds spacing between inputs */
+  }
+}
+@media (min-width: 800px) {
+  .searchayah {
+    display: none;
   }
 }
