@@ -1,95 +1,45 @@
-// Function to fetch data from Hadith API using RapidAPI
-const searchHadith = async (query) => {
-    try {
-        // Fetch data from RapidAPI
-        const url = `https://hadiths-api.p.rapidapi.com/hadiths?search=${query}`;
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '37d929474dmsh05dbb8dd6c636bdp164194jsn1e4c438d711e',
-                'X-RapidAPI-Host': 'hadiths-api.p.rapidapi.com'
-            }
-        };
+const searchBox = document.getElementById('searchBox');
+const hadithBox = document.getElementById('hadithBox');
 
-        const response = await fetch(url, options);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const text = await response.text(); // Get the response as text
-        console.log('Raw response text:', text);
-
-        // Attempt to parse the response as JSON
-        let data;
+searchBox.addEventListener('input', async (e) => {
+    const query = e.target.value.trim();
+    if (query.length > 3) {
         try {
-            data = JSON.parse(text);
-        } catch (parseError) {
-            throw new Error('Failed to parse JSON response');
+            const response = await fetch(`https://www.hadithapi.com/api/hadiths/?apiKey=$2y$10$mSMZREZf0fTOkCoskvkMxetPgCBh8Z4RU7mPRj9qUmtViZj0Gstx6&search=${query}`, {
+                method: 'GET'
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const hadiths = data.data;  // Adjusted according to the new API's response format
+
+            if (!hadiths) {
+                throw new Error('Invalid data format');
+            }
+
+            displayHadiths(hadiths);
+        } catch (error) {
+            console.error(error);
+            hadithBox.innerHTML = '';
         }
-
-        console.log(data); // Log the fetched data to inspect its structure
-
-        // Convert the object into an array of collections
-        const collections = Object.keys(data).map(key => ({
-            id: key,
-            name: data[key].name,
-            collection: data[key].collection
-        }));
-
-        return collections;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return [];
+    } else {
+        hadithBox.innerHTML = '';
     }
-};
-
-let debounceTimeout;
-
-document.getElementById('searchBox').addEventListener('input', function() {
-    clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(async () => {
-        const query = this.value;
-        if (query.length > 2) {
-            const matches = await searchHadith(query);
-            console.log('Search query:', query);
-            displaySuggestions(matches, query);
-        }
-    }, 300); // Adjust delay as needed
 });
 
-function displaySuggestions(matches, query) {
-    console.log('Displaying suggestions for query', query);
-    console.log('Matches:', matches);
-
-    const suggestionsBox = document.getElementById('suggestions');
-    suggestionsBox.innerHTML = '';
-
-    if (!Array.isArray(matches) || matches.length === 0) {
-        suggestionsBox.innerHTML = '<div class="suggestion">No matches found</div>';
-        return;
-    }
-
-    const regex = new RegExp(query, 'i');
-
-    matches.forEach(match => {
-        match.collection.forEach(hadith => {
-            if (regex.test(hadith.text)) {
-                const suggestion = document.createElement('div');
-                suggestion.textContent = hadith.text;
-                suggestion.className = 'suggestion';
-                suggestion.addEventListener('click', () => showHadith(match));
-                suggestionsBox.appendChild(suggestion);
-            }
-        });
-    });
-}
-
-function showHadith(match) {
-    const hadithBox = document.getElementById('hadithBox');
-    hadithBox.innerHTML = `<h3>${match.name}</h3>`;
-
-    match.collection.forEach(hadith => {
-        const hadithElement = document.createElement('p');
-        hadithElement.textContent = hadith.text; // Adjust this if the structure of hadith objects is different
+function displayHadiths(hadiths) {
+    hadithBox.innerHTML = '';
+    hadiths.forEach((hadith) => {
+        const hadithHTML = `
+            <h3>${hadith.book_name} - ${hadith.chapter_number}:${hadith.hadith_number}</h3>
+            <p>${hadith.arabic}</p>
+            <p>${hadith.translation}</p>
+        `;
+        const hadithElement = document.createElement('div');
+        hadithElement.innerHTML = hadithHTML;
         hadithBox.appendChild(hadithElement);
     });
 }
