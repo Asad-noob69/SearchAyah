@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
 }
 body {
   min-height: 100vh;
@@ -7,23 +8,23 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   font-family: "Noto Nastaliq Urdu", serif;
 }
 body h2 {
   display: flex;
   justify-content: center;
-  /* background: #aa997d;  */
+
   font-size: 1.3rem;
   height: 70px;
   letter-spacing: 2px;
   align-items: center;
   gap: 20px;
-  /* margin-left: 30 rem;   */
 }
 
 .header-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   background: #5f9999;
@@ -42,7 +43,20 @@ body h2 {
   margin-right: 5rem;
 }
 .home {
+  text-align: right;
   color: black;
+  padding: 10px;
+}
+sup {
+  font-size: x-small;
+  color: blue;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 1rem;
+  background-color: transparent;
 }
 ul {
   display: flex;
@@ -60,7 +74,7 @@ li {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  background-color: white;
+  background-color: transparent;
   letter-spacing: 1px;
   border-radius: 1rem;
 }
