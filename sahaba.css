@@ -6,6 +6,8 @@ body {
   background-image: url("white.jpg");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: "Noto Nastaliq Urdu", serif;
 }
 
@@ -16,7 +18,7 @@ body {
   align-items: center;
   gap: 20px;
   background: #5f9999;
-  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  background: transparent; /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
@@ -26,7 +28,7 @@ body {
 
 .header-container input[type="text"] {
   color: black;
-  margin-left: 5rem; 
+  margin-left: 5rem;
   border-radius: 1rem;
   height: 30px; /* Adjust the height as needed to match the heading */
   width: 20rem;
@@ -39,7 +41,7 @@ body {
   color: black;
 }
 
-*{
+* {
   margin: 0;
 }
 
@@ -50,10 +52,9 @@ body h2 {
   letter-spacing: 2px;
   align-items: center;
   gap: 20px;
-  
 }
 
-ul{
+ul {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -62,7 +63,7 @@ ul{
   padding: 0;
 }
 
-li{
+li {
   list-style: none;
   border: 2px solid;
   padding: 5px;
@@ -70,10 +71,9 @@ li{
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  background-color: white;
+  background-color: transparent;
   letter-spacing: 1px;
 }
-
 
 a {
   text-decoration: none;
@@ -83,6 +83,7 @@ a {
 /* Responsive styles */
 @media (max-width: 768px) {
   .header-container {
+    background-color: #5f9999;
     flex-direction: column;
     gap: 10px;
   }
@@ -92,9 +93,23 @@ a {
     height: 40px; /*Adjusted for better appearance on smaller screens */
   }
 }
+.search-bar {
+  font-size: 16px;
+  padding-right: 2.7em;
 
+  /* font-size: 18px; */
+  width: 100%;
+  height: 40px;
+  border: 0px;
+  border-radius: 8px;
+  padding: 0 2.25em 0 0.8em;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0px 0px 9pt 2pt #ccc;
+  color: #2d2d2d;
+}
 @media (max-width: 480px) {
- .header-container {
+  .header-container {
     padding: 10px;
   }
 }
