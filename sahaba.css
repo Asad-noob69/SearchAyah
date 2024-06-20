@@ -74,12 +74,27 @@ li {
   background-color: transparent;
   letter-spacing: 1px;
 }
-
+li:hover {
+  background-color: rgb(218, 184, 184);
+}
 a {
   text-decoration: none;
   color: #2e2ebb;
 }
+li a:hover {
+  text-decoration: underline; /* Optional: Underline on hover */
+}
+#special {
+  background-color: #c7c96f; /* Light blue highlight */
+}
+#special a {
+  color: #00008b; /* Dark blue font color */
+  text-decoration: none; /* Optional: Remove underline */
+}
 
+#special a:hover {
+  text-decoration: underline; /* Optional: Underline on hover */
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .header-container {
