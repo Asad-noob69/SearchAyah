@@ -16,18 +16,17 @@
     <title>SahabaName</title>
   </head>
   <body>
-    <div class="header-container">
+     <div class="header-container">
       <h2>صحابہ کی فہرست</h2>
-
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="SearchName..."
+        class="search-bar"
+        onkeyup="searchList()"
+      />
       <a href="index.html" class="home"> <i class="fas fa-home"></i></a>
     </div>
-    <input
-      type="text"
-      id="search-bar"
-      placeholder="SearchName..."
-      class="search-bar"
-      onkeyup="searchList()"
-    />
     <ul id="list">
       <li>
         <a
