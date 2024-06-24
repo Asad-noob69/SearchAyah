@@ -128,3 +128,22 @@ li a:hover {
     padding: 10px;
   }
 }
+
+/* Responsivness for footer */
+@media (max-width: 772px) {
+  .footer{
+    display: flex;
+    flex-direction: column;
+  }
+  .footer p{
+    text-align: center;
+  }
+  .icons{
+    margin: 10px 0px 10px 0px;
+  }
+  .header-icon{
+    width: 64vw;
+    justify-content: center;
+
+  }
+}
