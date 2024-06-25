@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   scroll-behavior: smooth;
@@ -42,18 +41,18 @@ body h2 {
   top: 0;
 }
 
-.header-icon{
+.header-icon {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.header-icon img{
+.header-icon img {
   width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    transform: rotateY(180deg);
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotateY(180deg);
 }
 
 .header-container input[type="text"] {
@@ -95,7 +94,6 @@ ul {
   width: 86.5vw;
   padding: 0;
 }
-
 
 li {
   list-style: none;
@@ -142,7 +140,7 @@ li a:hover {
   /* Optional: Underline on hover */
 }
 
-.footer{
+.footer {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -155,22 +153,22 @@ li a:hover {
   z-index: 1000; /* Ensure the header is on top */
 }
 
-.footer h2{
+.footer h2 {
   font-size: 1.1rem;
 }
 
-.icons{
+.icons {
   display: flex;
   flex-direction: row-reverse;
   width: 100px;
   gap: 16px;
 }
 
-.icons svg{
+.icons svg {
   cursor: pointer;
 }
 
-.icons p{
+.icons p {
   font-size: 14px;
 }
 
@@ -193,7 +191,7 @@ li a:hover {
 }
 
 .Btn:hover .arrow {
-  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* Responsive styles */
@@ -217,34 +215,20 @@ li a:hover {
   }
 }
 
-
-@media (min-width: 640px) {
-  .container {
-    flex-direction: row;
+/* Responsivness for footer */
+@media (max-width: 772px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
   }
-  
-  .footer-text {
-    border-left: 1px solid #e5e7eb;
-    padding-left: 1rem;
-    margin-left: 1rem;
-    margin-bottom: 0;
+  .footer p {
+    text-align: center;
   }
-  
-  .social-icons {
-    margin-top: 0;
+  .icons {
+    margin: 10px 0px 10px 0px;
   }
-}
-
-
-
-@keyframes slide-in-bottom {
-  0% {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  .header-icon {
+    width: 64vw;
+    justify-content: center;
   }
 }

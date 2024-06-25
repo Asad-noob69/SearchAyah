@@ -1,3 +1,7 @@
+
+let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+
 function searchList() {
     const input = document.getElementById('search-bar');
     const filter = input.value.toUpperCase();
@@ -13,4 +17,28 @@ function searchList() {
             li[i].style.display = "none";
         }
     }
+}
+
+
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+}
+
+scrollTopBtn.onclick = function() {
+    scrollToTop();
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
