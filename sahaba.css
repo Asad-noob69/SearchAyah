@@ -162,10 +162,19 @@ li a:hover {
   flex-direction: row-reverse;
   width: 100px;
   gap: 16px;
+  /* fill: #000; /* Default color */
+  /* transition: fill 0.3s ease; Smooth transition */
 }
-
+*/
+/* 
+.icons:hover {
+  fill: #e4405f; /* New color on hover (Instagram's pink color) */
+*/
 .icons svg {
   cursor: pointer;
+}
+.icons a:hover svg path {
+  fill: #4183c4; /* GitHub's official blue color */
 }
 
 .icons p {

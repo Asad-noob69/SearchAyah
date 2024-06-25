@@ -11,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Noto Nastaliq Urdu", serif;
 }
 
 nav {
@@ -220,6 +221,52 @@ input[type="text"] {
   .menu-btn {
     display: block;
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 5rem;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
+  z-index: 1000; /* Ensure the header is on top */
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100px;
+  gap: 16px;
+  /* fill: #000; /* Default color */
+  /* transition: fill 0.3s ease; Smooth transition */
+}
+*/
+/* 
+.icons:hover {
+  fill: #e4405f; /* New color on hover (Instagram's pink color) */
+*/
+.icons svg {
+  cursor: pointer;
+}
+.icons a:hover svg path {
+  fill: #4183c4; /* GitHub's official blue color */
+}
+
+.icons p {
+  font-size: 14px;
 }
 @media (max-width: 400px) {
   .sidebar {
