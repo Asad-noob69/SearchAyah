@@ -38,6 +38,7 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: black;
+  font-family: noto nastalic urdu;
 }
 nav a:hover {
   background-color: #f0f0f0;
@@ -241,7 +242,7 @@ input[type="text"] {
 }
 
 .footer h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   font-size: 1.5rem;
 }
 
@@ -268,6 +269,23 @@ input[type="text"] {
 .icons p {
   font-size: 14px;
 }
+
+.icons a {
+  width: 100%;
+}
+.header-icon {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
 @media (max-width: 400px) {
   .sidebar {
     width: 100%;
@@ -283,5 +301,23 @@ input[type="text"] {
 @media (min-width: 800px) {
   .searchayah {
     display: none;
+  }
+}
+
+/* Responsivness for footer */
+@media (max-width: 772px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer p {
+    text-align: center;
+  }
+  .icons {
+    margin: 10px 0px 10px 0px;
+  }
+  .header-icon {
+    width: 64vw;
+    justify-content: center;
   }
 }

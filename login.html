@@ -12,36 +12,50 @@
     <title>LOGIN</title>
   </head>
   <body>
-    <div class="container1">
-      <form action="">
-        <h1>Login</h1>
-        <div class="input-box">
-          <input type="text" placeholder="Username" class="filter" required />
-          <i class="fa-solid fa-user"></i>
-        </div>
+    <button id="loginBtn">Login</button>
 
-        <div class="input-box">
-          <input
-            type="password"
-            placeholder="Password"
-            class="filter"
-            required
-          />
-          <i class="fa-solid fa-lock"></i>
-        </div>
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="container1">
+          <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+              <input
+                type="text"
+                placeholder="Username"
+                class="filter"
+                required
+              />
+              <i class="fa-solid fa-user"></i>
+            </div>
 
-        <div class="forgot">
-          <label><input type="checkbox" /> Remember me</label>
-          <a href="#">Forgot Password</a>
-        </div>
+            <div class="input-box">
+              <input
+                type="password"
+                placeholder="Password"
+                class="filter"
+                required
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
 
-        <button type="submit">Login</button>
+            <div class="forgot">
+              <label><input type="checkbox" /> Remember me</label>
+              <a href="#">Forgot Password</a>
+            </div>
 
-        <div class="register">
-          <p>Don't have an account?</p>
-          <a href="#" class="a-tag"> Register</a>
+            <button type="submit">Login</button>
+
+            <div class="register">
+              <p>Don't have an account?</p>
+              <a href="#" class="a-tag"> Register</a>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
+
+    <script src="login.js"></script>
   </body>
 </html>

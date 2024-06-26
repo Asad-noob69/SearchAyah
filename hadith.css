@@ -232,19 +232,9 @@ input[type="text"] {
   width: 100%;
 }
 
-/* .footer h2 {
+.footer h2 {
   margin-bottom: 1rem;
   font-size: 0.5rem;
-} */
-.name {
-  text-align: center; /* Center-align the text */
-  /* margin-top: 20px; Adjust margin-top as needed  */
-  font-size: 15px; /* Adjust font-size as needed */
-}
-
-.pbuh {
-  font-size: 15px; /* Adjust font-size of the PBUH sign as needed */
-  margin-right: 50px; /* Add margin-right to separate the sign from text */
 }
 
 .icons {
@@ -255,11 +245,7 @@ input[type="text"] {
   /* fill: #000; /* Default color */
   /* transition: fill 0.3s ease; Smooth transition */
 }
-*/
-/* 
-.icons:hover {
-  fill: #e4405f; /* New color on hover (Instagram's pink color) */
-*/
+
 .icons svg {
   cursor: pointer;
 }
@@ -269,6 +255,23 @@ input[type="text"] {
 
 .icons p {
   font-size: 14px;
+}
+.icons a {
+  width: 100%;
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  /* gap: 15px; */
+}
+
+.header-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotateY(180deg);
 }
 @media (max-width: 400px) {
   .sidebar {
@@ -286,5 +289,23 @@ input[type="text"] {
 @media (min-width: 800px) {
   .searchayah {
     display: none;
+  }
+}
+
+/* Responsivness for footer */
+@media (max-width: 772px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer p {
+    text-align: center;
+  }
+  .icons {
+    margin: 10px 0px 10px 0px;
+  }
+  .header-icon {
+    width: 64vw;
+    justify-content: center;
   }
 }
