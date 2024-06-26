@@ -180,7 +180,9 @@ li a:hover {
 .icons p {
   font-size: 14px;
 }
-
+.icons a {
+  width: 100%;
+}
 .Btn {
   width: 45px;
   height: 45px;
