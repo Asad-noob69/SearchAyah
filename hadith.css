@@ -305,6 +305,7 @@ input[type="text"] {
     margin: 10px 0px 10px 0px;
   }
   .header-icon {
+    display: none;
     width: 64vw;
     justify-content: center;
   }

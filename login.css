@@ -152,11 +152,13 @@ body {
   height: 100%;
   overflow: auto;
   background-color: transparent;
-
+  /* background-color: rgba(0, 0, 0, 0.5); */
   padding-top: 60px;
 }
 
 .modal-content {
+  /* max-width: 600px;  */
+  /* max-height: 600px; */
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -164,8 +166,10 @@ body {
   max-width: 600px;
   position: relative;
   border-radius: 10px;
+  box-sizing: border-box;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   background-color: transparent;
+  /* background-color: rgba(255, 255, 255, 0.5); Ensure transparency */
 }
 
 .close {
