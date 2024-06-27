@@ -169,6 +169,11 @@ li a:hover {
   text-decoration: underline;
 } 
 
+.icons a{
+  width: 100%;
+  cursor: pointer;
+}
+
 .icons {
   display: flex;
   flex-direction: row-reverse;
