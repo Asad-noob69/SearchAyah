@@ -31,7 +31,7 @@ body {
   border-radius: 15px;
   border: 2px solid black;
   transition: 0.4s ease;
-   display: block;
+  display: block;
   margin: auto;
 }
 
@@ -73,12 +73,29 @@ body {
   color: black;
 }
 
-.input-box i {
+/* .input-box i {
   position: absolute;
   left: 30px;
   top: 15px;
+} */
+.input-box .fa-user {
+  position: absolute;
+  left: 20px;
+  top: 15px;
 }
 
+.input-box .fa-lock {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.input-box .fa-eye {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  top: 15px;
+}
 .container1 .forgot {
   display: flex;
   justify-content: space-between;
@@ -144,7 +161,7 @@ body {
 }
 
 /* Modal Styles */
-.modal {
+.modal1 {
   display: none;
   position: fixed;
   z-index: 1;
@@ -162,7 +179,7 @@ body {
   z-index: 1000; /* Ensure the header is on top */
 }
 
-.modal-content {
+.modal-content1 {
   /* max-width: 600px;  */
   /* max-height: 600px; */
   margin: 5% auto;
@@ -180,11 +197,11 @@ body {
 
 .close {
   color: #aaa;
-  float: right;
+  /* float: right; */
   font-size: 28px;
   font-weight: bold;
-   width: 20px;
- margin: 0px 0px 10px 30px;
+  width: 20px;
+  margin: 0px 0px 10px 30px;
 }
 
 .close:hover,
