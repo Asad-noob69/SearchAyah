@@ -11,6 +11,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: "Noto Nastaliq Urdu", serif;
+  font-family: "Alegreya Sans SC", sans-serif;
 }
 
 body h2 {
@@ -41,18 +42,22 @@ body h2 {
   top: 0;
 }
 
-.header-icon {
+#header-container-eng-version {
+  flex-direction: row;
+}
+
+.header-icon{
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.header-icon img {
+.header-icon img{
   width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: rotateY(180deg);
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: rotateY(180deg);
 }
 
 .header-container input[type="text"] {
@@ -60,7 +65,6 @@ body h2 {
   margin-left: 5rem;
   border-radius: 1rem;
   height: 30px;
-  /* Adjust the height as needed to match the heading */
   width: 20rem;
   font-size: 1rem;
   padding: 0 10px;
@@ -95,14 +99,76 @@ ul {
   padding: 0;
 }
 
+.paste-button {
+  position: relative;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 35px;
+  width: 115px;
+}
+
+.button {
+  background-color: transparent;
+  color: #212121;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  background-color: transparent;
+  border: 2px solid black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  font-weight: bold;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+  background-color: #fbf5e9;
+  transition: 0.5s;
+  color: #212121;
+}
+
+.dropdown-content #top:hover {
+  border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+  display: block;
+}
+
+
 li {
   list-style: none;
   border: 2px solid;
-  padding: 5px;
   border-radius: 16px;
   text-align: center;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  padding: 16px;
   background-color: transparent;
   letter-spacing: 1px;
   cursor: pointer;
@@ -140,7 +206,7 @@ li a:hover {
   /* Optional: Underline on hover */
 }
 
-.footer {
+.footer{
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -153,10 +219,13 @@ li a:hover {
   z-index: 1000; /* Ensure the header is on top */
 }
 
-.footer h2 {
-  font-size: 1.1rem;
+#footer-eng-version{
+  flex-direction: row;
 }
 
+.footer h2{
+  font-size: 1.1rem;
+}
 
 .footer p{
   font-size: 16px;
@@ -169,32 +238,22 @@ li a:hover {
   text-decoration: underline;
 } 
 
-.icons a{
-  width: 100%;
-  cursor: pointer;
-}
-
-.icons {
+.icons{
   display: flex;
   flex-direction: row-reverse;
   width: 100px;
   gap: 16px;
 }
 
-.icons svg {
+.icons a{
+  width: 100%;
   cursor: pointer;
 }
 
-.icons a:hover svg path {
-  fill: #4183c4; /* GitHub's official blue color */
-}
-
-.icons p {
+.icons p{
   font-size: 14px;
 }
-.icons a {
-  width: 100%;
-}
+
 .Btn {
   width: 45px;
   height: 45px;
@@ -214,7 +273,7 @@ li a:hover {
 }
 
 .Btn:hover .arrow {
-  animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 /* Responsive styles */
@@ -238,20 +297,57 @@ li a:hover {
   }
 }
 
+
+@media (min-width: 640px) {
+  .container {
+    flex-direction: row;
+  }
+  
+  .footer-text {
+    border-left: 1px solid #e5e7eb;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .social-icons {
+    margin-top: 0;
+  }
+
+}
+
 /* Responsivness for footer */
 @media (max-width: 772px) {
-  .footer {
+  .footer{
     display: flex;
     flex-direction: column;
   }
-  .footer p {
+  .footer p{
     text-align: center;
   }
-  .icons {
+  .icons{
     margin: 10px 0px 10px 0px;
   }
-  .header-icon {
-    width: 64vw;
+  .header-icon{
+    width: 66vw;
     justify-content: center;
+
+  }
+  #header-container-eng-version, #footer-eng-version  {
+    flex-direction: column;
+}
+
+}
+
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
