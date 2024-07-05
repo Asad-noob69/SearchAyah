@@ -15,7 +15,9 @@ body {
 }
 
 nav {
-  /* background-color: #5f9999;  */
+  /* background-color: #5f9999;  
+  border: 2px solid black;
+  height: 4rem; */
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul {
@@ -289,7 +291,9 @@ input[type="text"] {
 @media (max-width: 400px) {
   .sidebar {
     width: 100%;
+    padding-left: 0;
   }
+ 
 }
 @media (max-width: 600px) {
   input[type="text"] textarea {
