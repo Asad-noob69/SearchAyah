@@ -25,6 +25,9 @@
     <title>Search Ayah of Quran</title>
   </head>
   <body>
+    <div id="intro">
+      <img src="intro.png" alt="Intro" id="introImage">
+    </div>
     <nav>
       <ul class="sidebar">
         <li onclick="hideSidebar()">
@@ -58,54 +61,37 @@
         <li class="hideOnMobile"><a href="sahaba-eng-version.html">SAHABA</a></li>
 
         <li class="hideOnMobile">
-          <button id="loginBtn">Login</button>
-
-          <div id="loginModal" class="modal1">
-            <div class="modal-content1">
-              <span class="close">&times;</span>
-              <div class="container1">
-                <form action="" class="form1">
-                  <h1>Login</h1>
-                  <div class="input-box">
-                    <input
-                      type="text"
-                      placeholder="Username"
-                      class="filter"
-                      required
-                    />
-                    <i class="fa-solid fa-user"></i>
-                  </div>
-
-                  <div class="input-box">
-                    <input
-                      id="password"
-                      type="password"
-                      placeholder="Password"
-                      class="filter"
-                      required
-                    />
-                    <i class="fa-solid fa-lock"></i>
-                    <i class="fa-solid fa-eye" id="toggle-password"></i>
-                  </div>
-
-                  <div class="forgot">
-                    <label><input type="checkbox" /> Remember me</label>
-                    <a href="#">Forgot Password</a>
-                  </div>
-
-                  <button type="submit">Login</button>
-
-                  <div class="register">
-                    <p>Don't have an account?</p>
-                    <a href="#" class="a-tag"> Register</a>
-                  </div>
-                </form>
+          <button id="loginBtn1">SignUp/Login</button>
+          <div id="loginModal1" class="form-modal1" style="display:none;">
+              <span class="close1">&times;</span>
+              <div class="form-toggle1">
+                  <button id="login-toggle1" onclick="toggleLogin()">log in</button>
+                  <button id="signup-toggle1" onclick="toggleSignup()">sign up</button>
               </div>
-            </div>
+          
+              <div id="login-form1">
+                  <form>
+                      <input type="text" placeholder="Enter email or username"/>
+                      <input type="password" placeholder="Enter password"/>
+                      <button type="button" class="btn1 login1">login</button>
+                      <p><a href="javascript:void(0)">Forgotten account</a></p>
+                      <hr/>
+                  </form>
+              </div>
+          
+              <div id="signup-form1">
+                  <form>
+                      <input type="email" placeholder="Enter your email"/>
+                      <input type="text" placeholder="Choose username"/>
+                      <input type="password" placeholder="Create password"/>
+                      <button type="button" class="btn1 signup1">create account</button>
+                      <p>Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)">terms of services</a>.</p>
+                      <hr/>
+                  </form>
+              </div>
           </div>
-          <!-- <a href="https://www.instagram.com/illuminating_souls_">INSTA</a>   -->
-        </li>
-
+      </li>
+      
         <!-- <li class="hideOnMobile"><a href="#">ABOUTUS</a></li> -->
         <li class="menu-btn" onclick="showSidebar()">
           <a href="#"
@@ -169,6 +155,6 @@
     </footer>
     <script src="script.js" defer></script>
     <script src="responsive.js" defer></script>
-    <script src="login.js"></script>
+    <script type="application/x-javascript" src="login.js"></script>
   </body>
 </html>

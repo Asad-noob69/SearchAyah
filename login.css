@@ -1,0 +1,208 @@
+
+* {
+    /* font-family: 'quicksand', Arial, Helvetica, sans-serif; */
+    box-sizing: border-box;
+}
+
+.form-modal1 {
+    position: fixed;
+    width: 450px;
+    height: auto;
+    margin-top: 1em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1;
+}
+
+.form-modal1 .close1 {
+    /* position: absolute; */
+    margin-left: 1rem;
+    right: 20px;
+    top: 20px;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.form-modal1 button {
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+    font-size: 1em;
+    z-index: 2;
+    outline: none;
+    background: black;
+    transition: 0.2s;
+}
+
+.form-modal1 .btn1 {
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.8em 1em 0.8em 1em!important;
+    transition: 0.5s;
+    border: 1px solid #ebebeb;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+/* Login button design  */
+#loginBtn1 {
+    margin-top: 0.6rem;
+    background-color: #96bef0; /* Light blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for a nice size */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  }
+  
+  #loginBtn1:hover {
+    background-color: #357ab8; /* Slightly darker blue on hover */
+    /* transform: scale(1.01);  */
+  }
+  
+  #loginBtn1:active {
+    background-color: #2c6392; /* Even darker blue on active */
+    transform: scale(1); /* Reset size on active */
+  }
+  
+  #loginBtn1:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.4); /* Add a custom focus outline */
+  }
+  
+.form-modal1 .login1,
+.form-modal1 .signup1 {
+    background: #5f9999;
+    background-color: #5f9999;
+    color: #fff;
+}
+
+.form-modal1 .login1:hover,
+.form-modal1 .signup1:hover {
+    background: #222;
+    background-color: #5f9999;
+}
+
+.form-toggle1 {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.form-toggle1 button {
+    width: 50%;
+    float: left;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    border: none;
+    transition: 0.2s;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.form-toggle1 button:nth-child(1) {
+    border-bottom-right-radius: 20px;
+}
+
+.form-toggle1 button:nth-child(2) {
+    border-bottom-left-radius: 20px;
+}
+
+#login-toggle1 {
+    background: #5f9999;
+    background-color: #5f9999;
+    color: #ffff;
+}
+
+.form-modal1 form {
+    position: relative;
+    width: 90%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#login-form1,
+#signup-form1 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 1em;
+}
+
+#signup-form1 {
+    display: none;
+}
+
+#login-form1 button,
+#signup-form1 button {
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 0.6em;
+}
+
+.form-modal1 input {
+    position: relative;
+    width: 100%;
+    font-size: 1em;
+    padding: 1.2em 1.7em 1.2em 1.7em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    border-radius: 20px;
+    border: none;
+    background: #ebebeb;
+    outline: none;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.form-modal1 input:focus,
+.form-modal1 input:active {
+    transform: scaleX(1.02);
+}
+
+.form-modal1 input::-webkit-input-placeholder {
+    color: #222;
+}
+
+.form-modal1 p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-modal1 p a {
+    color: #5f9999;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.form-modal1 p a:hover {
+    color: #222;
+}
+
+@media only screen and (max-width: 500px) {
+    .form-modal1 {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* .form-modal1 .close1 {
+        display: none;
+    } */
+    .form-modal1 .close1 {
+        margin-left: 0.6rem;
+        font-size: 1.6rem;
+    }
+}

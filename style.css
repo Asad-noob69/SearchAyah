@@ -6,10 +6,20 @@ body {
   /* background-color: #d4af37; */
   margin-top: 0.5rem;
   min-height: 100vh;
-  background-image: url("white.jpg");
+  /* background-image: url("background.png");
+  background-position: center top;
+    width: 100%;
+    min-width: 1170px;
+    overflow: auto;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 70px;
+    box-sizing: border-box; */
+    background-image: url("white.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-family: "Noto Nastaliq Urdu", serif;
 }
@@ -18,7 +28,14 @@ nav {
   /* background-color: #5f9999;  
   border: 2px solid black;
   height: 4rem; */
+  /* box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); */
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 4rem;
+    background-image: url(nav_img.png);
+    background-repeat: repeat;
+    position: relative;
+    z-index: 20;
 }
 nav ul {
   display: flex;
@@ -39,12 +56,13 @@ nav a {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: white;
   font-family: noto nastalic urdu;
+  margin-top: 0.6rem;
 }
-nav a:hover {
+/* nav a:hover {
   background-color: #f0f0f0;
-}
+} */
 
 nav ul li::after {
   content: "";
@@ -63,21 +81,15 @@ nav li:first-child {
 }
 
 #searchBox {
-  width: 100%;
-  padding: 10px;
-  margin: 20px 0;
-  border-radius: 1rem;
-  background-color: transparent;
-  /* color: black;  */
-
-  /* Chatgpt style */
-
-  /* width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 20px; */
+  font-size: 18px;
+    width: 100%;
+    height: 40px;
+    border: 0px;
+    border-radius: 8px;
+    padding: 0 2.25em 0 .8em;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0px 0px 9pt 2pt #ccc;
 }
 
 #suggestions {
@@ -243,6 +255,29 @@ input[type="text"] {
 .footer p{
   margin-bottom: 0;
 } 
+/* for the intro */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Optional background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above all other content */
+  overflow: hidden; /* Hide scrollbars */
+  opacity: 1;
+  transition: opacity 5s ease-in-out;
+}
+#intro img {
+  max-width: 9rem;
+}
+
+#intro.fade-out {
+  opacity: 0;
+}
 
 @media (max-width: 800px) {
   body {
@@ -250,10 +285,15 @@ input[type="text"] {
     padding: 0;
   }
   nav img {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+  
   }
   nav {
     background-color: #5f9999;
+  }
+  nav a {
+    color: black;
+    margin-top: 0;
   }
   #searchBox {
     font-size: 16px;
@@ -293,6 +333,7 @@ input[type="text"] {
     width: 100%;
     padding-left: 0;
   }
+ 
  
 }
 @media (max-width: 600px) {
