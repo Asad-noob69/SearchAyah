@@ -43,7 +43,7 @@ async function searchHadiths(query) {
         const filteredHadiths = engData.hadiths.filter(hadith => 
             hadith.hadithnumber.toString() === query ||
             hadith.text.toLowerCase().includes(query.toLowerCase())
-        ).slice(0, 10); // Limit to 10 results
+        ).slice(0, 100); // Limit to 10 results
 
         const matchedHadiths = filteredHadiths.map(engHadith => {
             const urdHadith = urdData.hadiths.find(h => h.hadithnumber === engHadith.hadithnumber);
