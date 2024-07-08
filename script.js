@@ -71,33 +71,23 @@ document.getElementById('searchBox').addEventListener('input', function() {
     }, 300); // Adjust delay as needed
 });
 
-
-// for the intro
+// for the intro 
 document.addEventListener('DOMContentLoaded', () => {
-    const intro = document.getElementById('intro');
-    const contentDivs = document.querySelectorAll('body > div:not(#intro)');
-  
-    // Check if the user has already seen the intro
-    if (!localStorage.getItem('introSeen')) {
-      // Show the intro
-      intro.style.display = 'flex';
-      contentDivs.forEach(div => div.classList.add('hidden-content'));
-  
-      // Set a timer to fade out the intro and show the main content
-      setTimeout(() => {
-        intro.classList.add('fade-out');
-        setTimeout(() => {
-          intro.style.display = 'none';
-          contentDivs.forEach(div => div.classList.remove('hidden-content'));
-        }, 5000); // Match this duration with your CSS transition duration
-      }, 5000); // Display time for the intro image (3 seconds)
-  
-      // Mark the intro as seen
-      localStorage.setItem('introSeen', 'true');
-    } else {
-      // Hide the intro and show the main content immediately
+  const intro = document.getElementById('intro');
+  const contentDivs = document.querySelectorAll('body > div:not(#intro)');
+
+  // Show the intro
+  intro.style.display = 'flex';
+  contentDivs.forEach(div => div.classList.add('hidden-content'));
+
+  // Set a timer to fade out the intro and show the main content
+  setTimeout(() => {
+    intro.classList.add('fade-out');
+    setTimeout(() => {
       intro.style.display = 'none';
       contentDivs.forEach(div => div.classList.remove('hidden-content'));
-    }
-  });
+    }, 2000); // Match this duration with your CSS transition duration
+  }, 3000); // Display time for the intro image (3 seconds)
+});
+
   

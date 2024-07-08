@@ -269,7 +269,7 @@ input[type="text"] {
   z-index: 9999; /* Ensure it's above all other content */
   overflow: hidden; /* Hide scrollbars */
   opacity: 1;
-  transition: opacity 5s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
 #intro img {
   max-width: 9rem;
