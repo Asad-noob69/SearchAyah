@@ -63,34 +63,35 @@
         <li class="hideOnMobile">
           <button id="loginBtn1">SignUp/Login</button>
           <div id="loginModal1" class="form-modal1" style="display:none;">
-              <span class="close1">&times;</span>
-              <div class="form-toggle1">
-                  <button id="login-toggle1" onclick="toggleLogin()">log in</button>
-                  <button id="signup-toggle1" onclick="toggleSignup()">sign up</button>
-              </div>
-          
-              <div id="login-form1">
-                  <form>
-                      <input type="text" placeholder="Enter email or username"/>
-                      <input type="password" placeholder="Enter password"/>
-                      <button type="button" class="btn1 login1">login</button>
-                      <p><a href="javascript:void(0)">Forgotten account</a></p>
-                      <hr/>
-                  </form>
-              </div>
-          
-              <div id="signup-form1">
-                  <form>
-                      <input type="email" placeholder="Enter your email"/>
-                      <input type="text" placeholder="Choose username"/>
-                      <input type="password" placeholder="Create password"/>
-                      <button type="button" class="btn1 signup1">create account</button>
-                      <p>Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)">terms of services</a>.</p>
-                      <hr/>
-                  </form>
-              </div>
+            <span class="close1">&times;</span>
+            <div class="form-toggle1">
+              <button id="login-toggle1" onclick="toggleLogin()">log in</button>
+              <button id="signup-toggle1" onclick="toggleSignup()">sign up</button>
+            </div>
+        
+            <div id="login-form1">
+              <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Enter email or username" required />
+                <input type="password" id="loginPassword" placeholder="Enter password" required />
+                <button type="submit" class="btn1 login1">login</button>
+                <p><a href="javascript:void(0)">Forgotten account</a></p>
+                <hr />
+              </form>
+            </div>
+        
+            <div id="signup-form1">
+              <form id="signupForm">
+                <input type="email" id="signupEmail" placeholder="Enter your email" required />
+                <input type="text" id="signupUsername" placeholder="Choose username" required />
+                <input type="password" id="signupPassword" placeholder="Create password" required />
+                <button type="submit" class="btn1 signup1">create account</button>
+                <p>Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)" id="terms">terms of services</a>.</p>
+                <hr />
+              </form>
+            </div>
           </div>
-      </li>
+        </li>
+        
       
         <!-- <li class="hideOnMobile"><a href="#">ABOUTUS</a></li> -->
         <li class="menu-btn" onclick="showSidebar()">

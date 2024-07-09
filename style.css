@@ -278,6 +278,12 @@ input[type="text"] {
 #intro.fade-out {
   opacity: 0;
 }
+#terms{
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
 
 @media (max-width: 800px) {
   body {
