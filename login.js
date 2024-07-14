@@ -44,48 +44,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle form submissions
-    document.getElementById('login-form1').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const username = document.querySelector('#login-form1 input[type="text"]').value;
-        const password = document.querySelector('#login-form1 input[type="password"]').value;
     
-        try {
-            const response = await fetch('/.netlify/functions/loginFunc', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ type: 'login', username, password })
-            });
-        
-            const result = await response.json();
-            alert(result.message);
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
-        }
+    document.getElementById('signupForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+    
+      const email = document.getElementById('signupEmail').value;
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
+    
+      const response = await fetch('/.netlify/functions/signupFunc', { // Use signupFunc
+        method: 'POST',
+        body: JSON.stringify({ email, username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      const result = await response.json();
+      alert(result.message);
     });
     
-    document.getElementById('signup-form1').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const email = document.querySelector('#signup-form1 input[type="email"]').value;
-        const username = document.querySelector('#signup-form1 input[type="text"]').value;
-        const password = document.querySelector('#signup-form1 input[type="password"]').value;
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
     
-        try {
-            const response = await fetch('/.netlify/functions/loginFunc', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ type: 'register', email, username, password })
-            });
-        
-            const result = await response.json();
-            alert(result.message);
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
-        }
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+    
+      const response = await fetch('/.netlify/functions/loginFunc', { // Use loginFunc
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      const result = await response.json();
+      alert(result.message);
     });
 });
+    
