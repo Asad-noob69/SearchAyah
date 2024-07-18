@@ -4,4 +4,3 @@
 
 [functions]
   directory = "netlify/functions"
-  timeout = 30
