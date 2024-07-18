@@ -52,14 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const username = document.getElementById('signupUsername').value;
       const password = document.getElementById('signupPassword').value;
     
-      const response = await fetch('/.netlify/functions/signupFunc', { // Use signupFunc
-        method: 'POST',
-        body: JSON.stringify({ email, username, password }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      try {
+        const response = await fetch('/.netlify/functions/signupFunc', {
+          method: 'POST',
+          body: JSON.stringify({ email, username, password }),
+          headers: { 'Content-Type': 'application/json' },
+        });
     
-      const result = await response.json();
-      alert(result.message);
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Unknown error occurred');
+        }
+    
+        const result = await response.json();
+        alert(result.message);
+      } catch (error) {
+        console.error('Signup error:', error);
+        alert(`Error: ${error.message}`);
+      }
     });
     
     document.getElementById('loginForm').addEventListener('submit', async (event) => {

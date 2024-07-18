@@ -1,2 +1,4 @@
 [build]
   functions = "netlify/functions"
+  node_bundler = "esbuild"
+  timeout = "30s"
