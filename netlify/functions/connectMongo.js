@@ -15,8 +15,6 @@ async function connectToDatabase() {
     ssl: true,
     tls: true,
     tlsAllowInvalidCertificates: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
   });
 
   try {

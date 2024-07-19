@@ -27,20 +27,21 @@ exports.handler = async (event) => {
     const db = client.db('sample_mflix');
     const users = db.collection('users');
 
-    // Use a single database operation to check for existing user and insert new user
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const result = await users.findOneAndUpdate(
       { $or: [{ email }, { username }] },
       {
         $setOnInsert: {
           email,
           username,
-          password: await bcrypt.hash(password, 10),
+          password: hashedPassword,
         },
       },
       { upsert: true, returnDocument: 'after' }
     );
 
-    if (result.lastErrorObject.updatedExisting) {
+    if (result && result.lastErrorObject && result.lastErrorObject.updatedExisting) {
       return {
         statusCode: 400,
         headers,
