@@ -40,22 +40,39 @@ async function searchHadiths(query) {
         hadithBox.innerHTML = 'Searching...';
         const { engData, urdData } = await fetchData();
 
-        const filteredHadiths = engData.hadiths.filter(hadith => 
-            hadith.hadithnumber.toString() === query ||
-            hadith.text.toLowerCase().includes(query.toLowerCase())
-        ).slice(0, 100); // Limit to 100 results
+        query = query.trim().toLowerCase();
+        
+        if (query.length < 2) {
+            hadithBox.innerHTML = 'Please enter at least 2 characters to search.';
+            return;
+        }
+
+        const queryWords = query.split(/\s+/);
+
+        const filteredHadiths = engData.hadiths.filter(hadith => {
+            const hadithText = hadith.text.toLowerCase();
+            return hadith.hadithnumber.toString() === query ||
+                   query.includes(hadithText) ||
+                   hadithText.includes(query) ||
+                   queryWords.every(word => hadithText.includes(word));
+        }).slice(0, 100);
 
         const matchedHadiths = filteredHadiths.map(engHadith => {
             const urdHadith = urdData.hadiths.find(h => h.hadithnumber === engHadith.hadithnumber);
             return { eng: engHadith, urd: urdHadith };
         });
 
-        displayHadiths(matchedHadiths);
+        if (matchedHadiths.length === 0) {
+            hadithBox.innerHTML = 'No results found.';
+        } else {
+            displayHadiths(matchedHadiths);
+        }
     } catch (error) {
         console.error(error);
         hadithBox.innerHTML = 'Error fetching hadiths';
     }
 }
+
 
 const debouncedSearch = debounce(searchHadiths, 300);
 
