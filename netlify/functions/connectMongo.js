@@ -12,6 +12,11 @@ async function connectToDatabase() {
 
   const client = new MongoClient(uri, {
     serverSelectionTimeoutMS: connectionTimeout,
+    ssl: true,
+    tls: true,
+    tlsAllowInvalidCertificates: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
 
   try {
