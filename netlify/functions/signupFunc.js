@@ -1,70 +1,52 @@
+const connectToDatabase = require('./connectMongo');
+const bcrypt = require('bcryptjs');
+
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
 
-// Add this before your main handler
-
-
-const connectToDatabase = require('./connectMongo');
-const bcrypt = require('bcryptjs');
-
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers };
   }
-  console.log('Received event:', event);  // Log the entire event object
-  
-  let email, username, password;
 
   try {
-    // Check if event.body exists and is not empty
-    if (!event.body) {
-      throw new Error('Event body is empty or undefined');
+    const { email, username, password } = JSON.parse(event.body || '{}');
+
+    if (!email || !username || !password) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ message: 'Email, username, and password are required' }),
+      };
     }
 
-    console.log('Event body:', event.body);  // Log the event body
-
-    const parsedBody = JSON.parse(event.body);
-    console.log('Parsed body:', parsedBody);  // Log the parsed body
-
-    ({ email, username, password } = parsedBody);
-  } catch (error) {
-    console.error('Error parsing event body:', error);
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ message: 'Invalid JSON in request body', error: error.message }),
-    };
-  }
-
-  if (!email || !username || !password) {
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ message: 'Email, username, and password are required' }),
-    };
-  }
-
-  try {
     const client = await connectToDatabase();
     const db = client.db('sample_mflix');
     const users = db.collection('users');
 
-    const existingUser = await users.findOne({ username });
+    // Use a single database operation to check for existing user and insert new user
+    const result = await users.findOneAndUpdate(
+      { $or: [{ email }, { username }] },
+      {
+        $setOnInsert: {
+          email,
+          username,
+          password: await bcrypt.hash(password, 10),
+        },
+      },
+      { upsert: true, returnDocument: 'after' }
+    );
 
-    if (existingUser) {
+    if (result.lastErrorObject.updatedExisting) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ message: 'Username already exists' }),
+        body: JSON.stringify({ message: 'Email or username already exists' }),
       };
     }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    await users.insertOne({ email, username, password: hashedPassword });
 
     return {
       statusCode: 201,
@@ -72,11 +54,11 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: 'User created successfully' }),
     };
   } catch (error) {
-    console.error('Error in database operation:', error);
+    console.error('Error:', error);
     return {
-      statusCode: 500,
+      statusCode: error.statusCode || 500,
       headers,
-      body: JSON.stringify({ message: 'Internal Server Error', error: error.message }),
+      body: JSON.stringify({ message: error.message || 'Internal Server Error' }),
     };
   }
 };
