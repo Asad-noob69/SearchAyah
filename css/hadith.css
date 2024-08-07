@@ -4,7 +4,7 @@
 }
 body {
   min-height: 100vh;
-  background-image: url("white.jpg");
+  background-image: url("/images/white.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -18,7 +18,7 @@ nav {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
     height: 4rem;
-    background-image: url(nav_img.png);
+    background-image: url(/images/nav_img.png);
     background-repeat: repeat;
     position: relative;
     z-index: 20;

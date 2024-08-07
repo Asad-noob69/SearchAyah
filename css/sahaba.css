@@ -5,7 +5,7 @@
 
 body {
   min-height: 100vh;
-  background-image: url("white.jpg");
+  background-image: url("/images/white.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

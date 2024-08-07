@@ -19,105 +19,25 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="/css/login.css" />
 
     <title>hadithPage</title>
 
-    <link rel="stylesheet" href="hadith.css" />
+    <link rel="stylesheet" href="/css/hadith.css" />
   </head>
   <body>
-    <nav>
-      <ul class="sidebar">
-        <li onclick="hideSidebar()">
-          <a href="#"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              /></svg
-          ></a>
-        </li>
-        <li><a href="index.html">QURAN</a></li>
-        <li><a href="hadith.html">HADITH</a></li>
-       
-        <li><a href="sahaba-eng-version.html">SAHABA</a></li>
-        <li>
-          <a href="https://www.instagram.com/illuminating_souls_">INSTA</a>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <a href="#"><img src="quran.png" alt="SearchAyah" /></a>
-        </li>
-        <li class="hideOnMobile"><a href="index.html">QURAN</a></li>
-        <li class="hideOnMobile"><a href="hadith.html">HADITH</a></li>
-        <li class="hideOnMobile"><a href="sahaba-eng-version.html">SAHABA</a></li>
-        
-        <li class="hideOnMobile">
-          <button id="loginBtn1">SignUp/Login</button>
-          <div id="loginModal1" class="form-modal1" style="display:none;">
-              <span class="close1">&times;</span>
-              <div class="form-toggle1">
-                  <button id="login-toggle1" onclick="toggleLogin()">log in</button>
-                  <button id="signup-toggle1" onclick="toggleSignup()">sign up</button>
-              </div>
-          
-              <div id="login-form1">
-                  <form>
-                      <input type="text" placeholder="Enter email or username"/>
-                      <input type="password" placeholder="Enter password"/>
-                      <button type="button" class="btn1 login1">login</button>
-                      <p><a href="javascript:void(0)">Forgotten account</a></p>
-                      <hr/>
-                  </form>
-              </div>
-          
-              <div id="signup-form1">
-                  <form>
-                      <input type="email" placeholder="Enter your email"/>
-                      <input type="text" placeholder="Choose username"/>
-                      <input type="password" placeholder="Create password"/>
-                      <button type="button" class="btn1 signup1">create account</button>
-                      <p>Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)">terms of services</a>.</p>
-                      <hr/>
-                  </form>
-              </div>
-          </div>
-      </li>
-      
-        <!-- <li class="hideOnMobile">
-          <a href="https://www.instagram.com/illuminating_souls_">INSTA</a>
-        </li> -->
-
-        <li class="menu-btn" onclick="showSidebar()">
-          <a href="#"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              /></svg
-          ></a>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <div id="header-container"></div>
+    </header>
     <div class="logo" id="arab">
-      <img src="hadith.jpg" alt="" />
+      <img src="/images/hadith.jpg" alt="" />
     </div>
     <input type="text" id="searchBox" placeholder="Search Hadith..." />
     <div id="suggestions"></div>
     <div id="hadithBox"></div>
     <footer class="footer">
       <div class="header-icon">
-        <img src="sahaba.png" alt="" />
+        <img src="/images/sahaba.png" alt="" />
         <h2>حديث نبوي </h2>
       </div>
       <p>Copyright © <a href="mailto:asadaliabbasi787@gmail.com">
@@ -150,9 +70,9 @@
       </div>
     </footer>
 
-    <script src="hadith.js" defer></script>
-    <script src="responsive.js" defer></script>
-    <script type="application/x-javascript" src="login.js"></script>
-
+    <script src="/js/hadith.js" defer></script>
+    <script src="/js/responsive.js" defer></script>
+    <script type="application/x-javascript" src="/js/login.js"></script>
+    <script src="/js/common-element.js"></script>
   </body>
 </html>
