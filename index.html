@@ -22,6 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="icon" href="/images/intro.png" type="image/x-icon">
+
     <title>Search Ayah of Quran</title>
   </head>
   <body>
@@ -29,12 +30,12 @@
       <img src="/images/intro.png" alt="Intro" id="introImage">
     </div>
     <header>
-    <div id="header-container"></div>
-    </header>
+       <div id="header-container"></div> <!-- importing hrader from header.html -->
+      </header>
     <div class="logo" id="arab">
-      <img src="/images/arabquran.jpg" alt="" />
+      <img src="/images/arabquran.png" alt="" />
     </div>
-    <input type="text" id="searchBox" placeholder="Search Ayah..." />
+    <input type="text" id="searchBox" placeholder="Search Word or Ayat of Quran" />
     <div id="suggestions"></div>
     <div id="ayahBox"></div>
     <footer class="footer">
@@ -75,7 +76,7 @@
     </footer>
     <script src="script.js" defer></script>
     <script src="/js/responsive.js" defer></script>
-    <script type="application/x-javascript" src="/js/login.js"></script>
     <script src="/js/common-element.js"></script>
+    <script src="/js/login.js"></script>
   </body>
 </html>

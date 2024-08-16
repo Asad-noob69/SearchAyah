@@ -4,6 +4,10 @@ function loadHeader() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-container').innerHTML = data;
+            // Call a function to initialize the login form after the header is loaded
+            if (typeof initializeLoginForm === 'function') {
+                initializeLoginForm();
+            }
         });
 }
 
