@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Book Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+    </style>
+</head>
+<body class="bg-amber-50 font-['Playfair_Display'] ">
+    <!-- Header -->
+    <header class="bg-[url('/images/darkwood.jpg')] bg-cover bg-center text-white p-4 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-['Playfair_Display'] font-bold text-amber-300 mb-4 md:mb-0">BOOKS STORE</h1>
+            <nav class="flex flex-wrap justify-center">
+                <a href="/index.html" class="mx-2 my-1 hover:text-amber-300 transition duration-300">HOME</a>
+                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE </a>
+                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto bg-[url('/images/lightwood.jpg')] bg-cover bg-center p-4">
+        <!-- Bookshelf -->
+        <div class="p-8">
+            <!-- Quran on its own row -->
+            <div class="mb-12 flex justify-center">
+                <div class="inline-block w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <div class="relative bg-[url('/images/plank.png')] bg-cover bg-center p-2 shadow-lg flex flex-col items-center">
+                        <div class="flex-grow"> <!-- Changed to flex-grow -->
+                            <img src="/images/qurancover.png" alt="Quran" class="mt-4 mb-2 book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="The Noble Quran" data-description="The holy book of Islam, containing the revelations of Allah to Prophet Muhammad."  data-download="https://drive.google.com/uc?export=download&id=1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN" data-read="https://drive.google.com/file/d/1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN/preview">
+                        </div>
+                        <h2 class="text-center font-bold text-3xl text-white">
+                            The Noble Quran
+                        </h2>                        
+                    </div>
+                </div>
+            </div>
+        <section>
+            <!-- First row of other books -->
+            <div class="mb-12 flex flex-wrap justify-between">
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-12 flex items-center justify-center">
+                        <img src="/images/tafseeribnabbasimg.jpg" alt="Quran" class="mt-4 mb-2 book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="The Noble Quran" data-description="The holy book of Islam, containing the revelations of Allah to Prophet Muhammad." data-download="https://drive.google.com/uc?export=download&id=1VPvHPoW42kKMa4CSjZrrEkkLkka3qipt" data-read="https://drive.google.com/file/d/1VPvHPoW42kKMa4CSjZrrEkkLkka3qipt/preview">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-12 flex items-center justify-center">
+                        <img src="/images/tareekhibnkaseer.jpg" alt="Book 2" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 2" data-description="Description for Book 2">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 3" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 3" data-description="Description for Book 3">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 4" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 4" data-description="Description for Book 4">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 4" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 4" data-description="Description for Book 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <!-- Second row of other books -->
+            <div class="mb-12 flex flex-wrap justify-between">
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-12 flex items-center justify-center">
+                        <img src="/images/tafseeribnabbasimg.jpg" alt="Book 1" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 1" data-description="Description for Book 1" data-download="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1" data-read="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-12 flex items-center justify-center">
+                        <img src="/images/tareekhibnkaseer.jpg" alt="Book 2" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 2" data-description="Description for Book 2">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 3" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 3" data-description="Description for Book 3">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 4" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 4" data-description="Description for Book 4">
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex justify-center">
+                    <div class="bg-[url('/images/plank.png')] bg-cover bg-center p-8 flex items-center justify-center">
+                        <img src="/images/qurancover.png" alt="Book 4" class="book-cover w-full h-auto max-h-56 object-contain mx-auto rounded shadow-md transform hover:scale-105 transition duration-300 cursor-pointer" data-title="Book 4" data-description="Description for Book 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Islamic Book Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Popup Card Template -->
+    <div id="popupCardTemplate" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="inline-block w-full max-w-4xl">
+            <div class="relative bg-[url('/images/bgforcard.jpg')] bg-cover bg-center rounded-lg shadow-xl overflow-hidden flex">
+                <!-- Left side - Book cover image -->
+                <div class="w-1/3">
+                    <img src="" alt="Book Cover" class="popup-image w-full h-full object-cover p-6">
+                </div>
+                
+                <!-- Right side - Content -->
+                <div class="w-2/3 p-6">
+                    <div class="absolute top-0 left-0 p-4">
+                        <button class="close-popup text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+        
+                    <h2 class="popup-title text-3xl font-bold mb-2 text-white font-['Playfair_Display']">Book Title</h2>
+        
+                    <p class="popup-description text-sm text-gray-300 mb-4">
+                        Book description goes here...
+                    </p>
+        
+                    <div class="flex space-x-2 mb-6">
+                        <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Download</button>
+                        <button class="bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-gray-600 transition duration-300">Read</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bookCovers = document.querySelectorAll('.book-cover');
+        const popupCardTemplate = document.getElementById('popupCardTemplate');
+
+        bookCovers.forEach((cover) => {
+    cover.addEventListener('click', () => {
+        const popup = popupCardTemplate.cloneNode(true);
+        popup.id = `popupCard-${cover.alt.replace(/\s+/g, '-').toLowerCase()}`;
+        popup.classList.remove('hidden');
+
+        const popupImage = popup.querySelector('.popup-image');
+        popupImage.src = cover.src;
+        popupImage.alt = cover.alt;
+
+        // Set title, description, download, and read links from data attributes
+        popup.querySelector('.popup-title').textContent = cover.dataset.title;
+        popup.querySelector('.popup-description').textContent = cover.dataset.description;
+
+        const downloadButton = popup.querySelector('button.bg-blue-500');
+        const readButton = popup.querySelector('button.bg-gray-700');
+
+        downloadButton.addEventListener('click', () => {
+            window.location.href = cover.dataset.download;
+        });
+
+        readButton.addEventListener('click', () => {
+            window.open(cover.dataset.read, '_blank');
+        });
+
+        document.body.appendChild(popup);
+
+        const closePopup = popup.querySelector('.close-popup');
+        closePopup.addEventListener('click', () => {
+            popup.remove();
+        });
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.remove();
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

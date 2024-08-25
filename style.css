@@ -376,3 +376,32 @@ input[type="text"] {
     display: none;
   }
 }
+/* for new book list  */
+.books a {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+}
+
+/* "NEW" label for .books class */
+.books a::after {
+  content: "NEW";
+  color: white;
+  background-color: blue;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+  display: none; /* Hide by default */
+}
+
+/* Show "NEW" label on small screens */
+@media (max-width: 768px) {
+  .books a::after {
+      display: block;
+  }
+}
