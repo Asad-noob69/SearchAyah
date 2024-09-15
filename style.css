@@ -360,6 +360,8 @@ input[type="text"] {
   .footer {
     display: flex;
     flex-direction: column;
+    position: fixed;
+  bottom: 0;
   }
   .footer p {
     text-align: center;
