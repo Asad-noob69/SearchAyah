@@ -1,4 +1,4 @@
-const sectionsPerLoad = 1; // Number of sections to show each time
+const sectionsPerLoad = 2; // Number of sections to show each time
 let currentSection = 2;
 
 function loadMoreBooks() {
