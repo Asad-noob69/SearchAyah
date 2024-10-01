@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+    <style>
+        @layer base {
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .font-arabic {
+                font-family: "Noto Nastaliq Urdu", serif;
+            }
+        }
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+        }
+        #intro.fade-out {
+            opacity: 0;
+        }
+        .hidden-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url('/images/white.jpg');">
+    <div id="intro">
+        <img src="/images/intro.png" alt="Intro" class="w-40">
+    </div>
+
+    <div class="max-w-3xl mx-auto p-4 hidden-content">
+        <input type="text" id="searchBox" placeholder="Search Word or Ayat of Quran" class="w-full h-10 px-3 rounded-lg border-0 shadow-md bg-white bg-opacity-65 text-lg mb-4">
+        
+        <div id="searchInfo" class="hidden mb-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                    </svg>
+                    <span class="font-semibold">FILTER</span>
+                </div>
+                <div class="text-sm text-gray-600">
+                    Searching Arabic text and English translation
+                </div>
+            </div>
+            
+            <div id="resultCount" class="text-sm text-gray-600 mt-2"></div>
+        </div>
+        
+        <div id="searchResults"></div>
+    </div>
+
+  
+    <script>
+        let quranData = null;
+        let arabicEdition = null;
+        let englishEdition = null;
+
+        // Fetch Quran data
+        async function fetchQuranData() {
+            const apiVersion = '1';
+            const editionsUrl = `https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@${apiVersion}/editions.json`;
+
+            try {
+                const response = await fetch(editionsUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                quranData = await response.json();
+
+                arabicEdition = quranData['ara-quransimple'];
+                englishEdition = quranData['eng-mustafakhattab'];
+
+                if (!arabicEdition || !englishEdition) {
+                    throw new Error('Required editions not found');
+                }
+
+                console.log('Quran data loaded successfully');
+            } catch (error) {
+                console.error('Error fetching Quran data:', error);
+            }
+        }
+
+        // Search function
+        async function searchAyah(query) {
+            if (!arabicEdition || !englishEdition) {
+                await fetchQuranData();
+            }
+
+            if (!arabicEdition || !englishEdition) {
+                console.error('Quran data is not available');
+                return [];
+            }
+
+            const matches = [];
+            const lowerQuery = query.toLowerCase();
+
+            for (let surah = 1; surah <= 114; surah++) {
+                const surahKey = surah.toString().padStart(3, '0');
+                for (let ayah = 1; ayah <= Object.keys(arabicEdition[surahKey]).length; ayah++) {
+                    const ayahKey = ayah.toString().padStart(3, '0');
+                    const arabicText = arabicEdition[surahKey][ayahKey];
+                    const englishText = englishEdition[surahKey][ayahKey];
+                    
+                    if (arabicText.includes(query) || englishText.toLowerCase().includes(lowerQuery)) {
+                        matches.push({
+                            surah: { englishName: `Surah ${surah}` },
+                            numberInSurah: ayah,
+                            text: arabicText,
+                            translation: englishText,
+                            edition: { name: "Dr. Mustafa Khattab" }
+                        });
+                    }
+
+                    if (matches.length >= 20) break;
+                }
+                if (matches.length >= 20) break;
+            }
+
+            return matches;
+        }
+
+
+        // Event listener for search input
+        let debounceTimeout;
+        document.getElementById('searchBox').addEventListener('input', function() {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(async () => {
+                const query = this.value;
+                if (query.length > 2) {
+                    const matches = await searchAyah(query);
+                    displaySearchResults(matches, query);
+                }
+            }, 300);
+        });
+
+        // Display search results
+        function displaySearchResults(matches, query) {
+            const searchResults = document.getElementById('searchResults');
+            const searchInfo = document.getElementById('searchInfo');
+            const resultCount = document.getElementById('resultCount');
+
+            searchResults.innerHTML = '';
+            
+            if (!Array.isArray(matches) || matches.length === 0) {
+                searchResults.innerHTML = '<div class="p-2">No matches found</div>';
+                searchInfo.classList.add('hidden');
+                return;
+            }
+
+            searchInfo.classList.remove('hidden');
+            resultCount.textContent = `${matches.length} Search Results`;
+
+            matches.forEach(match => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'bg-white rounded-lg shadow-md mb-4 overflow-hidden';
+                resultDiv.innerHTML = `
+                    <div class="bg-blue-50 py-2 px-4">
+                        <h3 class="text-blue-600 font-semibold">${match.surah.englishName} ${match.numberInSurah}</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2 text-right" dir="rtl">
+                            <span class="text-2xl font-arabic">${match.text}</span>
+                        </div>
+                        <p class="text-gray-800">${highlightSearchTerm(match.translation, query)}</p>
+                        <p class="text-sm text-gray-600 mt-2">- ${match.edition.name}</p>
+                    </div>
+                `;
+                searchResults.appendChild(resultDiv);
+            });
+        }
+
+        // Highlight search term in text
+        function highlightSearchTerm(text, term) {
+            const regex = new RegExp(`(${term})`, 'gi');
+            return text.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
+        }
+
+        // Intro animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const intro = document.getElementById('intro');
+            const contentDivs = document.querySelectorAll('body > div:not(#intro)');
+
+            intro.style.display = 'flex';
+            contentDivs.forEach(div => div.classList.add('hidden-content'));
+
+            setTimeout(() => {
+                intro.classList.add('fade-out');
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    contentDivs.forEach(div => div.classList.remove('hidden-content'));
+                }, 2000);
+            }, 3000);
+
+            // Fetch Quran data when the page loads
+            fetchQuranData();
+        });
+    </script>
+</body>
+</html>
