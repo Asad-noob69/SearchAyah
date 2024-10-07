@@ -1,74 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-  />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/css/hadith.css" />
-    <link rel="stylesheet" href="/css/login.css" />
-    <!-- <link rel="stylesheet" href="/css/combined.css"> -->
-    <title>hadithPage</title>
-  </head>
-  <body>
-    <header>
-      <div id="header-container"></div>
-    </header>
-    <div class="logo" id="arab">
-      <img src="/images/hadith.jpg" alt="" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Hadith | Search Ayah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+         @layer base {
+            body {
+                font-family: Josefin Sans, sans-serif;
+                background-color: white;
+            }
+            .font-pacifico {
+                font-family: 'Pacifico', cursive;
+            }
+            .font-arabic {
+                font-family: "Noto Nastaliq Urdu", serif;
+            }
+        }
+        @layer components {
+        .menu__link::before {
+            content: '';
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background-color: #fff;
+            position: absolute;
+            bottom: -0.25rem;
+            right: 0;
+            transition: right 0.4s, width 0.4s, left 0.4s;
+        }
+    
+        .menu__link:hover::before {
+            width: 100%;
+            left: 0;
+            }
+        }
+    </style>
+</head>
+<body  class="bg-[url('/images/white.jpg')] bg-cover bg-no-repeat bg-center bg-fixed">
+    <nav  class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-5">
+                    <img src="/images/intro.png" alt="The logo of website" class="w-12">
+                    <a href="#" class="text-white font-pacifico text-2xl">Searchayah</a>
+                </div>
+                <div class="hidden md:flex gap-10">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/index.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
+                        <a href="/html/hadith.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
+                        <a href="/html/sahaba-eng-version.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
+                        <a href="/html/books.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic Books</a>
+                    </div>
+                    <li class="hidden md:block">
+                        <button  id="loginBtn1" class="px-4 py-2 bg-cyan-500 hover:bg-transparent border border-cyan-500 hover:border-white text-gray-50 transition delay-200 rounded-xl flex items-center gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+                              </svg>
+                              <span>Login</span>
+                            </button>
+                          
+                            <!-- Modal content -->
+                            <div id="loginModal1" class="fixed w-96 h-96 bg-white bg-opacity-50 rounded-2xl shadow-lg z-50 hidden left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6">
+                              <span class="close1 text-2xl cursor-pointer">&times;</span>
+                          
+                              <div class="form-toggle1 flex justify-between mt-4">
+                                <button id="login-toggle1" class="w-1/2 py-4 text-lg font-bold bg-[#67b2b4] text-white rounded-tl-2xl hover:bg-gray-800" onclick="toggleLogin()">log in</button>
+                                <button id="signup-toggle1" class="w-1/2 py-4 text-lg font-bold bg-gray-300 text-black rounded-tr-2xl hover:bg-[#67b2b4]" onclick="toggleSignup()">sign up</button>
+                              </div>
+                          
+                              <div id="login-form1" class="mt-4">
+                                <form id="loginForm">
+                                  <input type="text" id="loginUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter email or username" required />
+                                  <input type="password" id="loginPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter password" required />
+                                  <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">login</button>
+                                  <p class="text-sm font-bold mt-4"><a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">Forgotten account?</a></p>
+                                  <hr class="mt-4">
+                                </form>
+                              </div>
+                          
+                              <div id="signup-form1" class="mt-4 hidden">
+                                <form id="signupForm">
+                                  <input type="email" id="signupEmail" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter your email" required />
+                                  <input type="text" id="signupUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Choose username" required />
+                                  <input type="password" id="signupPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Create password" required />
+                                  <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">create account</button>
+                                  <p class="text-sm font-bold mt-4">Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">terms of services</a>.</p>
+                                  <hr class="mt-4">
+                                </form>
+                              </div>
+                            </div>
+                          </li>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-cyan-100 hover:bg-cyan-700 hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="/index.html" class="text-cyan-100 hover:bg-cyan-700 hover:text-white block px-3 py-2 rounded-md text-lg font-normal">Quran</a>
+                <a href="/html/hadith.html" class="text-cyan-100 hover:bg-cyan-700 hover:text-white block px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
+                <a href="/html/sahaba-eng-version.html" class="text-cyan-100 hover:bg-cyan-700 hover:text-white block px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
+                <a href="/html/books.html" class="text-cyan-100 hover:bg-cyan-700 hover:text-white block px-3 py-2 rounded-md text-lg font-normal">Islamic Books</a>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-5xl mx-auto p-4 mt-16">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <input type="text" id="searchBox" placeholder="Search Hadith With Word" class="w-full h-12 px-4 rounded-lg border-2 border-cyan-500 focus:outline-none focus:border-cyan-600 text-lg mb-4">
+            
+            <div class="mt-4 flex items-center justify-between">
+                <label for="languageSelect" class="mr-2 text-cyan-700">Translation Languages</label>
+                <select id="languageSelect" class="px-4 py-2 rounded-lg border-2 border-cyan-500 focus:outline-none focus:border-cyan-600 text-cyan-800">
+                    <option value="english">English</option>
+                    <option value="urdu">اردو</option>
+                </select>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between">
+                <label for="bookSelect" class="mr-2 text-cyan-700">Select Hadith Book</label>
+                <select id="bookSelect" class="px-4 py-2 rounded-lg border-2 border-cyan-500 focus:outline-none focus:border-cyan-600 text-cyan-800">
+                    <option value="eng-bukhari">Sahih al-Bukhari</option>
+                    <option value="eng-ibnmajah">Sunan Ibn Majah</option>
+                    <option value="eng-malik">Muwatta Malik</option>
+                    <option value="eng-muslim">Sahih Muslim</option>
+                    <option value="eng-nasai">Sunan an-Nasa'i</option>
+                    <option value="eng-tirmidhi">Jami` at-Tirmidhi</option>
+                </select>
+            </div>
+
+            <div id="searchInfo" class="hidden my-5 bg-cyan-50 rounded-lg p-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                        </svg>
+                        <span class="font-semibold text-cyan-700">FILTER</span>
+                    </div>
+                    <div class="text-sm text-cyan-600">
+                        Searching Hadith text
+                    </div>
+                </div>
+                
+                <div id="resultCount" class="text-sm text-cyan-600 mt-2"></div>
+            </div>
+            
+            <div id="searchResults" class="space-y-10"></div>
+        </div>
+        
     </div>
-    <input type="text" id="searchBox" placeholder="Search Hadith..." />
-    <div id="suggestions"></div>
-    <div id="hadithBox"></div>
-    <footer class="footer">
-      <div class="header-icon">
-        <img src="/images/sahaba.png" alt="" />
-        <h2>حديث نبوي </h2>
-      </div>
-      <p>Copyright © <a href="mailto:asadaliabbasi787@gmail.com">
-        asadaliabbasi787@gmail.com . 
-      </a> 
-      All rights reserved!</p>
-      <div class="icons">
-        <a href="https://x.com/asadaliabbasi_">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/></svg>
-          
-        </a>
 
-        <a href="https://www.instagram.com/illuminating_souls_/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path
-              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-            />
-          </svg>
-        </a>
-        <a href="https://github.com/Asad-noob69">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-            <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-            />
-          </svg>
-        </a>
-      </div>
-    </footer>
+    <button id="scrollToTopBtn" class="hidden w-12 h-12 fixed bottom-5 right-5 z-50 border-none outline-none bg-cyan-500 bg-opacity-70 text-white cursor-pointer rounded-full text-xl transition-opacity duration-300" title="Go to top">↑</button>
 
-    <script src="/js/hadith.js" defer></script>
-    <script src="/js/responsive.js" defer></script>
-    <script type="application/x-javascript" src="/js/login.js"></script>
-    <script src="/js/common-element.js"></script>
-  </body>
+    <footer class="bg-gray-800 text-white  fixed bottom-0 flex flex-col md:flex-row-reverse justify-between items-center p-6 h-auto md:h-20 w-full">
+        <div class="flex items-center justify-center mb-4 md:mb-0">
+          <img src="/images/sahaba.png" alt="Sahaba" class="h-12 w-12 mr-2">
+          <h2 class="text-xl font-semibold">حديث نبوي </h2>
+        </div>
+        <div class="text-center mb-4 md:mb-0">
+          <p>
+            Copyright© |
+            <a href="mailto:asadaliabbasi787@gmail.com" class="text-blue-400 hover:underline">
+              asadaliabbasi787@gmail.com
+            </a>
+            | All rights reserved!
+          </p>
+        </div>
+        <div class="flex justify-center space-x-4">
+          <a href="https://x.com/asadaliabbasi_" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6 w-6 fill-current">
+                <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/>
+              </svg>
+          </a>
+          <a href="https://www.instagram.com/illuminating_souls_/" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16 " class="h-6 w-6 fill-current">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+              </svg>       
+          </a>
+          <a href="https://github.com/Asad-noob69" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="h-6 w-6 fill-current">
+                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+              </svg>        
+          </a>
+        </div>
+      </footer>
+    <script>
+        let hadithData = {};
+        let arabicHadithData = {};
+
+        async function fetchHadithData(book) {
+            if (hadithData[book]) return;
+            try {
+                const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${book}.json`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                hadithData[book] = data.hadiths;
+                console.log(`Hadith data for ${book} loaded successfully`);
+
+                // Fetch corresponding Arabic book data
+                const arabicBook = 'ara-' + book.split('-')[1];
+                const arabicResponse = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${arabicBook}.json`);
+                if (!arabicResponse.ok) throw new Error('Network response was not ok for Arabic book');
+                const arabicData = await arabicResponse.json();
+                arabicHadithData[book] = arabicData.hadiths;
+                console.log(`Arabic Hadith data for ${arabicBook} loaded successfully`);
+            } catch (error) {
+                console.error(`Error fetching Hadith data for ${book}:`, error);
+            }
+        }
+
+        // Search function
+        function searchHadith(query, book) {
+            const matches = [];
+            const lowerQuery = query.toLowerCase();
+
+            for (const hadith of hadithData[book]) {
+                if (hadith.text.toLowerCase().includes(lowerQuery)) {
+                    matches.push(hadith);
+                }
+            }
+
+            return matches;
+        }
+
+        // Event listener for search input
+        let debounceTimeout;
+        document.getElementById('searchBox').addEventListener('input', function() {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(() => {
+                const query = this.value;
+                const selectedBook = document.getElementById('bookSelect').value;
+                if (query.length > 2) {
+                    const matches = searchHadith(query, selectedBook);
+                    displaySearchResults(matches, query);
+                }
+            }, 300);
+        });
+
+        let currentPage = 1;
+        const resultsPerPage = 20;
+        let allMatches = [];
+
+        function displaySearchResults(matches, query, isNewSearch = true) {
+            const searchResults = document.getElementById('searchResults');
+            const searchInfo = document.getElementById('searchInfo');
+            const resultCount = document.getElementById('resultCount');
+
+            if (isNewSearch) {
+                searchResults.innerHTML = '';
+                currentPage = 1;
+                allMatches = matches;
+            }
+
+            if (!Array.isArray(allMatches) || allMatches.length === 0) {
+                searchResults.innerHTML = '<div class="p-4 bg-cyan-100 rounded-lg text-cyan-700">No matches found</div>';
+                searchInfo.classList.add('hidden');
+                return;
+            }
+
+            searchInfo.classList.remove('hidden');
+            resultCount.textContent = `${allMatches.length} Search Results`;
+
+            const startIndex = (currentPage - 1) * resultsPerPage;
+            const endIndex = startIndex + resultsPerPage;
+            const currentMatches = allMatches.slice(startIndex, endIndex);
+
+            // Remove existing "Load More" button if it exists
+            const existingLoadMoreBtn = document.getElementById('loadMoreBtn');
+            if (existingLoadMoreBtn) {
+                existingLoadMoreBtn.remove();
+            }
+
+            // Create a container for the new results
+            const newResultsContainer = document.createElement('div');
+
+            currentMatches.forEach(match => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'bg-white rounded-lg shadow-md overflow-hidden mb-4';
+                
+                // Find corresponding Arabic hadith
+                const arabicMatch = arabicHadithData[document.getElementById('bookSelect').value].find(h => h.hadithnumber === match.hadithnumber);
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-cyan-600 py-2 px-4">
+                        <h3 class="text-white font-semibold">Hadith ${match.hadithnumber}</h3>
+                    </div>
+                    <div class="px-4 pb-4 pt-8">
+                        <p class="text-cyan-800 font-arabic text-right text-xl" dir="rtl">
+                            ${arabicMatch ? arabicMatch.text : 'Arabic text not available'}
+                        </p>
+                        <p class="text-cyan-800 my-10">
+                            ${highlightSearchTerm(match.text, query)}
+                        </p>
+                    </div>
+                `;
+                newResultsContainer.appendChild(resultDiv);
+            });
+
+            // Append the new results to the search results container
+            searchResults.appendChild(newResultsContainer);
+
+            // Add "Load More" button if there are more results
+            if (endIndex < allMatches.length) {
+                const loadMoreBtn = document.createElement('button');
+                loadMoreBtn.id = 'loadMoreBtn';
+                loadMoreBtn.className = 'w-full py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300';
+                loadMoreBtn.textContent = 'Load More';
+                loadMoreBtn.addEventListener('click', () => {
+                    currentPage++;
+                    displaySearchResults(allMatches, query, false);
+                });
+                searchResults.appendChild(loadMoreBtn);
+            }
+
+            // Scroll to the newly added results
+            if (!isNewSearch) {
+                newResultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Highlight search term in text
+        function highlightSearchTerm(text, term) {
+            const regex = new RegExp(`(${term})`, 'gi');
+            return text.replace(regex, '<mark class="bg-cyan-200 text-cyan-900">$1</mark>');
+        }
+
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Fetch Hadith data for the initially selected book
+            const initialBook = document.getElementById('bookSelect').value;
+            fetchHadithData(initialBook);
+
+            // Add event listener for book selection change
+            document.getElementById('bookSelect').addEventListener('change', function() {
+                const selectedBook = this.value;
+                fetchHadithData(selectedBook);
+            });
+        });
+    </script>
+    <script src="/js/login.js"></script>
+</body>
 </html>
