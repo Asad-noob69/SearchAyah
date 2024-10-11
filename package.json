@@ -4,5 +4,8 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
     "mongodb": "^6.8.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }
