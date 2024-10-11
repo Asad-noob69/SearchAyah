@@ -13,17 +13,24 @@
 <body class="bg-amber-50 font-['Playfair_Display'] ">
     <!-- Header -->
     <header class="bg-[url('/images/darkwood.jpg')] text-white p-4 shadow-md">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl font-['Playfair_Display'] font-bold text-amber-300 mb-4 md:mb-0">BOOKS STORE</h1>
-            <nav class="flex flex-wrap justify-center">
-                <a href="/index.html" class="mx-2 my-1 hover:text-amber-300 transition duration-300">HOME</a>
-                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
-                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE </a>
-                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
-                <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
-            </nav>
-        </div>
-    </header>
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+          <h1 class="text-3xl font-['Playfair_Display'] font-bold text-amber-300 mb-4 md:mb-0">BOOKS STORE</h1>
+          
+          <!-- Search bar in the center -->
+          <div class="flex-grow mx-4">
+              <input type="text" id="searchInput" placeholder="Search for books..." class="w-full p-2 rounded-md bg-white text-black">
+          </div>
+  
+          <nav class="flex flex-wrap justify-center">
+              <a href="/index.html" class="mx-2 my-1 hover:text-amber-300 transition duration-300">HOME</a>
+              <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+              <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+              <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+              <a href="#" class="mx-2 my-1 hover:text-amber-300 transition duration-300">NONE</a>
+          </nav>
+      </div>
+  </header>
+  
 
     <main class="h-full" style="background: url(/images/background.jpg)">
         <div class="flex flex-col items-center py-24" id="book-container">
@@ -594,6 +601,100 @@ function generateVolumeButtons(totalVolumes, cover, popup) {
 
     return volumeContainer;
 }
+// search functionality
+
+// Create a debounced search function to avoid too many rapid updates
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Main search functionality
+class BookSearch {
+    constructor() {
+        this.searchInput = document.getElementById('searchInput');
+        this.initialized = false;
+        this.init();
+    }
+
+    init() {
+        if (this.initialized) return;
+        
+        if (this.searchInput) {
+            const debouncedSearch = debounce((e) => this.performSearch(e), 300);
+            this.searchInput.addEventListener('input', debouncedSearch);
+        }
+        
+        this.initialized = true;
+    }
+
+    performSearch(e) {
+        try {
+            const searchTerm = (e.target.value || '').toLowerCase();
+            const bookSections = document.querySelectorAll('section');
+            
+            bookSections.forEach(section => {
+                if (!section) return;
+                
+                let hasVisibleBooks = false;
+                const books = section.querySelectorAll('.book-cover');
+                
+                books.forEach(book => {
+                    if (!book) return;
+                    
+                    const bookTitle = (book.getAttribute('title') || book.getAttribute('alt') || '').toLowerCase();
+                    const bookContainer = book.closest('.book-container') || book.parentElement;
+                    
+                    if (!bookContainer) return;
+                    
+                    const isVisible = searchTerm === '' || bookTitle.includes(searchTerm);
+                    bookContainer.style.display = isVisible ? '' : 'none';
+                    if (isVisible) hasVisibleBooks = true;
+                });
+                
+                section.style.display = hasVisibleBooks ? '' : 'none';
+            });
+        } catch (error) {
+            console.error('Search error:', error);
+        }
+    }
+}
+
+// Initialize search when DOM is ready
+let bookSearch;
+document.addEventListener('DOMContentLoaded', () => {
+    bookSearch = new BookSearch();
+});
+
+// Function to handle load more
+function handleLoadMore() {
+    // Your existing load more logic here
+    
+    // After content is loaded, make sure search is re-initialized
+    if (bookSearch) {
+        requestAnimationFrame(() => {
+            bookSearch.performSearch({ target: document.getElementById('searchInput') });
+        });
+    }
+}
+
+// Attach load more handler
+document.addEventListener('DOMContentLoaded', () => {
+    const loadMoreButton = document.querySelector('.load-more-button');
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', () => {
+            // Your load more logic
+            handleLoadMore();
+        });
+    }
+});
 </script>
 <script src="/js/loadMoreBooks.js"></script>
 </body>
