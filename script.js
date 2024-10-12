@@ -206,13 +206,21 @@ mobileMenu.classList.toggle('hidden');
 });
 });
 
-// Intro animation
 document.addEventListener('DOMContentLoaded', () => {
     const intro = document.getElementById('intro');
     const contentDivs = document.querySelectorAll('#intro');
 
     intro.style.display = 'flex';
     contentDivs.forEach(div => div.classList.add('hidden-content'));
+
+    // Fetch Quran data when the page loads
+    fetchQuranData();
+});
+
+// Ensure the intro fades out after the entire page is fully loaded
+window.onload = () => {
+    const intro = document.getElementById('intro');
+    const contentDivs = document.querySelectorAll('#intro');
 
     setTimeout(() => {
         intro.classList.add('fade-out');
@@ -221,7 +229,4 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDivs.forEach(div => div.classList.remove('hidden-content'));
         }, 2000);
     }, 3000);
-
-    // Fetch Quran data when the page loads
-    fetchQuranData();
-});
+};
