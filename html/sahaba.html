@@ -9,35 +9,191 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/sahaba.css" />
-     <!-- <link rel="stylesheet" href="/css/combined.css"> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    /><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
     <title>SahabaName</title>
+    <style>
+      @layer base {
+         body {
+             font-family: Josefin Sans, sans-serif;
+         }
+         .font-pacifico {
+             font-family: 'Pacifico', cursive;
+         }
+         .font-arabic {
+             font-family: "Noto Nastaliq Urdu", serif;
+         }
+     }
+     @layer components {
+     .menu__link::before {
+         content: '';
+         width: 0;
+         height: 2px;
+         border-radius: 2px;
+         background-color: #004D40;
+         position: absolute;
+         bottom: -0.25rem;
+         right: 0;
+         transition: right 0.4s, width 0.4s, left 0.4s;
+     }
+ 
+     .menu__link:hover::before {
+         width: 100%;
+         left: 0;
+         }
+     }
+ </style>
   </head>
-  <body>
-    <div class="header-container">
-      <div class="header-icon">
-        <img src="/images/sahaba.png" alt="" />
-        <h2>صحابہ کی فہرست</h2>
-      </div>
-      <input
-        type="text"
-        id="search-bar"
-        placeholder="Search Name..."
-        class="search-bar"
-        onkeyup="searchList()"
-      />
-      <a href="/index.html" class="home"> <i class="fas fa-home"></i></a>
-    </div>
-    <ul id="list">
-      <div class="paste-button">
-          <button class="button">Urdu &nbsp; ▼</button>
-          <div class="dropdown-content">
-            <a id="top" href="sahaba-eng-version.html">English</a>
+  <body class="min-h-screen flex flex-col">
+    <header>
+      <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+              <div class="flex items-center justify-between h-20">
+                  <div class="flex items-center gap-5">
+                      <img src="/images/intro.png" alt="SearchAyah logo" class="w-12" />
+                      <a href="#" class="text-gray-100 font-pacifico text-2xl font-thin">Searchayah</a>
+                  </div>
+                  <div class="hidden md:flex gap-10">
+                      <div class="ml-10 flex items-baseline space-x-4">
+                          <a href="/index.html"
+                              class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
+                          <a href="/html/hadith.html"
+                              class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
+                          <a href="/html/sahaba-eng-version.html"
+                              class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
+                          <a href="/html/books.html"
+                              class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic
+                              Books</a>
+                      </div>
+
+                          <button id="loginBtn1"
+                              class="px-4 py-2 bg-[#004D40] hover:bg-transparent border border-[#004D40] hover:text-[#004D40] text-gray-50 transition delay-200 rounded-xl flex items-center gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                  fill="currentColor">
+                                  <path fill-rule="evenodd"
+                                      d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
+                                      clip-rule="evenodd" />
+                              </svg>
+                              <span>Login</span>
+                          </button>
+
+                          <!-- Modal content -->
+                          <div id="loginModal1"
+                              class="fixed w-96 h-96 bg-white bg-opacity-50 rounded-2xl shadow-lg z-50 hidden left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6">
+                              <span class="close1 text-2xl cursor-pointer">&times;</span>
+
+                              <div class="form-toggle1 flex justify-between mt-4">
+                                  <button id="login-toggle1"
+                                      class="w-1/2 py-4 text-lg font-bold bg-[#67b2b4] text-white rounded-tl-2xl hover:bg-gray-800"
+                                      onclick="toggleLogin()">
+                                      log in
+                                  </button>
+                                  <button id="signup-toggle1"
+                                      class="w-1/2 py-4 text-lg font-bold bg-gray-300 text-black rounded-tr-2xl hover:bg-[#67b2b4]"
+                                      onclick="toggleSignup()">
+                                      sign up
+                                  </button>
+                              </div>
+
+                              <div id="login-form1" class="mt-4">
+                                  <form id="loginForm">
+                                      <input type="text" id="loginUsername"
+                                          class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]"
+                                          placeholder="Enter email or username" required />
+                                      <input type="password" id="loginPassword"
+                                          class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]"
+                                          placeholder="Enter password" required />
+                                      <button type="submit"
+                                          class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">
+                                          login
+                                      </button>
+                                      <p class="text-sm font-bold mt-4">
+                                          <a href="javascript:void(0)"
+                                              class="text-[#67b2b4] hover:text-gray-800">Forgotten account?</a>
+                                      </p>
+                                      <hr class="mt-4" />
+                                  </form>
+                              </div>
+
+                              <div id="signup-form1" class="mt-4 hidden">
+                                  <form id="signupForm">
+                                      <input type="email" id="signupEmail"
+                                          class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]"
+                                          placeholder="Enter your email" required />
+                                      <input type="text" id="signupUsername"
+                                          class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]"
+                                          placeholder="Choose username" required />
+                                      <input type="password" id="signupPassword"
+                                          class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]"
+                                          placeholder="Create password" required />
+                                      <button type="submit"
+                                          class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">
+                                          create account
+                                      </button>
+                                      <p class="text-sm font-bold mt-4">
+                                          Clicking <strong>create account</strong> means that you
+                                          are agreeing to our
+                                          <a href="javascript:void(0)"
+                                              class="text-[#67b2b4] hover:text-gray-800">terms of services</a>.
+                                      </p>
+                                      <hr class="mt-4" />
+                                  </form>
+                              </div>
+                          </div>
+                      </li>
+                  </div>
+                  <div class="md:hidden">
+                      <button id="mobile-menu-button" type="button"
+                          class="text-white hover:bg-[#67b2b4] hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16" />
+                          </svg>
+                      </button>
+                  </div>
+              </div>
           </div>
-      </div>
+          <div id="mobile-menu" class="hidden md:hidden">
+              <div class="pt-3 pb-3 space-y-1 sm:px-3">
+                  <a href="/index.html"
+                      class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Quran</a>
+                  <a href="/html/hadith.html"
+                      class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Hadith</a>
+                  <a href="/html/sahaba-eng-version.html"
+                      class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Sahaba</a>
+                  <a href="/html/books.html"
+                      class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Islamic
+                      Books</a>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+      
+  <main class="pb-24">
+    <!-- <h1 class="sr-only">SearchAyah - Quick Islamic Text Search</h1>  -->
+    <section class="max-w-5xl mx-auto p-4 mt-16 mb-80 h-auto md:mb-96 lg:mb-112 xl:mb-128">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <input type="text" id="search-bar" placeholder="Search Name..."
+                class="search-bar w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-lg mb-4"
+                onkeyup="searchList()" /> <!-- Added onkeyup to trigger search -->
+        
+            <div class="mt-4 flex items-center justify-between">
+                <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
+                <select id="languageSelect" onchange="redirectToPage()"
+                    class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
+                    <option value="english">English</option>
+                    <option value="urdu">اردو</option>
+                </select>
+            </div>
+            <ul id="list" class="max-w-full overflow-hidden">
       <li>
         <a
           href="https://ur.wikipedia.org/wiki/%D8%A2%D9%85%D9%86%DB%81_%D8%A8%D9%86%D8%AA_%D9%88%DB%81%D8%A8"
@@ -3775,39 +3931,81 @@
         >
       </li>
     </ul>
-    <button id="scrollTopBtn" class="Btn">
-      <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+  </div>
+</section>
+  
+  <button id="scrollTopBtn" class="Btn">
+    <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
         <path
           d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
         ></path>
       </svg>
-    </button>
-    <footer class="footer">
-      <div class="header-icon">
-        <img src="/images/sahaba.png" alt="" />
-        <h2>صحابہ کی فہرست</h2>
-      </div>
-      <p>Copyright © <a href="mailto:asadaliabbasi787@gmail.com">
-        asadaliabbasi787@gmail.com .
-      </a> 
-      All rights reserved!</p>
-      <div class="icons">
-        <a href="">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>
+  </button>
+</main>
+  <footer class=" bg-gray-800 text-white flex flex-col md:flex-row-reverse justify-between items-center p-6 h-auto md:h-20 w-full " role="contentinfo">
+    <div class="flex items-center justify-center mb-4 md:mb-0">
+        <img src="/images/sahaba.png" alt="Quranic Verses Logo" class="h-12 w-12 mr-2" />
+        <h2 class="text-xl font-semibold">سحابہ کی فہرست</h2>
+    </div>
+    <div class="text-center mb-4 md:mb-0">
+        <p>
+            Copyright© |
+            <a href="mailto:asadaliabbasi787@gmail.com" class="text-blue-400 hover:underline">
+                asadaliabbasi787@gmail.com
+            </a>
+            | All rights reserved!
+        </p>
+    </div>
+    <div class="flex justify-center space-x-4 flex-wrap">
+        <a href="https://x.com/asadaliabbasi_" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6 w-6 fill-current">
+                <path
+                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z" />
+            </svg>
         </a>
+        <a href="https://www.instagram.com/illuminating_souls_/" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16 " class="h-6 w-6 fill-current">
+                <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+            </svg>
+        </a>
+        <a href="https://github.com/Asad-noob69" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="h-6 w-6 fill-current">
+                <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+            </svg>
+        </a>
+    </div>
+</footer>
+<script>
+  window.onload = function() {
+    const languageSelect = document.getElementById("languageSelect");
+    const currentPage = window.location.pathname;
 
-        <a href="https://www.instagram.com/illuminating_souls_/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path
-              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-            />
-          </svg>
-        </a>
-        <a href="https://github.com/Asad-noob69">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM265.8 407.7c0-1.8 0-6 .1-11.6c.1-11.4 .1-28.8 .1-43.7c0-15.6-5.2-25.5-11.3-30.7c37-4.1 76-9.2 76-73.1c0-18.2-6.5-27.3-17.1-39c1.7-4.3 7.4-22-1.7-45c-13.9-4.3-45.7 17.9-45.7 17.9c-13.2-3.7-27.5-5.6-41.6-5.6s-28.4 1.9-41.6 5.6c0 0-31.8-22.2-45.7-17.9c-9.1 22.9-3.5 40.6-1.7 45c-10.6 11.7-15.6 20.8-15.6 39c0 63.6 37.3 69 74.3 73.1c-4.8 4.3-9.1 11.7-10.6 22.3c-9.5 4.3-33.8 11.7-48.3-13.9c-9.1-15.8-25.5-17.1-25.5-17.1c-16.2-.2-1.1 10.2-1.1 10.2c10.8 5 18.4 24.2 18.4 24.2c9.7 29.7 56.1 19.7 56.1 19.7c0 9 .1 21.7 .1 30.6c0 4.8 .1 8.6 .1 10c0 4.3-3 9.5-11.5 8C106 393.6 59.8 330.8 59.8 257.4c0-91.8 70.2-161.5 162-161.5s166.2 69.7 166.2 161.5c.1 73.4-44.7 136.3-110.7 158.3c-8.4 1.5-11.5-3.7-11.5-8zm-90.5-54.8c-.2-1.5 1.1-2.8 3-3.2c1.9-.2 3.7 .6 3.9 1.9c.3 1.3-1 2.6-3 3c-1.9 .4-3.7-.4-3.9-1.7zm-9.1 3.2c-2.2 .2-3.7-.9-3.7-2.4c0-1.3 1.5-2.4 3.5-2.4c1.9-.2 3.7 .9 3.7 2.4c0 1.3-1.5 2.4-3.5 2.4zm-14.3-2.2c-1.9-.4-3.2-1.9-2.8-3.2s2.4-1.9 4.1-1.5c2 .6 3.3 2.1 2.8 3.4c-.4 1.3-2.4 1.9-4.1 1.3zm-12.5-7.3c-1.5-1.3-1.9-3.2-.9-4.1c.9-1.1 2.8-.9 4.3 .6c1.3 1.3 1.8 3.3 .9 4.1c-.9 1.1-2.8 .9-4.3-.6zm-8.5-10c-1.1-1.5-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3c1.1 1.5 1.1 3.3 0 4.1c-.9 .6-2.6 0-3.7-1.5zm-6.3-8.8c-1.1-1.3-1.3-2.8-.4-3.5c.9-.9 2.4-.4 3.5 .6c1.1 1.3 1.3 2.8 .4 3.5c-.9 .9-2.4 .4-3.5-.6zm-6-6.4c-1.3-.6-1.9-1.7-1.5-2.6c.4-.6 1.5-.9 2.8-.4c1.3 .7 1.9 1.8 1.5 2.6c-.4 .9-1.7 1.1-2.8 .4z"/></svg>
-        </a>
-      </div>
-    </footer>
+    if (currentPage.includes("sahaba.html")) {
+        languageSelect.value = "urdu"; // Set default to Urdu if on the Urdu page
+    } else {
+        languageSelect.value = "english"; // Otherwise set it to English
+    }
+};
+function redirectToPage() {
+    const language = document.getElementById("languageSelect").value;
+    if (language === "english") {
+        window.location.href = "/html/sahaba-eng-version.html"; // Replace with your English page URL
+    } else if (language === "urdu") {
+        window.location.href = "/html/sahaba.html"; // Replace with your Urdu page URL
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+</script>
     <script src="/js/sahaba.js"></script>
+  <script src="/js/login.js"></script>
   </body>
 </html>
