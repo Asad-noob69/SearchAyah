@@ -24,119 +24,47 @@
     <link rel="alternate" href="https://www.searchayah.com/index.html" hreflang="en" /> <!-- Added hreflang for language -->
     <link rel="alternate" href="https://www.searchayah.com/index.html?lang=ur" hreflang="ur" /> <!-- Added hreflang for Urdu -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/images/intro.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <style>
-        @layer base {
-            body {
-                font-family: Josefin Sans, sans-serif;
-            }
-
-            .font-pacifico {
-                font-family: "Pacifico", cursive;
-            }
-
-            .font-arabic {
-                font-family: "Noto Nastaliq Urdu", serif;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            overflow-y: scroll;
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #76a8a9;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6e9d9e;
-        }
-
-        @layer components {
-            .menu__link::before {
-                content: "";
-                width: 0;
-                height: 2px;
-                border-radius: 2px;
-                background-color: #004d40;
-                position: absolute;
-                bottom: -0.25rem;
-                right: 0;
-                transition: right 0.4s, width 0.4s, left 0.4s;
-            }
-
-            .menu__link:hover::before {
-                width: 100%;
-                left: 0;
-            }
-        }
-
-        #intro {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            overflow: hidden;
-            opacity: 1;
-            transition: opacity 2s ease-in-out;
-        }
-
-        #intro.fade-out {
-            opacity: 0;
-        }
-
-        .hidden-content {
-            display: none;
-        }
-    </style>
 </head>
 
 <body class="bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
     <div id="intro">
-        <img src="/images/intro.png" alt="SearchAyah Introduction" class="w-40" />
+        <div class="scene">
+            <div class="cube">
+                <div class="cube__face cube__face--front"></div>
+                <div class="cube__face cube__face--back"></div>
+                <div class="cube__face cube__face--right"></div>
+                <div class="cube__face cube__face--left"></div>
+                <div class="cube__face cube__face--top"></div>
+                <div class="cube__face cube__face--bottom"></div>
+            </div>
+        </div>
     </div>
-    <header>
-        <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex items-center gap-5">
-                        <img src="/images/intro.png" alt="SearchAyah logo" class="w-12" />
-                        <a href="#" class="text-gray-100 font-pacifico text-2xl ">Searchayah</a>
+  <header>
+    <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-5">
+                    <img src="/images/intro.png" alt="SearchAyah logo" class="w-12" />
+                    <a href="#" class="text-gray-100 font-pacifico text-2xl">Searchayah</a>
+                </div>
+                <div class="hidden md:flex gap-10">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/index.html"
+                            class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
+                        <a href="/html/hadith.html"
+                            class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
+                        <a href="/html/sahaba-eng-version.html"
+                            class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
+                        <a href="/html/books.html"
+                            class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic
+                            Books</a>
                     </div>
-                    <div class="hidden md:flex gap-10">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="/index.html"
-                                class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
-                            <a href="/html/hadith.html"
-                                class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
-                            <a href="/html/sahaba-eng-version.html"
-                                class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
-                            <a href="/html/books.html"
-                                class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic
-                                Books</a>
-                        </div>
 
                         <li class="hidden md:block">
                             <button id="loginBtn1"
@@ -244,11 +172,23 @@
     </header>
 
     <main>
+        
         <!-- <h1 class="sr-only">SearchAyah - Quick Islamic Text Search</h1>  -->
-        <section class="max-w-5xl mx-auto p-4 mt-16 mb-80 h-auto md:mb-96 lg:mb-112 xl:mb-128">
+        <section class="max-w-5xl mx-auto p-4  mb-80 h-auto md:mb-96 lg:mb-112 xl:mb-128">
+            <!-- <div class=" bg-white p-6 rounded-lg shadow-md my-8 max-w-5xl mx-auto text-slate-800">
+                <h1 class="text-2xl font-semibold text-center mb-4">About SearchAyah</h1>
+                <p class="text-lg text-center mb-6">
+                    SearchAyah is an Islamic platform designed to help users easily search through Quranic ayahs, hadith, and the names of Sahaba. Whether you're seeking specific verses, exploring Islamic teachings, or looking for guidance, SearchAyah simplifies the process with its efficient search capabilities.
+                </p>
+                <div class=" bg-white p-4 rounded-lg border-2 border-[#67b2b4] text-center">
+                    <p class="text-lg font-medium">
+                        "This is the Book about which there is no doubt, a guidance for those conscious of Allah." <br> (Surah Al-Baqarah, 2:2)
+                    </p>
+                </div>
+            </div> -->
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <input type="text" id="searchBox" placeholder="Search Word or Ayat of Quran"
-                    class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-lg mb-4"
+                    class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4]  mb-4"
                     aria-label="Search Word or Ayat of Quran" />
 
                 <div class="mt-4 flex items-center justify-between">

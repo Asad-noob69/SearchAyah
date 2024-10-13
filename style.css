@@ -1,409 +1,111 @@
-* {
-  margin: 0;
-  padding: 0;
+@layer base {
+    body {
+        font-family: Josefin Sans, sans-serif;
+    }
+
+    .font-pacifico {
+        font-family: "Pacifico", cursive;
+    }
+
+    .font-arabic {
+        font-family: "Noto Nastaliq Urdu", serif;
+    }
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  /* background-color: #d4af37; */
-  margin-top: 0.5rem;
-  min-height: 100vh;
-  /* background-image: url("/images/background.png");
-  background-position: center top;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #76a8a9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6e9d9e;
+}
+
+@layer components {
+    .menu__link::before {
+        content: "";
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #004d40;
+        position: absolute;
+        bottom: -0.25rem;
+        right: 0;
+        transition: right 0.4s, width 0.4s, left 0.4s;
+    }
+
+    .menu__link:hover::before {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.scene {
+    width: 100px;  /* Reduced from 200px */
+    height: 100px; /* Reduced from 200px */
+    perspective: 300px; /* Reduced from 600px to maintain proportion */
+    margin: 50px auto;
+}
+.cube {
     width: 100%;
-    min-width: 1170px;
-    overflow: auto;
-    min-height: 100%;
+    height: 100%;
     position: relative;
-    padding-bottom: 70px;
-    box-sizing: border-box; */
-    background-image: url("/images/white.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-family: "Noto Nastaliq Urdu", serif;
+    transform-style: preserve-3d;
+    transform: translateZ(-50px); /* Reduced from -100px */
+    animation: rotate 10s infinite linear;
 }
+.cube__face {
+    position: absolute;
+    width: 103px;  /* Reduced from 200px */
+    height: 100px; /* Reduced from 200px */
+    background: url('/images/intro.png') center/cover no-repeat; /* Adjusted placeholder size */
+}
+.cube__face--front  { transform: rotateY(  0deg) translateZ(50px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(50px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(50px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(50px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(50px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(50px); }
 
-nav {
-  /* background-color: #5f9999;  
-  border: 2px solid black;
-  height: 4rem; */
-  /* box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); */
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 4rem;
-    background-image: url(/images/nav_img.png);
-    background-repeat: repeat;
-    position: relative;
-    z-index: 20;
+@keyframes rotate {
+    0% { transform: translateZ(-50px) rotateX(0deg) rotateY(0deg); }
+    100% { transform: translateZ(-50px) rotateX(360deg) rotateY(360deg); }
 }
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  list-style: none;
-}
-nav li {
-  height: 50px;
-}
-nav ul li a img {
-  width: 5rem;
-}
-nav a {
-  height: 100%;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  font-family: noto nastalic urdu;
-  margin-top: 0.6rem;
-}
-/* nav a:hover {
-  background-color: #f0f0f0;
-} */
-
-nav ul li::after {
-  content: "";
-  width: 0%;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  margin: auto;
-  transition: 0.5s;
-}
-nav ul li:hover::after {
-  width: 100%;
-}
-nav li:first-child {
-  margin-right: auto;
-}
-
-#searchBox {
-  font-size: 18px;
-    width: 100%;
-    height: 40px;
-    border: 0px;
-    border-radius: 8px;
-    padding: 0 2.25em 0 .8em;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.65);
-    box-shadow: 0px 0px 9pt 2pt #ccc;
-}
-
-#suggestions {
-  border: 1px solid #ddd;
-  max-height: 200px;
-  overflow-y: auto;
-}
-.suggestion {
-  padding: 10px;
-  cursor: pointer;
-}
-.suggestion:hover {
-  background-color: #f0f0f0;
-}
-
-/* chatgpt style   */
-#suggestions {
-  /* background-color: black;  */
-  color: black;
-  border: 1px solid #ddd;
-  max-height: 200px;
-  overflow-y: auto;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.suggestion {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #ddd;
-}
-
-.suggestion:last-child {
-  border-bottom: none;
-}
-
-.suggestion:hover {
-  background-color: #f0f0f0;
-}
-
-#ayahBox {
-  margin-top: 20px;
-  background-color: transparent;
-}
-
-#ayahBox {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: transparent;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#ayahBox h3 {
-  margin-top: 0;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-#ayahBox p {
-  margin: 0;
-  line-height: 1.6;
-}
-#arab {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 7rem;
-}
-#arab img {
-  width: 10rem;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 250px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.sidebar li {
-  width: 100%;
-}
-.sidebar a {
-  width: 100%;
-}
-.menu-btn {
-  display: none;
-}
-input[type="text"] {
-  width: 100%; /* Ensures input fields use full width */
-  box-sizing: border-box; /* Ensures padding and borders are included in the width */
-  max-width: 100%; /* Prevents the input from exceeding 100% of the parent width */
-  margin-bottom: 10px; /* Adds spacing below the input */
-}
-
-.footer{
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.3rem 5rem;
-  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
-  z-index: 1000; /* Ensure the header is on top */
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-
-.footer h2{
-  font-size: 1.1rem;
-  font-family: "Noto Nastaliq Urdu", serif;
-}
-
-.icons{
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100px;
-  gap: 16px;
-}
-
-.icons svg {
-  cursor: pointer;
-}
-.icons a:hover svg path {
-  fill: #4183c4; /* GitHub's official blue color */
-}
-
-.icons a{
-  width: 100%;
-  cursor: pointer;
-}
-
-.icons p{
-  font-size: 14px;
-}
-.header-icon {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.header-icon img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: rotateY(180deg);
-} 
-
-.footer p{
-  margin-bottom: 0;
-} 
-/* for the intro */
 #intro {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff; /* Optional background color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Ensure it's above all other content */
-  overflow: hidden; /* Hide scrollbars */
-  opacity: 1;
-  transition: opacity 2s ease-in-out;
-}
-#intro img {
-  max-width: 9rem;
-}
-
-#intro.fade-out {
-  opacity: 0;
-}
-#terms{
-    text-align: left;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-}
-
-@media (max-width: 800px) {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  nav img {
-    margin-top: 1rem;
-  
-  }
-  nav {
-    background-color: #5f9999;
-  }
-  nav a {
-    color: black;
-    margin-top: 0;
-  }
-  #searchBox {
-    font-size: 16px;
-    padding-right: 2.7em;
-
-    /* font-size: 18px; */
-    width: 100%;
-    height: 40px;
-    border: 0px;
-    border-radius: 8px;
-    padding: 0 2.25em 0 0.8em;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.65);
-    box-shadow: 0px 0px 9pt 2pt #ccc;
-    color: #2d2d2d;
-  }
-  .searchayah {
-    margin-top: 1.2rem;
-    text-align: center;
-    font-size: 20px; /* Adjust font size as needed */
-    font-family: "Courier New", Courier, monospace; /* Custom font for the logo */
-    font-weight: 100; /* Make the text bold */
-    flex-grow: 1; /*Allow the element to grow and take up available space  */
-    margin-right: 1.7rem;
-    color: #fafad2;
-  }
-  .hideOnMobile {
-    display: none;
-  }
-  .menu-btn {
-    display: block;
-  }
-}
-
-@media (max-width: 400px) {
-  .sidebar {
-    width: 100%;
-    padding-left: 0;
-  }
- 
- 
-}
-@media (max-width: 600px) {
-  input[type="text"] textarea {
-    width: 100%; /* Ensures input fields and text areas use full width */
-    box-sizing: border-box; /* Ensures padding and borders are included in the width */
-    margin-bottom: 10px; /* Adds spacing between inputs */
-  }
-}
-@media (min-width: 800px) {
-  .searchayah {
-    display: none;
-  }
-}
-
-/* Responsivness for footer */
-@media (max-width: 772px) {
-  .footer {
-    display: flex;
-    flex-direction: column;
     position: fixed;
-  bottom: 0;
-  }
-  .footer p {
-    text-align: center;
-  }
-  .icons {
-    margin: 10px 0px 10px 0px;
-  }
-  .header-icon {
-    display: none;
-    width: 64vw;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
     justify-content: center;
-  }
-  .header-icon h2 {
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+/* 
+#intro.fade-out {
+    opacity: 0;
+}
+
+.hidden-content {
     display: none;
-  }
-}
-/* for new book list  */
-.books a {
-  position: relative;
-  display: inline-block;
-  padding: 10px;
-}
-
-/* "NEW" label for .books class */
-.books a::after {
-  content: "NEW";
-  color: white;
-  background-color: blue;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 2px 8px;
-  font-size: 10px;
-  font-weight: bold;
-  transform: rotate(-45deg);
-  transform-origin: 0 0;
-  display: none; /* Hide by default */
-}
-
-/* Show "NEW" label on small screens */
-@media (max-width: 768px) {
-  .books a::after {
-      display: block;
-  }
-}
+} */

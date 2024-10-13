@@ -16,162 +16,152 @@
     <meta name="twitter:description" content="Search and explore Hadith collections. Discover teachings and sayings of Prophet Muhammad (PBUH) with ease.">
     <meta name="twitter:image" content="https://yourwebsite.com/images/intro.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/images/intro.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-         @layer base {
-            body {
-                font-family: Josefin Sans, sans-serif;
-            }
-            .font-pacifico {
-                font-family: 'Pacifico', cursive;
-            }
-            .font-arabic {
-                font-family: "Noto Nastaliq Urdu", serif;
-            }
-        }
-        @layer components {
-        .menu__link::before {
-            content: '';
-            width: 0;
-            height: 2px;
-            border-radius: 2px;
-            background-color: #004D40;
-            position: absolute;
-            bottom: -0.25rem;
-            right: 0;
-            transition: right 0.4s, width 0.4s, left 0.4s;
-        }
-    
-        .menu__link:hover::before {
-            width: 100%;
-            left: 0;
-            }
-        }
-    </style>
 </head>
-<body  class="bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
-    <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-5">
-                    <img src="/images/intro.png" alt="The logo of website" class="w-12">
-                    <a href="#" class="text-gray-100 font-pacifico text-2xl font-thin">Searchayah</a>
-                </div>
-                <div class="hidden md:flex gap-10">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="/index.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
-                        <a href="/html/hadith.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
-                        <a href="/html/sahaba-eng-version.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
-                        <a href="/html/books.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic Books</a>
+<body class="bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
+    <header>
+        <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex items-center gap-5">
+                        <img src="/images/intro.png" alt="The logo of website" class="w-12">
+                        <h2 class="font-pacifico text-2xl font-normal">
+                            <a href="#" class="text-gray-100">Searchayah</a>
+                        </h2>
                     </div>
-
-                    <li class="hidden md:block">
-                        <button id="loginBtn1" class="px-4 py-2 bg-[#004D40] hover:bg-transparent border border-[#004D40] hover:text-[#004D40] text-gray-50 transition delay-200 rounded-xl flex items-center gap-2"> 
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
-                          </svg>
-                          <span>Login</span>
-                        </button>
-                      
-                        <!-- Modal content -->
-                        <div id="loginModal1" class="fixed w-96 h-96 bg-white bg-opacity-50 rounded-2xl shadow-lg z-50 hidden left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6">
-                          <span class="close1 text-2xl cursor-pointer">&times;</span>
-                      
-                          <div class="form-toggle1 flex justify-between mt-4">
-                            <button id="login-toggle1" class="w-1/2 py-4 text-lg font-bold bg-[#67b2b4] text-white rounded-tl-2xl hover:bg-gray-800" onclick="toggleLogin()">log in</button>
-                            <button id="signup-toggle1" class="w-1/2 py-4 text-lg font-bold bg-gray-300 text-black rounded-tr-2xl hover:bg-[#67b2b4]" onclick="toggleSignup()">sign up</button>
-                          </div>
-                      
-                          <div id="login-form1" class="mt-4">
-                            <form id="loginForm">
-                              <input type="text" id="loginUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter email or username" required />
-                              <input type="password" id="loginPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter password" required />
-                              <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">login</button>
-                              <p class="text-sm font-bold mt-4"><a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">Forgotten account?</a></p>
-                              <hr class="mt-4">
-                            </form>
-                          </div>
-                      
-                          <div id="signup-form1" class="mt-4 hidden">
-                            <form id="signupForm">
-                              <input type="email" id="signupEmail" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter your email" required />
-                              <input type="text" id="signupUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Choose username" required />
-                              <input type="password" id="signupPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Create password" required />
-                              <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">create account</button>
-                              <p class="text-sm font-bold mt-4">Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">terms of services</a>.</p>
-                              <hr class="mt-4">
-                            </form>
-                          </div>
+                    <div class="hidden md:flex gap-10">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="/index.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Quran</a>
+                            <a href="/html/hadith.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Hadith</a>
+                            <a href="/html/sahaba-eng-version.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Sahaba</a>
+                            <a href="/html/books.html" class="menu__link relative text-gray-100 hover:text-[#004D40] px-3 py-2 rounded-md text-lg font-normal">Islamic Books</a>
                         </div>
-                      </li>
-                      
-                      
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" type="button" class="text-white hover:bg-[#67b2b4] hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="pt-3 pb-3 space-y-1 sm:px-3">
-                <a href="/index.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Quran</a>
-                <a href="/html/hadith.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Hadith</a>
-                <a href="/html/sahaba-eng-version.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Sahaba</a>
-                <a href="/html/books.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Islamic Books</a>
-            </div>
-        </div>
-    </nav>
-    <div class="max-w-5xl mx-auto p-4 mt-16 mb-80">
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <input type="text" id="searchBox" placeholder="Search Hadith With Word" class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4]  focus:outline-none focus:border-[#67b2b4]  text-lg mb-4">
-            
-            <div class="mt-4 flex items-center justify-between">
-                <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
-                <select id="languageSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
-                    <option value="english">English</option>
-                    <option value="urdu">اردو</option>
-                </select>
-            </div>
-
-            <div class="mt-4 flex items-center justify-between">
-                <label for="bookSelect" class="mr-2 text-slate-800">Select Hadith Book</label>
-                <select id="bookSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
-                    <option value="eng-bukhari">Sahih al-Bukhari</option>
-                    <option value="eng-ibnmajah">Sunan Ibn Majah</option>
-                    <option value="eng-malik">Muwatta Malik</option>
-                    <option value="eng-muslim">Sahih Muslim</option>
-                    <option value="eng-nasai">Sunan an-Nasa'i</option>
-                    <option value="eng-tirmidhi">Jami` at-Tirmidhi</option>
-                </select>
-            </div>
-
-            <div id="searchInfo" class="hidden my-5 bg-[#67b2b4] text-slate-800 bg-opacity-20 rounded-lg p-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
-                        </svg>
-                        <span class="font-semibold">FILTER</span>
+                        <li class="hidden md:block">
+                            <button id="loginBtn1" class="px-4 py-2 bg-[#004D40] hover:bg-transparent border border-[#004D40] hover:text-[#004D40] text-gray-50 transition delay-200 rounded-xl flex items-center gap-2"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Login</span>
+                            </button>
+                          
+                            <!-- Modal content -->
+                            <div id="loginModal1" class="fixed w-96 h-96 bg-white bg-opacity-50 rounded-2xl shadow-lg z-50 hidden left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6">
+                              <span class="close1 text-2xl cursor-pointer">&times;</span>
+                          
+                              <div class="form-toggle1 flex justify-between mt-4">
+                                <button id="login-toggle1" class="w-1/2 py-4 text-lg font-bold bg-[#67b2b4] text-white rounded-tl-2xl hover:bg-gray-800" onclick="toggleLogin()">log in</button>
+                                <button id="signup-toggle1" class="w-1/2 py-4 text-lg font-bold bg-gray-300 text-black rounded-tr-2xl hover:bg-[#67b2b4]" onclick="toggleSignup()">sign up</button>
+                              </div>
+                          
+                              <div id="login-form1" class="mt-4">
+                                <form id="loginForm">
+                                  <input type="text" id="loginUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter email or username" required />
+                                  <input type="password" id="loginPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter password" required />
+                                  <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">login</button>
+                                  <p class="text-sm font-bold mt-4"><a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">Forgotten account?</a></p>
+                                  <hr class="mt-4">
+                                </form>
+                              </div>
+                          
+                              <div id="signup-form1" class="mt-4 hidden">
+                                <form id="signupForm">
+                                  <input type="email" id="signupEmail" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Enter your email" required />
+                                  <input type="text" id="signupUsername" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Choose username" required />
+                                  <input type="password" id="signupPassword" class="w-full text-base font-bold p-4 mb-4 rounded-xl bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#67b2b4]" placeholder="Create password" required />
+                                  <button type="submit" class="w-full bg-[#004D40] text-white py-3 rounded-xl font-bold text-lg mt-2 hover:bg-gray-800 transition">create account</button>
+                                  <p class="text-sm font-bold mt-4">Clicking <strong>create account</strong> means that you are agreeing to our <a href="javascript:void(0)" class="text-[#67b2b4] hover:text-gray-800">terms of services</a>.</p>
+                                  <hr class="mt-4">
+                                </form>
+                              </div>
+                            </div>
+                          </li>
+                          
+                          
                     </div>
-                    <div class="text-sm">
-                        Searching Hadith text
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" type="button" class="text-white hover:bg-[#67b2b4] hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                
-                <div id="resultCount" class="text-sm text-slate-800 mt-2"></div>
             </div>
-            
-            <div id="searchResults" class="space-y-10"></div>
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="pt-3 pb-3 space-y-1 sm:px-3">
+                    <a href="/index.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Quran</a>
+                    <a href="/html/hadith.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Hadith</a>
+                    <a href="/html/sahaba-eng-version.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Sahaba</a>
+                    <a href="/html/books.html" class="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal">Islamic Books</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="intro">
+            <div class="scene">
+                <div class="cube">
+                    <div class="cube__face cube__face--front"></div>
+                    <div class="cube__face cube__face--back"></div>
+                    <div class="cube__face cube__face--right"></div>
+                    <div class="cube__face cube__face--left"></div>
+                    <div class="cube__face cube__face--top"></div>
+                    <div class="cube__face cube__face--bottom"></div>
+                </div>
+            </div>
         </div>
-        
-    </div>
+
+        <div class="max-w-5xl mx-auto p-4 mt-16 mb-80">
+            <section>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <input type="text" id="searchBox" placeholder="Search Hadith With Word" class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-lg mb-4">
+                    
+                    <div class="mt-4 flex items-center justify-between">
+                        <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
+                        <select id="languageSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
+                            <option value="english">English</option>
+                            <option value="urdu">اردو</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-between">
+                        <label for="bookSelect" class="mr-2 text-slate-800">Select Hadith Book</label>
+                        <select id="bookSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
+                            <option value="eng-bukhari">Sahih al-Bukhari</option>
+                            <option value="eng-ibnmajah">Sunan Ibn Majah</option>
+                            <option value="eng-malik">Muwatta Malik</option>
+                            <option value="eng-muslim">Sahih Muslim</option>
+                            <option value="eng-nasai">Sunan an-Nasa'i</option>
+                            <option value="eng-tirmidhi">Jami` at-Tirmidhi</option>
+                        </select>
+                    </div>
+
+                    <div id="searchInfo" class="hidden my-5 bg-[#67b2b4] text-slate-800 bg-opacity-20 rounded-lg p-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                                </svg>
+                                <span class="font-semibold">FILTER</span>
+                            </div>
+                            <div class="text-sm">
+                                Searching Hadith text
+                            </div>
+                        </div>
+                        
+                        <div id="resultCount" class="text-sm text-slate-800 mt-2"></div>
+                    </div>
+                    
+                    <div id="searchResults" class="space-y-10"></div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <button id="scrollToTopBtn" class="hidden w-12 h-12 fixed bottom-5 right-5 z-50 border-none outline-none bg-[#67b2b4] bg-opacity-70 text-white cursor-pointer rounded-full text-xl transition-opacity duration-300" title="Go to top">↑</button>
     <footer class="bg-gray-800 text-white flex flex-col md:flex-row-reverse justify-between items-center p-6 h-auto md:h-20 w-full">
@@ -201,7 +191,7 @@
           </a>
           <a href="https://github.com/Asad-noob69" class="text-gray-400 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="h-6 w-6 fill-current">
-                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0 22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
               </svg>        
           </a>
         </div>
