@@ -8,6 +8,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+
+        .wooden-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  mix-blend-mode: darken;
+  text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #000,
+    -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+  translate: translate3d(0, 0, 0);
+  font-family: "Muli", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
     </style>
 </head>
 <body class="bg-amber-50 font-['Playfair_Display'] ">
@@ -33,381 +55,828 @@
   
 
     <main class="h-full" style="background: url(/images/background.jpg)">
-        <div class="flex flex-col items-center py-24" id="book-container">
-            <div >
-                <img src="/images/qurancover.png" alt="Quran" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer w-[18vw]" 
-                data-title="The Noble Quran" data-description="The holy book of Islam, containing the revelations of Allah to Prophet Muhammad."
-                data-download-vol1="https://drive.google.com/uc?export=download&id=1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN" data-read-vol1="https://drive.google.com/file/d/1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN/preview">
-                <img src="/images/Untitled_design__5_-removebg.png" class="w-[350px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
+      <div class="flex flex-col items-center py-24" id="book-container">
+        <div>
+          <img
+            src="/images/qurancover.png"
+            alt="Quran"
+            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer w-[18vw]"
+            data-title="The Noble Quran"
+            data-description="The holy book of Islam, containing the revelations of Allah to Prophet Muhammad."
+            data-download-vol1="https://drive.google.com/uc?export=download&id=1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN"
+            data-read-vol1="https://drive.google.com/file/d/1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN/preview"
+          />
+          <img
+            src="/images/Untitled_design__5_-removebg.png"
+            class="w-[350px] h-6 shadow-[0_17px_18px_#060606eb]"
+            alt=""
+          />
+        </div>
+        <div class="flex flex-col gap-40 mt-36">
+          <div class="wooden-text">
+            <img src="/images/plank_heading (2).png" alt="" class="absolute w-[980px] h-14 shadow-[0_4px_30px_#060606eb]">
+            <h3 class="relative z-40 text-center">Tafseer Books</h3>
+          </div>
+          <section>
+            <div>
+              <span class="flex flex-row px-11">
+                <img
+                  src="/images/tafseeribnabbasimg.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-volumes="3"
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet. Ibn Abbas (may Allah be pleased with him) said, The Holy Prophet (peace be upon him) placed his hand on my head and then prayed, O Allah, grant him understanding in religion"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1"
+                  data-read-vol1="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=17W6YTh3nLbXI5Ger_RHEoS54kPCvlxE3"
+                  data-read-vol2="https://drive.google.com/file/d/17W6YTh3nLbXI5Ger_RHEoS54kPCvlxE3/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1YFIhafKrRhE9FoYY-rMtvsuYWLhXJJl3"
+                  data-read-vol3="https://drive.google.com/file/d/1YFIhafKrRhE9FoYY-rMtvsuYWLhXJJl3/preview"
+                />
+                <img
+                  src="/images/Bayan ul Quran & Tafseer e Usmani.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Bayan ul Quran & Tafseer e Usmani"
+                  title="Bayan ul Quran & Tafseer e Usmani"
+                  data-title="Bayan ul Quran & Tafseer e Usmani"
+                  data-description="Bayan ul Quran & Tafseer e Usmani provides detailed commentary on the Quran, explaining verses in context and shedding light on their meanings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1osMBEG8YJZgTdt-d3KLN7r6fGbfXvMlD"
+                  data-read-vol1="https://drive.google.com/file/d/1osMBEG8YJZgTdt-d3KLN7r6fGbfXvMlD/preview"
+                />
+                <!-- <img src="/images/tareekhibnkaseer.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" 
+                      data-title="Al-Bidayah wa al-Nihaya" data-description="Written by" data-volumes="16"
+                      data-download-vol1="https://drive.google.com/uc?export=download&id=14dcPc0sKdO7ZjaGQhRQNniEOCbZMy8mX" data-read-vol1="https://drive.google.com/file/d/14dcPc0sKdO7ZjaGQhRQNniEOCbZMy8mX/preview"
+                      data-download-vol2="https://drive.google.com/uc?export=download&id=1gUYA5hCJ86tRjiVGIY5Q1a23O2YkBHZD" data-read-vol2="https://drive.google.com/file/d/1gUYA5hCJ86tRjiVGIY5Q1a23O2YkBHZD/preview"
+                      data-download-vol3="https://drive.google.com/uc?export=download&id=1_bpsvkzwDbb7NSj2xtrs0a7LwaGTLHcF" data-read-vol3="https://drive.google.com/file/d/1_bpsvkzwDbb7NSj2xtrs0a7LwaGTLHcF/preview"
+                      data-download-vol4="https://drive.google.com/uc?export=download&id=1eHWTH5wqU2AmwjX2kih6wzOeX-Q0l8TJ" data-read-vol4="https://drive.google.com/file/d/1eHWTH5wqU2AmwjX2kih6wzOeX-Q0l8TJ/preview"
+                      data-download-vol5="https://drive.google.com/uc?export=download&id=1TPekO3_PNB5YczF2LbvLpgCHdQ8ZxrWf" data-read-vol5="https://drive.google.com/file/d/1TPekO3_PNB5YczF2LbvLpgCHdQ8ZxrWf/preview"
+                      data-download-vol6="https://drive.google.com/uc?export=download&id=1NmTqG9oQ_jRYBvGLxksQ7hrsXaIUHdKW" data-read-vol6="https://drive.google.com/file/d/1NmTqG9oQ_jRYBvGLxksQ7hrsXaIUHdKW/preview"
+                      data-download-vol7="https://drive.google.com/uc?export=download&id=1Kkr2QkaNuIoWqM3xmFI-UyZXEmWBfC0C" data-read-vol7="https://drive.google.com/file/d/1Kkr2QkaNuIoWqM3xmFI-UyZXEmWBfC0C/preview"
+                      data-download-vol8="https://drive.google.com/uc?export=download&id=1zqpIo62y5Uo5DOLbXSvAmY2w-6z9zODg" data-read-vol8="https://drive.google.com/file/d/1zqpIo62y5Uo5DOLbXSvAmY2w-6z9zODg/preview"
+                      data-download-vol9="https://drive.google.com/uc?export=download&id=1w6apZfNUsdtDIOeBARjHOyegCqdSVN4I" data-read-vol9="https://drive.google.com/file/d/1w6apZfNUsdtDIOeBARjHOyegCqdSVN4I/preview"
+                      data-download-vol10="https://drive.google.com/uc?export=download&id=1UeXobyUdyJ1McXg7ADXQGGE2sJjnGb9j" data-read-vol10="https://drive.google.com/file/d/1UeXobyUdyJ1McXg7ADXQGGE2sJjnGb9j/preview"
+                      data-download-vol11="https://drive.google.com/uc?export=download&id=1RulD2pN7FgYicH6m8lGEDtIeDE8S5aBo" data-read-vol11="https://drive.google.com/file/d/1RulD2pN7FgYicH6m8lGEDtIeDE8S5aBo/preview"
+                      data-download-vol12="https://drive.google.com/uc?export=download&id=1KXV03XAtEamOqGB9aqIDuog2XvQsFoQb" data-read-vol12="https://drive.google.com/file/d/1KXV03XAtEamOqGB9aqIDuog2XvQsFoQb/preview"
+                      data-download-vol13="https://drive.google.com/uc?export=download&id=1wgz1WdTc2YIpIuw0TUV2zG2HJ-AsDDlD" data-read-vol13="https://drive.google.com/file/d/1wgz1WdTc2YIpIuw0TUV2zG2HJ-AsDDlD/preview"
+                      data-download-vol14="https://drive.google.com/uc?export=download&id=1d-ZdFmyn8c2IdpXuQ60QVyZyNYi-V-fu" data-read-vol14="https://drive.google.com/file/d/1d-ZdFmyn8c2IdpXuQ60QVyZyNYi-V-fu/preview"
+                      data-download-vol15="https://drive.google.com/uc?export=download&id=1Jtv1QXFtLCrBbrgpGMChV4DF5OASBPKp" data-read-vol15="https://drive.google.com/file/d/1Jtv1QXFtLCrBbrgpGMChV4DF5OASBPKp/preview"
+                      data-download-vol16="https://drive.google.com/uc?export=download&id=1tqle-PRsf7HKVNSz5s4qTDaqiiGacCdV" data-read-vol6="https://drive.google.com/file/d/1tqle-PRsf7HKVNSz5s4qTDaqiiGacCdV/preview"> -->
+                <img
+                  src="/images/Tafsir al-Jalalayn Book Cover Design.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Tafsir al-Jalalayn Book Cover"
+                  data-title="Tafsir al-Jalalayn"
+                  data-description="Tafsir al-Jalalayn is a classical Quranic commentary authored by two Islamic scholars, Jalal ad-Din al-Mahalli and Jalal ad-Din as-Suyuti, offering concise and clear explanations of the verses."
+                  data-download-vol1="https://drive.google.com/file/d/1cQPt9hpzqY4bxhpdut_AxrCIlJpHEWGZ/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1cQPt9hpzqY4bxhpdut_AxrCIlJpHEWGZ/view?usp=drive_link"
+                />
+
+                <img
+                  src="/images/tafseer ibn katheer.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Tafseer Ibn Katheer Book Cover"
+                  data-title="Tafseer Ibn Katheer"
+                  data-description="Tafseer Ibn Katheer is one of the most comprehensive and widely respected interpretations of the Quran, providing detailed commentary on each verse."
+                  data-download-vol1="https://drive.google.com/file/d/1FCibkYzM9Dd_2mgrotjg4aTvCaTn5vWm/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1FCibkYzM9Dd_2mgrotjg4aTvCaTn5vWm/view?usp=drive_link"
+                />
+
+                <!-- <img src="/images/hayatalsahaba.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-volumes="3"
+                      data-title="HayatUsSahaba" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
+                      data-download-vol1="https://drive.google.com/uc?export=download&id=15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx" data-read-vol1="https://drive.google.com/file/d/15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx/preview"
+                      data-download-vol2="https://drive.google.com/uc?export=download&id=1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0" data-read-vol2="https://drive.google.com/file/d/1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0/preview"
+                      data-download-vol3="https://drive.google.com/uc?export=download&id=119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt" data-read-vol3="https://drive.google.com/file/d/119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt/preview"> -->
+                <!-- <img src="/images/seeratunnabi.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." data-volumes="7"  
+                      data-download-vol1="https://drive.google.com/uc?export=download&id=1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa" data-read-vol1="https://drive.google.com/file/d/1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa/preview"
+                      data-download-vol2="https://drive.google.com/uc?export=download&id=1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4" data-read-vol2="https://drive.google.com/file/d/1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4/preview"
+                      data-download-vol3="https://drive.google.com/uc?export=download&id=1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1" data-read-vol3="https://drive.google.com/file/d/1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1/preview"
+                      data-download-vol4="https://drive.google.com/uc?export=download&id=1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt" data-read-vol4="https://drive.google.com/file/d/1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt/preview"
+                      data-download-vol5="https://drive.google.com/uc?export=download&id=1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj" data-read-vol5="https://drive.google.com/file/d/1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj/preview"
+                      data-download-vol6="https://drive.google.com/uc?export=download&id=1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw" data-read-vol6="https://drive.google.com/file/d/1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw/preview"
+                      data-download-vol7="https://drive.google.com/uc?export=download&id=1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq" data-read-vol7="https://drive.google.com/file/d/1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq/preview"> -->
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
             </div>
-            <div class="flex flex-col gap-40 mt-36" >
-                <section class="book-section" id="hadees">
-                    <div>
-                        <span class="flex flex-row mx-11">
-                            <span>
-                                <img src="/images/sahihbhukari.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description=""  data-volumes="8"
-                                data-download-vol1="https://drive.google.com/uc?export=download&id=1wTbznFvrM6C1OTbk0AQA6y2pI-wUtYVr" data-read-vol1="https://drive.google.com/file/d/1wTbznFvrM6C1OTbk0AQA6y2pI-wUtYVr/preview"
-                                data-download-vol2="https://drive.google.com/uc?export=download&id=1Lr6Xu2zutIpjU1Un2-i85cGHylv3cZya" data-read-vol2="https://drive.google.com/file/d/1Lr6Xu2zutIpjU1Un2-i85cGHylv3cZya/preview"
-                                data-download-vol3="https://drive.google.com/uc?export=download&id=1G712LAY0AftkuK92MHKM6txuQOGPkgrp" data-read-vol3="https://drive.google.com/file/d/1G712LAY0AftkuK92MHKM6txuQOGPkgrp/preview"
-                                data-download-vol4="https://drive.google.com/uc?export=download&id=1E9vOWfBixLclgFnG1q4E9HWaXiTfPKNR" data-read-vol4="https://drive.google.com/file/d/1E9vOWfBixLclgFnG1q4E9HWaXiTfPKNR/preview"
-                                data-download-vol5="https://drive.google.com/uc?export=download&id=1D8o-fBIEFPptUc1Hszf4R_3HCRnbQitj" data-read-vol5="https://drive.google.com/file/d/1D8o-fBIEFPptUc1Hszf4R_3HCRnbQitj/preview"
-                                data-download-vol6="https://drive.google.com/uc?export=download&id=1j7TRf_7Q2Zn7stkTeDyTogpFKaHmPISl" data-read-vol6="https://drive.google.com/file/d/1j7TRf_7Q2Zn7stkTeDyTogpFKaHmPISl/preview"
-                                data-download-vol7="https://drive.google.com/uc?export=download&id=1QYwEbnzS0NHXaa-76psQoMXls8mBnOH3" data-read-vol7="https://drive.google.com/file/d/1QYwEbnzS0NHXaa-76psQoMXls8mBnOH3/preview"
-                                data-download-vol8="https://drive.google.com/uc?export=download&id=1saI6rIVEDB8wBwhamWsWPyHu1XgpntL_" data-read-vol8="https://drive.google.com/file/d/1saI6rIVEDB8wBwhamWsWPyHu1XgpntL_/preview">
-                                <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                            </span>
-                            <span>
-                                <img src="/images/sahimuslim.png" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="2"
-                                data-download-vol1="https://drive.google.com/uc?export=download&id=1JIlzeIsXwv-hRpqQfw_0GTGRABvibLSM" data-read-vol1="https://drive.google.com/file/d/1JIlzeIsXwv-hRpqQfw_0GTGRABvibLSM/preview"
-                                data-download-vol2="https://drive.google.com/uc?export=download&id=1xRi5LBojL9N5uRkIWQvEf6q22RY6pWay" data-read-vol2="https://drive.google.com/file/d/1xRi5LBojL9N5uRkIWQvEf6q22RY6pWay/preview">
-                                <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                            </span>
-                            <span>
+          </section>
+          <section class="book-section" id="hadees">
+            <div class="wooden-text mb-40">
+              <img src="/images/plank_heading (2).png" alt="" class="absolute w-[980px] h-14 shadow-[0_4px_30px_#060606eb]">
+              <h3 class="relative z-40 text-center">Hadith Books</h3>
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/sahihbhukari.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="8"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1wTbznFvrM6C1OTbk0AQA6y2pI-wUtYVr"
+                  data-read-vol1="https://drive.google.com/file/d/1wTbznFvrM6C1OTbk0AQA6y2pI-wUtYVr/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1Lr6Xu2zutIpjU1Un2-i85cGHylv3cZya"
+                  data-read-vol2="https://drive.google.com/file/d/1Lr6Xu2zutIpjU1Un2-i85cGHylv3cZya/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1G712LAY0AftkuK92MHKM6txuQOGPkgrp"
+                  data-read-vol3="https://drive.google.com/file/d/1G712LAY0AftkuK92MHKM6txuQOGPkgrp/preview"
+                  data-download-vol4="https://drive.google.com/uc?export=download&id=1E9vOWfBixLclgFnG1q4E9HWaXiTfPKNR"
+                  data-read-vol4="https://drive.google.com/file/d/1E9vOWfBixLclgFnG1q4E9HWaXiTfPKNR/preview"
+                  data-download-vol5="https://drive.google.com/uc?export=download&id=1D8o-fBIEFPptUc1Hszf4R_3HCRnbQitj"
+                  data-read-vol5="https://drive.google.com/file/d/1D8o-fBIEFPptUc1Hszf4R_3HCRnbQitj/preview"
+                  data-download-vol6="https://drive.google.com/uc?export=download&id=1j7TRf_7Q2Zn7stkTeDyTogpFKaHmPISl"
+                  data-read-vol6="https://drive.google.com/file/d/1j7TRf_7Q2Zn7stkTeDyTogpFKaHmPISl/preview"
+                  data-download-vol7="https://drive.google.com/uc?export=download&id=1QYwEbnzS0NHXaa-76psQoMXls8mBnOH3"
+                  data-read-vol7="https://drive.google.com/file/d/1QYwEbnzS0NHXaa-76psQoMXls8mBnOH3/preview"
+                  data-download-vol8="https://drive.google.com/uc?export=download&id=1saI6rIVEDB8wBwhamWsWPyHu1XgpntL_"
+                  data-read-vol8="https://drive.google.com/file/d/1saI6rIVEDB8wBwhamWsWPyHu1XgpntL_/preview"
+                />
 
-                                <img src="/images/musnadahmedibnhanbal.png" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="14"
-                                data-download-vol1="https://drive.google.com/uc?export=download&id=1ozIuVtdTUmPQqneXsVFTCaibS8MUS4rT" data-read-vol1="https://drive.google.com/file/d/1ozIuVtdTUmPQqneXsVFTCaibS8MUS4rT/preview"
-                                data-download-vol2="https://drive.google.com/uc?export=download&id=1RVO-iTwZTUPLNmmijbHiRiLOIoS6pudt" data-read-vol2="https://drive.google.com/file/d/1RVO-iTwZTUPLNmmijbHiRiLOIoS6pudt/preview"
-                                data-download-vol3="https://drive.google.com/uc?export=download&id=1N2j5v1qx2sWhoN-uUUnw8ill_coRTUxC" data-read-vol3="https://drive.google.com/file/d/1N2j5v1qx2sWhoN-uUUnw8ill_coRTUxC/preview"
-                                data-download-vol4="https://drive.google.com/uc?export=download&id=1h8lEbxJnvSOYV105k3zM95ZMmoJKYdg_" data-read-vol4="https://drive.google.com/file/d/1h8lEbxJnvSOYV105k3zM95ZMmoJKYdg_/preview"
-                                data-download-vol5="https://drive.google.com/uc?export=download&id=11rX7gOWRzJZFdvh6lQGftfNh7C72lAzR" data-read-vol5="https://drive.google.com/file/d/11rX7gOWRzJZFdvh6lQGftfNh7C72lAzR/preview"
-                                data-download-vol6="https://drive.google.com/uc?export=download&id=1D2VEZfusuh2KBOh85H958OutCHmQsxYy" data-read-vol6="https://drive.google.com/file/d/1D2VEZfusuh2KBOh85H958OutCHmQsxYy/preview"
-                                data-download-vol7="https://drive.google.com/uc?export=download&id=1LzgjP5u_DTTNzV2-AbZ4dqIH7EZUCZ2w" data-read-vol7="https://drive.google.com/file/d/1LzgjP5u_DTTNzV2-AbZ4dqIH7EZUCZ2w/preview"
-                                data-download-vol8="https://drive.google.com/uc?export=download&id=1U6-D40En0hUwec3087xdaH1CI2w9y5Zx" data-read-vol8="https://drive.google.com/file/d/1U6-D40En0hUwec3087xdaH1CI2w9y5Zx/preview"
-                                data-download-vol9="https://drive.google.com/uc?export=download&id=1poYJGfne0kAH6TUvAqmocO24E0H-Cc6P" data-read-vol9="https://drive.google.com/file/d/1poYJGfne0kAH6TUvAqmocO24E0H-Cc6P/preview"
-                                data-download-vol10="https://drive.google.com/uc?export=download&id=1KZUKu-rP--trAZnwqfaKvIQO6_axIedA"data-read-vol10="https://drive.google.com/file/d/1KZUKu-rP--trAZnwqfaKvIQO6_axIedA/preview"
-                                data-download-vol11="https://drive.google.com/uc?export=download&id=19X_YVqVFoMCib0wnCkdZUZXTB23RCGFV"data-read-vol11="https://drive.google.com/file/d/19X_YVqVFoMCib0wnCkdZUZXTB23RCGFV/preview"
-                                data-download-vol12="https://drive.google.com/uc?export=download&id=1OqUoJlcTjpnyuBjSkyRUM4_jJ8VqGwQc"data-read-vol12="https://drive.google.com/file/d/1OqUoJlcTjpnyuBjSkyRUM4_jJ8VqGwQc/preview"
-                                data-download-vol13="https://drive.google.com/uc?export=download&id=1PqzRM_Nih5MAteZXouPGiE-XykO8gLWX"data-read-vol13="https://drive.google.com/file/d/1PqzRM_Nih5MAteZXouPGiE-XykO8gLWX/preview"
-                                data-download-vol14="https://drive.google.com/uc?export=download&id=14asZE8oED9OytSSmIkxQbeA7p6jPywFu"data-read-vol14="https://drive.google.com/file/d/14asZE8oED9OytSSmIkxQbeA7p6jPywFu/preview">
-                                <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                            </span>
-                            <span>
+                <img
+                  src="/images/sahimuslim.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="2"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1JIlzeIsXwv-hRpqQfw_0GTGRABvibLSM"
+                  data-read-vol1="https://drive.google.com/file/d/1JIlzeIsXwv-hRpqQfw_0GTGRABvibLSM/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1xRi5LBojL9N5uRkIWQvEf6q22RY6pWay"
+                  data-read-vol2="https://drive.google.com/file/d/1xRi5LBojL9N5uRkIWQvEf6q22RY6pWay/preview"
+                />
 
-                                <img src="/images/sunanabudawood.jpeg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="4"
-                               data-download-vol1="https://drive.google.com/file/d/1KFq19QYArVal_N73ydLw7D5g2pKQ3b-A/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1KFq19QYArVal_N73ydLw7D5g2pKQ3b-A/view?usp=drive_link"
-                               data-download-vol2="https://drive.google.com/file/d/1tHCh-83DROSoo-2NBfg-AZVuW3biEPCD/view?usp=drive_link" data-read-vol2="https://drive.google.com/file/d/1tHCh-83DROSoo-2NBfg-AZVuW3biEPCD/view?usp=drive_link"
-                               data-download-vol3="https://drive.google.com/file/d/1Es1aQSB_u1tPpC_PfCEPE5n5hPZ_TedW/view?usp=drive_link" data-read-vol3="https://drive.google.com/file/d/1Es1aQSB_u1tPpC_PfCEPE5n5hPZ_TedW/view?usp=drive_link"
-                               data-download-vol4="https://drive.google.com/file/d/12cm4nUTTvWeiIeuV90eH-WDjf7Xy6S3u/view?usp=drive_link" data-read-vol4="https://drive.google.com/file/d/12cm4nUTTvWeiIeuV90eH-WDjf7Xy6S3u/view?usp=drive_link">
-                               <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                            </span>
-                        </span>
-                        
-                      </div> 
-                      <div>
-                        <span class="flex flex-row mx-11">
-                            <img src="/images/sunanibnmajah.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="6"
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1CFyl8Q91UYc6vrQ5gY2k0ykGhtGcP6Dz" data-read-vol1="https://drive.google.com/file/d/1CFyl8Q91UYc6vrQ5gY2k0ykGhtGcP6Dz/preview"
-                            data-download-vol2="https://drive.google.com/uc?export=download&id=1aHRq_3aaYTRKq5wFixqamFG-SGVU5yIi" data-read-vol2="https://drive.google.com/file/d/1aHRq_3aaYTRKq5wFixqamFG-SGVU5yIi/preview"
-                            data-download-vol3="https://drive.google.com/uc?export=download&id=1rkkCFtiqI-p-Qz5V7Iv0IUXVJG8p6v6M" data-read-vol3="https://drive.google.com/file/d/1rkkCFtiqI-p-Qz5V7Iv0IUXVJG8p6v6M/preview"
-                            data-download-vol4="https://drive.google.com/uc?export=download&id=11jYp6YC_rcloWC_7T33PGJWF8IWdYKTm" data-read-vol4="https://drive.google.com/file/d/11jYp6YC_rcloWC_7T33PGJWF8IWdYKTm/preview"
-                            data-download-vol5="https://drive.google.com/uc?export=download&id=1zYTi5tAS8tMRNPULr2kYdmcwl9Rd12JK" data-read-vol5="https://drive.google.com/file/d/1zYTi5tAS8tMRNPULr2kYdmcwl9Rd12JK/preview"
-                            data-download-vol6="https://drive.google.com/uc?export=download&id=1WYetAUbboyPOGaAD6GbrVa6NQwTC9iF3" data-read-vol6="https://drive.google.com/file/d/1WYetAUbboyPOGaAD6GbrVa6NQwTC9iF3/preview">
+                <img
+                  src="/images/musnadahmedibnhanbal.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="14"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1ozIuVtdTUmPQqneXsVFTCaibS8MUS4rT"
+                  data-read-vol1="https://drive.google.com/file/d/1ozIuVtdTUmPQqneXsVFTCaibS8MUS4rT/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1RVO-iTwZTUPLNmmijbHiRiLOIoS6pudt"
+                  data-read-vol2="https://drive.google.com/file/d/1RVO-iTwZTUPLNmmijbHiRiLOIoS6pudt/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1N2j5v1qx2sWhoN-uUUnw8ill_coRTUxC"
+                  data-read-vol3="https://drive.google.com/file/d/1N2j5v1qx2sWhoN-uUUnw8ill_coRTUxC/preview"
+                  data-download-vol4="https://drive.google.com/uc?export=download&id=1h8lEbxJnvSOYV105k3zM95ZMmoJKYdg_"
+                  data-read-vol4="https://drive.google.com/file/d/1h8lEbxJnvSOYV105k3zM95ZMmoJKYdg_/preview"
+                  data-download-vol5="https://drive.google.com/uc?export=download&id=11rX7gOWRzJZFdvh6lQGftfNh7C72lAzR"
+                  data-read-vol5="https://drive.google.com/file/d/11rX7gOWRzJZFdvh6lQGftfNh7C72lAzR/preview"
+                  data-download-vol6="https://drive.google.com/uc?export=download&id=1D2VEZfusuh2KBOh85H958OutCHmQsxYy"
+                  data-read-vol6="https://drive.google.com/file/d/1D2VEZfusuh2KBOh85H958OutCHmQsxYy/preview"
+                  data-download-vol7="https://drive.google.com/uc?export=download&id=1LzgjP5u_DTTNzV2-AbZ4dqIH7EZUCZ2w"
+                  data-read-vol7="https://drive.google.com/file/d/1LzgjP5u_DTTNzV2-AbZ4dqIH7EZUCZ2w/preview"
+                  data-download-vol8="https://drive.google.com/uc?export=download&id=1U6-D40En0hUwec3087xdaH1CI2w9y5Zx"
+                  data-read-vol8="https://drive.google.com/file/d/1U6-D40En0hUwec3087xdaH1CI2w9y5Zx/preview"
+                  data-download-vol9="https://drive.google.com/uc?export=download&id=1poYJGfne0kAH6TUvAqmocO24E0H-Cc6P"
+                  data-read-vol9="https://drive.google.com/file/d/1poYJGfne0kAH6TUvAqmocO24E0H-Cc6P/preview"
+                  data-download-vol10="https://drive.google.com/uc?export=download&id=1KZUKu-rP--trAZnwqfaKvIQO6_axIedA"
+                  data-read-vol10="https://drive.google.com/file/d/1KZUKu-rP--trAZnwqfaKvIQO6_axIedA/preview"
+                  data-download-vol11="https://drive.google.com/uc?export=download&id=19X_YVqVFoMCib0wnCkdZUZXTB23RCGFV"
+                  data-read-vol11="https://drive.google.com/file/d/19X_YVqVFoMCib0wnCkdZUZXTB23RCGFV/preview"
+                  data-download-vol12="https://drive.google.com/uc?export=download&id=1OqUoJlcTjpnyuBjSkyRUM4_jJ8VqGwQc"
+                  data-read-vol12="https://drive.google.com/file/d/1OqUoJlcTjpnyuBjSkyRUM4_jJ8VqGwQc/preview"
+                  data-download-vol13="https://drive.google.com/uc?export=download&id=1PqzRM_Nih5MAteZXouPGiE-XykO8gLWX"
+                  data-read-vol13="https://drive.google.com/file/d/1PqzRM_Nih5MAteZXouPGiE-XykO8gLWX/preview"
+                  data-download-vol14="https://drive.google.com/uc?export=download&id=14asZE8oED9OytSSmIkxQbeA7p6jPywFu"
+                  data-read-vol14="https://drive.google.com/file/d/14asZE8oED9OytSSmIkxQbeA7p6jPywFu/preview"
+                />
 
-                            <img src="/images/sunannasai.webp" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="7"
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1Y6p8_fAB6qpyCzv9bZ-ZfWEQlKWFvAaS" data-read-vol1="https://drive.google.com/file/d/1Y6p8_fAB6qpyCzv9bZ-ZfWEQlKWFvAaS/preview"
-                            data-download-vol2="https://drive.google.com/uc?export=download&id=1D-EsEAuKM3s4BO4ZH_JiXO3v_mlvrTyI" data-read-vol2="https://drive.google.com/file/d/1D-EsEAuKM3s4BO4ZH_JiXO3v_mlvrTyI/preview"
-                            data-download-vol3="https://drive.google.com/uc?export=download&id=1xD2eedy6ttAIS9niegbJ4RrSr3YlrgK1" data-read-vol3="https://drive.google.com/file/d/1xD2eedy6ttAIS9niegbJ4RrSr3YlrgK1/preview"
-                            data-download-vol4="https://drive.google.com/uc?export=download&id=1DxjrueovZTJ0GTeDj6s-ABcxoR4LoZks" data-read-vol4="https://drive.google.com/file/d/1DxjrueovZTJ0GTeDj6s-ABcxoR4LoZks/preview"
-                            data-download-vol5="https://drive.google.com/uc?export=download&id=1dudCpUnnpG2ZqvgAn7gfHzYR4wVcYmtB" data-read-vol5="https://drive.google.com/file/d/1dudCpUnnpG2ZqvgAn7gfHzYR4wVcYmtB/preview"
-                            data-download-vol6="https://drive.google.com/uc?export=download&id=1uaOoIQLRNloGwVQKwikUtrn_1EjPsnAZ" data-read-vol6="https://drive.google.com/file/d/1uaOoIQLRNloGwVQKwikUtrn_1EjPsnAZ/preview"
-                            data-download-vol7="https://drive.google.com/uc?export=download&id=1wljHRIJ5lR2wgMceBFOHC0XeN11PSHtd" data-read-vol7="https://drive.google.com/file/d/1wljHRIJ5lR2wgMceBFOHC0XeN11PSHtd/preview">
+                <img
+                  src="/images/sunanabudawood.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="4"
+                  data-download-vol1="https://drive.google.com/file/d/1KFq19QYArVal_N73ydLw7D5g2pKQ3b-A/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1KFq19QYArVal_N73ydLw7D5g2pKQ3b-A/view?usp=drive_link"
+                  data-download-vol2="https://drive.google.com/file/d/1tHCh-83DROSoo-2NBfg-AZVuW3biEPCD/view?usp=drive_link"
+                  data-read-vol2="https://drive.google.com/file/d/1tHCh-83DROSoo-2NBfg-AZVuW3biEPCD/view?usp=drive_link"
+                  data-download-vol3="https://drive.google.com/file/d/1Es1aQSB_u1tPpC_PfCEPE5n5hPZ_TedW/view?usp=drive_link"
+                  data-read-vol3="https://drive.google.com/file/d/1Es1aQSB_u1tPpC_PfCEPE5n5hPZ_TedW/view?usp=drive_link"
+                  data-download-vol4="https://drive.google.com/file/d/12cm4nUTTvWeiIeuV90eH-WDjf7Xy6S3u/view?usp=drive_link"
+                  data-read-vol4="https://drive.google.com/file/d/12cm4nUTTvWeiIeuV90eH-WDjf7Xy6S3u/view?usp=drive_link"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/sunanibnmajah.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="6"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1CFyl8Q91UYc6vrQ5gY2k0ykGhtGcP6Dz"
+                  data-read-vol1="https://drive.google.com/file/d/1CFyl8Q91UYc6vrQ5gY2k0ykGhtGcP6Dz/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1aHRq_3aaYTRKq5wFixqamFG-SGVU5yIi"
+                  data-read-vol2="https://drive.google.com/file/d/1aHRq_3aaYTRKq5wFixqamFG-SGVU5yIi/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1rkkCFtiqI-p-Qz5V7Iv0IUXVJG8p6v6M"
+                  data-read-vol3="https://drive.google.com/file/d/1rkkCFtiqI-p-Qz5V7Iv0IUXVJG8p6v6M/preview"
+                  data-download-vol4="https://drive.google.com/uc?export=download&id=11jYp6YC_rcloWC_7T33PGJWF8IWdYKTm"
+                  data-read-vol4="https://drive.google.com/file/d/11jYp6YC_rcloWC_7T33PGJWF8IWdYKTm/preview"
+                  data-download-vol5="https://drive.google.com/uc?export=download&id=1zYTi5tAS8tMRNPULr2kYdmcwl9Rd12JK"
+                  data-read-vol5="https://drive.google.com/file/d/1zYTi5tAS8tMRNPULr2kYdmcwl9Rd12JK/preview"
+                  data-download-vol6="https://drive.google.com/uc?export=download&id=1WYetAUbboyPOGaAD6GbrVa6NQwTC9iF3"
+                  data-read-vol6="https://drive.google.com/file/d/1WYetAUbboyPOGaAD6GbrVa6NQwTC9iF3/preview"
+                />
 
-                            <img src="/images/sunandarmi.webp" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="2"
-                            data-download-vol1="https://drive.google.com/file/d/1kH997zNZZtkW8lAxcz7L9YexzQNizy12/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1kH997zNZZtkW8lAxcz7L9YexzQNizy12/view?usp=drive_link"
-                            data-download-vol2="https://drive.google.com/file/d/1N6SqtGGn5scv2WvNpQx3LafjXnT8bbje/view?usp=drive_link" data-read-vol2="https://drive.google.com/file/d/1N6SqtGGn5scv2WvNpQx3LafjXnT8bbje/view?usp=drive_link">
-                            
-                             <img src="/images/jamitirmidhi.png" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" data-volumes="2"
-                            data-download-vol1="https://drive.google.com/file/d/1BNjtz9pfl2WLwjvcOnlZ7lZkvPpCRa3I/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1BNjtz9pfl2WLwjvcOnlZ7lZkvPpCRa3I/view?usp=drive_link"
-                            data-download-vol2="https://drive.google.com/file/d/1i9H8Bi39D7I3ZrAuaGOwb0gQ0bBTtvw0/view?usp=drive_link" data-read-vol2="https://drive.google.com/file/d/1i9H8Bi39D7I3ZrAuaGOwb0gQ0bBTtvw0/view?usp=drive_link">
-                        </span>
-                        <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                      </div> 
-                </section>
-                <section class="book-section" id="tafseer">
-                <div>
-                    <span class="flex flex-row px-11">
-                        <img src="/images/tafseeribnabbasimg.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" 
-                        data-volumes="3" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet. Ibn Abbas (may Allah be pleased with him) said, The Holy Prophet (peace be upon him) placed his hand on my head and then prayed, O Allah, grant him understanding in religion" 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1" data-read-vol1="https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1"
-                        data-download-vol2="https://drive.google.com/uc?export=download&id=17W6YTh3nLbXI5Ger_RHEoS54kPCvlxE3" data-read-vol2="https://drive.google.com/file/d/17W6YTh3nLbXI5Ger_RHEoS54kPCvlxE3/preview"
-                        data-download-vol3="https://drive.google.com/uc?export=download&id=1YFIhafKrRhE9FoYY-rMtvsuYWLhXJJl3" data-read-vol3="https://drive.google.com/file/d/1YFIhafKrRhE9FoYY-rMtvsuYWLhXJJl3/preview">
+                <img
+                  src="/images/sunannasai.webp"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="7"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1Y6p8_fAB6qpyCzv9bZ-ZfWEQlKWFvAaS"
+                  data-read-vol1="https://drive.google.com/file/d/1Y6p8_fAB6qpyCzv9bZ-ZfWEQlKWFvAaS/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1D-EsEAuKM3s4BO4ZH_JiXO3v_mlvrTyI"
+                  data-read-vol2="https://drive.google.com/file/d/1D-EsEAuKM3s4BO4ZH_JiXO3v_mlvrTyI/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1xD2eedy6ttAIS9niegbJ4RrSr3YlrgK1"
+                  data-read-vol3="https://drive.google.com/file/d/1xD2eedy6ttAIS9niegbJ4RrSr3YlrgK1/preview"
+                  data-download-vol4="https://drive.google.com/uc?export=download&id=1DxjrueovZTJ0GTeDj6s-ABcxoR4LoZks"
+                  data-read-vol4="https://drive.google.com/file/d/1DxjrueovZTJ0GTeDj6s-ABcxoR4LoZks/preview"
+                  data-download-vol5="https://drive.google.com/uc?export=download&id=1dudCpUnnpG2ZqvgAn7gfHzYR4wVcYmtB"
+                  data-read-vol5="https://drive.google.com/file/d/1dudCpUnnpG2ZqvgAn7gfHzYR4wVcYmtB/preview"
+                  data-download-vol6="https://drive.google.com/uc?export=download&id=1uaOoIQLRNloGwVQKwikUtrn_1EjPsnAZ"
+                  data-read-vol6="https://drive.google.com/file/d/1uaOoIQLRNloGwVQKwikUtrn_1EjPsnAZ/preview"
+                  data-download-vol7="https://drive.google.com/uc?export=download&id=1wljHRIJ5lR2wgMceBFOHC0XeN11PSHtd"
+                  data-read-vol7="https://drive.google.com/file/d/1wljHRIJ5lR2wgMceBFOHC0XeN11PSHtd/preview"
+                />
 
-                        <img src="/images/tareekhibnkaseer.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" 
-                        data-title="Al-Bidayah wa al-Nihaya" data-description="Written by" data-volumes="16"
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=14dcPc0sKdO7ZjaGQhRQNniEOCbZMy8mX" data-read-vol1="https://drive.google.com/file/d/14dcPc0sKdO7ZjaGQhRQNniEOCbZMy8mX/preview"
-                        data-download-vol2="https://drive.google.com/uc?export=download&id=1gUYA5hCJ86tRjiVGIY5Q1a23O2YkBHZD" data-read-vol2="https://drive.google.com/file/d/1gUYA5hCJ86tRjiVGIY5Q1a23O2YkBHZD/preview"
-                        data-download-vol3="https://drive.google.com/uc?export=download&id=1_bpsvkzwDbb7NSj2xtrs0a7LwaGTLHcF" data-read-vol3="https://drive.google.com/file/d/1_bpsvkzwDbb7NSj2xtrs0a7LwaGTLHcF/preview"
-                        data-download-vol4="https://drive.google.com/uc?export=download&id=1eHWTH5wqU2AmwjX2kih6wzOeX-Q0l8TJ" data-read-vol4="https://drive.google.com/file/d/1eHWTH5wqU2AmwjX2kih6wzOeX-Q0l8TJ/preview"
-                        data-download-vol5="https://drive.google.com/uc?export=download&id=1TPekO3_PNB5YczF2LbvLpgCHdQ8ZxrWf" data-read-vol5="https://drive.google.com/file/d/1TPekO3_PNB5YczF2LbvLpgCHdQ8ZxrWf/preview"
-                        data-download-vol6="https://drive.google.com/uc?export=download&id=1NmTqG9oQ_jRYBvGLxksQ7hrsXaIUHdKW" data-read-vol6="https://drive.google.com/file/d/1NmTqG9oQ_jRYBvGLxksQ7hrsXaIUHdKW/preview"
-                        data-download-vol7="https://drive.google.com/uc?export=download&id=1Kkr2QkaNuIoWqM3xmFI-UyZXEmWBfC0C" data-read-vol7="https://drive.google.com/file/d/1Kkr2QkaNuIoWqM3xmFI-UyZXEmWBfC0C/preview"
-                        data-download-vol8="https://drive.google.com/uc?export=download&id=1zqpIo62y5Uo5DOLbXSvAmY2w-6z9zODg" data-read-vol8="https://drive.google.com/file/d/1zqpIo62y5Uo5DOLbXSvAmY2w-6z9zODg/preview"
-                        data-download-vol9="https://drive.google.com/uc?export=download&id=1w6apZfNUsdtDIOeBARjHOyegCqdSVN4I" data-read-vol9="https://drive.google.com/file/d/1w6apZfNUsdtDIOeBARjHOyegCqdSVN4I/preview"
-                        data-download-vol10="https://drive.google.com/uc?export=download&id=1UeXobyUdyJ1McXg7ADXQGGE2sJjnGb9j" data-read-vol10="https://drive.google.com/file/d/1UeXobyUdyJ1McXg7ADXQGGE2sJjnGb9j/preview"
-                        data-download-vol11="https://drive.google.com/uc?export=download&id=1RulD2pN7FgYicH6m8lGEDtIeDE8S5aBo" data-read-vol11="https://drive.google.com/file/d/1RulD2pN7FgYicH6m8lGEDtIeDE8S5aBo/preview"
-                        data-download-vol12="https://drive.google.com/uc?export=download&id=1KXV03XAtEamOqGB9aqIDuog2XvQsFoQb" data-read-vol12="https://drive.google.com/file/d/1KXV03XAtEamOqGB9aqIDuog2XvQsFoQb/preview"
-                        data-download-vol13="https://drive.google.com/uc?export=download&id=1wgz1WdTc2YIpIuw0TUV2zG2HJ-AsDDlD" data-read-vol13="https://drive.google.com/file/d/1wgz1WdTc2YIpIuw0TUV2zG2HJ-AsDDlD/preview"
-                        data-download-vol14="https://drive.google.com/uc?export=download&id=1d-ZdFmyn8c2IdpXuQ60QVyZyNYi-V-fu" data-read-vol14="https://drive.google.com/file/d/1d-ZdFmyn8c2IdpXuQ60QVyZyNYi-V-fu/preview"
-                        data-download-vol15="https://drive.google.com/uc?export=download&id=1Jtv1QXFtLCrBbrgpGMChV4DF5OASBPKp" data-read-vol15="https://drive.google.com/file/d/1Jtv1QXFtLCrBbrgpGMChV4DF5OASBPKp/preview"
-                        data-download-vol16="https://drive.google.com/uc?export=download&id=1tqle-PRsf7HKVNSz5s4qTDaqiiGacCdV" data-read-vol6="https://drive.google.com/file/d/1tqle-PRsf7HKVNSz5s4qTDaqiiGacCdV/preview">
-                        <img src="/images/hayatalsahaba.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-volumes="3"
-                        data-title="HayatUsSahaba" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx" data-read-vol1="https://drive.google.com/file/d/15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx/preview"
-                        data-download-vol2="https://drive.google.com/uc?export=download&id=1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0" data-read-vol2="https://drive.google.com/file/d/1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0/preview"
-                        data-download-vol3="https://drive.google.com/uc?export=download&id=119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt" data-read-vol3="https://drive.google.com/file/d/119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt/preview">
-                        <img src="/images/seeratunnabi.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." data-volumes="7"  
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa" data-read-vol1="https://drive.google.com/file/d/1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa/preview"
-                        data-download-vol2="https://drive.google.com/uc?export=download&id=1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4" data-read-vol2="https://drive.google.com/file/d/1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4/preview"
-                        data-download-vol3="https://drive.google.com/uc?export=download&id=1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1" data-read-vol3="https://drive.google.com/file/d/1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1/preview"
-                        data-download-vol4="https://drive.google.com/uc?export=download&id=1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt" data-read-vol4="https://drive.google.com/file/d/1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt/preview"
-                        data-download-vol5="https://drive.google.com/uc?export=download&id=1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj" data-read-vol5="https://drive.google.com/file/d/1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj/preview"
-                        data-download-vol6="https://drive.google.com/uc?export=download&id=1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw" data-read-vol6="https://drive.google.com/file/d/1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw/preview"
-                        data-download-vol7="https://drive.google.com/uc?export=download&id=1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq" data-read-vol7="https://drive.google.com/file/d/1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq/preview">
+                <img
+                  src="/images/sunandarmi.webp"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="2"
+                  data-download-vol1="https://drive.google.com/file/d/1kH997zNZZtkW8lAxcz7L9YexzQNizy12/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1kH997zNZZtkW8lAxcz7L9YexzQNizy12/view?usp=drive_link"
+                  data-download-vol2="https://drive.google.com/file/d/1N6SqtGGn5scv2WvNpQx3LafjXnT8bbje/view?usp=drive_link"
+                  data-read-vol2="https://drive.google.com/file/d/1N6SqtGGn5scv2WvNpQx3LafjXnT8bbje/view?usp=drive_link"
+                />
 
+                <img
+                  src="/images/jamitirmidhi.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-volumes="2"
+                  data-download-vol1="https://drive.google.com/file/d/1BNjtz9pfl2WLwjvcOnlZ7lZkvPpCRa3I/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1BNjtz9pfl2WLwjvcOnlZ7lZkvPpCRa3I/view?usp=drive_link"
+                  data-download-vol2="https://drive.google.com/file/d/1i9H8Bi39D7I3ZrAuaGOwb0gQ0bBTtvw0/view?usp=drive_link"
+                  data-read-vol2="https://drive.google.com/file/d/1i9H8Bi39D7I3ZrAuaGOwb0gQ0bBTtvw0/view?usp=drive_link"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+          <section class="book-section" id="seerah">
+            <div class="wooden-text mb-40">
+              <img src="/images/plank_heading (2).png" alt="" class="absolute w-[980px] h-14 shadow-[0_4px_30px_#060606eb]">
+              <h3 class="relative z-40 text-center">Seerah Books</h3>
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/NobleLifeOfProphet.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1tI7ll1XNyT3ZbsLy0gtH2I_TspBTdh6d"
+                  data-read-vol1="https://drive.google.com/file/d/1tI7ll1XNyT3ZbsLy0gtH2I_TspBTdh6d/preview"
+                />
+                <img
+                  src="/images/InTheFootstepOfProphet.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1j6yR6CCCS7KJOXLyTLsf_pXbeCxrOkbZ"
+                  data-read-vol1="https://drive.google.com/file/d/1j6yR6CCCS7KJOXLyTLsf_pXbeCxrOkbZ/preview"
+                />
+                <img
+                  src="/images/ProphetOfMercy.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1rwf1M-8S4beHpYrdPzdo195pcryDxtE5"
+                  data-read-vol1="https://drive.google.com/file/d/1rwf1M-8S4beHpYrdPzdo195pcryDxtE5/preview"
+                />
+                <img
+                  src="/images/CriticalLifeSeerah.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1DI8d2hbFn454BCmgw5fp2zFcpTlPdGaq"
+                  data-read-vol1="https://drive.google.com/file/d/1DI8d2hbFn454BCmgw5fp2zFcpTlPdGaq/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <!-- <img src="/images/Ar-Raheeq Al-Makhtum .jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Ar-Raheeq Al-Makhtum " data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
+                        data-download-vol1="https://drive.google.com/uc?export=download&id=1FVOilINIoejTc9Q_kreHZor8H_Nv7FK1" data-read-vol1="https://drive.google.com/file/d/18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1/preview"> -->
+                <img
+                  src="/images/seeratunnabi.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-volumes="7"
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa"
+                  data-read-vol1="https://drive.google.com/file/d/1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4"
+                  data-read-vol2="https://drive.google.com/file/d/1odTWCDOFRpHS8p9lH48WLpF0ko85E1B4/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1"
+                  data-read-vol3="https://drive.google.com/file/d/1eHi4EN3e3bORsiG10NI8AjRqCg9ysUc1/preview"
+                  data-download-vol4="https://drive.google.com/uc?export=download&id=1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt"
+                  data-read-vol4="https://drive.google.com/file/d/1V4qslr8gc4lpdCRG_-XlEJ6RDbImQImt/preview"
+                  data-download-vol5="https://drive.google.com/uc?export=download&id=1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj"
+                  data-read-vol5="https://drive.google.com/file/d/1_4UiK4uwTdx988UH-QpfoY8NlGJFy-Gj/preview"
+                  data-download-vol6="https://drive.google.com/uc?export=download&id=1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw"
+                  data-read-vol6="https://drive.google.com/file/d/1ad815JgDE4lb7Pjp1Sf9l7weZw-qVPvw/preview"
+                  data-download-vol7="https://drive.google.com/uc?export=download&id=1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq"
+                  data-read-vol7="https://drive.google.com/file/d/1j0jJMhvbXRjdVu5troqRg1RM1E2sKuOq/preview"
+                />
+                <img
+                  src="/images/Sirat Ibn Hisham Biography of the Prophet by Abdus Salim pdf free download.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Sirat Ibn Hisham"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=19-gD6C6UWQjs0byzTQjY5VcvgHIgB64Y"
+                  data-read-vol1="https://drive.google.com/file/d/18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1/preview"
+                />
+                <img
+                  src="/images/Ishaq's Seerah muahmmad saw.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Ishaq's Sirat Rasul Allah"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1Yx7u4zZVOtMyG81GDKmUAGIcy688YgVJ"
+                  data-read-vol1="https://drive.google.com/file/d/1Yx7u4zZVOtMyG81GDKmUAGIcy688YgVJ/preview"
+                />
+                <img
+                  src="/images/Shamil e tirmidi.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Shamail al-Tirmidhi"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1KBLMex-40fEadga4-ywzpdf40KRklViZ"
+                  data-read-vol1="https://drive.google.com/file/d/1KBLMex-40fEadga4-ywzpdf40KRklViZ/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+          <section class="book-section" id="sahaba">
+            <div class="wooden-text mb-40">
+              <img src="/images/plank_heading (2).png" alt="" class="absolute w-[980px] h-14 shadow-[0_4px_30px_#060606eb]">
+              <h3 class="relative z-40 text-center">Sahaba Books</h3>
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/abu bakr sadiqque.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Abu Bakr Sadiqque"
+                  data-title="Abu Bakr Sadiqque"
+                  data-description="This book provides a comprehensive account of the life and leadership of Abu Bakr As-Siddiq, the first Caliph of Islam, known for his piety, wisdom, and contributions to the early Islamic state."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1k2oTdf3woAOMXPp5HtOxF6jt7V00f6Qt"
+                  data-read-vol1="https://drive.google.com/file/d/1k2oTdf3woAOMXPp5HtOxF6jt7V00f6Qt/preview"
+                />
 
-                        
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                </div>
-                <div>
-                    <span class="flex flex-row mx-11">
-                        <img src="/images/NobleLifeOfProphet.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1tI7ll1XNyT3ZbsLy0gtH2I_TspBTdh6d" data-read-vol1="https://drive.google.com/file/d/1tI7ll1XNyT3ZbsLy0gtH2I_TspBTdh6d/preview">
-                        <img src="/images/InTheFootstepOfProphet.jpeg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1j6yR6CCCS7KJOXLyTLsf_pXbeCxrOkbZ" data-read-vol1="https://drive.google.com/file/d/1j6yR6CCCS7KJOXLyTLsf_pXbeCxrOkbZ/preview">
-                        <img src="/images/ProphetOfMercy.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1rwf1M-8S4beHpYrdPzdo195pcryDxtE5" data-read-vol1="https://drive.google.com/file/d/1rwf1M-8S4beHpYrdPzdo195pcryDxtE5/preview">
-                        <img src="/images/CriticalLifeSeerah.jpeg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1DI8d2hbFn454BCmgw5fp2zFcpTlPdGaq" data-read-vol1="https://drive.google.com/file/d/1DI8d2hbFn454BCmgw5fp2zFcpTlPdGaq/preview">
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                </div>
-                <div>
-                    <span class="flex flex-row mx-11">
-                        <img src="/images/Ar-Raheeq Al-Makhtum .jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Ar-Raheeq Al-Makhtum " data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1FVOilINIoejTc9Q_kreHZor8H_Nv7FK1" data-read-vol1="https://drive.google.com/file/d/18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1/preview">
-                        <img src="/images/Sirat Ibn Hisham Biography of the Prophet by Abdus Salim pdf free download.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Sirat Ibn Hisham" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=19-gD6C6UWQjs0byzTQjY5VcvgHIgB64Y" data-read-vol1="https://drive.google.com/file/d/18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1/preview">
-                        <img src="/images/Ishaq's Seerah muahmmad saw.png" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Ishaq's Sirat Rasul Allah" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1Yx7u4zZVOtMyG81GDKmUAGIcy688YgVJ" data-read-vol1="https://drive.google.com/file/d/1Yx7u4zZVOtMyG81GDKmUAGIcy688YgVJ/preview">
-                        <img src="/images/Shamil e tirmidi.png" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Shamail al-Tirmidhi" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1KBLMex-40fEadga4-ywzpdf40KRklViZ" data-read-vol1="https://drive.google.com/file/d/1KBLMex-40fEadga4-ywzpdf40KRklViZ/preview">
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                </div>
-                 </section>
-                 <section class="book-section">
-                 <div>
-                    <span class="flex flex-row mx-11">
-                        <img src="/images/al-muwatta.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq" data-read-vol1="https://drive.google.com/file/d/15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq/preview">
-                        <img src="/images/reliance-of-traveller.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1FH4gipdbEy467kK-7E2mCOYF23oHqWfl" data-read-vol1="https://drive.google.com/file/d/1FH4gipdbEy467kK-7E2mCOYF23oHqWfl/preview">
-                        <img src="/images/tafseeribnabbasimg.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="" data-read-vol1="">
-                        <img src="/images/Faiz-ul-Bari.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=15HUnhL6TsyS5qACXNTTjrUf_gWgy4sGJ" data-read-vol1="https://drive.google.com/file/d/15HUnhL6TsyS5qACXNTTjrUf_gWgy4sGJ/preview">
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-            
-                 </div>
-                </section>
-                <section class="book-section">
-                 <div>
-                    <span class="flex flex-row mx-11">
-                        <img src="/images/khilafateusmania.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download%id=1MlH5gmBhGz-omoWn8dihDEGNtr622Erf" data-read-vol1="https://drive.google.com/file/d/1MlH5gmBhGz-omoWn8dihDEGNtr622Erf/preview">
-                        <img src="/images/khilafat_e_rashida.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5" data-read-vol1="https://drive.google.com/file/d/1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5/preview">
-                        <img src="/images/banu-umayyah.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet." 
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN" data-read-vol1="https://drive.google.com/file/d/1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN/preview">
-                         <img src="/images/khilafatomalukiyat.jpeg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="Tafsir Ibn-'Abbas" data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG" data-read-vol1="https://drive.google.com/file/d/1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG/preview">
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-            
-                 </div>
-                </section>
+                <img
+                  src="/images/[PDF] Umar Ibn Al-Khattab (رضي الله عنه) His Life and Times _ Dr_ Ali Muhammad Sallaabee _ Free Download, Borrow, and Streaming _ Internet Archive.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Umar Ibn Al-Khattab (رضي الله عنه) His Life and Times"
+                  data-title="Umar Ibn Al-Khattab (رضي الله عنه) His Life and Times"
+                  data-description="This book provides a detailed biography of the second Caliph, Umar Ibn Al-Khattab (رضي الله عنه), highlighting his leadership, contributions to Islam, and his immense role in shaping the Islamic State."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1s9abf9JhcNSQmJt-g5IUieQw7r4iMrD6"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1RGG7Xe34DH0NfiVdMOKO0mS-_8ns_mfi"
+                  data-read-vol1="https://drive.google.com/file/d/1s9abf9JhcNSQmJt-g5IUieQw7r4iMrD6/preview"
+                  data-read-vol2="https://drive.google.com/file/d/1RGG7Xe34DH0NfiVdMOKO0mS-_8ns_mfi/preview"
+                />
 
-                <section class="book-section"  id="BILAL-name-rakho-iska">
-                 <div>
-                    <span class="flex flex-row mx-11">
-                      <img
-                        src="/images/Bulugh al-maram.jpeg"
-                        class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                        alt=""
-                        data-title="Bulugh al-Maram"
-                        data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1VmChmpl05NZZDe0kAdHRgCimIo10wJdi"
-                        data-read-vol1="https://drive.google.com/file/d/1VmChmpl05NZZDe0kAdHRgCimIo10wJdi/preview"
-                      />
-        
-                      <img
-                        src="/images/Aisha RA.jpeg"
-                        class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                        alt=""
-                        data-title="Bulugh al-Maram"
-                        data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=18IhGosfWaci0oOwRh563ZhCpZPBS1wUP"
-                        data-read-vol1="https://drive.google.com/file/d/18IhGosfWaci0oOwRh563ZhCpZPBS1wUP/preview"
-                      />
-        
-                      <img
-                        src="/images/the four imams.jpeg"
-                        class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                        alt=""
-                        data-title="Bulugh al-Maram"
-                        data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1twZjy9U2bJ0h-rU4VIZNomjTGcTCXho4"
-                        data-read-vol1="https://drive.google.com/file/d/1twZjy9U2bJ0h-rU4VIZNomjTGcTCXho4/preview"
-                      />
-        
-                      <img
-                        src="/images/Wahabi Tempering in Riyad-us-Saliheen.jpeg"
-                        class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                        alt=""
-                        data-title="Bulugh al-Maram"
-                        data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
-                        data-download-vol1="https://drive.google.com/uc?export=download&id=1xjbIWEMRDQ8sXmPJdztUeVbQnksxmlXG"
-                        data-read-vol1="https://drive.google.com/file/d/1xjbIWEMRDQ8sXmPJdztUeVbQnksxmlXG/preview"
-                      />
-                    </span>
-                    <img
-                      src="/images/Untitled_design__5_-removebg.png"
-                      class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
-                      alt=""
-                    />
-                  </div>
-                  </section>
+                <img
+                  src="/images/[PDF] Biography of Uthman Ibn Affan (رضي الله عنه) _ Dr_ Ali Muhammad As-Sallabi _ Free Download, Borrow, and Streaming _ Internet Archive.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Biography of Uthman Ibn Affan (رضي الله عنه)"
+                  data-title="Biography of Uthman Ibn Affan (رضي الله عنه)"
+                  data-description="This book provides an in-depth look at the life of Uthman Ibn Affan (رضي الله عنه), the third Caliph of Islam, focusing on his virtues, leadership, and martyrdom during a significant period of Islamic history."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1am7nUpvSBYo7Dq7_bStpcsDLnt5wmend"
+                  data-read-vol1="https://drive.google.com/file/d/1am7nUpvSBYo7Dq7_bStpcsDLnt5wmend/preview"
+                />
 
-                  <section class="book-section" id="philosophy">
-                  <div>
-                    <span class="flex flex-row mx-11">
-                        <img src="/images/reconstruction-of-religious-thoughts.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" 
-                        data-download-vol1="https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link">
-                        <img src="/images/alchemyofhappiness.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" 
-                        data-download-vol1="https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link">
-                        <img src="/images/perfect-state.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description="" 
-                        data-download-vol1="https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link">
-                         <img src="/images/minhaj-abideen.jpg" class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]" alt="" data-title="" data-description=""
-                        data-download-vol1="https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link" data-read-vol1="https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link">
-                    </span>
-                    <img src="/images/Untitled_design__5_-removebg.png" class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]" alt="">
-                  </div>
-                  </section>
+                <img
+                  src="/images/'Ali ibn Abi Talib.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Ali ibn Abi Talib"
+                  data-title="Ali ibn Abi Talib"
+                  data-description="This book covers the life of Ali ibn Abi Talib, the cousin and son-in-law of Prophet Muhammad (PBUH), highlighting his wisdom, leadership, and role in early Islamic history."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1sbj04IruvU21Jq5l-8ZmiA9V2_lJznkF"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1tE6i1Ftd4h2tDA6xmOlrlw8Ktw2HpfpF"
+                  data-read-vol1="https://drive.google.com/file/d/1sbj04IruvU21Jq5l-8ZmiA9V2_lJznkF/preview"
+                  data-read-vol2="https://drive.google.com/file/d/1tE6i1Ftd4h2tDA6xmOlrlw8Ktw2HpfpF/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/khalid ibn walid.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Khalid ibn al-Walid"
+                  data-title="Khalid ibn al-Walid"
+                  data-description="This book covers the life of Khalid ibn al-Walid, one of the greatest military commanders in Islamic history, known as 'The Sword of Allah'. It highlights his military strategies, key battles, and his role in the early expansion of Islam."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1GUVfL8oGbpW4qVtBIWHT9YFcRQ2Gch0r"
+                  data-read-vol1="https://drive.google.com/file/d/1GUVfL8oGbpW4qVtBIWHT9YFcRQ2Gch0r/preview"
+                />
 
-                  <section class="book-section" id="BILAL-name-rakho-iska">
-                    <div>
-                        <span class="flex flex-row mx-11">
-                          <img
-                            src="/images/Goodreads.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="Goodreads"
-                            title="Goodreads"
-                            data-title="Bulugh al-Maram"
-                            data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1enCwLJsPqqeLzNEvhZUwWSM6b5VNnmko"
-                            data-read-vol1="https://drive.google.com/file/d/1enCwLJsPqqeLzNEvhZUwWSM6b5VNnmko/preview"
-                          />
-                      
-                          <img
-                            src="/images/Al-Adab Al-Mufrad_ A Code for Everyday Living, The Example of the Early Muslims.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="Al-Adab Al-Mufrad"
-                            title="Al-Adab Al-Mufrad"
-                            data-title="Al-Adab Al-Mufrad"
-                            data-description="Al-Adab Al-Mufrad is a collection of hadith compiled by Imam Bukhari, featuring a code for everyday living, focusing on the manners and etiquette of early Muslims."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1QJ7fbu1ukHwre8ytn3szfP0EoZ7L9I0k"
-                            data-read-vol1="https://drive.google.com/file/d/1QJ7fbu1ukHwre8ytn3szfP0EoZ7L9I0k/preview"
-                          />
-                      
-                          <img
-                            src="/images/The Ideal Muslim Society _ As Defined in the Qur'an and Sunnah.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="The Ideal Muslim Society"
-                            title="The Ideal Muslim Society"
-                            data-title="The Ideal Muslim Society"
-                            data-description="The Ideal Muslim Society, as defined in the Qur'an and Sunnah, outlines the key aspects of Islamic societal values and behavior."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1Hyu_04F9uyjj2NnXvrVeeBvV00mj_gJK"
-                            data-read-vol1="https://drive.google.com/file/d/1Hyu_04F9uyjj2NnXvrVeeBvV00mj_gJK/preview"
-                          />
-                      
-                          <img
-                            src="/images/In the Shadow of the Sword_ The Birth of Islam and the Rise of the Global Arab Empire.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="In the Shadow of the Sword"
-                            title="In the Shadow of the Sword"
-                            data-title="In the Shadow of the Sword"
-                            data-description="In the Shadow of the Sword: The Birth of Islam and the Rise of the Global Arab Empire explores the early history of Islam and the Arab Empire."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX"
-                            data-read-vol1="https://drive.google.com/file/d/1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX/preview"
-                          />
-                        </span>
-                      
-                        <img
-                          src="/images/Untitled_design__5_-removebg.png"
-                          class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
-                          alt="Untitled Design"
-                          title="Untitled Design"
-                        />
-                      </div>
-                      
-                      <div>
-                        <span class="flex flex-row mx-11">
-                          <img
-                            src="/images/Bayan ul Quran & Tafseer e Usmani.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="Bayan ul Quran & Tafseer e Usmani"
-                            title="Bayan ul Quran & Tafseer e Usmani"
-                            data-title="Bayan ul Quran & Tafseer e Usmani"
-                            data-description="Bayan ul Quran & Tafseer e Usmani provides detailed commentary on the Quran, explaining verses in context and shedding light on their meanings."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1osMBEG8YJZgTdt-d3KLN7r6fGbfXvMlD"
-                            data-read-vol1="https://drive.google.com/file/d/1osMBEG8YJZgTdt-d3KLN7r6fGbfXvMlD/preview"
-                          />
-                      
-                          <img
-                            src="/images/Great Women of Islam (Paperback).jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="Great Women of Islam"
-                            title="Great Women of Islam"
-                            data-title="Great Women of Islam"
-                            data-description="Great Women of Islam highlights the stories and contributions of influential women from the time of the Prophet Muhammad (PBUH)."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ"
-                            data-read-vol1="https://drive.google.com/file/d/1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ/preview"
-                          />
-                      
-                          <img
-                            src="/images/Don't Be Sad.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="Don't Be Sad"
-                            title="Don't Be Sad"
-                            data-title="Don't Be Sad"
-                            data-description="Don't Be Sad is an Islamic self-help book offering advice, inspiration, and guidance on finding happiness and peace through faith."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1DsQqTBC210q3xYcBV3nOca2Vh-Q-orgN"
-                            data-read-vol1="https://drive.google.com/file/d/1DsQqTBC210q3xYcBV3nOca2Vh-Q-orgN/preview"
-                          />
-                      
-                          <img
-                            src="/images/When the Moon Split  B_W-HC.jpeg"
-                            class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
-                            alt="When the Moon Split"
-                            title="When the Moon Split"
-                            data-title="When the Moon Split"
-                            data-description="When the Moon Split is a biography of Prophet Muhammad (PBUH), documenting the events surrounding the miraculous splitting of the moon, and other significant milestones in Islamic history."
-                            data-download-vol1="https://drive.google.com/uc?export=download&id=1BcQCl4pItcrVYvcaMENlDHH9c0McLqe5"
-                            data-read-vol1="https://drive.google.com/file/d/1BcQCl4pItcrVYvcaMENlDHH9c0McLqe5/preview"
-                          />
-                        </span>
-                      
-                        <img
-                          src="/images/Untitled_design__5_-removebg.png"
-                          class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
-                          alt="Untitled Design"
-                          title="Untitled Design"
-                        />
-                      </div>
-                      
-                </section>
+                <img
+                  src="/images/Al hassan.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Al-Hassan"
+                  data-title="Al-Hassan"
+                  data-description="This book explores the life of Al-Hassan, the grandson of Prophet Muhammad (PBUH), highlighting his contributions to Islam, his leadership, and his role in early Islamic history."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1gX9VYlI5FT88vcPKQ8_rbEm_FFtWVHoB"
+                  data-read-vol1="https://drive.google.com/file/d/1gX9VYlI5FT88vcPKQ8_rbEm_FFtWVHoB/preview"
+                />
+
+                <img
+                  src="/images/Hayatus Sahabah in Arabic 3 books.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Hayatus Sahabah in Arabic"
+                  data-title="Hayatus Sahabah"
+                  data-description="This is a comprehensive collection in Arabic that provides in-depth accounts of the lives of the companions of Prophet Muhammad (PBUH)."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1m_uBGEICx2jMZHoctqRTs_L1LegQwJy-"
+                  data-download-vol2="https://drive.google.com/file/d/1QC8zejmLKwEmIVya1UGT6mnuC870r4DS/view?usp=drive_link"
+                  data-download-vol3="https://drive.google.com/file/d/16X-endYv9q65vsgviif3wsVqllQ-tKrB/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1m_uBGEICx2jMZHoctqRTs_L1LegQwJy-/preview"
+                  data-read-vol2="https://drive.google.com/file/d/1QC8zejmLKwEmIVya1UGT6mnuC870r4DS/view?usp=drive_link"
+                  data-read-vol3="https://drive.google.com/file/d/16X-endYv9q65vsgviif3wsVqllQ-tKrB/view?usp=drive_link"
+                />
+
+                <img
+                  src="/images/biography of rightly caliphate.png"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Biography of the Rightly Guided Caliphs"
+                  data-title="Biography of the Rightly Guided Caliphs"
+                  data-description="This book details the lives of the first four Caliphs of Islam, highlighting their leadership, contributions to the spread of Islam, and their roles in early Islamic history."
+                  data-download-vol1="https://drive.google.com/file/d/1_oJZjto3IqOOTMs72oz3JjJLY5stoXmv/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1_oJZjto3IqOOTMs72oz3JjJLY5stoXmv/view?usp=drive_link"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+          <section class="book-section">
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/al-muwatta.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq"
+                  data-read-vol1="https://drive.google.com/file/d/15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq/preview"
+                />
+                <img
+                  src="/images/reliance-of-traveller.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1FH4gipdbEy467kK-7E2mCOYF23oHqWfl"
+                  data-read-vol1="https://drive.google.com/file/d/1FH4gipdbEy467kK-7E2mCOYF23oHqWfl/preview"
+                />
+                <img
+                  src="/images/download (3).jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Book cover of Tafsir Ibn-'Abbas"
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1-x-hsINvbPfxyFhEABiuFHo_UoWL2mnK"
+                  data-read-vol1="https://drive.google.com/file/d/1-x-hsINvbPfxyFhEABiuFHo_UoWL2mnK/preview"
+                />
+
+                <img
+                  src="/images/Faiz-ul-Bari.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=15HUnhL6TsyS5qACXNTTjrUf_gWgy4sGJ"
+                  data-read-vol1="https://drive.google.com/file/d/15HUnhL6TsyS5qACXNTTjrUf_gWgy4sGJ/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+          <section class="book-section">
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/khilafateusmania.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download%id=1MlH5gmBhGz-omoWn8dihDEGNtr622Erf"
+                  data-read-vol1="https://drive.google.com/file/d/1MlH5gmBhGz-omoWn8dihDEGNtr622Erf/preview"
+                />
+                <img
+                  src="/images/khilafat_e_rashida.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5"
+                  data-read-vol1="https://drive.google.com/file/d/1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5/preview"
+                />
+                <img
+                  src="/images/banu-umayyah.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN"
+                  data-read-vol1="https://drive.google.com/file/d/1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN/preview"
+                />
+                <img
+                  src="/images/khilafatomalukiyat.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Tafsir Ibn-'Abbas"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG"
+                  data-read-vol1="https://drive.google.com/file/d/1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+
+          <section class="book-section" id="other">
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/Bulugh al-maram.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Bulugh al-Maram"
+                  data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1VmChmpl05NZZDe0kAdHRgCimIo10wJdi"
+                  data-read-vol1="https://drive.google.com/file/d/1VmChmpl05NZZDe0kAdHRgCimIo10wJdi/preview"
+                />
+
+                <img
+                  src="/images/Aisha RA.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Bulugh al-Maram"
+                  data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=18IhGosfWaci0oOwRh563ZhCpZPBS1wUP"
+                  data-read-vol1="https://drive.google.com/file/d/18IhGosfWaci0oOwRh563ZhCpZPBS1wUP/preview"
+                />
+
+                <img
+                  src="/images/the four imams.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Bulugh al-Maram"
+                  data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1twZjy9U2bJ0h-rU4VIZNomjTGcTCXho4"
+                  data-read-vol1="https://drive.google.com/file/d/1twZjy9U2bJ0h-rU4VIZNomjTGcTCXho4/preview"
+                />
+
+                <img
+                  src="/images/Wahabi Tempering in Riyad-us-Saliheen.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title="Bulugh al-Maram"
+                  data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1xjbIWEMRDQ8sXmPJdztUeVbQnksxmlXG"
+                  data-read-vol1="https://drive.google.com/file/d/1xjbIWEMRDQ8sXmPJdztUeVbQnksxmlXG/preview"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+
+          <section class="book-section" id="philosophy">
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/reconstruction-of-religious-thoughts.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-download-vol1="https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link"
+                />
+                <img
+                  src="/images/alchemyofhappiness.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-download-vol1="https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link"
+                />
+                <img
+                  src="/images/perfect-state.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-download-vol1="https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link"
+                />
+                <img
+                  src="/images/minhaj-abideen.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-title=""
+                  data-description=""
+                  data-download-vol1="https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
+                  data-read-vol1="https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
+                />
+              </span>
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt=""
+              />
+            </div>
+          </section>
+
+          <section class="book-section" id="BILAL-name-rakho-iska">
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/Goodreads.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Goodreads"
+                  title="Goodreads"
+                  data-title="Bulugh al-Maram"
+                  data-description="Bulugh al-Maram is a collection of hadith compiled by Al-Hafidh ibn Hajar Al-Asqalani, featuring essential hadith related to Islamic rulings."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1enCwLJsPqqeLzNEvhZUwWSM6b5VNnmko"
+                  data-read-vol1="https://drive.google.com/file/d/1enCwLJsPqqeLzNEvhZUwWSM6b5VNnmko/preview"
+                />
+
+                <img
+                  src="/images/Al-Adab Al-Mufrad_ A Code for Everyday Living, The Example of the Early Muslims.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Al-Adab Al-Mufrad"
+                  title="Al-Adab Al-Mufrad"
+                  data-title="Al-Adab Al-Mufrad"
+                  data-description="Al-Adab Al-Mufrad is a collection of hadith compiled by Imam Bukhari, featuring a code for everyday living, focusing on the manners and etiquette of early Muslims."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1QJ7fbu1ukHwre8ytn3szfP0EoZ7L9I0k"
+                  data-read-vol1="https://drive.google.com/file/d/1QJ7fbu1ukHwre8ytn3szfP0EoZ7L9I0k/preview"
+                />
+
+                <img
+                  src="/images/The Ideal Muslim Society _ As Defined in the Qur'an and Sunnah.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="The Ideal Muslim Society"
+                  title="The Ideal Muslim Society"
+                  data-title="The Ideal Muslim Society"
+                  data-description="The Ideal Muslim Society, as defined in the Qur'an and Sunnah, outlines the key aspects of Islamic societal values and behavior."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1Hyu_04F9uyjj2NnXvrVeeBvV00mj_gJK"
+                  data-read-vol1="https://drive.google.com/file/d/1Hyu_04F9uyjj2NnXvrVeeBvV00mj_gJK/preview"
+                />
+
+                <img
+                  src="/images/In the Shadow of the Sword_ The Birth of Islam and the Rise of the Global Arab Empire.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="In the Shadow of the Sword"
+                  title="In the Shadow of the Sword"
+                  data-title="In the Shadow of the Sword"
+                  data-description="In the Shadow of the Sword: The Birth of Islam and the Rise of the Global Arab Empire explores the early history of Islam and the Arab Empire."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX"
+                  data-read-vol1="https://drive.google.com/file/d/1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX/preview"
+                />
+              </span>
+
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt="Untitled Design"
+                title="Untitled Design"
+              />
+            </div>
+
+            <div>
+              <span class="flex flex-row mx-11">
+                <img
+                  src="/images/hayatalsahaba.jpg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt=""
+                  data-volumes="3"
+                  data-title="HayatUsSahaba"
+                  data-description="Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx"
+                  data-read-vol1="https://drive.google.com/file/d/15Bbj7pyn-H2RNCo8njYcBfReRZePFLTx/preview"
+                  data-download-vol2="https://drive.google.com/uc?export=download&id=1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0"
+                  data-read-vol2="https://drive.google.com/file/d/1QOqRjw0WpCyER1tvwfmafCVa6uuGDNK0/preview"
+                  data-download-vol3="https://drive.google.com/uc?export=download&id=119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt"
+                  data-read-vol3="https://drive.google.com/file/d/119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt/preview"
+                />
+                <img
+                  src="/images/Great Women of Islam (Paperback).jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Great Women of Islam"
+                  title="Great Women of Islam"
+                  data-title="Great Women of Islam"
+                  data-description="Great Women of Islam highlights the stories and contributions of influential women from the time of the Prophet Muhammad (PBUH)."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ"
+                  data-read-vol1="https://drive.google.com/file/d/1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ/preview"
+                />
+
+                <img
+                  src="/images/Don't Be Sad.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="Don't Be Sad"
+                  title="Don't Be Sad"
+                  data-title="Don't Be Sad"
+                  data-description="Don't Be Sad is an Islamic self-help book offering advice, inspiration, and guidance on finding happiness and peace through faith."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1DsQqTBC210q3xYcBV3nOca2Vh-Q-orgN"
+                  data-read-vol1="https://drive.google.com/file/d/1DsQqTBC210q3xYcBV3nOca2Vh-Q-orgN/preview"
+                />
+
+                <img
+                  src="/images/When the Moon Split  B_W-HC.jpeg"
+                  class="mt-4 book-cover h-auto max-h-56 object-contain mx-auto transform hover:-translate-y-2 transition duration-200 cursor-pointer shadow-[0px_-1px_27px_0px_#0c0c0ce3] w-[11vw]"
+                  alt="When the Moon Split"
+                  title="When the Moon Split"
+                  data-title="When the Moon Split"
+                  data-description="When the Moon Split is a biography of Prophet Muhammad (PBUH), documenting the events surrounding the miraculous splitting of the moon, and other significant milestones in Islamic history."
+                  data-download-vol1="https://drive.google.com/uc?export=download&id=1BcQCl4pItcrVYvcaMENlDHH9c0McLqe5"
+                  data-read-vol1="https://drive.google.com/file/d/1BcQCl4pItcrVYvcaMENlDHH9c0McLqe5/preview"
+                />
+              </span>
+
+              <img
+                src="/images/Untitled_design__5_-removebg.png"
+                class="w-[960px] h-6 shadow-[0_17px_18px_#060606eb]"
+                alt="Untitled Design"
+                title="Untitled Design"
+              />
+            </div>
+          </section>
                 <section class="book-section" id="iqbal">
                   <div>
                     <span class="flex flex-row mx-11">
