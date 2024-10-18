@@ -1,2 +1,7 @@
 node_modules/
 /css/combined.css
+/audio
+/models
+/voice.py
+/Vosk-Integeration/vosk-api
+/Vosk-Integeration

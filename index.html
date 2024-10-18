@@ -30,6 +30,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <style>
+        .arabic-text {
+    font-family: 'Noto Naskh Urdu', serif;
+    font-size: 24px; /* Adjust as needed */
+}
+#searchInfo {
+    z-index: 10; /* Ensure it's higher than #results */
+    position: relative; /* To make sure z-index applies */
+}
+
+#results {
+    z-index: 1; /* Lower than #searchInfo */
+    position: relative;
+}
+
+    </style>
 </head>
 
 <body class="bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
@@ -183,10 +199,20 @@
                     </p>
                 </div>
             </div>
+        <h1 class="sr-only">SearchAyah - Quick Islamic Text Search</h1> 
+        <section class="max-w-5xl mx-auto p-4  mb-80 h-auto md:mb-96 lg:mb-112 xl:mb-128">
+           
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <input type="text" id="searchBox" placeholder="Search Word or Ayat of Quran"
-                    class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4]  mb-4"
-                    aria-label="Search Word or Ayat of Quran" />
+                <div class="relative flex items-center">
+                    <input type="text" id="searchBox" placeholder="Search Word or Ayat of Quran"
+                           class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] mb-4"
+                           aria-label="Search Word or Ayat of Quran" />
+                    <button id="micButton" class="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <img src="/images/microphone.png" alt="Microphone" class="w-10 h-10 relative" style="top: -10px;" />
+                    </button>
+                </div>
+            
+            
 
                 <div class="mt-4 flex items-center justify-between">
                     <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
@@ -220,8 +246,21 @@
 
                     <div id="resultCount" class="text-sm text-slate-800 mt-2"></div>
                 </div>
+            <div id="results" class="hidden "></div> <!-- Hidden by default to prevent taking up space -->
 
-                <div id="searchResults" class="space-y-10"></div>
+                <div id="searchResults" class="space-y-10 "></div>
+            </div>
+            
+             <div class=" bg-white p-6 rounded-lg shadow-md my-8 max-w-5xl mx-auto text-slate-800">
+                <h1 class="text-2xl font-semibold text-center mb-4">About SearchAyah</h1>
+                <p class="text-lg text-center mb-6">
+                    SearchAyah is an Islamic platform designed to help users easily search through Quranic ayahs, hadith, and the names of Sahaba. Whether you're seeking specific verses, exploring Islamic teachings, or looking for guidance, SearchAyah simplifies the process with its efficient search capabilities.
+                </p>
+                <div class=" bg-white p-4 rounded-lg border-2 border-[#67b2b4] text-center">
+                    <p class="text-lg font-medium">
+                        "This is the Book about which there is no doubt, a guidance for those conscious of Allah." <br> (Surah Al-Baqarah, 2:2)
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -267,9 +306,10 @@
             </a>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.5.3/fuse.min.js"></script>
     <script src="script.js"></script>
     <script src="/js/login.js"></script>
+    <script src="/js/quran-voice-search.js"></script>
 </body>
 
 </html>
