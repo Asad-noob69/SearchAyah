@@ -3,25 +3,7 @@
   scroll-behavior: smooth;
 }
 
-body {
-  min-height: 100vh;
-  background-image: url("/images/white.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  font-family: "Noto Nastaliq Urdu", serif;
-  font-family: "Alegreya Sans SC", sans-serif;
-}
 
-body h2 {
-  display: flex;
-  font-size: 1.3rem;
-  height: 70px;
-  letter-spacing: 2px;
-  align-items: center;
-  gap: 20px;
-}
 
 .header-container {
   display: flex;
