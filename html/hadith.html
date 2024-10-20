@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Hadith - Explore Islamic Teachings</title>
+    <title>SearchAyah | Hadith Search</title>
     <meta name="description" content="Search and explore Hadith collections. Discover teachings and sayings of Prophet Muhammad (PBUH) with ease.">
     <meta name="keywords" content="Hadith, Islamic teachings, Quran, Prophet Muhammad, search Hadith">
     <link rel="canonical" href="https://yourwebsite.com/html/hadith.html">
@@ -17,7 +17,7 @@
     <meta name="twitter:image" content="https://yourwebsite.com/images/intro.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/style.css">
-    <link rel="shortcut icon" href="/images/intro.png" type="image/x-icon">
+    <link rel="icon" href="/images/intro.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 <body class="bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
     <header>
         <nav class="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-10">
                 <div class="flex items-center justify-between h-20">
                     <div class="flex items-center gap-5">
                         <img src="/images/intro.png" alt="The logo of website" class="w-12">
@@ -116,14 +116,22 @@
             </div>
         </div>
 
-        <div class="max-w-5xl mx-auto p-4 mt-16 mb-80">
+        <div class="max-w-5xl mx-auto p-4  mb-80 h-auto md:mb-96 lg:mb-112 xl:mb-128">
+            <div class=" bg-white p-6 rounded-lg shadow-md my-8 max-w-5xl  text-cyan-800">
+                <h1 class="text-xl font-semibold text-center mb-4 sm:text-2xl">SearchAyah - Hadith Search</h1>
+                <div class=" bg-white p-4 rounded-lg border-2 border-[#67b2b4] text-center">
+                    <p class="text-lg font-medium">
+                        "May Allah brighten the face of one who hears my words, retains them, and conveys them to others <br> ( Jami' at-Tirmidhi )
+                    </p>
+                </div>
+            </div>
             <section>
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <input type="text" id="searchBox" placeholder="Search Hadith With Word" class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-lg mb-4">
+                    <input type="text" id="searchBox" placeholder="Search Hadith With Word" class="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-sm sm:text-base  mb-4">
                     
-                    <div class="mt-4 flex items-center justify-between">
+                    <div class="mt-4 flex items-center justify-between text-sm sm:text-base">
                         <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
-                        <select id="languageSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
+                        <select id="languageSelect" class="px-2 py-2 sm:px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
                             <option value="english">English</option>
                             <option value="urdu">اردو</option>
                     <option value="indonesian">Indonesian</option>
@@ -132,9 +140,9 @@
                         </select>
                     </div>
 
-                    <div class="mt-4 flex items-center justify-between">
+                    <div class="mt-4 flex items-center justify-between text-sm sm:text-base">
                         <label for="bookSelect" class="mr-2 text-slate-800">Select Hadith Book</label>
-                        <select id="bookSelect" class="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
+                        <select id="bookSelect" class="px-2 py-2 sm:px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#67b2b4] text-slate-800">
                             <option value="eng-bukhari">Sahih al-Bukhari</option>
                             <option value="eng-ibnmajah">Sunan Ibn Majah</option>
                             <option value="eng-malik">Muwatta Malik</option>
@@ -167,38 +175,41 @@
     </main>
 
     <button id="scrollToTopBtn" class="hidden w-12 h-12 fixed bottom-5 right-5 z-50 border-none outline-none bg-[#67b2b4] bg-opacity-70 text-white cursor-pointer rounded-full text-xl transition-opacity duration-300" title="Go to top">↑</button>
-    <footer class="bg-gray-800 text-white flex flex-col md:flex-row-reverse justify-between items-center p-6 h-auto md:h-20 w-full">
-        <div class="flex items-center justify-center mb-4 md:mb-0">
-          <img src="/images/sahaba.png" alt="Sahaba" class="h-12 w-12 mr-2">
-          <h2 class="text-xl font-semibold">قرآنی آیت</h2>
+    <footer class=" bg-gray-800 text-white flex flex-col md:flex-row justify-between items-center gap-8 p-10 h-auto md:h-20 w-full " role="contentinfo">
+        <div class="flex items-center gap-5">
+            <img src="/images/intro.png" alt="SearchAyah logo" class="w-12" />
+            <a href="#" class="text-gray-100 font-pacifico text-2xl font-thin">Searchayah</a>
         </div>
         <div class="text-center mb-4 md:mb-0">
-          <p>
-            Copyright© |
-            <a href="mailto:asadaliabbasi787@gmail.com" class="text-blue-400 hover:underline">
-              asadaliabbasi787@gmail.com
+            <p>
+                Copyright© |
+                <a href="mailto:asadaliabbasi787@gmail.com" class="text-blue-400 hover:underline">
+                    asadaliabbasi787@gmail.com
+                </a>
+                | All rights reserved!
+            </p>
+        </div>
+        <div class="flex justify-center space-x-4 flex-wrap">
+            <a href="https://x.com/asadaliabbasi_" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6 w-6 fill-current">
+                    <path
+                        d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z" />
+                </svg>
             </a>
-            | All rights reserved!
-          </p>
-        </div>
-        <div class="flex justify-center space-x-4">
-          <a href="https://x.com/asadaliabbasi_" class="text-gray-400 hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6 w-6 fill-current">
-                <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"/>
-              </svg>
-          </a>
-          <a href="https://www.instagram.com/illuminating_souls_/" class="text-gray-400 hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16 " class="h-6 w-6 fill-current">
-                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-              </svg>       
-          </a>
-          <a href="https://github.com/Asad-noob69" class="text-gray-400 hover:text-white">
+            <a href="https://www.instagram.com/illuminating_souls_/" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16 " class="h-6 w-6 fill-current">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                </svg>
+            </a>
+            <a href="https://github.com/Asad-noob69" class="text-gray-400 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="h-6 w-6 fill-current">
-                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0 22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
-              </svg>        
-          </a>
+                    <path
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+            </a>
         </div>
-      </footer>
+    </footer>
     <script src="/js/hadith.js"></script>
     <script src="/js/login.js"></script>
 </body>
