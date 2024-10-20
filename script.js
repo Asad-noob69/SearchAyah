@@ -1,5 +1,4 @@
 let quranData = [];
-let urduTranslation = [];
 
 async function fetchQuranData() {
     try {
@@ -8,23 +7,29 @@ async function fetchQuranData() {
         if (!arabicResponse.ok) throw new Error('Network response was not ok for Arabic text');
         const arabicData = await arabicResponse.json();
 
-        // Fetch English translation
-        const englishResponse = await fetch('https://api.quran.com/api/v4/quran/translations/131');
-        if (!englishResponse.ok) throw new Error('Network response was not ok for English translation');
-        const englishData = await englishResponse.json();
+        // Fetch translations
+        const translations = {
+            english: await fetchTranslation(131),
+            urdu: await fetchTranslation(97),
+            indonesian: await fetchTranslation(33),
+            turkish: await fetchTranslation(77),
+            french: await fetchTranslation(31),
+            bengali: await fetchTranslation(161),
+            german: await fetchTranslation(27)
+        };
 
-        // Fetch Urdu translation
-        const urduResponse = await fetch('https://api.quran.com/api/v4/quran/translations/97');
-        if (!urduResponse.ok) throw new Error('Network response was not ok for Urdu translation');
-        const urduData = await urduResponse.json();
-
-        // Combine Arabic, English, and Urdu data
+        // Combine Arabic and translations data
         quranData = arabicData.verses.map((verse, index) => ({
             surah: { number: Math.floor(verse.verse_key.split(':')[0]), englishName: '' },
             numberInSurah: parseInt(verse.verse_key.split(':')[1]),
             text: verse.text_uthmani,
-            englishTranslation: englishData.translations[index].text,
-            urduTranslation: urduData.translations[index].text
+            englishTranslation: translations.english[index].text,
+            urduTranslation: translations.urdu[index].text,
+            indonesianTranslation: translations.indonesian[index].text,
+            turkishTranslation: translations.turkish[index].text,
+            frenchTranslation: translations.french[index].text,
+            bengaliTranslation: translations.bengali[index].text,
+            germanTranslation: translations.german[index].text
         }));
 
         await loadSurahNames();
@@ -32,6 +37,13 @@ async function fetchQuranData() {
     } catch (error) {
         console.error('Error fetching Quran data:', error);
     }
+}
+
+async function fetchTranslation(translationId) {
+    const response = await fetch(`https://api.quran.com/api/v4/quran/translations/${translationId}`);
+    if (!response.ok) throw new Error(`Network response was not ok for translation ${translationId}`);
+    const data = await response.json();
+    return data.translations;
 }
 
 async function loadSurahNames() {
@@ -143,7 +155,7 @@ function displaySearchResults(matches, query, isNewSearch = true) {
                 <div class="mb-8 text-right" dir="rtl">
                     <span class="text-2xl font-arabic text-cyan-900 leading-4">${match.text}</span>
                 </div>
-                <p class="text-cyan-800 ${selectedLanguage === 'urdu' ? 'text-right' : ''}" ${selectedLanguage === 'urdu' ? 'dir="rtl"' : ''}>
+                <p class="text-cyan-800 ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'text-right' : ''}" ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'dir="rtl"' : ''}>
                     ${highlightSearchTerm(match[`${selectedLanguage}Translation`], query)}
                 </p>
             </div>
@@ -198,12 +210,12 @@ scrollToTopBtn.addEventListener("click", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-mobileMenuButton.addEventListener('click', function() {
-mobileMenu.classList.toggle('hidden');
-});
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+    });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
