@@ -200,9 +200,9 @@
                     <button id="micButton" class="absolute right-4 top-1/2 transform -translate-y-1/2">
                         <img src="/images/microphone.png" alt="Microphone" class="w-10 h-10 relative" style="top: -10px;" />
                     </button>
-                </div>
-            
-            
+            </div>
+
+
 
                 <div class="mt-4 flex items-center justify-between">
                     <label for="languageSelect" class="mr-2 text-slate-800">Translation Languages</label>
@@ -295,6 +295,48 @@
     <script src="script.js"></script>
     <script src="/js/login.js"></script>
     <script src="/js/quran-voice-search.js"></script>
+    <script>
+        // i icon in work
+       const infoButton = document.getElementById('infoButton');
+const tooltip = document.getElementById('tooltip');
+
+// Fade in tooltip when the page loads
+window.addEventListener('load', () => {
+  // Show the tooltip with fade-in when the page loads
+  tooltip.classList.remove('hidden');
+  setTimeout(() => tooltip.classList.add('opacity-100'), 10);
+
+  // Fade out after 5 seconds
+  setTimeout(() => {
+    tooltip.classList.remove('opacity-100');
+    setTimeout(() => tooltip.classList.add('hidden'), 300); // Matches the fade-out duration
+  }, 10000); // Tooltip visible for 5 seconds
+});
+
+// Show tooltip on mouseenter (hover)
+infoButton.addEventListener('mouseenter', () => {
+  tooltip.classList.remove('hidden');
+  setTimeout(() => tooltip.classList.add('opacity-100'), 10); // Trigger fade-in
+});
+
+// Hide tooltip on mouseleave (fade out after hover)
+infoButton.addEventListener('mouseleave', () => {
+  tooltip.classList.remove('opacity-100');
+  setTimeout(() => tooltip.classList.add('hidden'), 300); // Hide after fade-out
+});
+
+// Keep showing tooltip if user hovers on it
+tooltip.addEventListener('mouseenter', () => {
+  tooltip.classList.add('opacity-100'); // Keep the tooltip visible
+});
+
+// Hide tooltip if mouse leaves the tooltip itself
+tooltip.addEventListener('mouseleave', () => {
+  tooltip.classList.remove('opacity-100');
+  setTimeout(() => tooltip.classList.add('hidden'), 300); // Hide after fade-out
+});
+
+    </script>
 </body>
 
 </html>
