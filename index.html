@@ -276,6 +276,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.5.3/fuse.min.js"></script>
     <script src="script.js"></script>
     <script src="/js/login.js"></script>
-</body>
+    <!-- <script src="/js/quran-voice-search.js"></script> -->
+    <script>
+        // i icon in work
+       const infoButton = document.getElementById('infoButton');
+const tooltip = document.getElementById('tooltip');
 
+// Fade in tooltip when the page loads
+window.addEventListener('load', () => {
+  // Show the tooltip with fade-in when the page loads
+  tooltip.classList.remove('hidden');
+  setTimeout(() => tooltip.classList.add('opacity-100'), 10);
+
+  // Fade out after 5 seconds
+  setTimeout(() => {
+    tooltip.classList.remove('opacity-100');
+    setTimeout(() => tooltip.classList.add('hidden'), 300); // Matches the fade-out duration
+  }, 10000); // Tooltip visible for 5 seconds
+});
+
+// Show tooltip on mouseenter (hover)
+infoButton.addEventListener('mouseenter', () => {
+  tooltip.classList.remove('hidden');
+  setTimeout(() => tooltip.classList.add('opacity-100'), 10); // Trigger fade-in
+});
+
+// Hide tooltip on mouseleave (fade out after hover)
+infoButton.addEventListener('mouseleave', () => {
+  tooltip.classList.remove('opacity-100');
+  setTimeout(() => tooltip.classList.add('hidden'), 300); // Hide after fade-out
+});
+
+// Keep showing tooltip if user hovers on it
+tooltip.addEventListener('mouseenter', () => {
+  tooltip.classList.add('opacity-100'); // Keep the tooltip visible
+});
+
+// Hide tooltip if mouse leaves the tooltip itself
+tooltip.addEventListener('mouseleave', () => {
+  tooltip.classList.remove('opacity-100');
+  setTimeout(() => tooltip.classList.add('hidden'), 300); // Hide after fade-out
+});
+
+    </script>
+</body>
 </html>
