@@ -172,10 +172,10 @@ function displaySearchResults(matches, query, language, isNewSearch = true) {
                 <h3 class="text-white font-semibold">Hadith ${match.hadithnumber}</h3>
             </div>
             <div class="px-4 pb-4 pt-8">
-                <p class="text-cyan-800 font-arabic text-right text-xl" dir="rtl">
+                <p class="text-cyan-800 font-arabic leading-[4rem]text-right text-2xl" dir="rtl">
                     ${arabicMatch ? arabicMatch.text : 'Arabic text not available'}
                 </p>
-                <p class="text-cyan-800 my-10 ${language === 'urdu' ? 'font-arabic text-right' : ''}" ${language === 'urdu' ? 'dir="rtl"' : ''}>
+                <p class="text-cyan-800 my-10 ${language === 'urdu' ? 'font-urdu text-right' : ''}" ${language === 'urdu' ? 'dir="rtl"' : ''}>
                     ${language === 'urdu' 
                         ? (urduMatch ? highlightSearchTerm(urduMatch.text, query, true) : 'Urdu text not available')
                         : highlightSearchTerm(match.text, query, false)}
