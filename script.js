@@ -153,9 +153,9 @@ function displaySearchResults(matches, query, isNewSearch = true) {
             </div>
             <div class="px-4 pb-4 pt-8">
                 <div class="mb-8 text-right" dir="rtl">
-                    <span class="text-2xl font-arabic text-cyan-900 leading-4">${match.text}</span>
+                    <span class="text-2xl font-arabic text-cyan-900 leading-[3rem]">${match.text}</span>
                 </div>
-                <p class="text-cyan-800 ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'text-right' : ''}" ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'dir="rtl"' : ''}>
+                <p class="text-cyan-800 ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'text-right font-urdu leading-9' : ''}" ${['urdu', 'arabic', 'bengali'].includes(selectedLanguage) ? 'dir="rtl"' : ''}>
                     ${highlightSearchTerm(match[`${selectedLanguage}Translation`], query)}
                 </p>
             </div>

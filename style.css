@@ -7,8 +7,12 @@
         font-family: "Pacifico", cursive;
     }
 
-    .font-arabic {
+    .font-urdu {
         font-family: "Noto Nastaliq Urdu", serif;
+    }
+
+    .font-arabic{
+        font-family: "Amiri", serif;
     }
 }
 
