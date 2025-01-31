@@ -34,7 +34,7 @@ export interface Verse {
     englishTranslation: string
     urduTranslation: string
     arabicTranslation: string
-    [key: string]: any // For dynamic translation access
+    [key: string]: number | string | string // For dynamic translation access
   }
   
   export type Language = "english" | "urdu" | "arabic"
