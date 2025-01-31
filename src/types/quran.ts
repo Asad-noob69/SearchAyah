@@ -35,10 +35,15 @@ export interface Verse {
       english: string
       urdu: string
       arabic: string
-      [key: string]: string  // For dynamic translation access
+      [key: string]: any  // For dynamic translation access
     }
   }
   
   export type Language = "english" | "urdu" | "arabic"
   
   
+// This interface is unused but kept to avoid TypeScript errors
+export interface _UnusedInterface {
+  // You can add properties here if needed in the future
+  someProperty?: string
+}

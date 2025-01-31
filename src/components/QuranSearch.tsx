@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState, type JSX } from "react"
+import type React from "react"
+import { useEffect, useState, useCallback, type JSX } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Filter } from "lucide-react"
 import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from "../types/quran"
@@ -15,12 +16,6 @@ export default function QuranSearch(): JSX.Element {
   useEffect(() => {
     fetchQuranData()
   }, [])
-
-  useEffect(() => {
-    if (searchTerm.trim().split(/\s+/).length <= 3) {
-      handleSearch()
-    }
-  }, [searchTerm])
 
   const fetchQuranData = async (): Promise<void> => {
     try {
@@ -59,9 +54,11 @@ export default function QuranSearch(): JSX.Element {
           },
           numberInSurah: Number.parseInt(verse.verse_key.split(":")[1]),
           text: verse.text_uthmani,
-          englishTranslation: englishData.translations[index].text,
-          urduTranslation: urduData.translations[index].text,
-          arabicTranslation: verse.text_uthmani,
+          translations: {
+            english: englishData.translations[index].text,
+            urdu: urduData.translations[index].text,
+            arabic: verse.text_uthmani,
+          },
         }
       })
 
@@ -71,7 +68,7 @@ export default function QuranSearch(): JSX.Element {
     }
   }
 
-  const handleSearch = async (): Promise<void> => {
+  const handleSearch = useCallback(async (): Promise<void> => {
     if (!searchTerm.trim()) {
       setSearchResults([])
       return
@@ -82,14 +79,15 @@ export default function QuranSearch(): JSX.Element {
       const matches: SearchResult[] = quranData
         .filter((ayah) => {
           const searchLower: string = searchTerm.toLowerCase()
-          const translationKey = `${language}Translation`
-          return ayah.text.includes(searchTerm) || ayah[translationKey].toLowerCase().includes(searchLower)
+          return ayah.text.includes(searchTerm) || ayah.translations[language].toLowerCase().includes(searchLower)
         })
         .map((result) => ({
           ...result,
-          englishTranslation: cleanTranslation(result.englishTranslation),
-          urduTranslation: cleanTranslation(result.urduTranslation),
-          arabicTranslation: cleanTranslation(result.arabicTranslation),
+          translations: {
+            english: cleanTranslation(result.translations.english),
+            urdu: cleanTranslation(result.translations.urdu),
+            arabic: cleanTranslation(result.translations.arabic),
+          },
         }))
       setSearchResults(matches)
     } catch (error) {
@@ -97,7 +95,13 @@ export default function QuranSearch(): JSX.Element {
       setSearchResults([])
     }
     setIsLoading(false)
-  }
+  }, [quranData, language, searchTerm])
+
+  useEffect(() => {
+    if (searchTerm.trim().split(/\s+/).length <= 3) {
+      handleSearch()
+    }
+  }, [searchTerm, handleSearch])
 
   const cleanTranslation = (text: string): string => {
     return text.replace(/<[^>]*>/g, "").replace(/\s*$$[^)]*$$/g, "")
@@ -198,7 +202,7 @@ export default function QuranSearch(): JSX.Element {
                     }`}
                     dir={["urdu", "arabic"].includes(language) ? "rtl" : "ltr"}
                   >
-                    {highlightSearchTerm(result[`${language}Translation`], searchTerm)}
+                    {highlightSearchTerm(result.translations[language], searchTerm)}
                   </p>
                 </CardContent>
               </Card>
