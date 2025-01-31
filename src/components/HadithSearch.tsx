@@ -1,84 +1,79 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Search } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Search } from "lucide-react";
 
 interface Hadith {
-  hadithnumber: string
-  text: string
+  hadithnumber: string;
+  text: string;
 }
 
 interface HadithData {
-  [key: string]: Hadith[]
+  [key: string]: Hadith[];
 }
 
 export default function HadithSearch() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedLanguage, setSelectedLanguage] = useState("english")
-  const [selectedBook, setSelectedBook] = useState("eng-bukhari")
-  const [searchResults, setSearchResults] = useState<Hadith[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [hadithData, setHadithData] = useState<HadithData>({})
-  const [arabicHadithData, setArabicHadithData] = useState<HadithData>({})
-  const resultsPerPage = 20
-
-  const fetchHadithData = async (book: string) => {
-    if (hadithData[book]) return
-
-    try {
-      const [translatedResponse, arabicResponse] = await Promise.all([
-        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${book}.json`),
-        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-${book.split("-")[1]}.json`),
-      ])
-
-      const [translatedData, arabicData] = await Promise.all([translatedResponse.json(), arabicResponse.json()])
-
-      setHadithData((prev) => ({ ...prev, [book]: translatedData.hadiths }))
-      setArabicHadithData((prev) => ({ ...prev, [book]: arabicData.hadiths }))
-    } catch (error) {
-      console.error("Error fetching hadith data:", error)
-    }
-  }
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("english");
+  const [selectedBook, setSelectedBook] = useState("eng-bukhari");
+  const [searchResults, setSearchResults] = useState<Hadith[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hadithData, setHadithData] = useState<HadithData>({});
+  const [arabicHadithData, setArabicHadithData] = useState<HadithData>({});
+  const resultsPerPage = 20;
 
   useEffect(() => {
-    fetchHadithData(selectedBook)
-  }, [selectedBook, fetchHadithData]) // Added fetchHadithData to dependencies
+    const fetchHadithData = async () => {
+      if (hadithData[selectedBook]) return;
+      
+      try {
+        const baseBook = selectedBook.split("-")[1];
+        const [translatedResponse, arabicResponse] = await Promise.all([
+          fetch(
+            `https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${selectedBook}.json`
+          ),
+          fetch(
+            `https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-${baseBook}.json`
+          ),
+        ]);
+        
+        if (!translatedResponse.ok || !arabicResponse.ok) {
+          throw new Error("Failed to fetch Hadith data");
+        }
 
-  const searchHadith = (query: string) => {
-    if (!hadithData[selectedBook]) return []
+        const [translatedData, arabicData] = await Promise.all([
+          translatedResponse.json(),
+          arabicResponse.json(),
+        ]);
 
-    const matches = []
-    const lowerQuery = query.toLowerCase()
-
-    for (const hadith of hadithData[selectedBook]) {
-      if (hadith.text.toLowerCase().includes(lowerQuery)) {
-        matches.push(hadith)
+        setHadithData((prev) => ({ ...prev, [selectedBook]: translatedData.hadiths || [] }));
+        setArabicHadithData((prev) => ({ ...prev, [selectedBook]: arabicData.hadiths || [] }));
+      } catch (error) {
+        console.error("Error fetching hadith data:", error);
       }
-    }
+    };
 
-    return matches
-  }
-
-  const handleSearch = () => {
-    if (searchTerm.length > 2) {
-      const matches = searchHadith(searchTerm)
-      setSearchResults(matches)
-      setCurrentPage(1)
-    }
-  }
+    fetchHadithData();
+  }, [selectedBook]);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       if (searchTerm.length > 2) {
-        handleSearch()
+        setSearchResults(searchHadith(searchTerm));
+        setCurrentPage(1);
       }
-    }, 300)
+    }, 300);
+    return () => clearTimeout(debounceTimer);
+  }, [searchTerm, selectedBook]);
 
-    return () => clearTimeout(debounceTimer)
-  }, [searchTerm, selectedBook, selectedLanguage])
+  const searchHadith = (query: string) => {
+    if (!hadithData[selectedBook]) return [];
+    return hadithData[selectedBook].filter((hadith) =>
+      hadith.text.toLowerCase().includes(query.toLowerCase())
+    );
+  };
 
-  const paginatedResults = searchResults.slice(0, currentPage * resultsPerPage)
+  const paginatedResults = searchResults.slice(0, currentPage * resultsPerPage);
 
   return (
     <section>
@@ -93,29 +88,8 @@ export default function HadithSearch() {
           />
           <Search className="absolute right-3 top-3 text-gray-400" />
         </div>
-
         <div className="mt-4 flex items-center justify-between text-sm sm:text-base">
-          <label htmlFor="languageSelect" className="mr-2 text-slate-800">
-            Translation Languages
-          </label>
-          <select
-            id="languageSelect"
-            value={selectedLanguage}
-            onChange={(e) => setSelectedLanguage(e.target.value)}
-            className="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#004D40] text-slate-800"
-          >
-            <option value="english">English</option>
-            <option value="urdu">اردو</option>
-            <option value="indonesian">Indonesian</option>
-            <option value="turkish">Turkish</option>
-            <option value="bengali">Bengali</option>
-          </select>
-        </div>
-
-        <div className="mt-4 flex items-center justify-between text-sm sm:text-base">
-          <label htmlFor="bookSelect" className="mr-2 text-slate-800">
-            Select Hadith Book
-          </label>
+          <label htmlFor="bookSelect" className="mr-2 text-slate-800">Select Hadith Book</label>
           <select
             id="bookSelect"
             value={selectedBook}
@@ -138,15 +112,16 @@ export default function HadithSearch() {
                 <Search className="w-6 h-6 mr-2" />
                 <span className="font-semibold">FILTER</span>
               </div>
-              <div className="text-sm">Searching Hadith text</div>
+              <div className="text-sm">{searchResults.length} Search Results</div>
             </div>
-            <div className="text-sm text-slate-800 mt-2">{searchResults.length} Search Results</div>
           </div>
         )}
 
         <div className="space-y-10">
           {paginatedResults.map((result, index) => {
-            const arabicMatch = arabicHadithData[selectedBook]?.find((h) => h.hadithnumber === result.hadithnumber)
+            const arabicMatch = arabicHadithData[selectedBook]?.find(
+              (h) => h.hadithnumber === result.hadithnumber
+            );
 
             return (
               <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden mb-4">
@@ -162,7 +137,7 @@ export default function HadithSearch() {
                   </p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
 
@@ -176,6 +151,5 @@ export default function HadithSearch() {
         )}
       </div>
     </section>
-  )
+  );
 }
-
