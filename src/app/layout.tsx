@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { myFont } from '../lib/font';
-import type React from "react" // Import React
+import type React from "react" 
 
 export const metadata: Metadata = {
   title: "SearchAyah | Sahaba Names",
@@ -14,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={myFont.className}>
+    <html lang="en" >
       <body className="min-h-screen flex flex-col bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
         {children}
       </body>

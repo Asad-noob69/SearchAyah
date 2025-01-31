@@ -27,10 +27,11 @@ export default function SahabaUrdu() {
           <div className="bg-white p-6 rounded-lg shadow-md my-8 max-w-5xl mx-auto text-cyan-800">
             <h1 className="text-xl font-semibold text-center mb-4 sm:text-2xl">سرچ آیہ - صحابہ کرام کے نام</h1>
             <div className="bg-white p-4 rounded-lg border-2 border-[#67b2b4] text-center">
-              <p className="text-base font-medium sm:text-lg" dir="rtl">
-                "بہترین لوگ میرے زمانے کے ہیں، پھر وہ جو ان کے بعد آئیں گے، پھر وہ جو ان کے بعد آئیں گے۔" <br /> (صحیح
-                البخاری 6429، صحیح مسلم 2533)
-              </p>
+            <p className="text-base font-medium sm:text-lg text-right" dir="rtl">
+              &quot;بہترین لوگ میرے زمانے کے ہیں، پھر وہ جو ان کے بعد آئیں گے، پھر وہ جو ان کے بعد آئیں گے۔&quot;
+              <br />
+              (صحیح البخاری 6429، صحیح مسلم 2533)
+            </p>
             </div>
           </div>
           <SahabaList sahabaNames={urduSahabaNames} language="urdu" />

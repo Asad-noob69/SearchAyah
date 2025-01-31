@@ -1,6 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import Link from "next/link"
+// import Link from "next/link"
 import QuranSearch from "../components/QuranSearch"
 
 export default function Home() {
