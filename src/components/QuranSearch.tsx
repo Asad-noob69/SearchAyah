@@ -1,216 +1,300 @@
-"use client"
+'use client'
 
-import type React from "react"
-import { useEffect, useState, useCallback, type JSX } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Filter } from "lucide-react"
-import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from "../types/quran"
+// types/quran.ts
+export interface Verse {
+  verse_key: string
+  text_uthmani: string
+}
 
-export default function QuranSearch(): JSX.Element {
-  const [searchTerm, setSearchTerm] = useState<string>("")
+export interface Translation {
+  text: string
+}
+
+export interface Chapter {
+  id: number
+  name_simple: string
+}
+
+export interface QuranData {
+  verses: Verse[]
+}
+
+export interface TranslationData {
+  translations: Translation[]
+}
+
+export interface ChapterData {
+  chapters: Chapter[]
+}
+
+export interface SearchResult {
+  surah: {
+    number: number
+    englishName: string
+  }
+  numberInSurah: number
+  text: string
+  translations: {
+    english: string
+    urdu: string
+    indonesian: string
+    turkish: string
+    french: string
+    bengali: string
+    german: string
+  }
+}
+
+export type Language = 'english' | 'urdu' | 'indonesian' | 'turkish' | 'french' | 'bengali' | 'german'
+
+// app/components/QuranSearch.tsx
+
+import { useEffect, useState, useCallback } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Filter } from 'lucide-react'
+import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
+
+const TRANSLATION_IDS = {
+  english: 131,
+  urdu: 97,
+  indonesian: 33,
+  turkish: 77,
+  french: 31,
+  bengali: 161,
+  german: 27
+}
+
+export default function QuranSearch() {
+  const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [language, setLanguage] = useState<Language>("english")
+  const [isLoading, setIsLoading] = useState(false)
+  const [language, setLanguage] = useState<Language>('english')
   const [quranData, setQuranData] = useState<SearchResult[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const resultsPerPage = 20
 
-  useEffect(() => {
-    fetchQuranData()
-  }, [])
+  const fetchTranslation = async (translationId: number) => {
+    const response = await fetch(`https://api.quran.com/api/v4/quran/translations/${translationId}`)
+    if (!response.ok) throw new Error(`Network response was not ok for translation ${translationId}`)
+    const data: TranslationData = await response.json()
+    return data.translations
+  }
 
-  const fetchQuranData = async (): Promise<void> => {
+  const fetchQuranData = async () => {
     try {
+      setIsLoading(true)
       // Fetch Arabic text
-      const arabicResponse = await fetch("https://api.quran.com/api/v4/quran/verses/uthmani")
+      const arabicResponse = await fetch('https://api.quran.com/api/v4/quran/verses/uthmani')
       const arabicData: QuranData = await arabicResponse.json()
 
-      // Fetch English translation
-      const englishResponse = await fetch("https://api.quran.com/api/v4/quran/translations/131")
-      const englishData: TranslationData = await englishResponse.json()
-
-      // Fetch Urdu translation
-      const urduResponse = await fetch("https://api.quran.com/api/v4/quran/translations/97")
-      const urduData: TranslationData = await urduResponse.json()
-
-      // Fetch Surah names
-      const surahResponse = await fetch("https://api.quran.com/api/v4/chapters")
-      const surahData: ChapterData = await surahResponse.json()
-
-      // Create a map of surah names
-      const surahNames: Record<number, string> = surahData.chapters.reduce(
-        (acc, surah) => ({
-          ...acc,
-          [surah.id]: surah.name_simple,
-        }),
-        {},
+      // Fetch all translations
+      const translations = await Promise.all(
+        Object.entries(TRANSLATION_IDS).map(async ([lang, id]) => {
+          const translationData = await fetchTranslation(id)
+          return [lang, translationData]
+        })
       )
 
-      // Combine the data
+      // Create translations map
+      const translationsMap = Object.fromEntries(translations)
+
+      // Fetch Surah names
+      const surahResponse = await fetch('https://api.quran.com/api/v4/chapters')
+      const surahData: ChapterData = await surahResponse.json()
+
+      // Create surah names map
+      const surahNames = surahData.chapters.reduce<Record<number, string>>((acc, surah) => {
+        acc[surah.id] = surah.name_simple
+        return acc
+      }, {})
+
+      // Combine all data
       const combinedData: SearchResult[] = arabicData.verses.map((verse, index) => {
-        const surahNumber: number = Math.floor(Number(verse.verse_key.split(":")[0]))
+        const surahNumber = Math.floor(Number(verse.verse_key.split(':')[0]))
         return {
           surah: {
             number: surahNumber,
-            englishName: `Surah ${surahNames[surahNumber]}`,
+            englishName: `Surah ${surahNames[surahNumber]}`
           },
-          numberInSurah: Number.parseInt(verse.verse_key.split(":")[1]),
+          numberInSurah: Number.parseInt(verse.verse_key.split(':')[1]),
           text: verse.text_uthmani,
           translations: {
-            english: englishData.translations[index].text,
-            urdu: urduData.translations[index].text,
-            arabic: verse.text_uthmani,
-          },
+            english: translationsMap.english[index].text,
+            urdu: translationsMap.urdu[index].text,
+            indonesian: translationsMap.indonesian[index].text,
+            turkish: translationsMap.turkish[index].text,
+            french: translationsMap.french[index].text,
+            bengali: translationsMap.bengali[index].text,
+            german: translationsMap.german[index].text
+          }
         }
       })
 
       setQuranData(combinedData)
     } catch (error) {
-      console.error("Error fetching Quran data:", error)
+      console.error('Error fetching Quran data:', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
-  const handleSearch = useCallback(async (): Promise<void> => {
+  const handleSearch = useCallback(() => {
     if (!searchTerm.trim()) {
       setSearchResults([])
       return
     }
 
-    setIsLoading(true)
-    try {
-      const matches: SearchResult[] = quranData
-        .filter((ayah) => {
-          const searchLower: string = searchTerm.toLowerCase()
-          return ayah.text.includes(searchTerm) || ayah.translations[language].toLowerCase().includes(searchLower)
-        })
-        .map((result) => ({
-          ...result,
-          translations: {
-            english: cleanTranslation(result.translations.english),
-            urdu: cleanTranslation(result.translations.urdu),
-            arabic: cleanTranslation(result.translations.arabic),
-          },
-        }))
-      setSearchResults(matches)
-    } catch (error) {
-      console.error("Error searching:", error)
-      setSearchResults([])
-    }
-    setIsLoading(false)
+    const matches = quranData.filter((ayah) => {
+      const searchLower = searchTerm.toLowerCase()
+      return (
+        ayah.text.includes(searchTerm) ||
+        ayah.translations[language].toLowerCase().includes(searchLower)
+      )
+    })
+
+    setSearchResults(matches)
+    setCurrentPage(1)
   }, [quranData, language, searchTerm])
 
   useEffect(() => {
-    if (searchTerm.trim().split(/\s+/).length <= 3) {
-      handleSearch()
-    }
+    fetchQuranData()
+  }, [])
+
+  useEffect(() => {
+    const debounceTimeout = setTimeout(() => {
+      if (searchTerm.trim().length > 2) {
+        handleSearch()
+      }
+    }, 300)
+
+    return () => clearTimeout(debounceTimeout)
   }, [searchTerm, handleSearch])
 
   const cleanTranslation = (text: string): string => {
-    return text.replace(/<[^>]*>/g, "").replace(/\s*$$[^)]*$$/g, "")
+    return text.replace(/<[^>]*>/g, '').replace(/\s*\$\$[^)]*\$\$/g, '')
   }
 
-  const highlightSearchTerm = (text: string, term: string): JSX.Element => {
-    if (!term.trim()) return <>{text}</>
-    const parts = text.split(new RegExp(`(${term})`, "gi"))
-    return (
-      <>
-        {parts.map((part, index) =>
-          part.toLowerCase() === term.toLowerCase() ? (
-            <mark key={index} className="bg-blue-200 text-black">
-              {part}
-            </mark>
-          ) : (
-            part
-          ),
-        )}
-      </>
-    )
+  const highlightSearchTerm = (text: string, term: string) => {
+    if (!term.trim()) return text
+    const regex = new RegExp(`(${term})`, 'gi')
+    return text.replace(regex, '<mark class="bg-[#67b2b4] bg-opacity-50 text-cyan-900">$1</mark>')
   }
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setLanguage(e.target.value as Language)
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchTerm(e.target.value)
+  const getPaginatedResults = () => {
+    const startIndex = (currentPage - 1) * resultsPerPage
+    return searchResults.slice(0, startIndex + resultsPerPage)
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 text-cyan-800">
-      <h1 className="text-2xl font-semibold text-center text-cyan-800 mb-6" style={{ fontFamily: "Anton" }}>
-        SearchAyah - Quran Search
-      </h1>
+    <div className="min-h-screen">
+      <div className="bg-white p-6 rounded-lg shadow-md my-8 max-w-5xl mx-auto text-cyan-800">
+        <h1 className="text-2xl font-semibold text-center text-cyan-800 mb-6">
+          SearchAyah - Quran Search
+        </h1>
 
-      <div className="border border-[#67b2b4] rounded-lg p-6 mb-8 text-center">
-        <p className="text-[#004D40] text-lg">
-          "This is the Book about which there is no doubt, a guidance for those conscious of Allah."
-        </p>
-        <p className="text-[#004D40] mt-2">(Surah Al-Baqarah, 2:2)</p>
+        <div className="border-2 border-[#67b2b4] rounded-lg p-6 text-center">
+          <p className="text-[#004D40] text-base font-medium sm:text-lg">
+            "This is the Book about which there is no doubt, a guidance for those conscious of Allah."
+          </p>
+          <p className="text-[#004D40] mt-2">(Surah Al-Baqarah, 2:2)</p>
+        </div>
       </div>
 
-      <form className="space-y-4">
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleInputChange}
-          placeholder="Search Word or Ayat of Quran"
-          className="w-full px-4 py-3 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:border-[#004D40] text-gray-700"
-        />
+      <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-8 text-cyan-800">
+        <div className="space-y-4">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search Word or Ayat of Quran"
+            className="w-full px-4 py-3 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
+          />
 
-        <div className="flex items-center justify-between">
-          <label className="text-gray-700">Translation Languages</label>
-          <select
-            value={language}
-            onChange={handleLanguageChange}
-            className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:border-[#004D40] text-gray-700"
-          >
-            <option value="english">English</option>
-            <option value="urdu">اردو</option>
-            <option value="arabic">العربية</option>
-          </select>
+          <div className="flex items-center justify-between">
+            <label className="text-gray-700">Translation Languages</label>
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as Language)}
+              className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
+            >
+              <option value="english">English</option>
+              <option value="urdu">اردو</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="turkish">Turkish</option>
+              <option value="french">French</option>
+              <option value="bengali">Bengali</option>
+              <option value="german">German</option>
+            </select>
+          </div>
         </div>
-      </form>
 
-      {searchResults.length > 0 && (
-        <>
-          <div className="mt-6 bg-[#E5F6F6] rounded-lg p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4" />
-                <span className="font-semibold">FILTER</span>
+        {isLoading && (
+          <div className="mt-8 text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#67b2b4] mx-auto"></div>
+          </div>
+        )}
+
+        {searchResults.length > 0 && !isLoading && (
+          <>
+            <div className="mt-6 bg-[#E5F6F6] rounded-lg p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Filter className="w-4 h-4" />
+                  <span className="font-semibold">FILTER</span>
+                </div>
+                <span className="text-sm text-gray-600">
+                  {searchResults.length} Search Results
+                </span>
               </div>
-              <span className="text-sm text-gray-600">Searching Arabic text and selected translation</span>
             </div>
-            <div className="mt-2 text-sm text-gray-600">{searchResults.length} Search Results</div>
-          </div>
 
-          <div className="mt-8 space-y-4">
-            {searchResults.map((result, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardHeader className="bg-[#67b2b4] py-2 px-4">
-                  <CardTitle className="text-white text-sm font-semibold">
-                    {result.surah.englishName} {result.numberInSurah}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 pt-8">
-                  <div className="mb-8 text-right" dir="rtl">
-                    <span className="text-2xl font-arabic text-cyan-900 leading-[3rem]">
-                      {highlightSearchTerm(result.text, searchTerm)}
-                    </span>
-                  </div>
-                  <p
-                    className={`text-cyan-800 ${
-                      ["urdu", "arabic"].includes(language) ? "text-right font-urdu leading-9" : ""
-                    }`}
-                    dir={["urdu", "arabic"].includes(language) ? "rtl" : "ltr"}
-                  >
-                    {highlightSearchTerm(result.translations[language], searchTerm)}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </>
-      )}
+            <div className="mt-8 space-y-4">
+              {getPaginatedResults().map((result, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <CardHeader className="bg-[#67b2b4] py-2 px-4">
+                    <CardTitle className="text-white text-sm font-semibold">
+                      {result.surah.englishName} {result.numberInSurah}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-4 pb-4 pt-8">
+                    <div className="mb-8 text-right" dir="rtl">
+                      <span
+                        className="text-2xl font-arabic text-cyan-900 leading-[3rem]"
+                        dangerouslySetInnerHTML={{
+                          __html: highlightSearchTerm(result.text, searchTerm)
+                        }}
+                      />
+                    </div>
+                    <p
+                      className={`text-cyan-800 ${
+                        ['urdu', 'bengali'].includes(language)
+                          ? 'text-right font-urdu leading-9'
+                          : ''
+                      }`}
+                      dir={['urdu', 'bengali'].includes(language) ? 'rtl' : 'ltr'}
+                      dangerouslySetInnerHTML={{
+                        __html: highlightSearchTerm(
+                          cleanTranslation(result.translations[language]),
+                          searchTerm
+                        )
+                      }}
+                    />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {searchResults.length > currentPage * resultsPerPage && (
+              <button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                className="w-full mt-4 py-2 bg-[#67b2b4] text-white rounded-lg hover:bg-[#6e9d9e] transition duration-300"
+              >
+                Load More
+              </button>
+            )}
+          </>
+        )}
+      </div>
     </div>
   )
 }
-
