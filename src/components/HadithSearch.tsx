@@ -31,6 +31,8 @@ const BOOKS = [
   { value: 'malik', label: 'Muwatta Malik' }
 ] as const
 
+type BookValue = typeof BOOKS[number]['value']
+
 const HadithCard = React.memo(({ 
   result, 
   arabicText, 
@@ -85,7 +87,7 @@ type HadithDataType = Record<string, Record<LanguageWithArabic, Hadith[]>>
 export default function HadithSearch() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedLanguage, setSelectedLanguage] = useState<Language>('english')
-  const [selectedBook, setSelectedBook] = useState(BOOKS[0].value)
+  const [selectedBook, setSelectedBook] = useState<BookValue>('bukhari')
   const [searchResults, setSearchResults] = useState<Hadith[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
@@ -172,7 +174,7 @@ export default function HadithSearch() {
               <label className="text-gray-700">Select Book</label>
               <select
                 value={selectedBook}
-                onChange={(e) => setSelectedBook(e.target.value)}
+                onChange={(e) => setSelectedBook(e.target.value as BookValue)}
                 className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
               >
                 {BOOKS.map((book) => (
