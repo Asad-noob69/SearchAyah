@@ -16,7 +16,7 @@ export type Language = 'english' | 'urdu' | 'bengali' | 'turkish' | 'indonesian'
 
 import { useState, useEffect, useCallback } from 'react'
 import { Search } from 'lucide-react'
-import type { Hadith, HadithData, Language } from '@/types/hadith'
+// import type { Hadith, HadithData, Language } from '@/types/hadith'
 
 const LANGUAGE_CODES = {
   english: 'eng',
