@@ -1,71 +1,92 @@
-"use client"
+'use client'
 
-import { useState, useEffect, useMemo } from "react"
-import { Search } from "lucide-react"
-
-interface Hadith {
+// types/hadith.ts
+export interface Hadith {
   hadithnumber: string
   text: string
 }
 
-interface HadithData {
+export interface HadithData {
   [key: string]: Hadith[]
 }
 
+export type Language = 'english' | 'urdu' | 'bengali' | 'turkish' | 'indonesian'
+
+// app/components/HadithSearch.tsx
+
+import { useState, useEffect, useCallback } from 'react'
+import { Search } from 'lucide-react'
+import type { Hadith, HadithData, Language } from '@/types/hadith'
+
+const LANGUAGE_CODES = {
+  english: 'eng',
+  urdu: 'urd',
+  bengali: 'ben',
+  turkish: 'tur',
+  indonesian: 'ind',
+  arabic: 'ara'
+}
+
+const BOOKS = [
+  { value: 'bukhari', label: 'Sahih al-Bukhari' },
+  { value: 'muslim', label: 'Sahih Muslim' },
+  { value: 'nasai', label: "Sunan an-Nasa'i" },
+  { value: 'abudawud', label: 'Sunan Abi Dawud' },
+  { value: 'tirmidhi', label: "Jami' at-Tirmidhi" },
+  { value: 'ibnmajah', label: 'Sunan Ibn Majah' },
+  { value: 'malik', label: 'Muwatta Malik' }
+] as const
+
 export default function HadithSearch() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedLanguage, setSelectedLanguage] = useState("english")
-  const [selectedBook, setSelectedBook] = useState("eng-bukhari")
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>('english')
+  const [selectedBook, setSelectedBook] = useState(BOOKS[0].value)
   const [searchResults, setSearchResults] = useState<Hadith[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
-  const [hadithData, setHadithData] = useState<HadithData>({})
-  const [arabicHadithData, setArabicHadithData] = useState<HadithData>({})
+  const [hadithData, setHadithData] = useState<Record<string, Record<Language | 'arabic', Hadith[]>>>({})
+
   const resultsPerPage = 20
 
-  const books = useMemo(
-    () => [
-      { value: "eng-bukhari", label: "Sahih al-Bukhari" },
-      { value: "eng-muslim", label: "Sahih Muslim" },
-      { value: "eng-nasai", label: "Sunan an-Nasa'i" },
-      { value: "eng-abudawud", label: "Sunan Abi Dawud" },
-      { value: "eng-tirmidhi", label: "Jami` at-Tirmidhi" },
-      { value: "eng-ibnmajah", label: "Sunan Ibn Majah" },
-      { value: "eng-malik", label: "Muwatta Malik" },
-    ],
-    [],
-  )
+  const fetchHadithData = useCallback(async (book: string) => {
+    if (hadithData[book]?.[selectedLanguage]) return
+
+    setIsLoading(true)
+    try {
+      const fetchPromises = Object.entries(LANGUAGE_CODES).map(async ([lang, code]) => {
+        const response = await fetch(
+          `https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${code}-${book}.json`
+        )
+        if (!response.ok) throw new Error(`Failed to fetch ${lang} hadith data`)
+        const data = await response.json()
+        return [lang, data.hadiths] as const
+      })
+
+      const results = await Promise.all(fetchPromises)
+      
+      setHadithData(prev => ({
+        ...prev,
+        [book]: Object.fromEntries(results)
+      }))
+    } catch (error) {
+      console.error('Error fetching hadith data:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [hadithData, selectedLanguage])
 
   useEffect(() => {
-    const fetchHadithData = async () => {
-      if (hadithData[selectedBook]) return
+    fetchHadithData(selectedBook)
+  }, [selectedBook, fetchHadithData])
 
-      setIsLoading(true)
+  const searchHadith = useCallback((query: string) => {
+    if (!hadithData[selectedBook]?.[selectedLanguage]) return []
 
-      try {
-        const baseBook = selectedBook.split("-")[1]
-        const [translatedResponse, arabicResponse] = await Promise.all([
-          fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/${selectedBook}.json`),
-          fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-${baseBook}.json`),
-        ])
-
-        if (!translatedResponse.ok || !arabicResponse.ok) {
-          throw new Error("Failed to fetch Hadith data")
-        }
-
-        const [translatedData, arabicData] = await Promise.all([translatedResponse.json(), arabicResponse.json()])
-
-        setHadithData((prev) => ({ ...prev, [selectedBook]: translatedData.hadiths || [] }))
-        setArabicHadithData((prev) => ({ ...prev, [selectedBook]: arabicData.hadiths || [] }))
-      } catch (error) {
-        console.error("Error fetching hadith data:", error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchHadithData()
-  }, [selectedBook, hadithData]) // Added hadithData to the dependency array
+    const lowerQuery = query.toLowerCase()
+    return hadithData[selectedBook][selectedLanguage].filter(hadith =>
+      hadith.text.toLowerCase().includes(lowerQuery)
+    )
+  }, [hadithData, selectedBook, selectedLanguage])
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -77,117 +98,134 @@ export default function HadithSearch() {
       }
     }, 300)
     return () => clearTimeout(debounceTimer)
-  }, [searchTerm, selectedBook, hadithData])
+  }, [searchTerm, searchHadith])
 
-  const searchHadith = (query: string) => {
-    if (!hadithData[selectedBook]) return []
-    return hadithData[selectedBook].filter((hadith) => hadith.text.toLowerCase().includes(query.toLowerCase()))
-  }
-
-  const highlightText = (text: string, highlight: string) => {
-    if (!highlight.trim()) {
-      return <span>{text}</span>
-    }
-    const regex = new RegExp(`(${highlight})`, "gi")
-    const parts = text.split(regex)
-    return (
-      <span>
-        {parts.filter(String).map((part, i) =>
-          regex.test(part) ? (
-            <mark key={i} className="bg-blue-200">
-              {part}
-            </mark>
-          ) : (
-            <span key={i}>{part}</span>
-          ),
-        )}
-      </span>
+  const highlightSearchTerm = (text: string, term: string) => {
+    if (!term.trim()) return text
+    const regex = new RegExp(`(${term})`, 'gi')
+    return text.replace(
+      regex,
+      '<mark class="bg-[#67b2b4] bg-opacity-50 text-cyan-900">$1</mark>'
     )
   }
 
-  const paginatedResults = searchResults.slice(0, currentPage * resultsPerPage)
+  const getPaginatedResults = () => {
+    return searchResults.slice(0, currentPage * resultsPerPage)
+  }
 
   return (
-    <section>
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <div className="relative">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search Hadith With Word"
-            className="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#004D40] text-sm sm:text-base mb-4"
-          />
-          <Search className="absolute right-3 top-3 text-gray-400" />
-        </div>
-        <div className="mt-4 flex items-center justify-between text-sm sm:text-base">
-          <label htmlFor="bookSelect" className="mr-2 text-slate-800">
-            Select Hadith Book
-          </label>
-          <select
-            id="bookSelect"
-            value={selectedBook}
-            onChange={(e) => setSelectedBook(e.target.value)}
-            className="px-4 py-2 rounded-lg border-2 border-[#67b2b4] focus:outline-none focus:border-[#004D40] text-slate-800"
-          >
-            {books.map((book) => (
-              <option key={book.value} value={book.value}>
-                {book.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {isLoading && (
-          <div className="my-5 text-center">
-            <p>Loading...</p>
+    <div className="min-h-screen ">
+      <div className="max-w-5xl mx-auto">
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search Hadith"
+              className="w-full h-12 px-4 rounded-lg border-2 border-[#67b2b4] focus:outline-none text-sm sm:text-base"
+            />
+            <Search className="absolute right-3 top-3 text-gray-400" />
           </div>
-        )}
 
-        {searchResults.length > 0 && !isLoading && (
-          <div id="searchInfo" className="my-5 bg-[#67b2b4] text-slate-800 bg-opacity-20 rounded-lg p-3">
+          <div className="mt-4 space-y-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Search className="w-6 h-6 mr-2" />
-                <span className="font-semibold">FILTER</span>
-              </div>
-              <div className="text-sm">{searchResults.length} Search Results</div>
+              <label className="text-gray-700">Select Book</label>
+              <select
+                value={selectedBook}
+                onChange={(e) => setSelectedBook(e.target.value)}
+                className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
+              >
+                {BOOKS.map((book) => (
+                  <option key={book.value} value={book.value}>
+                    {book.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="text-gray-700">Translation Language</label>
+              <select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value as Language)}
+                className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
+              >
+                <option value="english">English</option>
+                <option value="urdu">اردو</option>
+                <option value="bengali">Bengali</option>
+                <option value="turkish">Turkish</option>
+                <option value="indonesian">Indonesian</option>
+              </select>
             </div>
           </div>
-        )}
 
-        <div className="space-y-10">
-          {paginatedResults.map((result, index) => {
-            const arabicMatch = arabicHadithData[selectedBook]?.find((h) => h.hadithnumber === result.hadithnumber)
+          {isLoading && (
+            <div className="mt-8 text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#67b2b4] mx-auto"></div>
+            </div>
+          )}
 
-            return (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden mb-4">
-                <div className="bg-[#67b2b4] py-2 px-4">
-                  <h3 className="text-white font-semibold">Hadith {result.hadithnumber}</h3>
-                </div>
-                <div className="px-4 pb-4 pt-8">
-                  <p className="text-cyan-800 font-arabic leading-[4rem] text-right text-2xl" dir="rtl">
-                    {arabicMatch?.text || "Arabic text not available"}
-                  </p>
-                  <p className={`text-cyan-800 my-10 ${selectedLanguage === "urdu" ? "font-urdu text-right" : ""}`}>
-                    {highlightText(result.text, searchTerm)}
-                  </p>
+          {searchResults.length > 0 && !isLoading && (
+            <>
+              <div className="mt-6 bg-[#E5F6F6] rounded-lg p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Search className="w-4 h-4" />
+                    <span className="font-semibold">FILTER</span>
+                  </div>
+                  <span className="text-sm text-gray-600">
+                    {searchResults.length} Search Results
+                  </span>
                 </div>
               </div>
-            )
-          })}
-        </div>
 
-        {searchResults.length > paginatedResults.length && (
-          <button
-            onClick={() => setCurrentPage((prev) => prev + 1)}
-            className="w-full py-2 bg-[#67b2b4] text-white rounded-lg hover:bg-[#6e9d9e] transition duration-300 mt-4"
-          >
-            Load More
-          </button>
-        )}
+              <div className="mt-8 space-y-4">
+                {getPaginatedResults().map((result, index) => {
+                  const arabicText = hadithData[selectedBook]?.arabic?.find(
+                    h => h.hadithnumber === result.hadithnumber
+                  )?.text
+
+                  return (
+                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                      <div className="bg-[#67b2b4] py-2 px-4">
+                        <h3 className="text-white font-semibold">
+                          Hadith {result.hadithnumber}
+                        </h3>
+                      </div>
+                      <div className="px-4 pb-4 pt-8">
+                        <p className="text-cyan-800 font-arabic leading-[4rem] text-right text-2xl" dir="rtl">
+                          {arabicText || 'Arabic text not available'}
+                        </p>
+                        <p
+                          className={`text-cyan-800 my-10 ${
+                            ['urdu', 'bengali'].includes(selectedLanguage)
+                              ? 'text-right font-urdu leading-9'
+                              : ''
+                          }`}
+                          dir={['urdu', 'bengali'].includes(selectedLanguage) ? 'rtl' : 'ltr'}
+                          dangerouslySetInnerHTML={{
+                            __html: highlightSearchTerm(result.text, searchTerm)
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {searchResults.length > currentPage * resultsPerPage && (
+                <button
+                  onClick={() => setCurrentPage(prev => prev + 1)}
+                  className="w-full mt-4 py-2 bg-[#67b2b4] text-white rounded-lg hover:bg-[#6e9d9e] transition duration-300"
+                >
+                  Load More
+                </button>
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
-
