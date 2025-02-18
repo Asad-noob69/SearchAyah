@@ -52,7 +52,7 @@ export type Language = 'english' | 'urdu' | 'indonesian' | 'turkish' | 'french' 
 import { useEffect, useState, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Filter } from 'lucide-react'
-import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
+// import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
 
 const TRANSLATION_IDS = {
   english: 131,
