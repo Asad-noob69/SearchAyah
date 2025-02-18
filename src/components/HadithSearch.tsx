@@ -1,25 +1,19 @@
 'use client'
 
-// types/hadith.ts
-export interface Hadith {
+import React, { useState, useEffect, useCallback } from 'react'
+import { Search } from 'lucide-react'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import Head from 'next/head'
+
+type Language = 'english' | 'urdu' | 'bengali' | 'turkish' | 'indonesian'
+type LanguageWithArabic = Language | 'arabic'
+
+interface Hadith {
   hadithnumber: string
   text: string
 }
 
-export interface HadithData {
-  [key: string]: Hadith[]
-}
-
-export type Language = 'english' | 'urdu' | 'bengali' | 'turkish' | 'indonesian'
-
-// app/components/HadithSearch.tsx
-
-import { useState, useEffect, useCallback } from 'react'
-import { Search } from 'lucide-react'
-import type { Hadith, HadithData, Language } from '@/types/hadith'
-import Head from 'next/head'
-
-const LANGUAGE_CODES = {
+const LANGUAGE_CODES: Record<LanguageWithArabic, string> = {
   english: 'eng',
   urdu: 'urd',
   bengali: 'ben',
@@ -38,14 +32,67 @@ const BOOKS = [
   { value: 'malik', label: 'Muwatta Malik' }
 ] as const
 
+type BookValue = typeof BOOKS[number]['value']
+
+const HadithCard = React.memo(({ 
+  result, 
+  arabicText, 
+  selectedLanguage, 
+  searchTerm 
+}: { 
+  result: Hadith
+  arabicText?: string
+  selectedLanguage: Language
+  searchTerm: string 
+}) => {
+  const highlightSearchTerm = (text: string, term: string) => {
+    if (!term.trim()) return text
+    const regex = new RegExp(`(${term})`, 'gi')
+    return text.replace(
+      regex,
+      '<mark class="bg-[#67b2b4] bg-opacity-50 text-cyan-900">$1</mark>'
+    )
+  }
+
+  return (
+    <Card>
+      <CardHeader className="bg-[#67b2b4] py-2 px-4">
+        <h3 className="text-white font-semibold">
+          Hadith {result.hadithnumber}
+        </h3>
+      </CardHeader>
+      <CardContent className="px-4 pb-4 pt-8">
+        <p className="text-cyan-800 font-arabic leading-[4rem] text-right text-2xl" dir="rtl">
+          {arabicText || 'Arabic text not available'}
+        </p>
+        <p
+          className={`text-cyan-800 my-10 ${
+            ['urdu', 'bengali'].includes(selectedLanguage)
+              ? 'text-right font-urdu leading-9'
+              : ''
+          }`}
+          dir={['urdu', 'bengali'].includes(selectedLanguage) ? 'rtl' : 'ltr'}
+          dangerouslySetInnerHTML={{
+            __html: highlightSearchTerm(result.text, searchTerm)
+          }}
+        />
+      </CardContent>
+    </Card>
+  )
+})
+
+HadithCard.displayName = 'HadithCard'
+
+type HadithDataType = Record<string, Record<LanguageWithArabic, Hadith[]>>
+
 export default function HadithSearch() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedLanguage, setSelectedLanguage] = useState<Language>('english')
-  const [selectedBook, setSelectedBook] = useState(BOOKS[0].value)
+  const [selectedBook, setSelectedBook] = useState<BookValue>('bukhari')
   const [searchResults, setSearchResults] = useState<Hadith[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
-  const [hadithData, setHadithData] = useState<Record<string, Record<Language | 'arabic', Hadith[]>>>({})
+  const [hadithData, setHadithData] = useState<HadithDataType>({})
 
   const resultsPerPage = 20
 
@@ -65,10 +112,13 @@ export default function HadithSearch() {
 
       const results = await Promise.all(fetchPromises)
       
-      setHadithData(prev => ({
-        ...prev,
-        [book]: Object.fromEntries(results)
-      }))
+      setHadithData(prev => {
+        const newBookData = Object.fromEntries(results) as Record<LanguageWithArabic, Hadith[]>
+        return {
+          ...prev,
+          [book]: newBookData
+        }
+      })
     } catch (error) {
       console.error('Error fetching hadith data:', error)
     } finally {
@@ -101,22 +151,13 @@ export default function HadithSearch() {
     return () => clearTimeout(debounceTimer)
   }, [searchTerm, searchHadith])
 
-  const highlightSearchTerm = (text: string, term: string) => {
-    if (!term.trim()) return text
-    const regex = new RegExp(`(${term})`, 'gi')
-    return text.replace(
-      regex,
-      '<mark class="bg-[#67b2b4] bg-opacity-50 text-cyan-900">$1</mark>'
-    )
-  }
-
   const getPaginatedResults = () => {
     return searchResults.slice(0, currentPage * resultsPerPage)
   }
 
   return (
     <>
-     <Head>
+      <Head>
         <title>SearchAyah: Search The Quran</title>
         <meta name="description" content="Search any hadith from 7 Different books with single word. The matching words will appear on the suggestion making it easy for the user to find hadith in the fastest way possible" />
         <meta name="keywords" content="Islamic books, Tafseer, Hadith, Quran, Searching hadith, Finding hadith, Easy hadith, learn hadith, hadith of prophet(SAW), hadees, Islam, Islamic website" />
@@ -127,10 +168,9 @@ export default function HadithSearch() {
         <meta property="og:url" content="https://searchayah.com/hadith" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-    
-    <div className="min-h-screen ">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="min-h-screen">
+      <Card className="max-w-5xl mx-auto">
+        <CardContent className="p-6">
           <div className="relative">
             <input
               type="text"
@@ -147,7 +187,7 @@ export default function HadithSearch() {
               <label className="text-gray-700">Select Book</label>
               <select
                 value={selectedBook}
-                onChange={(e) => setSelectedBook(e.target.value)}
+                onChange={(e) => setSelectedBook(e.target.value as BookValue)}
                 className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
               >
                 {BOOKS.map((book) => (
@@ -165,11 +205,13 @@ export default function HadithSearch() {
                 onChange={(e) => setSelectedLanguage(e.target.value as Language)}
                 className="px-4 py-2 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
               >
-                <option value="english">English</option>
-                <option value="urdu">اردو</option>
-                <option value="bengali">Bengali</option>
-                <option value="turkish">Turkish</option>
-                <option value="indonesian">Indonesian</option>
+                {Object.entries(LANGUAGE_CODES).map(([lang, _]) => (
+                  lang !== 'arabic' && (
+                    <option key={lang} value={lang}>
+                      {lang.charAt(0).toUpperCase() + lang.slice(1)}
+                    </option>
+                  )
+                ))}
               </select>
             </div>
           </div>
@@ -195,37 +237,17 @@ export default function HadithSearch() {
               </div>
 
               <div className="mt-8 space-y-4">
-                {getPaginatedResults().map((result, index) => {
-                  const arabicText = hadithData[selectedBook]?.arabic?.find(
-                    h => h.hadithnumber === result.hadithnumber
-                  )?.text
-
-                  return (
-                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                      <div className="bg-[#67b2b4] py-2 px-4">
-                        <h3 className="text-white font-semibold">
-                          Hadith {result.hadithnumber}
-                        </h3>
-                      </div>
-                      <div className="px-4 pb-4 pt-8">
-                        <p className="text-cyan-800 font-arabic leading-[4rem] text-right text-2xl" dir="rtl">
-                          {arabicText || 'Arabic text not available'}
-                        </p>
-                        <p
-                          className={`text-cyan-800 my-10 ${
-                            ['urdu', 'bengali'].includes(selectedLanguage)
-                              ? 'text-right font-urdu leading-9'
-                              : ''
-                          }`}
-                          dir={['urdu', 'bengali'].includes(selectedLanguage) ? 'rtl' : 'ltr'}
-                          dangerouslySetInnerHTML={{
-                            __html: highlightSearchTerm(result.text, searchTerm)
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )
-                })}
+                {getPaginatedResults().map((result, index) => (
+                  <HadithCard
+                    key={`${result.hadithnumber}-${index}`}
+                    result={result}
+                    arabicText={hadithData[selectedBook]?.arabic?.find(
+                      h => h.hadithnumber === result.hadithnumber
+                    )?.text}
+                    selectedLanguage={selectedLanguage}
+                    searchTerm={searchTerm}
+                  />
+                ))}
               </div>
 
               {searchResults.length > currentPage * resultsPerPage && (
@@ -238,8 +260,8 @@ export default function HadithSearch() {
               )}
             </>
           )}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
     </>
   )
