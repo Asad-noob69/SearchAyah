@@ -135,7 +135,7 @@ export default function QuranSearch(): JSX.Element {
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 text-cyan-800">
-      <h1 className="text-2xl font-semibold text-center text-cyan-800 mb-6" style={{ fontFamily: "Anton" }}>
+      <h1 className="text-2xl font-semibold text-center text-cyan-800 mb-6">
         SearchAyah - Quran Search
       </h1>
 

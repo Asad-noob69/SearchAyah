@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { Search } from "lucide-react"
+import Head from "next/head"
 
 interface Hadith {
   hadithnumber: string
@@ -108,6 +109,18 @@ export default function HadithSearch() {
   const paginatedResults = searchResults.slice(0, currentPage * resultsPerPage)
 
   return (
+    <>
+    <Head>
+        <title>SearchAyah: Search The Quran</title>
+        <meta name="description" content="Search any hadith from 7 Different books with single word. The matching words will appear on the suggestion making it easy for the user to find hadith in the fastest way possible" />
+        <meta name="keywords" content="Islamic books, Tafseer, Hadith, Quran, Searching hadith, Finding hadith, Easy hadith, learn hadith, hadith of prophet(SAW), hadees, Islam, Islamic website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="SearchAyah: Search The Hadith" />
+        <meta property="og:description" content="Search any quranic ayah with single words. The matching word will appear on the suggestion making it easy for the user to get hadith in the fastest way possible" />
+        <meta property="og:image" content="https://searchayah.com/cover.jpg" />
+        <meta property="og:url" content="https://searchayah.com/hadith" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
     <section>
       <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="relative">
@@ -188,6 +201,7 @@ export default function HadithSearch() {
         )}
       </div>
     </section>
+    </>
   )
 }
 
