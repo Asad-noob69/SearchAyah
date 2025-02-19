@@ -1,6 +1,5 @@
 "use client"
 
-import Head from "next/head";
 import { useState, useEffect } from "react"
 
 interface SahabaListProps {
@@ -32,18 +31,6 @@ export default function SahabaList({ sahabaNames, language }: SahabaListProps) {
   }
 
   return (
-    <>
-    <Head>
-        <title>SearchAyah: Search The Sahaba</title>
-        <meta name="description" content="Search any Sahaba using the searchbar and it will guide you to the wikipedia of each sahaba by the names" />
-        <meta name="keywords" content="Islamic books, Tafseer, Hadith, Quran, Searching Sahaba, Finding Sahaba, Easy Sahaba, learn Sahaba, Companions of prophet(SAW), Companions, Islam, Islamic website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="SearchAyah: Search about Companions" />
-        <meta property="og:description" content="Search any quranic ayah with single words. The matching word will appear on the suggestion making it easy for the user to get hadith in the fastest way possible" />
-        <meta property="og:image" content="https://searchayah.com/cover.jpg" />
-        <meta property="og:url" content="https://searchayah.com/sahaba" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
     <div className="bg-white rounded-lg shadow-lg p-6">
       <input
         type="text"
@@ -62,7 +49,6 @@ export default function SahabaList({ sahabaNames, language }: SahabaListProps) {
         ))}
       </ul>
     </div>
-    </>
   )
 }
 

@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Search } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import Head from 'next/head'
 
 type Language = 'english' | 'urdu' | 'bengali' | 'turkish' | 'indonesian'
 type LanguageWithArabic = Language | 'arabic'
@@ -156,18 +155,6 @@ export default function HadithSearch() {
   }
 
   return (
-    <>
-      <Head>
-        <title>SearchAyah: Search The Quran</title>
-        <meta name="description" content="Search any hadith from 7 Different books with single word. The matching words will appear on the suggestion making it easy for the user to find hadith in the fastest way possible" />
-        <meta name="keywords" content="Islamic books, Tafseer, Hadith, Quran, Searching hadith, Finding hadith, Easy hadith, learn hadith, hadith of prophet(SAW), hadees, Islam, Islamic website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="SearchAyah: Search The Hadith" />
-        <meta property="og:description" content="Search any quranic ayah with single words. The matching word will appear on the suggestion making it easy for the user to get hadith in the fastest way possible" />
-        <meta property="og:image" content="https://searchayah.com/cover.jpg" />
-        <meta property="og:url" content="https://searchayah.com/hadith" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
     <div className="min-h-screen">
       <Card className="max-w-5xl mx-auto">
         <CardContent className="p-6">
@@ -263,6 +250,5 @@ export default function HadithSearch() {
         </CardContent>
       </Card>
     </div>
-    </>
   )
 }

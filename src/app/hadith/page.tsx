@@ -6,19 +6,16 @@ import Head from "next/head"
 export default function HadithPage() {
   return (
     <>
-      <Head>
-      <title>SearchAyah | Hadith Search</title>
-    <meta name="description" content="Search and explore Hadith collections. Discover teachings and sayings of Prophet Muhammad (PBUH) with ease."/>
-    <meta name="keywords" content="Hadith, Islamic teachings, Quran, Prophet Muhammad, search Hadith"/>
-    <link rel="canonical" href="https://yourwebsite.com/html/hadith.html"/>
-    <meta property="og:title" content="Search Hadith - Explore Islamic Teachings"/>
-    <meta property="og:description" content="Search and explore Hadith collections. Discover teachings and sayings of Prophet Muhammad (PBUH) with ease."/>
-    <meta property="og:image" content="https://yourwebsite.com/images/intro.png"/>
-    <meta property="og:url" content="https://yourwebsite.com/html/hadith.html"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Search Hadith - Explore Islamic Teachings"/>
-    <meta name="twitter:description" content="Search and explore Hadith collections. Discover teachings and sayings of Prophet Muhammad (PBUH) with ease."/>
-    <meta name="twitter:image" content="https://yourwebsite.com/images/intro.png"/>
+       <Head>
+        <title>SearchAyah: Search The Quran</title>
+        <meta name="description" content="Search any hadith from 7 Different books with single word. The matching words will appear on the suggestion making it easy for the user to find hadith in the fastest way possible" />
+        <meta name="keywords" content="Islamic books, Tafseer, Hadith, Quran, Searching hadith, Finding hadith, Easy hadith, learn hadith, hadith of prophet(SAW), hadees, Islam, Islamic website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="SearchAyah: Search The Hadith" />
+        <meta property="og:description" content="Search any quranic ayah with single words. The matching word will appear on the suggestion making it easy for the user to get hadith in the fastest way possible" />
+        <meta property="og:image" content="https://searchayah.com/cover.jpg" />
+        <meta property="og:url" content="https://searchayah.com/hadith" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
       <main className="pb-24">
