@@ -1,7 +1,16 @@
-import Link from "next/link"
-import Image from "next/image"
+'use client'
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header>
       <nav className="w-full h-19 shadow-md bg-[url('/images/nav_img.png')] bg-repeat relative z-20">
@@ -43,12 +52,13 @@ export default function Header() {
             </div>
             <div className="md:hidden">
               <button
-                id="mobile-menu-button"
+                onClick={toggleMobileMenu}
                 type="button"
-                className="text-white hover:bg-[#67b2b4] hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+                className="text-white hover:bg-[#67b2b4] hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-transform duration-300"
+                aria-expanded={isMenuOpen}
               >
                 <svg
-                  className="h-6 w-6"
+                  className={`h-6 w-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -60,29 +70,35 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div id="mobile-menu" className="hidden md:hidden">
+        <div 
+          className={`transform transition-all duration-300 ease-in-out md:hidden ${
+            isMenuOpen 
+              ? 'translate-y-0 opacity-100 max-h-64' 
+              : '-translate-y-10 opacity-0 max-h-0 overflow-hidden'
+          }`}
+        >
           <div className="pt-3 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
-              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal"
+              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal transition-colors duration-200"
             >
               Quran
             </Link>
             <Link
               href="/hadith"
-              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal"
+              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal transition-colors duration-200"
             >
               Hadith
             </Link>
             <Link
               href="/sahaba"
-              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal"
+              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal transition-colors duration-200"
             >
               Sahaba
             </Link>
             <Link
               href="/books"
-              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal"
+              className="text-white hover:bg-[#67b2b4] hover:text-white block px-5 py-2 text-lg font-normal transition-colors duration-200"
             >
               Islamic Books
             </Link>
@@ -90,6 +106,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
-
