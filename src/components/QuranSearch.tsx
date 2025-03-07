@@ -1,57 +1,9 @@
 'use client'
 
-// types/quran.ts
-export interface Verse {
-  verse_key: string
-  text_uthmani: string
-}
-
-export interface Translation {
-  text: string
-}
-
-export interface Chapter {
-  id: number
-  name_simple: string
-}
-
-export interface QuranData {
-  verses: Verse[]
-}
-
-export interface TranslationData {
-  translations: Translation[]
-}
-
-export interface ChapterData {
-  chapters: Chapter[]
-}
-
-export interface SearchResult {
-  surah: {
-    number: number
-    englishName: string
-  }
-  numberInSurah: number
-  text: string
-  translations: {
-    english: string
-    urdu: string
-    indonesian: string
-    turkish: string
-    french: string
-    bengali: string
-    german: string
-  }
-}
-
-export type Language = 'english' | 'urdu' | 'indonesian' | 'turkish' | 'french' | 'bengali' | 'german'
-
-// app/components/QuranSearch.tsx
-
 import { useEffect, useState, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Filter } from 'lucide-react'
+import WordQuran from './WordQuran'
 // import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
 
 const TRANSLATION_IDS = {
@@ -71,6 +23,7 @@ export default function QuranSearch() {
   const [language, setLanguage] = useState<Language>('english')
   const [quranData, setQuranData] = useState<SearchResult[]>([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [isSearching, setIsSearching] = useState(false)
   const resultsPerPage = 20
 
   const fetchTranslation = async (translationId: number) => {
@@ -141,19 +94,28 @@ export default function QuranSearch() {
   const handleSearch = useCallback(() => {
     if (!searchTerm.trim()) {
       setSearchResults([])
+      setIsSearching(false)
       return
     }
 
-    const matches = quranData.filter((ayah) => {
-      const searchLower = searchTerm.toLowerCase()
-      return (
-        ayah.text.includes(searchTerm) ||
-        ayah.translations[language].toLowerCase().includes(searchLower)
-      )
-    })
+    // Set searching state based on search term length
+    setIsSearching(searchTerm.trim().length > 2)
 
-    setSearchResults(matches)
-    setCurrentPage(1)
+    // Only perform search if we have 3 or more characters
+    if (searchTerm.trim().length > 2) {
+      const matches = quranData.filter((ayah) => {
+        const searchLower = searchTerm.toLowerCase()
+        return (
+          ayah.text.includes(searchTerm) ||
+          ayah.translations[language].toLowerCase().includes(searchLower)
+        )
+      })
+
+      setSearchResults(matches)
+      setCurrentPage(1)
+    } else {
+      setSearchResults([])
+    }
   }, [quranData, language, searchTerm])
 
   useEffect(() => {
@@ -162,13 +124,23 @@ export default function QuranSearch() {
 
   useEffect(() => {
     const debounceTimeout = setTimeout(() => {
-      if (searchTerm.trim().length > 2) {
-        handleSearch()
-      }
+      handleSearch()
     }, 300)
 
     return () => clearTimeout(debounceTimeout)
   }, [searchTerm, handleSearch])
+
+  // Handle input change
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setSearchTerm(value)
+    
+    // Clear results and set searching state to false if input is cleared
+    if (!value.trim()) {
+      setSearchResults([])
+      setIsSearching(false)
+    }
+  }
 
   const cleanTranslation = (text: string): string => {
     return text.replace(/<[^>]*>/g, '').replace(/\s*\$\$[^)]*\$\$/g, '')
@@ -205,7 +177,7 @@ export default function QuranSearch() {
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleInputChange}
             placeholder="Search Word or Ayat of Quran"
             className="w-full px-4 py-3 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
           />
@@ -233,6 +205,9 @@ export default function QuranSearch() {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#67b2b4] mx-auto"></div>
           </div>
         )}
+
+        {/* WordQuran component - only show when not searching */}
+        
 
         {searchResults.length > 0 && !isLoading && (
           <>
@@ -295,6 +270,7 @@ export default function QuranSearch() {
           </>
         )}
       </div>
+      {!isSearching && !isLoading && <WordQuran />}
     </div>
   )
 }
