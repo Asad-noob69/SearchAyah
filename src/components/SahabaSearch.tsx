@@ -311,13 +311,2077 @@ const englishSahabaNames = [
 
 const urduSahabaNames = [
   {
-    name: "ابوبکر صدیق",
-    url: "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A8%DA%A9%D8%B1_%D8%B5%D8%AF%DB%8C%D9%82",
+    "name": "آمنہ بنت وہب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A2%D9%85%D9%86%DB%81_%D8%A8%D9%86%D8%AA_%D9%88%DB%81%D8%A8"
   },
   {
-    name: "علی بن ابی طالب",
-    url: "https://ur.wikipedia.org/wiki/%D8%B9%D9%84%DB%8C_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B7%D8%A7%D9%84%D8%A8",
+    "name": "آنسہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A2%D9%86%D8%B3%DB%81"
   },
+  {
+    "name": "امامہ بنت زینب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85%D8%A7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%B2%DB%8C%D9%86%D8%A8"
+  },
+  {
+    "name": "ابان بن سعید بن العاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D8%A7%D9%86_%D8%A8%D9%86_%D8%B3%D8%B9%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D9%84%D8%B9%D8%A7%D8%B5"
+  },
+  {
+    "name": "ابراہیم بن محمد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D8%B1%D8%A7%DB%81%DB%8C%D9%85_%D8%A8%D9%86_%D9%85%D8%AD%D9%85%D8%AF"
+  },
+  {
+    "name": "ابن ام مکتوم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%86_%D8%A7%D9%85_%D9%85%DA%A9%D8%AA%D9%88%D9%85"
+  },
+  {
+    "name": "ابوالعاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A7%D9%84%D8%B9%D8%A7%D8%B5"
+  },
+  {
+    "name": "ابو العاص بن ربیع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%D9%84%D8%B9%D8%A7%D8%B5_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9"
+  },
+  {
+    "name": "ابو الہیثم بن تیہان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%D9%84%DB%81%DB%8C%D8%AB%D9%85_%D8%A8%D9%86_%D8%AA%DB%8C%DB%81%D8%A7%D9%86"
+  },
+  {
+    "name": "ابو امیہ مخزومی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%D9%85%DB%8C%DB%81_%D9%85%D8%AE%D8%B2%D9%88%D9%85%DB%8C"
+  },
+  {
+    "name": "ابو العلاء حضرمی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%A1_%D8%AD%D8%B6%D8%B1%D9%85%DB%8C"
+  },
+  {
+    "name": "ابو ایمن",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%DB%8C%D9%85%D9%86"
+  },
+  {
+    "name": "ابوایوب انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A7%DB%8C%D9%88%D8%A8_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوبکر صدیق",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%A8%DA%A9%D8%B1_%D8%B5%D8%AF%DB%8C%D9%82"
+  },
+  {
+    "name": "ابوجندل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%AC%D9%86%D8%AF%D9%84"
+  },
+  {
+    "name": "ابو حذیفہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%AD%D8%B0%DB%8C%D9%81%DB%81"
+  },
+  {
+    "name": "ابو دجانہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%AF%D8%AC%D8%A7%D9%86%DB%81"
+  },
+  {
+    "name": "ابودرداء",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%AF%D8%B1%D8%AF%D8%A7%D8%A1"
+  },
+  {
+    "name": "ابوذر غفاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B0%D8%B1_%D8%BA%D9%81%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابو رافع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B1%D8%A7%D9%81%D8%B9"
+  },
+  {
+    "name": "ابوسبرہ بن ابو رہم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B3%D8%A8%D8%B1%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D8%B1%DB%81%D9%85"
+  },
+  {
+    "name": "ابوسفیان بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B3%D9%81%DB%8C%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "ابو سفیان بن حرب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B3%D9%81%DB%8C%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D8%B1%D8%A8"
+  },
+  {
+    "name": "ابو سلمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B3%D9%84%D9%85%DB%81_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81_%D8%A7%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%A7%D8%B3%D8%AF"
+  },
+  {
+    "name": "ابوسفیان بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B3%D9%81%DB%8C%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "ابو سفیان بن حرب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B3%D9%81%DB%8C%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D8%B1%D8%A8"
+  },
+  {
+    "name": "ابو صرمہ انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B5%D8%B1%D9%85%DB%81_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابو الضیاح انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%A7%D9%84%D8%B6%DB%8C%D8%A7%D8%AD_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوطلحہ انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B7%D9%84%D8%AD%DB%81_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوعبیدہ ابن جراح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D8%B9%D8%A8%DB%8C%D8%AF%DB%81_%D8%A7%D8%A8%D9%86_%D8%AC%D8%B1%D8%A7%D8%AD"
+  },
+  {
+    "name": "ابو عیسی حارثی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D8%B9%DB%8C%D8%B3%DB%8C_%D8%AD%D8%A7%D8%B1%D8%AB%DB%8C"
+  },
+  {
+    "name": "ابو فضالہ انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%81%D8%B6%D8%A7%D9%84%DB%81_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابو فکیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%81%DA%A9%DB%8C%DB%81"
+  },
+  {
+    "name": "ابو قتادہ انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%82%D8%AA%D8%A7%D8%AF%DB%81_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوقیس حرمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D9%82%DB%8C%D8%B3_%D8%AD%D8%B1%D9%85%DB%81"
+  },
+  {
+    "name": "ابو کبشہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%DA%A9%D8%A8%D8%B4%DB%81"
+  },
+  {
+    "name": "ابو لبابہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%84%D8%A8%D8%A7%D8%A8%DB%81"
+  },
+  {
+    "name": "ابو محجن ثقفی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%85%D8%AD%D8%AC%D9%86_%D8%AB%D9%82%D9%81%DB%8C"
+  },
+  {
+    "name": "ابو محذورہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%85%D8%AD%D8%B0%D9%88%D8%B1%DB%81"
+  },
+  {
+    "name": "ابو ملیل انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88_%D9%85%D9%84%DB%8C%D9%84_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوموسٰی اشعری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%D9%85%D9%88%D8%B3%D9%B0%DB%8C_%D8%A7%D8%B4%D8%B9%D8%B1%DB%8C"
+  },
+  {
+    "name": "ابوہریرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%D9%88%DB%81%D8%B1%DB%8C%D8%B1%DB%81"
+  },
+  {
+    "name": "ابی بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%DB%8C_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "ابی بن کعب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%DB%8C_%D8%A8%D9%86_%DA%A9%D8%B9%D8%A8"
+  },
+  {
+    "name": "ابی بن معاذ بن انس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%A8%DB%8C_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0_%D8%A8%D9%86_%D8%A7%D9%86%D8%B3"
+  },
+  {
+    "name": "احنف بن قیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%AD%D9%86%D9%81_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3"
+  },
+  {
+    "name": "اسامہ بن زید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D8%A7%D9%85%DB%81_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "اسعد بن زرارہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B2%D8%B1%D8%A7%D8%B1%DB%81"
+  },
+  {
+    "name": "اسود بن سریع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D9%88%D8%AF_%D8%A8%D9%86_%D8%B3%D8%B1%DB%8C%D8%B9"
+  },
+  {
+    "name": "اسیرہ بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%DB%8C%D8%B1%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "ام البنین",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%A7%D9%84%D8%A8%D9%86%DB%8C%D9%86"
+  },
+  {
+    "name": "ام ایمن",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%A7%DB%8C%D9%85%D9%86"
+  },
+  {
+    "name": "ام حکیم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%AD%DA%A9%DB%8C%D9%85"
+  },
+  {
+    "name": "ام رومان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%B1%D9%88%D9%85%D8%A7%D9%86"
+  },
+  {
+    "name": "ام سلیم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%B3%D9%84%DB%8C%D9%85"
+  },
+  {
+    "name": "ام شریک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%B4%D8%B1%DB%8C%DA%A9"
+  },
+  {
+    "name": "ام عبیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%B9%D8%A8%DB%8C%D8%B3"
+  },
+  {
+    "name": "ام عمارہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%D8%B9%D9%85%D8%A7%D8%B1%DB%81"
+  },
+  {
+    "name": "ام کلثوم بنت عاصم",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%A7%D9%85_%DA%A9%D9%84%D8%AB%D9%88%D9%85_%D8%A8%D9%86%D8%AA_%D8%B9%D8%A7%D8%B5%D9%85&action=edit&redlink=1"
+  },
+  {
+    "name": "ام کلثوم بنت محمد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%DA%A9%D9%84%D8%AB%D9%88%D9%85_%D8%A8%D9%86%D8%AA_%D9%85%D8%AD%D9%85%D8%AF"
+  },
+  {
+    "name": "ام کلثوم بنت عقبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85_%DA%A9%D9%84%D8%AB%D9%88%D9%85_%D8%A8%D9%86%D8%AA_%D8%B9%D9%82%D8%A8%DB%81"
+  },
+  {
+    "name": "احنف بن قیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%AD%D9%86%D9%81_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3"
+  },
+  {
+    "name": "اخنس بن حبیب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%AE%D9%86%D8%B3_%D8%A8%D9%86_%D8%AD%D8%A8%DB%8C%D8%A8"
+  },
+  {
+    "name": "ارقم بن ابی الارقم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B1%D9%82%D9%85_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%84%D8%A7%D8%B1%D9%82%D9%85"
+  },
+  {
+    "name": "اسعد بن یزید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%DB%8C%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "اسماء بنت ابی بکر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D9%85%D8%A7%D8%A1_%D8%A8%D9%86%D8%AA_%D8%A7%D8%A8%DB%8C_%D8%A8%DA%A9%D8%B1"
+  },
+  {
+    "name": "اسماء بنت عمیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%D9%85%D8%A7%D8%A1_%D8%A8%D9%86%D8%AA_%D8%B9%D9%85%DB%8C%D8%B3"
+  },
+  {
+    "name": "اسید بن حضیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D8%B3%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AD%D8%B6%DB%8C%D8%B1"
+  },
+  {
+    "name": "امرؤ القیس بن عابس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%85%D8%B1%D8%A4_%D8%A7%D9%84%D9%82%DB%8C%D8%B3_%D8%A8%D9%86_%D8%B9%D8%A7%D8%A8%D8%B3"
+  },
+  {
+    "name": "انس بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%86%D8%B3_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "انس بن معاذ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%86%D8%B3_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0"
+  },
+  {
+    "name": "انیس بن قتادہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%86%DB%8C%D8%B3_%D8%A8%D9%86_%D9%82%D8%AA%D8%A7%D8%AF%DB%81"
+  },
+  {
+    "name": "النہدیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%84%D9%86%DB%81%D8%AF%DB%8C%DB%81"
+  },
+  {
+    "name": "اوس بن خولی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%88%D8%B3_%D8%A8%D9%86_%D8%AE%D9%88%D9%84%DB%8C"
+  },
+  {
+    "name": "اوس بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%88%D8%B3_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "اوس بن صامت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%88%D8%B3_%D8%A8%D9%86_%D8%B5%D8%A7%D9%85%D8%AA"
+  },
+  {
+    "name": "اوس بن معاذ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%D9%88%D8%B3_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0"
+  },
+  {
+    "name": "ایاس بن ابی البکیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%DB%8C%D8%A7%D8%B3_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%84%D8%A8%DA%A9%DB%8C%D8%B1"
+  },
+  {
+    "name": "ایمن بن خریم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A7%DB%8C%D9%85%D9%86_%D8%A8%D9%86_%D8%AE%D8%B1%DB%8C%D9%85"
+  },
+  {
+    "name": "براء بن عازب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%B1%D8%A7%D8%A1_%D8%A8%D9%86_%D8%B9%D8%A7%D8%B2%D8%A8"
+  },
+  {
+    "name": "براء بن مالک انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%B1%D8%A7%D8%A1_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "بریدہ بن حصیب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%B1%DB%8C%D8%AF%DB%81_%D8%A8%D9%86_%D8%AD%D8%B5%DB%8C%D8%A8"
+  },
+  {
+    "name": "بجير بن ابی بجير",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%AC%D9%8A%D8%B1_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A8%D8%AC%D9%8A%D8%B1"
+  },
+  {
+    "name": "بشر بن البراء",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%B4%D8%B1_%D8%A8%D9%86_%D8%A7%D9%84%D8%A8%D8%B1%D8%A7%D8%A1"
+  },
+  {
+    "name": "بشیر بن سعد ابو النعمان ابن ثعلبہ الانصاری الخزرجی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D8%B4%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "بلال بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D9%84%D8%A7%D9%84_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "بلال ابن رباح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%A8%D9%84%D8%A7%D9%84_%D8%A7%D8%A8%D9%86_%D8%B1%D8%A8%D8%A7%D8%AD"
+  },
+  {
+    "name": "بلال بن یحیى",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%A8%D9%84%D8%A7%D9%84_%D8%A8%D9%86_%DB%8C%D8%AD%DB%8C%D9%89&action=edit&redlink=1"
+  },
+  {
+    "name": "تمیم بن الحمام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AA%D9%85%DB%8C%D9%85_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85"
+  },
+  {
+    "name": "تمیم بن اوس داری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AA%D9%85%DB%8C%D9%85_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3_%D8%AF%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "تمیم ربیعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AA%D9%85%DB%8C%D9%85_%D8%B1%D8%A8%DB%8C%D8%B9%DB%81"
+  },
+  {
+    "name": "تمیم مولی خراش",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AA%D9%85%DB%8C%D9%85_%D9%85%D9%88%D9%84%DB%8C_%D8%AE%D8%B1%D8%A7%D8%B4"
+  },
+  {
+    "name": "تمیم بن زید",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%AA%D9%85%DB%8C%D9%85_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF&action=edit&redlink=1"
+  },
+  {
+    "name": "ثابت بن اقرم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%A7%D9%82%D8%B1%D9%85"
+  },
+  {
+    "name": "ثابت بن الجذع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%A7%D9%84%D8%AC%D8%B0%D8%B9"
+  },
+  {
+    "name": "ثابت بن خالد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%AE%D8%A7%D9%84%D8%AF"
+  },
+  {
+    "name": "ثابت بن دحداح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%AF%D8%AD%D8%AF%D8%A7%D8%AD"
+  },
+  {
+    "name": "ثابت بن ضحاک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%B6%D8%AD%D8%A7%DA%A9"
+  },
+  {
+    "name": "ثابت بن عبید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%B9%D8%A8%DB%8C%D8%AF"
+  },
+  {
+    "name": "ثابت بن عمرو انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "ثابت بن قیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3"
+  },
+  {
+    "name": "ثابت بن المنذر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D9%86%D8%B0%D8%B1"
+  },
+  {
+    "name": "ثابت بن ہزال",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%A7%D8%A8%D8%AA_%D8%A8%D9%86_%DB%81%D8%B2%D8%A7%D9%84"
+  },
+  {
+    "name": "ثعلبہ بن الحارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%B9%D9%84%D8%A8%DB%81_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "ثعلبہ بن حاطب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%B9%D9%84%D8%A8%DB%81_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B7%D8%A8"
+  },
+  {
+    "name": "ثعلبہ بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%B9%D9%84%D8%A8%DB%81_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "ثعلبہ بن عمرو بن محصن",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%B9%D9%84%D8%A8%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D9%85%D8%AD%D8%B5%D9%86"
+  },
+  {
+    "name": "ثعلبہ بن عنمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D8%B9%D9%84%D8%A8%DB%81_%D8%A8%D9%86_%D8%B9%D9%86%D9%85%DB%81"
+  },
+  {
+    "name": "ثقف بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D9%82%D9%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "ثمامہ بن اثال",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D9%85%D8%A7%D9%85%DB%81_%D8%A8%D9%86_%D8%A7%D8%AB%D8%A7%D9%84"
+  },
+  {
+    "name": "ثمامہ بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D9%85%D8%A7%D9%85%DB%81_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "ثویبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D9%88%DB%8C%D8%A8%DB%81"
+  },
+  {
+    "name": "ثوبان بن بجدد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AB%D9%88%D8%A8%D8%A7%D9%86_%D8%A8%D9%86_%D8%A8%D8%AC%D8%AF%D8%AF"
+  },
+  {
+    "name": "جابر بن عبداللہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%A7%D8%A8%D8%B1_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81"
+  },
+  {
+    "name": "جابر بن عبداللہ بن رئاب",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%AC%D8%A7%D8%A8%D8%B1_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B1%D8%A6%D8%A7%D8%A8&action=edit&redlink=1"
+  },
+  {
+    "name": "جبار بن صخر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%A8%D8%A7%D8%B1_%D8%A8%D9%86_%D8%B5%D8%AE%D8%B1"
+  },
+  {
+    "name": "جبیر بن ایاس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%A8%DB%8C%D8%B1_%D8%A8%D9%86_%D8%A7%DB%8C%D8%A7%D8%B3"
+  },
+  {
+    "name": "جبیر بن مطعم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%A8%DB%8C%D8%B1_%D8%A8%D9%86_%D9%85%D8%B7%D8%B9%D9%85"
+  },
+  {
+    "name": "جریر بن عبداللہ البجلی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%B1%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81_%D8%A7%D9%84%D8%A8%D8%AC%D9%84%DB%8C"
+  },
+  {
+    "name": "جعفر ابن ابی طالب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D8%B9%D9%81%D8%B1_%D8%A7%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B7%D8%A7%D9%84%D8%A8"
+  },
+  {
+    "name": "جلیبیب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AC%D9%84%DB%8C%D8%A8%DB%8C%D8%A8"
+  },
+  {
+    "name": "حارث بن ابی ہالہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%DB%81%D8%A7%D9%84%DB%81"
+  },
+  {
+    "name": "حارث بن انس بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%A7%D9%86%D8%B3_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "حارث بن اوس بن معاذ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0"
+  },
+  {
+    "name": "حارث بن خالد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%AE%D8%A7%D9%84%D8%AF"
+  },
+  {
+    "name": "حارث بن خزمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%AE%D8%B2%D9%85%DB%81"
+  },
+  {
+    "name": "حارث بن عبد العزی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B9%D8%B2%DB%8C"
+  },
+  {
+    "name": "حارث بن عمیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D8%B1"
+  },
+  {
+    "name": "حارث بن عبدالمطلب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%85%D8%B7%D9%84%D8%A8"
+  },
+  {
+    "name": "حارث بن قیس بن خلدہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3_%D8%A8%D9%86_%D8%AE%D9%84%D8%AF%DB%81"
+  },
+  {
+    "name": "حارث بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "حارث بن معاذ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0"
+  },
+  {
+    "name": "حارث بن ہشام بن مغیرہ",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%AD%D8%A7%D8%B1%D8%AB_%D8%A8%D9%86_%DB%81%D8%B4%D8%A7%D9%85_%D8%A8%D9%86_%D9%85%D8%BA%DB%8C%D8%B1%DB%81&action=edit&redlink=1"
+  },
+  {
+    "name": "حارثہ بن زید انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB%DB%81_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "حارثہ بن سراقہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B1%D8%AB%DB%81_%D8%A8%D9%86_%D8%B3%D8%B1%D8%A7%D9%82%DB%81"
+  },
+  {
+    "name": "حاطب بن ابی بلتعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B7%D8%A8_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A8%D9%84%D8%AA%D8%B9%DB%81"
+  },
+  {
+    "name": "حاطب بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B7%D8%A8_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "حاطب بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A7%D8%B7%D8%A8_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "حباب بن منذر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A8%D8%A7%D8%A8_%D8%A8%D9%86_%D9%85%D9%86%D8%B0%D8%B1"
+  },
+  {
+    "name": "حبیب بن زید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A8%DB%8C%D8%A8_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "حبیبہ بنت ام حبیبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%A8%DB%8C%D8%A8%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%85_%D8%AD%D8%A8%DB%8C%D8%A8%DB%81"
+  },
+  {
+    "name": "حجر بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%AC%D8%B1_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "حذیفہ بن یمان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B0%DB%8C%D9%81%DB%81_%D8%A8%D9%86_%DB%8C%D9%85%D8%A7%D9%86"
+  },
+  {
+    "name": "حرام بن ملحان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B1%D8%A7%D9%85_%D8%A8%D9%86_%D9%85%D9%84%D8%AD%D8%A7%D9%86"
+  },
+  {
+    "name": "حرقوص العنبری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B1%D9%82%D9%88%D8%B5_%D8%A7%D9%84%D8%B9%D9%86%D8%A8%D8%B1%DB%8C"
+  },
+  {
+    "name": "حریث بن زید بن عبد ربہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B1%DB%8C%D8%AB_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%B1%D8%A8%DB%81"
+  },
+  {
+    "name": "حزن بن ابی وہب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B2%D9%86_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D9%88%DB%81%D8%A8"
+  },
+  {
+    "name": "حسان بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B3%D8%A7%D9%86_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "حسن ابن علی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B3%D9%86_%D8%A7%D8%A8%D9%86_%D8%B9%D9%84%DB%8C"
+  },
+  {
+    "name": "حسن بن جابر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B3%D9%86_%D8%A8%D9%86_%D8%AC%D8%A7%D8%A8%D8%B1"
+  },
+  {
+    "name": "حسین ابن علی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B3%DB%8C%D9%86_%D8%A7%D8%A8%D9%86_%D8%B9%D9%84%DB%8C"
+  },
+  {
+    "name": "حصین بن الحارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B5%DB%8C%D9%86_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "حطاب بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D8%B7%D8%A7%D8%A8_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "حفصہ بنت عمر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D9%81%D8%B5%DB%81_%D8%A8%D9%86%D8%AA_%D8%B9%D9%85%D8%B1"
+  },
+  {
+    "name": "حکم بن عمیر الثمالی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%DA%A9%D9%85_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D8%B1_%D8%A7%D9%84%D8%AB%D9%85%D8%A7%D9%84%DB%8C"
+  },
+  {
+    "name": "حکیم بن حزام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%DA%A9%DB%8C%D9%85_%D8%A8%D9%86_%D8%AD%D8%B2%D8%A7%D9%85"
+  },
+  {
+    "name": "حلیمہ سعدیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D9%84%DB%8C%D9%85%DB%81_%D8%B3%D8%B9%D8%AF%DB%8C%DB%81"
+  },
+  {
+    "name": "حمنہ بنت جحش",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D9%85%D9%86%DB%81_%D8%A8%D9%86%D8%AA_%D8%AC%D8%AD%D8%B4"
+  },
+  {
+    "name": "حمزہ بن عبدالمطلب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D9%85%D8%B2%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%85%D8%B7%D9%84%D8%A8"
+  },
+  {
+    "name": "حنظلہ بن ربیع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AD%D9%86%D8%B8%D9%84%DB%81_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9"
+  },
+  {
+    "name": "خارجہ بن حذافہ سہمی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B1%D8%AC%DB%81_%D8%A8%D9%86_%D8%AD%D8%B0%D8%A7%D9%81%DB%81_%D8%B3%DB%81%D9%85%DB%8C"
+  },
+  {
+    "name": "خارجہ بن حمیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B1%D8%AC%DB%81_%D8%A8%D9%86_%D8%AD%D9%85%DB%8C%D8%B1"
+  },
+  {
+    "name": "خارجہ بن زید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B1%D8%AC%DB%81_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B2%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "خالد بن ابی البکیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%84%D8%A8%DA%A9%DB%8C%D8%B1"
+  },
+  {
+    "name": "خالد بن سعید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D8%B3%D8%B9%DB%8C%D8%AF"
+  },
+  {
+    "name": "خالد بن عاص",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A7%D8%B5&action=edit&redlink=1"
+  },
+  {
+    "name": "خالد بن عمرو بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "خالد بن قیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3"
+  },
+  {
+    "name": "خالد بن قیس بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D9%82%DB%8C%D8%B3_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "خالد بن ولید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A7%D9%84%D8%AF_%D8%A8%D9%86_%D9%88%D9%84%DB%8C%D8%AF"
+  },
+  {
+    "name": "خباب بن ارت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A8%D8%A7%D8%A8_%D8%A8%D9%86_%D8%A7%D8%B1%D8%AA"
+  },
+  {
+    "name": "خباب مولى عتبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A8%D8%A7%D8%A8_%D9%85%D9%88%D9%84%D9%89_%D8%B9%D8%AA%D8%A8%DB%81"
+  },
+  {
+    "name": "خبیب بن اساف",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A8%DB%8C%D8%A8_%D8%A8%D9%86_%D8%A7%D8%B3%D8%A7%D9%81"
+  },
+  {
+    "name": "خبیب بن الاسود انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A8%DB%8C%D8%A8_%D8%A8%D9%86_%D8%A7%D9%84%D8%A7%D8%B3%D9%88%D8%AF_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  },
+  {
+    "name": "خبیب بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%A8%DB%8C%D8%A8_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "خداش بن قتادہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%AF%D8%A7%D8%B4_%D8%A8%D9%86_%D9%82%D8%AA%D8%A7%D8%AF%DB%81"
+  },
+  {
+    "name": "خدیجہ بنت خویلد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%AF%DB%8C%D8%AC%DB%81_%D8%A8%D9%86%D8%AA_%D8%AE%D9%88%DB%8C%D9%84%D8%AF"
+  },
+  {
+    "name": "خراش بن الصمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%B1%D8%A7%D8%B4_%D8%A8%D9%86_%D8%A7%D9%84%D8%B5%D9%85%DB%81"
+  },
+  {
+    "name": "خرباق ابن ساریہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%B1%D8%A8%D8%A7%D9%82_%D8%A7%D8%A8%D9%86_%D8%B3%D8%A7%D8%B1%DB%8C%DB%81"
+  },
+  {
+    "name": "خریم بن فاتک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%B1%DB%8C%D9%85_%D8%A8%D9%86_%D9%81%D8%A7%D8%AA%DA%A9"
+  },
+  {
+    "name": "خزیمہ بن اوس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%B2%DB%8C%D9%85%DB%81_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3"
+  },
+  {
+    "name": "خزیمہ بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D8%B2%DB%8C%D9%85%DB%81_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "خلاد بن رافع بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%84%D8%A7%D8%AF_%D8%A8%D9%86_%D8%B1%D8%A7%D9%81%D8%B9_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "خلاد بن سوید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%84%D8%A7%D8%AF_%D8%A8%D9%86_%D8%B3%D9%88%DB%8C%D8%AF"
+  },
+  {
+    "name": "خلاد بن عمرو بن الجموح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%84%D8%A7%D8%AF_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%88%D8%AD"
+  },
+  {
+    "name": "خلیفہ بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%84%DB%8C%D9%81%DB%81_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "الخنساء، ارثی العرب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%86%D8%B3%D8%A7%D8%A1"
+  },
+  {
+    "name": "خنیس بن حذافہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%86%DB%8C%D8%B3_%D8%A8%D9%86_%D8%AD%D8%B0%D8%A7%D9%81%DB%81"
+  },
+  {
+    "name": "خوات بن جبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%88%D8%A7%D8%AA_%D8%A8%D9%86_%D8%AC%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "خولہ بنت حکیم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%88%D9%84%DB%81_%D8%A8%D9%86%D8%AA_%D8%AD%DA%A9%DB%8C%D9%85"
+  },
+  {
+    "name": "خولی بن ابی خولی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%88%D9%84%DB%8C_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%AE%D9%88%D9%84%DB%8C"
+  },
+  {
+    "name": "خویلد بن عمرو السلمی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%D9%88%DB%8C%D9%84%D8%AF_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A7%D9%84%D8%B3%D9%84%D9%85%DB%8C"
+  },
+  {
+    "name": "خیثمہ بن الحارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AE%DB%8C%D8%AB%D9%85%DB%81_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "دحیہ الکلبی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AF%D8%AD%DB%8C%DB%81_%D8%A7%D9%84%DA%A9%D9%84%D8%A8%DB%8C"
+  },
+  {
+    "name": "دعثور بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%AF%D8%B9%D8%AB%D9%88%D8%B1_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "ذو البجادین",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B0%D9%88_%D8%A7%D9%84%D8%A8%D8%AC%D8%A7%D8%AF%DB%8C%D9%86"
+  },
+  {
+    "name": "ذو الشمالين بن عبد عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B0%D9%88_%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A%D9%86_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "ذو الخویصرہ یمانی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B0%D9%88_%D8%A7%D9%84%D8%AE%D9%88%DB%8C%D8%B5%D8%B1%DB%81_%DB%8C%D9%85%D8%A7%D9%86%DB%8C"
+  },
+  {
+    "name": "ذکوان بن عبد قیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B0%DA%A9%D9%88%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D9%82%DB%8C%D8%B3"
+  },
+  {
+    "name": "رافع بن خدیج",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%81%D8%B9_%D8%A8%D9%86_%D8%AE%D8%AF%DB%8C%D8%AC"
+  },
+  {
+    "name": "رافع بن عمیرہ طائی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%81%D8%B9_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D8%B1%DB%81_%D8%B7%D8%A7%D8%A6%DB%8C"
+  },
+  {
+    "name": "رافع بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%81%D8%B9_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "رافع بن المعلى",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%81%D8%B9_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%89"
+  },
+  {
+    "name": "ربیعہ بن امیہ",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%B1%D8%A8%DB%8C%D8%B9%DB%81_%D8%A8%D9%86_%D8%A7%D9%85%DB%8C%DB%81&action=edit&redlink=1"
+  },
+  {
+    "name": "ربیعہ بن کعب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A8%DB%8C%D8%B9%DB%81_%D8%A8%D9%86_%DA%A9%D8%B9%D8%A8"
+  },
+  {
+    "name": "ربيعہ بن حارث",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%B1%D8%A8%D9%8A%D8%B9%DB%81_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB&action=edit&redlink=1"
+  },
+  {
+    "name": "ربیعہ بن اکثم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A8%DB%8C%D8%B9%DB%81_%D8%A8%D9%86_%D8%A7%DA%A9%D8%AB%D9%85"
+  },
+  {
+    "name": "ربیع بن ایاس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D8%A8%DB%8C%D8%B9_%D8%A8%D9%86_%D8%A7%DB%8C%D8%A7%D8%B3"
+  },
+  {
+    "name": "رفاعہ بن رافع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D9%81%D8%A7%D8%B9%DB%81_%D8%A8%D9%86_%D8%B1%D8%A7%D9%81%D8%B9"
+  },
+  {
+    "name": "رملہ بنت ابوسفیان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D9%85%D9%84%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D8%A8%D9%88%D8%B3%D9%81%DB%8C%D8%A7%D9%86"
+  },
+  {
+    "name": "رفیدہ الاسلمیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D9%81%DB%8C%D8%AF%DB%81_%D8%A7%D9%84%D8%A7%D8%B3%D9%84%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "رقیہ بنت محمد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B1%D9%82%DB%8C%DB%81_%D8%A8%D9%86%D8%AA_%D9%85%D8%AD%D9%85%D8%AF"
+  },
+  {
+    "name": "زاهر بن حرام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%D8%A7%D9%87%D8%B1_%D8%A8%D9%86_%D8%AD%D8%B1%D8%A7%D9%85"
+  },
+  {
+    "name": "زبیر ابن العوام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%D8%A8%DB%8C%D8%B1_%D8%A7%D8%A8%D9%86_%D8%A7%D9%84%D8%B9%D9%88%D8%A7%D9%85"
+  },
+  {
+    "name": "زنیرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%D9%86%DB%8C%D8%B1%DB%81_%D8%A7%D9%84%D8%B1%D9%88%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "زیاد بن کعب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%A7%D8%AF_%D8%A8%D9%86_%DA%A9%D8%B9%D8%A8"
+  },
+  {
+    "name": "زیاد بن ابی سفیان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%A7%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B3%D9%81%DB%8C%D8%A7%D9%86"
+  },
+  {
+    "name": "زیاد بن لبید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%A7%D8%AF_%D8%A8%D9%86_%D9%84%D8%A8%DB%8C%D8%AF"
+  },
+  {
+    "name": "زید الخیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A7%D9%84%D8%AE%DB%8C%D8%B1"
+  },
+  {
+    "name": "زید ابن الخطاب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A7%D8%A8%D9%86_%D8%A7%D9%84%D8%AE%D8%B7%D8%A7%D8%A8"
+  },
+  {
+    "name": "زید بن ارقم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D8%B1%D9%82%D9%85"
+  },
+  {
+    "name": "زید بن حارثہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB%DB%81"
+  },
+  {
+    "name": "زید بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "زید بن ثعلبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AB%D8%B9%D9%84%D8%A8%DB%81"
+  },
+  {
+    "name": "زید بن دثنہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AF%D8%AB%D9%86%DB%81"
+  },
+  {
+    "name": "زید بن سہل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B3%DB%81%D9%84"
+  },
+  {
+    "name": "زینب بنت علی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D9%86%D8%A8_%D8%A8%D9%86%D8%AA_%D8%B9%D9%84%DB%8C"
+  },
+  {
+    "name": "زینب بنت جحش",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D9%86%D8%A8_%D8%A8%D9%86%D8%AA_%D8%AC%D8%AD%D8%B4"
+  },
+  {
+    "name": "زینب بنت خزیمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D9%86%D8%A8_%D8%A8%D9%86%D8%AA_%D8%AE%D8%B2%DB%8C%D9%85%DB%81"
+  },
+  {
+    "name": "زینب بنت محمد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B2%DB%8C%D9%86%D8%A8_%D8%A8%D9%86%D8%AA_%D9%85%D8%AD%D9%85%D8%AF"
+  },
+  {
+    "name": "سالم مولی ابی حذیفہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A7%D9%84%D9%85_%D9%85%D9%88%D9%84%DB%8C_%D8%A7%D8%A8%DB%8C_%D8%AD%D8%B0%DB%8C%D9%81%DB%81"
+  },
+  {
+    "name": "سالم بن عمير",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A7%D9%84%D9%85_%D8%A8%D9%86_%D8%B9%D9%85%D9%8A%D8%B1"
+  },
+  {
+    "name": "سائب بن خلاد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A7%D8%A6%D8%A8_%D8%A8%D9%86_%D8%AE%D9%84%D8%A7%D8%AF"
+  },
+  {
+    "name": "سائب بن مظعون",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A7%D8%A6%D8%A8_%D8%A8%D9%86_%D9%85%D8%B8%D8%B9%D9%88%D9%86"
+  },
+  {
+    "name": "سائب بن عثمان بن مظعون",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A7%D8%A6%D8%A8_%D8%A8%D9%86_%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D8%B8%D8%B9%D9%88%D9%86"
+  },
+  {
+    "name": "سبرہ بن فاتک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A8%D8%B1%DB%81_%D8%A8%D9%86_%D9%81%D8%A7%D8%AA%DA%A9"
+  },
+  {
+    "name": "سبرہ بن معبد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%A8%D8%B1%DB%81_%D8%A8%D9%86_%D9%85%D8%B9%D8%A8%D8%AF"
+  },
+  {
+    "name": "سحبان وائل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%AD%D8%A8%D8%A7%D9%86_%D9%88%D8%A7%D8%A6%D9%84"
+  },
+  {
+    "name": "سراقہ بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D9%82%DB%81_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "سعد بن ابی وقاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D9%88%D9%82%D8%A7%D8%B5"
+  },
+  {
+    "name": "سعد بن خولیٰ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%AE%D9%88%D9%84%DB%8C%D9%B0"
+  },
+  {
+    "name": "سعد بن خیثمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%AE%DB%8C%D8%AB%D9%85%DB%81"
+  },
+  {
+    "name": "سعد بن ربیع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9"
+  },
+  {
+    "name": "سعد بن زید اشہلی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF_%D8%A7%D8%B4%DB%81%D9%84%DB%8C"
+  },
+  {
+    "name": "سعد بن زید زرقی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF_%D8%B2%D8%B1%D9%82%DB%8C"
+  },
+  {
+    "name": "سعد بن عبادہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%D8%A7%D8%AF%DB%81"
+  },
+  {
+    "name": "سعد بن عبید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%DB%8C%D8%AF"
+  },
+  {
+    "name": "سعد بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "سعد بن معاذ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0"
+  },
+  {
+    "name": "سعد بن عبادہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%D8%A7%D8%AF%DB%81"
+  },
+  {
+    "name": "سعید بن جبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AC%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "سعید بن زید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "سعید بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D8%B9%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "سفیان بن عبداللہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%81%DB%8C%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81"
+  },
+  {
+    "name": "سکران بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DA%A9%D8%B1%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "سلمہ بن اکوع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%84%D9%85%DB%81_%D8%A8%D9%86_%D8%A7%DA%A9%D9%88%D8%B9"
+  },
+  {
+    "name": "سلمہ بنت عمیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%84%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%B9%D9%85%DB%8C%D8%B3"
+  },
+  {
+    "name": "سلمہ ام الخیر",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%B3%D9%84%D9%85%DB%81_%D8%A7%D9%85_%D8%A7%D9%84%D8%AE%DB%8C%D8%B1&action=edit&redlink=1"
+  },
+  {
+    "name": "سلمہ بن سلامہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%84%D9%85%DB%81_%D8%A8%D9%86_%D8%B3%D9%84%D8%A7%D9%85%DB%81"
+  },
+  {
+    "name": "سلمان فارسی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%84%D9%85%D8%A7%D9%86_%D9%81%D8%A7%D8%B1%D8%B3%DB%8C"
+  },
+  {
+    "name": "سلیط بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%84%DB%8C%D8%B7_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "سمرہ بن جندب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%85%D8%B1%DB%81_%D8%A8%D9%86_%D8%AC%D9%86%D8%AF%D8%A8"
+  },
+  {
+    "name": "سمیہ بنت خباط",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%85%DB%8C%DB%81_%D8%A8%D9%86%D8%AA_%D8%AE%D8%A8%D8%A7%D8%B7"
+  },
+  {
+    "name": "سنان بن ابوسنان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%86%D8%A7%D9%86_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88%D8%B3%D9%86%D8%A7%D9%86"
+  },
+  {
+    "name": "سہل بن بیضا",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%D9%84_%D8%A8%D9%86_%D8%A8%DB%8C%D8%B6%D8%A7"
+  },
+  {
+    "name": "سہل بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%D9%84_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "سہل بن حنیف",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%D9%84_%D8%A8%D9%86_%D8%AD%D9%86%DB%8C%D9%81"
+  },
+  {
+    "name": "سہلہ بنت سہیل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%D9%84%DB%81_%D8%A8%D9%86%D8%AA_%D8%B3%DB%81%DB%8C%D9%84"
+  },
+  {
+    "name": "سہیل بن بیضا",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%DB%8C%D9%84_%D8%A8%D9%86_%D8%A8%DB%8C%D8%B6%D8%A7"
+  },
+  {
+    "name": "سہیل بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%81%DB%8C%D9%84_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "سودہ بنت زمعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%88%D8%AF%DB%81_%D8%A8%D9%86%D8%AA_%D8%B2%D9%85%D8%B9%DB%81"
+  },
+  {
+    "name": "سیرین زوجہ حسان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%DB%8C%D8%B1%DB%8C%D9%86_%D8%B2%D9%88%D8%AC%DB%81_%D8%AD%D8%B3%D8%A7%D9%86"
+  },
+  {
+    "name": "سویبط بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%88%DB%8C%D8%A8%D8%B7_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "سوید بن مخشی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B3%D9%88%DB%8C%D8%AF_%D8%A8%D9%86_%D9%85%D8%AE%D8%B4%DB%8C"
+  },
+  {
+    "name": "شجاع بن وہب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B4%D8%AC%D8%A7%D8%B9_%D8%A8%D9%86_%D9%88%DB%81%D8%A8"
+  },
+  {
+    "name": "شداد بن اوس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B4%D8%AF%D8%A7%D8%AF_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3"
+  },
+  {
+    "name": "شرحبیل بن حسنہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B4%D8%B1%D8%AD%D8%A8%DB%8C%D9%84_%D8%A8%D9%86_%D8%AD%D8%B3%D9%86%DB%81"
+  },
+  {
+    "name": "شقران صالح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B4%D9%82%D8%B1%D8%A7%D9%86_%D8%B5%D8%A7%D9%84%D8%AD"
+  },
+  {
+    "name": "شماس بن عثمان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B4%D9%85%D8%A7%D8%B3_%D8%A8%D9%86_%D8%B9%D8%AB%D9%85%D8%A7%D9%86"
+  },
+  {
+    "name": "صفوان بن امیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D9%81%D9%88%D8%A7%D9%86_%D8%A8%D9%86_%D8%A7%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "صفوان بن بیضاء",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D9%81%D9%88%D8%A7%D9%86_%D8%A8%D9%86_%D8%A8%DB%8C%D8%B6%D8%A7%D8%A1"
+  },
+  {
+    "name": "صفوان بن معطل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D9%81%D9%88%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D8%B9%D8%B7%D9%84"
+  },
+  {
+    "name": "صفیہ بنت حی بن اخطب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D9%81%DB%8C%DB%81_%D8%A8%D9%86%D8%AA_%D8%AD%DB%8C_%D8%A8%D9%86_%D8%A7%D8%AE%D8%B7%D8%A8"
+  },
+  {
+    "name": "صفیہ بنت عبد المطلب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D9%81%DB%8C%DB%81_%D8%A8%D9%86%D8%AA_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%85%D8%B7%D9%84%D8%A8"
+  },
+  {
+    "name": "صعصعہ بن صوحان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D8%B9%D8%B5%D8%B9%DB%81_%D8%A8%D9%86_%D8%B5%D9%88%D8%AD%D8%A7%D9%86"
+  },
+  {
+    "name": "صعصعہ بن ناجیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%D8%B9%D8%B5%D8%B9%DB%81_%D8%A8%D9%86_%D9%86%D8%A7%D8%AC%DB%8C%DB%81"
+  },
+  {
+    "name": "صہیب الرومی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B5%DB%81%DB%8C%D8%A8_%D8%A7%D9%84%D8%B1%D9%88%D9%85%DB%8C"
+  },
+  {
+    "name": "ضحاک بن حارثہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B6%D8%AD%D8%A7%DA%A9_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB%DB%81"
+  },
+  {
+    "name": "ضحاک بن سفیان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B6%D8%AD%D8%A7%DA%A9_%D8%A8%D9%86_%D8%B3%D9%81%DB%8C%D8%A7%D9%86"
+  },
+  {
+    "name": "ضحاک بن عبد عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B6%D8%AD%D8%A7%DA%A9_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "ضرار بن ازور",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B6%D8%B1%D8%A7%D8%B1_%D8%A8%D9%86_%D8%A7%D8%B2%D9%88%D8%B1"
+  },
+  {
+    "name": "ضماد بن ثعلبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B6%D9%85%D8%A7%D8%AF_%D8%A8%D9%86_%D8%AB%D8%B9%D9%84%D8%A8%DB%81"
+  },
+  {
+    "name": "طفیل بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B7%D9%81%DB%8C%D9%84_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "طفیل بن عمرو دوسی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B7%D9%81%DB%8C%D9%84_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%AF%D9%88%D8%B3%DB%8C"
+  },
+  {
+    "name": "طلحہ بن عبید اللہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B7%D9%84%D8%AD%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%DB%8C%D8%AF_%D8%A7%D9%84%D9%84%DB%81"
+  },
+  {
+    "name": "طلحہ بن عتبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B7%D9%84%D8%AD%DB%81_%D8%A8%D9%86_%D8%B9%D8%AA%D8%A8%DB%81"
+  },
+  {
+    "name": "طلیب بن عمیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B7%D9%84%DB%8C%D8%A8_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D8%B1"
+  },
+  {
+    "name": "ظہیر بن رافع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B8%DB%81%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B1%D8%A7%D9%81%D8%B9"
+  },
+  {
+    "name": "عائشہ بنت ابی بکر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D8%A6%D8%B4%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D8%A8%DB%8C_%D8%A8%DA%A9%D8%B1"
+  },
+  {
+    "name": "عاقل بن ابی البکیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%82%D9%84_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%84%D8%A8%DA%A9%DB%8C%D8%B1"
+  },
+  {
+    "name": "عاصم بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D8%B5%D9%85_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "عامر بن ابی البکیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%85%D8%B1_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%84%D8%A8%DA%A9%DB%8C%D8%B1"
+  },
+  {
+    "name": "عامر بن اکوع",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%85%D8%B1_%D8%A8%D9%86_%D8%A7%DA%A9%D9%88%D8%B9"
+  },
+  {
+    "name": "عامر بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%85%D8%B1_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "عامر بن ربیعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%85%D8%B1_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9%DB%81"
+  },
+  {
+    "name": "ابو فہیرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A7%D9%85%D8%B1_%D8%A8%D9%86_%D9%81%DB%81%DB%8C%D8%B1%DB%81"
+  },
+  {
+    "name": "عباد بن بشر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%AF_%D8%A8%D9%86_%D8%A8%D8%B4%D8%B1"
+  },
+  {
+    "name": "عبادہ بن صامت",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%AF%DB%81_%D8%A8%D9%86_%D8%B5%D8%A7%D9%85%D8%AA"
+  },
+  {
+    "name": "عباد بن قيس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%AF_%D8%A8%D9%86_%D9%82%D9%8A%D8%B3"
+  },
+  {
+    "name": "عباس بن عبدالمطلب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%A7%D8%B3_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%85%D8%B7%D9%84%D8%A8"
+  },
+  {
+    "name": "عیاش بن ابی ربیعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%DB%8C%D8%A7%D8%B4_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B1%D8%A8%DB%8C%D8%B9%DB%81"
+  },
+  {
+    "name": "عبد الرحمن بن ابی بکر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A8%DA%A9%D8%B1"
+  },
+  {
+    "name": "عبد الرحمن بن جبر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86_%D8%A8%D9%86_%D8%AC%D8%A8%D8%B1"
+  },
+  {
+    "name": "عبدالرحمن بن سمرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86_%D8%A8%D9%86_%D8%B3%D9%85%D8%B1%DB%81"
+  },
+  {
+    "name": "عبدالرحمن بن عوف",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86_%D8%A8%D9%86_%D8%B9%D9%88%D9%81"
+  },
+  {
+    "name": "عبد الرحمن بن معاذ بن جبل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86_%D8%A8%D9%86_%D9%85%D8%B9%D8%A7%D8%B0_%D8%A8%D9%86_%D8%AC%D8%A8%D9%84"
+  },
+  {
+    "name": "عبد اللہ بن ابی اوفی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%88%D9%81%DB%8C"
+  },
+  {
+    "name": "عبد اللہ بن ابی خولی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%AE%D9%88%D9%84%DB%8C"
+  },
+  {
+    "name": "عبد الله بن ابی قحافہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%D9%87_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D9%82%D8%AD%D8%A7%D9%81%DB%81"
+  },
+  {
+    "name": "عبد اللہ بن ارقم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D8%B1%D9%82%D9%85"
+  },
+  {
+    "name": "عبد اللہ بن انیس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D9%86%DB%8C%D8%B3"
+  },
+  {
+    "name": "عبد اللہ بن جبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AC%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "عبد اللہ بن جحش",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AC%D8%AD%D8%B4"
+  },
+  {
+    "name": "عبد اللہ بن جعفر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AC%D8%B9%D9%81%D8%B1"
+  },
+  {
+    "name": "عبد اللہ بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "عبد اللہ بن حذافہ سہمی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AD%D8%B0%D8%A7%D9%81%DB%81_%D8%B3%DB%81%D9%85%DB%8C"
+  },
+  {
+    "name": "عبد اللہ بن حمیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%AD%D9%85%DB%8C%D8%B1"
+  },
+  {
+    "name": "عبد اللہ بن رواحہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B1%D9%88%D8%A7%D8%AD%DB%81"
+  },
+  {
+    "name": "عبد اللہ ابن زبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A7%D8%A8%D9%86_%D8%B2%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "عبد اللہ بن سراقہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%D8%B1%D8%A7%D9%82%DB%81"
+  },
+  {
+    "name": "عبد اللہ بن سعید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%D8%B9%DB%8C%D8%AF"
+  },
+  {
+    "name": "عبد اللہ بن سلام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%D9%84%D8%A7%D9%85"
+  },
+  {
+    "name": "عبد اللہ بن سلمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%D9%84%D9%85%DB%81"
+  },
+  {
+    "name": "عبد اللہ بن سہل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%DB%81%D9%84"
+  },
+  {
+    "name": "عبد اللہ بن سہیل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B3%DB%81%DB%8C%D9%84"
+  },
+  {
+    "name": "عبد اللہ بن طارق",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B7%D8%A7%D8%B1%D9%82"
+  },
+  {
+    "name": "عبد اللہ بن عبد اللہ بن ابی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C"
+  },
+  {
+    "name": "عبد اللہ بن عمر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1"
+  },
+  {
+    "name": "عبد الله بن مغفل",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%D9%87_%D8%A8%D9%86_%D9%85%D8%BA%D9%81%D9%84"
+  },
+  {
+    "name": "عبد الله بن مخرمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%D9%87_%D8%A8%D9%86_%D9%85%D8%AE%D8%B1%D9%85%DB%81"
+  },
+  {
+    "name": "عبد اللہ بن مسعود",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D9%85%D8%B3%D8%B9%D9%88%D8%AF"
+  },
+  {
+    "name": "عبد اللہ بن مظعون",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D9%85%D8%B8%D8%B9%D9%88%D9%86"
+  },
+  {
+    "name": "عبد اللہ بن عباس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%D8%A7%D8%B3"
+  },
+  {
+    "name": "عبد اللہ بن عبداللہ بن ابی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C"
+  },
+  {
+    "name": "عبد اللہ بن عمر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1"
+  },
+  {
+    "name": "عبد الله بن عمرو بن حرام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%D9%87_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%AD%D8%B1%D8%A7%D9%85"
+  },
+  {
+    "name": "عبد اللہ بن عمرو بن العاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%D9%84%D8%B9%D8%A7%D8%B5"
+  },
+  {
+    "name": "عبد اللہ ابن زبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%DB%81_%D8%A7%D8%A8%D9%86_%D8%B2%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "عبیدہ ابن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%DB%8C%D8%AF%DB%81_%D8%A7%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "عبید بن اوس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3"
+  },
+  {
+    "name": "عبدیا لیل بن ناشب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%A8%D8%AF%DB%8C%D8%A7_%D9%84%DB%8C%D9%84_%D8%A8%D9%86_%D9%86%D8%A7%D8%B4%D8%A8"
+  },
+  {
+    "name": "عتاب بن اسید",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AA%D8%A7%D8%A8_%D8%A8%D9%86_%D8%A7%D8%B3%DB%8C%D8%AF"
+  },
+  {
+    "name": "عتبہ بن غزوان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AA%D8%A8%DB%81_%D8%A8%D9%86_%D8%BA%D8%B2%D9%88%D8%A7%D9%86"
+  },
+  {
+    "name": "عتبان بن مالك",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AA%D8%A8%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%D9%83"
+  },
+  {
+    "name": "عثمان بن حنیف",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D9%86%DB%8C%D9%81"
+  },
+  {
+    "name": "عثمان بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "عثمان بن عفان",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D9%81%D8%A7%D9%86"
+  },
+  {
+    "name": "عثمان بن مظعون",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D8%B8%D8%B9%D9%88%D9%86"
+  },
+  {
+    "name": "عثمان ابو قحافہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A7%D8%A8%D9%88_%D9%82%D8%AD%D8%A7%D9%81%DB%81"
+  },
+  {
+    "name": "عدی بن حاتم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AF%DB%8C_%D8%A8%D9%86_%D8%AD%D8%A7%D8%AA%D9%85"
+  },
+  {
+    "name": "عدی بن ابو الزغباء",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%AF%DB%8C_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D8%A7%D9%84%D8%B2%D8%BA%D8%A8%D8%A7%D8%A1"
+  },
+  {
+    "name": "عروہ بارقی",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%B1%D9%88%DB%81_%D8%A8%D8%A7%D8%B1%D9%82%DB%8C"
+  },
+  {
+    "name": "عروہ بن مسعود",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%B1%D9%88%DB%81_%D8%A8%D9%86_%D9%85%D8%B3%D8%B9%D9%88%D8%AF"
+  },
+  {
+    "name": "عروہ بن زبیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%B1%D9%88%DB%81_%D8%A8%D9%86_%D8%B2%D8%A8%DB%8C%D8%B1"
+  },
+  {
+    "name": "عصمہ بن وبرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D8%B5%D9%85%DB%81_%D8%A8%D9%86_%D9%88%D8%A8%D8%B1%DB%81"
+  },
+  {
+    "name": "عکاشہ بن محصن",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%DA%A9%D8%A7%D8%B4%DB%81_%D8%A8%D9%86_%D9%85%D8%AD%D8%B5%D9%86"
+  },
+  {
+    "name": "عکرمہ بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%DA%A9%D8%B1%D9%85%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "عقبہ بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%82%D8%A8%DB%81_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "عقبہ بن وہب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%82%D8%A8%DB%81_%D8%A8%D9%86_%D9%88%DB%81%D8%A8"
+  },
+  {
+    "name": "عقیل ابن ابی طالب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%82%DB%8C%D9%84_%D8%A7%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B7%D8%A7%D9%84%D8%A8"
+  },
+  {
+    "name": "علی بن ابی طالب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%84%DB%8C_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B7%D8%A7%D9%84%D8%A8"
+  },
+  {
+    "name": "عمار بن یاسر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%A7%D8%B1_%D8%A8%D9%86_%DB%8C%D8%A7%D8%B3%D8%B1"
+  },
+  {
+    "name": "عمارہ بن حزم",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%A7%D8%B1%DB%81_%D8%A8%D9%86_%D8%AD%D8%B2%D9%85"
+  },
+  {
+    "name": "عمران بن حصین",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%D8%B5%DB%8C%D9%86"
+  },
+  {
+    "name": "عمرو بن ابی عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "عمرو بن ایاس",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%DB%8C%D8%A7%D8%B3"
+  },
+  {
+    "name": "عمر بن خطاب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1_%D8%A8%D9%86_%D8%AE%D8%B7%D8%A7%D8%A8"
+  },
+  {
+    "name": "عمرو ابن العاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A7%D8%A8%D9%86_%D8%A7%D9%84%D8%B9%D8%A7%D8%B5"
+  },
+  {
+    "name": "عمرو بن الجموح",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%88%D8%AD"
+  },
+  {
+    "name": "عمرو بن حارثہ",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB%DB%81&action=edit&redlink=1"
+  },
+  {
+    "name": "عمرو بن حمق",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%AD%D9%85%D9%82"
+  },
+  {
+    "name": "عمرو بن سراقہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%B3%D8%B1%D8%A7%D9%82%DB%81"
+  },
+  {
+    "name": "عمیر بن ابی وقاص",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%DB%8C%D8%B1_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D9%88%D9%82%D8%A7%D8%B5"
+  },
+  {
+    "name": "عمير بن الحمام",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%D9%8A%D8%B1_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85"
+  },
+  {
+    "name": "عمیر بن رئاب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B1%D8%A6%D8%A7%D8%A8"
+  },
+  {
+    "name": "عمیر بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "عمیر بن وہب",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%DB%8C%D8%B1_%D8%A8%D9%86_%D9%88%DB%81%D8%A8"
+  },
+  {
+    "name": "عمیر بن عوف",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%85%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B9%D9%88%D9%81"
+  },
+  {
+    "name": "عوف بن الحارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%88%D9%81_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "عویم بن ساعدہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%D9%88%DB%8C%D9%85_%D8%A8%D9%86_%D8%B3%D8%A7%D8%B9%D8%AF%DB%81"
+  },
+  {
+    "name": "عیاش بن ابی ربیعہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%DB%8C%D8%A7%D8%B4_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B1%D8%A8%DB%8C%D8%B9%DB%81"
+  },
+  {
+    "name": "عیاض بن زہیر",
+    "url": "https://ur.wikipedia.org/wiki/%D8%B9%DB%8C%D8%A7%D8%B6_%D8%A8%D9%86_%D8%B2%DB%81%DB%8C%D8%B1"
+  },
+  {
+    "name": "غضیف بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D8%BA%D8%B6%DB%8C%D9%81_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "غیلان بن سلمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D8%BA%DB%8C%D9%84%D8%A7%D9%86_%D8%A8%D9%86_%D8%B3%D9%84%D9%85%DB%81"
+  },
+  {
+    "name": "فاطمۃ الزھراء",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%A7%D8%B7%D9%85%DB%83_%D8%A7%D9%84%D8%B2%DA%BE%D8%B1%D8%A7%D8%A1"
+  },
+  {
+    "name": "فاطمہ بنت خطاب",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%AE%D8%B7%D8%A7%D8%A8"
+  },
+  {
+    "name": "فاطمہ بنت الاسود",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%84%D8%A7%D8%B3%D9%88%D8%AF&action=edit&redlink=1"
+  },
+  {
+    "name": "فاطمہ بنت الولید بن عبد شمس",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%84%D9%88%D9%84%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%B4%D9%85%D8%B3&action=edit&redlink=1"
+  },
+  {
+    "name": "فاطمہ بنت الولید بن المغیرہ",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%84%D9%88%D9%84%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D8%BA%DB%8C%D8%B1%DB%81&action=edit&redlink=1"
+  },
+  {
+    "name": "فاطمہ بنت الزبیر",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%84%D8%B2%D8%A8%DB%8C%D8%B1&action=edit&redlink=1"
+  },
+  {
+    "name": "فاطمہ بنت اسد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D8%B3%D8%AF"
+  },
+  {
+    "name": "فراس بن نضر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%B1%D8%A7%D8%B3_%D8%A8%D9%86_%D9%86%D8%B6%D8%B1"
+  },
+  {
+    "name": "فضالہ بن عبید",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%B6%D8%A7%D9%84%DB%81_%D8%A8%D9%86_%D8%B9%D8%A8%DB%8C%D8%AF"
+  },
+  {
+    "name": "فضل ابن عباس",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%D8%B6%D9%84_%D8%A7%D8%A8%D9%86_%D8%B9%D8%A8%D8%A7%D8%B3"
+  },
+  {
+    "name": "فیروز الدیلمی",
+    "url": "https://ur.wikipedia.org/wiki/%D9%81%DB%8C%D8%B1%D9%88%D8%B2_%D8%A7%D9%84%D8%AF%DB%8C%D9%84%D9%85%DB%8C"
+  },
+  {
+    "name": "قتادہ بن نعمان",
+    "url": "https://ur.wikipedia.org/wiki/%D9%82%D8%AA%D8%A7%D8%AF%DB%81_%D8%A8%D9%86_%D9%86%D8%B9%D9%85%D8%A7%D9%86"
+  },
+  {
+    "name": "قدامہ بن مظعون",
+    "url": "https://ur.wikipedia.org/wiki/%D9%82%D8%AF%D8%A7%D9%85%DB%81_%D8%A8%D9%86_%D9%85%D8%B8%D8%B9%D9%88%D9%86"
+  },
+  {
+    "name": "قطبہ بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%82%D8%B7%D8%A8%DB%81_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "قیس بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%82%DB%8C%D8%B3_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "قیس بن سکن",
+    "url": "https://ur.wikipedia.org/wiki/%D9%82%DB%8C%D8%B3_%D8%A8%D9%86_%D8%B3%DA%A9%D9%86"
+  },
+  {
+    "name": "کثیر بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%AB%DB%8C%D8%B1_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "کعب بن جماز",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%B9%D8%A8_%D8%A8%D9%86_%D8%AC%D9%85%D8%A7%D8%B2"
+  },
+  {
+    "name": "کعب بن زہیر",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%B9%D8%A8_%D8%A8%D9%86_%D8%B2%DB%81%DB%8C%D8%B1"
+  },
+  {
+    "name": "کعب بن زید",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%B9%D8%A8_%D8%A8%D9%86_%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "کعب بن عجرہ",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%B9%D8%A8_%D8%A8%D9%86_%D8%B9%D8%AC%D8%B1%DB%81"
+  },
+  {
+    "name": "کعب بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D8%B9%D8%A8_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "کلثوم بن ہدم",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D9%84%D8%AB%D9%88%D9%85_%D8%A8%D9%86_%DB%81%D8%AF%D9%85"
+  },
+  {
+    "name": "کناز بن حصین",
+    "url": "https://ur.wikipedia.org/wiki/%DA%A9%D9%86%D8%A7%D8%B2_%D8%A8%D9%86_%D8%AD%D8%B5%DB%8C%D9%86"
+  },
+  {
+    "name": "لبابہ بنت حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%84%D8%A8%D8%A7%D8%A8%DB%81_%D8%A8%D9%86%D8%AA_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "لبید بن ربیعہ عامری",
+    "url": "https://ur.wikipedia.org/wiki/%D9%84%D8%A8%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9%DB%81_%D8%B9%D8%A7%D9%85%D8%B1%DB%8C"
+  },
+  {
+    "name": "لبینہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%84%D8%A8%DB%8C%D9%86%DB%81"
+  },
+  {
+    "name": "لقیط بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%84%D9%82%DB%8C%D8%B7_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "لیلی بنت منہل",
+    "url": "https://ur.wikipedia.org/w/index.php?title=%D9%84%DB%8C%D9%84%DB%8C_%D8%A8%D9%86%D8%AA_%D9%85%D9%86%DB%81%D9%84&action=edit&redlink=1"
+  },
+  {
+    "name": "مالک بن ابو خولیٰ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D8%AE%D9%88%D9%84%DB%8C%D9%B0"
+  },
+  {
+    "name": "مالک بن امیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%A7%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "مالک بن انس",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%A7%D9%86%D8%B3"
+  },
+  {
+    "name": "مالک بن رافع",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%B1%D8%A7%D9%81%D8%B9"
+  },
+  {
+    "name": "مالک بن ربيعہ بن البدن",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%B1%D8%A8%D9%8A%D8%B9%DB%81_%D8%A8%D9%86_%D8%A7%D9%84%D8%A8%D8%AF%D9%86"
+  },
+  {
+    "name": "مالک بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "مالک بن عمیلہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D9%84%DB%81"
+  },
+  {
+    "name": "مالک بن قدامہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%A8%D9%86_%D9%82%D8%AF%D8%A7%D9%85%DB%81"
+  },
+  {
+    "name": "مالک دینار",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D9%84%DA%A9_%D8%AF%DB%8C%D9%86%D8%A7%D8%B1"
+  },
+  {
+    "name": "ماریہ قبطیہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A7%D8%B1%DB%8C%DB%81_%D9%82%D8%A8%D8%B7%DB%8C%DB%81"
+  },
+  {
+    "name": "مبشر بن عبد المنذر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%A8%D8%B4%D8%B1_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%85%D9%86%D8%B0%D8%B1"
+  },
+  {
+    "name": "مجذر بن ذیاد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%AC%D8%B0%D8%B1_%D8%A8%D9%86_%D8%B0%DB%8C%D8%A7%D8%AF"
+  },
+  {
+    "name": "محرز بن نضلہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%AD%D8%B1%D8%B2_%D8%A8%D9%86_%D9%86%D8%B6%D9%84%DB%81"
+  },
+  {
+    "name": "محمد بن ابی بکر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%AD%D9%85%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%A8%DA%A9%D8%B1"
+  },
+  {
+    "name": "محمد بن مسلمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%AD%D9%85%D8%AF_%D8%A8%D9%86_%D9%85%D8%B3%D9%84%D9%85%DB%81"
+  },
+  {
+    "name": "مدلج بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%AF%D9%84%D8%AC_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "مرارہ بن ربيع",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B1%D8%A7%D8%B1%DB%81_%D8%A8%D9%86_%D8%B1%D8%A8%D9%8A%D8%B9"
+  },
+  {
+    "name": "مرثد بن ابو مرثد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B1%D8%AB%D8%AF_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D9%85%D8%B1%D8%AB%D8%AF"
+  },
+  {
+    "name": "مروان بن حکم",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B1%D9%88%D8%A7%D9%86_%D8%A8%D9%86_%D8%AD%DA%A9%D9%85"
+  },
+  {
+    "name": "مسطح بن اثاثہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B3%D8%B7%D8%AD_%D8%A8%D9%86_%D8%A7%D8%AB%D8%A7%D8%AB%DB%81"
+  },
+  {
+    "name": "مسعود بن اوس",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B3%D8%B9%D9%88%D8%AF_%D8%A8%D9%86_%D8%A7%D9%88%D8%B3"
+  },
+  {
+    "name": "مسعود بن ربیع",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B3%D8%B9%D9%88%D8%AF_%D8%A8%D9%86_%D8%B1%D8%A8%DB%8C%D8%B9"
+  },
+  {
+    "name": "مصعب بن عمیر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B5%D8%B9%D8%A8_%D8%A8%D9%86_%D8%B9%D9%85%DB%8C%D8%B1"
+  },
+  {
+    "name": "مقداد بن اسود",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%82%D8%AF%D8%A7%D8%AF_%D8%A8%D9%86_%D8%A7%D8%B3%D9%88%D8%AF"
+  },
+  {
+    "name": "معاذ بن جبل",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%A7%D8%B0_%D8%A8%D9%86_%D8%AC%D8%A8%D9%84"
+  },
+  {
+    "name": "معاذ بن عمرو بن جموح",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%A7%D8%B0_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%AC%D9%85%D9%88%D8%AD"
+  },
+  {
+    "name": "معاویہ بن ابو سفیان",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%A7%D9%88%DB%8C%DB%81_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D8%B3%D9%81%DB%8C%D8%A7%D9%86"
+  },
+  {
+    "name": "معبد بن وهب",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%A8%D8%AF_%D8%A8%D9%86_%D9%88%D9%87%D8%A8"
+  },
+  {
+    "name": "معتب بن عبید",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%AA%D8%A8_%D8%A8%D9%86_%D8%B9%D8%A8%DB%8C%D8%AF"
+  },
+  {
+    "name": "معتب بن قشیر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%AA%D8%A8_%D8%A8%D9%86_%D9%82%D8%B4%DB%8C%D8%B1"
+  },
+  {
+    "name": "معقل بن المنذر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%82%D9%84_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D9%86%D8%B0%D8%B1"
+  },
+  {
+    "name": "معقل بن یسار",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%82%D9%84_%D8%A8%D9%86_%DB%8C%D8%B3%D8%A7%D8%B1"
+  },
+  {
+    "name": "معمر بن ابی سرح",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%85%D8%B1_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B3%D8%B1%D8%AD"
+  },
+  {
+    "name": "معمر بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%85%D8%B1_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "معن بن عدی",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%86_%D8%A8%D9%86_%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "معن بن یزید",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%86_%D8%A8%D9%86_%DB%8C%D8%B2%DB%8C%D8%AF"
+  },
+  {
+    "name": "معوذ بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%88%D8%B0_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "معوذ بن عمرو بن الجموح",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D9%88%D8%B0_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88_%D8%A8%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%88%D8%AD"
+  },
+  {
+    "name": "معیقیب بن ابی فاطمہ دوسی",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%B9%DB%8C%D9%82%DB%8C%D8%A8_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D9%81%D8%A7%D8%B7%D9%85%DB%81_%D8%AF%D9%88%D8%B3%DB%8C"
+  },
+  {
+    "name": "مغیرہ ابن شعبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D8%BA%DB%8C%D8%B1%DB%81_%D8%A7%D8%A8%D9%86_%D8%B4%D8%B9%D8%A8%DB%81"
+  },
+  {
+    "name": "مقداد بن اسود",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%82%D8%AF%D8%A7%D8%AF_%D8%A8%D9%86_%D8%A7%D8%B3%D9%88%D8%AF"
+  },
+  {
+    "name": "ملیل بن وبرہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%84%DB%8C%D9%84_%D8%A8%D9%86_%D9%88%D8%A8%D8%B1%DB%81"
+  },
+  {
+    "name": "منذر بن عرفجہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%86%D8%B0%D8%B1_%D8%A8%D9%86_%D8%B9%D8%B1%D9%81%D8%AC%DB%81"
+  },
+  {
+    "name": "منذر بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%86%D8%B0%D8%B1_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "منذر بن قدامہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%86%D8%B0%D8%B1_%D8%A8%D9%86_%D9%82%D8%AF%D8%A7%D9%85%DB%81"
+  },
+  {
+    "name": "منذر بن محمد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%D9%86%D8%B0%D8%B1_%D8%A8%D9%86_%D9%85%D8%AD%D9%85%D8%AF"
+  },
+  {
+    "name": "مہجع بن صالح",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%DB%81%D8%AC%D8%B9_%D8%A8%D9%86_%D8%B5%D8%A7%D9%84%D8%AD"
+  },
+  {
+    "name": "میمونہ بنت حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%85%DB%8C%D9%85%D9%88%D9%86%DB%81_%D8%A8%D9%86%D8%AA_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "نائلہ بنت الفرافصہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%A7%D8%A6%D9%84%DB%81_%D8%A8%D9%86%D8%AA_%D8%A7%D9%84%D9%81%D8%B1%D8%A7%D9%81%D8%B5%DB%81"
+  },
+  {
+    "name": "نابغہ جعدی",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%A7%D8%A8%D8%BA%DB%81_%D8%AC%D8%B9%D8%AF%DB%8C"
+  },
+  {
+    "name": "نحات بن ثعلبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%AD%D8%A7%D8%AA_%D8%A8%D9%86_%D8%AB%D8%B9%D9%84%D8%A8%DB%81"
+  },
+  {
+    "name": "نصر بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B5%D8%B1_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "نعمان بن ابو خزمہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%A7%D8%A8%D9%88_%D8%AE%D8%B2%D9%85%DB%81"
+  },
+  {
+    "name": "نعمان بن بشیر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%A8%D8%B4%DB%8C%D8%B1"
+  },
+  {
+    "name": "نعمان بن سنان",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B3%D9%86%D8%A7%D9%86"
+  },
+  {
+    "name": "نعمان بن عبد عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "نعمان بن عصر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D8%B5%D8%B1"
+  },
+  {
+    "name": "نعمان بن قوقل",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D9%82%D9%88%D9%82%D9%84"
+  },
+  {
+    "name": "نعمان بن مالک",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D8%A7%D9%84%DA%A9"
+  },
+  {
+    "name": "نعمان بن مقرن",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D9%85%D9%82%D8%B1%D9%86"
+  },
+  {
+    "name": "نعیم بن مسعود",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%DB%8C%D9%85_%D8%A8%D9%86_%D9%85%D8%B3%D8%B9%D9%88%D8%AF"
+  },
+  {
+    "name": "نعیمان بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D8%B9%DB%8C%D9%85%D8%A7%D9%86_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "نوفل بن ثعلبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D9%88%D9%81%D9%84_%D8%A8%D9%86_%D8%AB%D8%B9%D9%84%D8%A8%DB%81"
+  },
+  {
+    "name": "نوفل بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%D9%86%D9%88%D9%81%D9%84_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "واقد بن عبد الله",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D8%A7%D9%82%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D9%84%D9%87"
+  },
+  {
+    "name": "ودفہ بن اياس",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D8%AF%D9%81%DB%81_%D8%A8%D9%86_%D8%A7%D9%8A%D8%A7%D8%B3"
+  },
+  {
+    "name": "وحشی بن حرب",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D8%AD%D8%B4%DB%8C_%D8%A8%D9%86_%D8%AD%D8%B1%D8%A8"
+  },
+  {
+    "name": "ودیعہ بن عمرو",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D8%AF%DB%8C%D8%B9%DB%81_%D8%A8%D9%86_%D8%B9%D9%85%D8%B1%D9%88"
+  },
+  {
+    "name": "ولید ابن الولید",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D9%84%DB%8C%D8%AF_%D8%A7%D8%A8%D9%86_%D8%A7%D9%84%D9%88%D9%84%DB%8C%D8%AF"
+  },
+  {
+    "name": "ولید بن عقبہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%D9%84%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B9%D9%82%D8%A8%DB%81"
+  },
+  {
+    "name": "وہب بن ابی سرح",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%DB%81%D8%A8_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%B3%D8%B1%D8%AD"
+  },
+  {
+    "name": "وہب بن سعد",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%DB%81%D8%A8_%D8%A8%D9%86_%D8%B3%D8%B9%D8%AF"
+  },
+  {
+    "name": "وہب بن كلدہ",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%DB%81%D8%A8_%D8%A8%D9%86_%D9%83%D9%84%D8%AF%DB%81"
+  },
+  {
+    "name": "وہب بن محصن",
+    "url": "https://ur.wikipedia.org/wiki/%D9%88%DB%81%D8%A8_%D8%A8%D9%86_%D9%85%D8%AD%D8%B5%D9%86"
+  },
+  {
+    "name": "ہاشم بن عتبہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D8%A7%D8%B4%D9%85_%D8%A8%D9%86_%D8%B9%D8%AA%D8%A8%DB%81"
+  },
+  {
+    "name": "ہالہ بنت وہب",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D8%A7%D9%84%DB%81_%D8%A8%D9%86%D8%AA_%D9%88%DB%81%D8%A8"
+  },
+  {
+    "name": "ہانی بن نیار",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D8%A7%D9%86%DB%8C_%D8%A8%D9%86_%D9%86%DB%8C%D8%A7%D8%B1"
+  },
+  {
+    "name": "ہبیل بن وبرہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D8%A8%DB%8C%D9%84_%D8%A8%D9%86_%D9%88%D8%A8%D8%B1%DB%81"
+  },
+  {
+    "name": "ہشام بن عاص",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D8%B4%D8%A7%D9%85_%D8%A8%D9%86_%D8%B9%D8%A7%D8%B5"
+  },
+  {
+    "name": "ہلال بن المعلی",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%84%D8%A7%D9%84_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D8%B9%D9%84%DB%8C"
+  },
+  {
+    "name": "ہلال بن ابی خولی",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%84%D8%A7%D9%84_%D8%A8%D9%86_%D8%A7%D8%A8%DB%8C_%D8%AE%D9%88%D9%84%DB%8C"
+  },
+  {
+    "name": "ہلال بن امیہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%84%D8%A7%D9%84_%D8%A8%D9%86_%D8%A7%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "ہمام بن حارث",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%85%D8%A7%D9%85_%D8%A8%D9%86_%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "ہند بنت ابی امیہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%86%D8%AF_%D8%A8%D9%86%D8%AA_%D8%A7%D8%A8%DB%8C_%D8%A7%D9%85%DB%8C%DB%81"
+  },
+  {
+    "name": "ہند بنت عتبہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%86%D8%AF_%D8%A8%D9%86%D8%AA_%D8%B9%D8%AA%D8%A8%DB%81"
+  },
+  {
+    "name": "ہند بنت عوف بن زہیر",
+    "url": "https://ur.wikipedia.org/wiki/%DB%81%D9%86%D8%AF_%D8%A8%D9%86%D8%AA_%D8%B9%D9%88%D9%81_%D8%A8%D9%86_%D8%B2%DB%81%DB%8C%D8%B1"
+  },
+  {
+    "name": "یاسر بن عامر",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%A7%D8%B3%D8%B1_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1"
+  },
+  {
+    "name": "یزید بن اخنس",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D8%AE%D9%86%D8%B3"
+  },
+  {
+    "name": "یزید بن الحارث",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%A7%D9%84%D8%AD%D8%A7%D8%B1%D8%AB"
+  },
+  {
+    "name": "يزيد بن المنذر",
+    "url": "https://ur.wikipedia.org/wiki/%D9%8A%D8%B2%D9%8A%D8%AF_%D8%A8%D9%86_%D8%A7%D9%84%D9%85%D9%86%D8%B0%D8%B1"
+  },
+  {
+    "name": "یزید بن ثابت",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AB%D8%A7%D8%A8%D8%AA"
+  },
+  {
+    "name": "یزید بن ثعلبہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%AB%D8%B9%D9%84%D8%A8%DB%81"
+  },
+  {
+    "name": "يزيد بن رقيش",
+    "url": "https://ur.wikipedia.org/wiki/%D9%8A%D8%B2%D9%8A%D8%AF_%D8%A8%D9%86_%D8%B1%D9%82%D9%8A%D8%B4"
+  },
+  {
+    "name": "یزید بن زمعہ",
+    "url": "https://ur.wikipedia.org/wiki/%DB%8C%D8%B2%DB%8C%D8%AF_%D8%A8%D9%86_%D8%B2%D9%85%D8%B9%DB%81"
+  },
+  {
+    "name": "يزيد بن عامر انصاری",
+    "url": "https://ur.wikipedia.org/wiki/%D9%8A%D8%B2%D9%8A%D8%AF_%D8%A8%D9%86_%D8%B9%D8%A7%D9%85%D8%B1_%D8%A7%D9%86%D8%B5%D8%A7%D8%B1%DB%8C"
+  }
   // Add more names...
 ]
 
@@ -380,12 +2444,12 @@ export default function SahabaSearch() {
 
       <ul className={`space-y-4 mt-8 ${language === "urdu" ? "text-right" : ""}`}>
         {filteredNames.map((sahaba, index) => (
-          <li key={index} className="border-b border-gray-200 pb-2">
+          <li key={index} className="list-none border-2 border-[#67b2b4] rounded-2xl text-center font-bold text-[1.3rem] p-4 bg-transparent tracking-wider cursor-pointer text-[#164363] transition duration-500 hover:bg-[#67b2b480] hover:border-[#67b2b480]">
             <a
               href={sahaba.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan-800 hover:text-[#67b2b4] transition-colors"
+              className="text-cyan-800 hover:text-[#374a4d] transition-colors"
             >
               {sahaba.name}
               <sup className="mx-2">{language === "urdu" ? "رضي الله عنه" : "R.A"}</sup>

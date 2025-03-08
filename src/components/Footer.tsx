@@ -15,7 +15,7 @@ export default function Footer() {
               Searchayah
             </Link>
           </div>
-          <div className="text-center md:text-left space-y-2">
+          <div className="text-center space-y-2">
             <p className="text-sm">Copyright © {new Date().getFullYear()} | All rights reserved!</p>
             <div className="space-x-4">
               <a href="mailto:asadaliabbasi787@gmail.com" className="text-blue-400 hover:underline text-sm">
