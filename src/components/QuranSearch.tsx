@@ -4,7 +4,39 @@ import { useEffect, useState, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Filter } from 'lucide-react'
 import WordQuran from './WordQuran'
-// import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
+
+type Language = "english" | "urdu" | "indonesian" | "turkish" | "french" | "bengali" | "german"
+
+interface SearchResult {
+  surah: {
+    number: number
+    englishName: string
+  }
+  numberInSurah: number
+  text: string
+  translations: Record<Language, string>
+}
+
+interface QuranData {
+  verses: {
+    verse_key: string
+    text_uthmani: string
+  }[]
+}
+
+interface TranslationData {
+  translations: {
+    text: string
+  }[]
+}
+
+interface ChapterData {
+  chapters: {
+    id: number
+    name_simple: string
+  }[]
+}
+
 
 const TRANSLATION_IDS = {
   english: 131,
