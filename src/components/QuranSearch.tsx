@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Filter, Paperclip } from 'lucide-react'
-import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
+import { Filter } from 'lucide-react'
+import WordQuran from './WordQuran'
+// import type { SearchResult, QuranData, TranslationData, ChapterData, Language } from '@/types/quran'
 
-const TRANSLATION_IDS: Record<string, number> = {
+const TRANSLATION_IDS = {
   english: 131,
   urdu: 97,
   indonesian: 33,
@@ -16,18 +17,16 @@ const TRANSLATION_IDS: Record<string, number> = {
 }
 
 export default function QuranSearch() {
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [language, setLanguage] = useState<Language>('english')
   const [quranData, setQuranData] = useState<SearchResult[]>([])
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const [isSearching, setIsSearching] = useState<boolean>(false)
-  const [isProcessingVideo, setIsProcessingVideo] = useState<boolean>(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [isSearching, setIsSearching] = useState(false)
   const resultsPerPage = 20
 
-  const fetchTranslation = async (translationId: number): Promise<TranslationData['translations']> => {
+  const fetchTranslation = async (translationId: number) => {
     const response = await fetch(`https://api.quran.com/api/v4/quran/translations/${translationId}`)
     if (!response.ok) throw new Error(`Network response was not ok for translation ${translationId}`)
     const data: TranslationData = await response.json()
@@ -93,24 +92,22 @@ export default function QuranSearch() {
   }
 
   const handleSearch = useCallback(() => {
-    if (!searchTerm || !quranData) {
+    if (!searchTerm.trim()) {
       setSearchResults([])
       setIsSearching(false)
       return
     }
 
-    const trimmedSearch = searchTerm.trim()
     // Set searching state based on search term length
-    setIsSearching(trimmedSearch.length > 2)
+    setIsSearching(searchTerm.trim().length > 2)
 
     // Only perform search if we have 3 or more characters
-    if (trimmedSearch.length > 2) {
+    if (searchTerm.trim().length > 2) {
       const matches = quranData.filter((ayah) => {
-        const searchLower = trimmedSearch.toLowerCase()
+        const searchLower = searchTerm.toLowerCase()
         return (
-          (ayah.text && ayah.text.includes(searchTerm)) ||
-          (ayah.translations && ayah.translations[language] && 
-           ayah.translations[language].toLowerCase().includes(searchLower))
+          ayah.text.includes(searchTerm) ||
+          ayah.translations[language].toLowerCase().includes(searchLower)
         )
       })
 
@@ -120,45 +117,6 @@ export default function QuranSearch() {
       setSearchResults([])
     }
   }, [quranData, language, searchTerm])
-
-  const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Check file size (max 50MB)
-    if (file.size > 50 * 1024 * 1024) {
-      alert('Video file must be less than 50MB');
-      return;
-    }
-
-    try {
-      setIsProcessingVideo(true);
-      const formData = new FormData();
-      formData.append('video', file);
-
-      const response = await fetch('/api/video-search', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Failed to process video');
-      }
-
-      const data = await response.json();
-      if (data.text) {
-        setSearchTerm(data.text);
-      } else {
-        throw new Error('No transcription received from server');
-      }
-    } catch (error) {
-      console.error('Error processing video:', error);
-      alert(error instanceof Error ? error.message : 'Failed to process video. Please try again.');
-    } finally {
-      setIsProcessingVideo(false);
-    }
-  };
 
   useEffect(() => {
     fetchQuranData()
@@ -216,30 +174,13 @@ export default function QuranSearch() {
 
       <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-8 text-cyan-800">
         <div className="space-y-4">
-          <div className="relative">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleInputChange}
-              placeholder="Search Word or Ayat of Quran"
-              className="w-full px-4 py-3 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700 pr-12"
-            />
-            <button 
-              onClick={() => fileInputRef.current?.click()}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#67b2b4] hover:text-[#4a7f81] transition-colors"
-              title="Upload video to search by audio"
-            >
-              <Paperclip className="w-5 h-5" />
-            </button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="video/*"
-              className="hidden"
-              onChange={handleVideoUpload}
-              onClick={(e) => (e.currentTarget.value = '')}
-            />
-          </div>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleInputChange}
+            placeholder="Search Word or Ayat of Quran"
+            className="w-full px-4 py-3 border-2 border-[#67b2b4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#67b2b4] text-gray-700"
+          />
 
           <div className="flex items-center justify-between">
             <label className="text-gray-700">Translation Languages</label>
@@ -262,13 +203,6 @@ export default function QuranSearch() {
         {isLoading && (
           <div className="mt-8 text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#67b2b4] mx-auto"></div>
-          </div>
-        )}
-
-        {isProcessingVideo && (
-          <div className="mt-8 text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#67b2b4] mx-auto"></div>
-            <p className="mt-2 text-cyan-800">Processing video...</p>
           </div>
         )}
 
@@ -336,7 +270,7 @@ export default function QuranSearch() {
           </>
         )}
       </div>
-      {!isSearching && !isLoading}
+      {!isSearching && !isLoading && <WordQuran />}
     </div>
   )
 }
