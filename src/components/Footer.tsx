@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8 px-4 md:px-10" role="contentinfo">
+    <footer className="bg-gray-800 text-white py-4 px-4 md:px-10" role="contentinfo">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-5">
@@ -17,13 +17,12 @@ export default function Footer() {
           </div>
           <div className="text-center space-y-2">
             <p className="text-sm">Copyright © {new Date().getFullYear()} | All rights reserved!</p>
+            <span>Developed by</span>
+        <a href="https://www.rosopak.com/" target="_blank" rel="noopener noreferrer" className="relative h-8 w-8 rounded-full overflow-hidden">
+          <Image src="/favicon.ico" alt="Logo" fill className="object-cover" priority />
+        </a>
             <div className="space-x-4">
-              <a href="mailto:asadaliabbasi787@gmail.com" className="text-blue-400 hover:underline text-sm">
-                asadaliabbasi787@gmail.com
-              </a>
-              <a href="mailto:muhammadbilaal098@gmail.com" className="text-blue-400 hover:underline text-sm">
-                muhammadbilaal098@gmail.com
-              </a>
+              
             </div>
           </div>
           <div className="flex justify-center space-x-6">

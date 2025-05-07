@@ -155,37 +155,19 @@ export default function BooksPage() {
 
       {/* Header */}
       <header className="bg-[url('/images/darkwood.jpg')] text-white p-4 shadow-md">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full">
           <h1 className="text-2xl sm:text-3xl font-bold text-amber-300 mb-4 md:mb-0">BOOKS STORE</h1>
 
           {/* Search bar in the center */}
-          <div className="flex-grow mx-2 md:mx-4 w-full md:w-auto">
+          <div className="mx-2 md:mx-4 ">
             <input
               type="text"
               placeholder="Search for books..."
-              className="w-full p-2 rounded-md bg-white text-black"
+              className="md:w-96  w-auto  p-2 rounded-md bg-white text-black"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
           </div>
-
-          <nav className="flex flex-wrap justify-center mt-4 md:mt-0">
-            <Link href="/" className="mx-2 my-1 hover:text-amber-300 transition duration-300">
-              HOME
-            </Link>
-            <Link href="#" className="mx-2 my-1 hover:text-amber-300 transition duration-300">
-              NONE
-            </Link>
-            <Link href="#" className="mx-2 my-1 hover:text-amber-300 transition duration-300">
-              NONE
-            </Link>
-            <Link href="#" className="mx-2 my-1 hover:text-amber-300 transition duration-300">
-              NONE
-            </Link>
-            <Link href="#" className="mx-2 my-1 hover:text-amber-300 transition duration-300">
-              NONE
-            </Link>
-          </nav>
         </div>
       </header>
 
@@ -215,11 +197,11 @@ export default function BooksPage() {
             </div>
 
             {/* Book Categories */}
-            {bookCategories.map((category) => (
+            {bookCategories.map((category) => ( 
               <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" key={category.id}>
                 <div className="wooden-text relative w-full flex justify-center mb-8">
                   <div className="relative">
-                    <h3 className="absolute inset-0 flex items-center justify-center text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                    <h3 className="absolute inset-0 text-[#230b08] flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-3xl">
                       {category.title}
                     </h3>
                   </div>

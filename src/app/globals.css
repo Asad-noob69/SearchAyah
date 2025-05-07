@@ -134,12 +134,8 @@ body {
   height: 100%;
   color: #fff;
   mix-blend-mode: darken;
-  text-shadow:
-    0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #000,
-    -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
-    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 .05em #0002, -.025em .025em .1em #00000080, -.05em .05em .1em #00000080, -.1em .1em .3em #00000060, -.1em .1em .5em #00000050;
   translate: translate3d(0, 0, 0);
-  font-family: "Muli", sans-serif;
   font-size: 2rem;
   line-height: 1;
   font-weight: 600;
@@ -147,6 +143,10 @@ body {
   letter-spacing: 5px;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.wooden-text h3{
+  font-family: "Josefin Sans", sans-serif;
 }
 
 @media (max-width: 768px) {
