@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import rosopak from '../../public/rosopak.jpg'
 
 export default function Footer() {
   return (
@@ -17,11 +18,12 @@ export default function Footer() {
           </div>
           <div className="text-center space-y-2">
             <p className="text-sm">Copyright © {new Date().getFullYear()} | All rights reserved!</p>
+            <div className="space-x-4 flex items-center justify-center">
             <span>Developed by</span>
-        <a href="https://www.rosopak.com/" target="_blank" rel="noopener noreferrer" className="relative h-8 w-8 rounded-full overflow-hidden">
-          <Image src="/favicon.ico" alt="Logo" fill className="object-cover" priority />
+        <a href="https://www.rosopak.com/" target="_blank" rel="noopener noreferrer" className="relative rounded-full overflow-hidden">
+          <Image src={rosopak} alt="Logo" className="object-cover" priority width={30} height={30}/>
         </a>
-            <div className="space-x-4">
+            
               
             </div>
           </div>

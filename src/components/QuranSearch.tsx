@@ -34,7 +34,7 @@ interface Verse {
     text: string
     language: string
   }>
-  text_uthmani?: string // Add this for the complete Arabic text
+  text_uthmani?: string
 }
 
 interface Surah {
@@ -78,7 +78,7 @@ interface ChapterData {
 
 // Translation IDs for the Quran API
 const TRANSLATION_IDS = {
-  english: 131,
+  english: 20,
   urdu: 97,
   indonesian: 33,
   turkish: 77,
@@ -467,53 +467,33 @@ export default function QuranBrowse() {
 
   // Modify the renderVerseContent function to support highlighting
   const renderVerseContent = (verse: Verse, highlight = false) => {
-    const completeArabicText = verse.words.map((word) => word.text_uthmani).join(" ")
-    const translationClass = language === "urdu" ? "font-urdu text-right" : "text-left"
+  const completeArabicText = verse.words.map((word) => word.text_uthmani).join(" ");
+  const translationClass = language === "urdu" ? "font-urdu text-right" : "text-left";
 
-    const translation =
-      verse.translations.find((t) => t.language === (language === "urdu" ? "ur" : "en"))?.text ||
-      verse.translations[0]?.text
+  // Safely access translations with a fallback
+  const translation =
+    verse.translations && Array.isArray(verse.translations)
+      ? verse.translations.find((t) => t.language === (language === "urdu" ? "ur" : "en"))?.text ||
+        verse.translations[0]?.text ||
+        "Translation not available"
+      : "Translation not available";
 
-    if (isWordByWord) {
-      return (
-        <>
-          <div className="flex flex-wrap flex-row-reverse gap-2">
-            {verse.words.map((word, index) => (
-              <div key={index} className="word-wrap flex flex-col items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-lg sm:text-xl md:text-2xl mb-2 font-arabic text-cyan-900">
-                  {word.text_uthmani}
-                </span>
-                <span className={`text-base py-2 text-gray-600 ${language === "urdu" ? "font-urdu" : ""}`}>
-                  {word.translation.text || "-"}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <p
-              className={`text-cyan-900 ${translationClass}`}
-              dangerouslySetInnerHTML={{
-                __html: highlight
-                  ? highlightSearchTerm(cleanTranslation(translation, showFootnotes), searchTerm)
-                  : cleanTranslation(translation, showFootnotes),
-              }}
-            />
-          </div>
-        </>
-      )
-    }
-
+  if (isWordByWord) {
     return (
       <>
-        <div className="mb-4">
-          <p
-            className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
-            dangerouslySetInnerHTML={{
-              __html: highlight ? highlightSearchTerm(completeArabicText, searchTerm) : completeArabicText,
-            }}
-          />
+        <div className="flex flex-wrap flex-row-reverse gap-2">
+          {verse.words.map((word, index) => (
+            <div key={index} className="word-wrap flex flex-col items-center p-3 bg-gray-50 rounded-lg">
+              <span className="text-lg sm:text-xl md:text-2xl mb-2 font-arabic text-cyan-900">
+                {word.text_uthmani}
+              </span>
+              <span className={`text-base py-2 text-gray-600 ${language === "urdu" ? "font-urdu" : ""}`}>
+                {word.translation.text || "-"}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="p-4 bg-gray-50 rounded-lg">
+        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
           <p
             className={`text-cyan-900 ${translationClass}`}
             dangerouslySetInnerHTML={{
@@ -524,8 +504,32 @@ export default function QuranBrowse() {
           />
         </div>
       </>
-    )
+    );
   }
+
+  return (
+    <>
+      <div className="mb-4">
+        <p
+          className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
+          dangerouslySetInnerHTML={{
+            __html: highlight ? highlightSearchTerm(completeArabicText, searchTerm) : completeArabicText,
+          }}
+        />
+      </div>
+      <div className="p-4 bg-gray-50 rounded-lg">
+        <p
+          className={`text-cyan-900 ${translationClass}`}
+          dangerouslySetInnerHTML={{
+            __html: highlight
+              ? highlightSearchTerm(cleanTranslation(translation, showFootnotes), searchTerm)
+              : cleanTranslation(translation, showFootnotes),
+          }}
+        />
+      </div>
+    </>
+  );
+};
 
   // Load initial verses
   useEffect(() => {
@@ -665,7 +669,6 @@ export default function QuranBrowse() {
                 <option value="russian">Russian</option>
                 <option value="arabic">Arabic</option>
                 <option value="portuguese">Portuguese</option>
-                <option value="italian">Italian</option>
               </select>
             </div>
           </div>

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Qurancp';
+  src: url('/fonts/quran.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 @layer base {
   body {
     font-family: Josefin Sans, sans-serif;
