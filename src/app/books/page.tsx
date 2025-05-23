@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { X } from "lucide-react"
+import { X, Menu, Book, BookOpen, BookCopy, Library, BookMarked, Bookmark, BookText } from "lucide-react"
 
 // Book interface
 interface Book {
@@ -31,7 +31,22 @@ export default function BooksPage() {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null)
   const [activeVolume, setActiveVolume] = useState(1)
   const [windowWidth, setWindowWidth] = useState(0)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const sidebarRef = useRef<HTMLDivElement>(null)
 
+  // Handle clicking outside the sidebar to close it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node) && isSidebarOpen) {
+        setIsSidebarOpen(false)
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isSidebarOpen])
   // Track window width for responsive calculations
   useEffect(() => {
     const handleResize = () => {
@@ -44,6 +59,33 @@ export default function BooksPage() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+
+  // Function to get appropriate icon for each category
+  const getCategoryIcon = (categoryId: string) => {
+    const iconClass = "mr-2"
+    switch (categoryId) {
+      case "tafseer":
+        return <BookOpen size={18} className={iconClass} />
+      case "hadith":
+        return <BookText size={18} className={iconClass} />
+      case "sunnah":
+        return <BookMarked size={18} className={iconClass} />
+      case "seerah":
+        return <Book size={18} className={iconClass} />
+      case "sahaba":
+        return <Library size={18} className={iconClass} />
+      case "khilafat":
+        return <BookCopy size={18} className={iconClass} />
+      case "iqbal":
+        return <BookText size={18} className={iconClass} />
+      case "philosophy":
+        return <Book size={18} className={iconClass} />
+      case "other":
+        return <Bookmark size={18} className={iconClass} />
+      default:
+        return <Book size={18} className={iconClass} />
+    }
+  }
 
   // Calculate books per row based on screen size
   const getBooksPerRow = () => {
@@ -151,24 +193,100 @@ export default function BooksPage() {
           href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
           rel="stylesheet"
         />
-      </Head>
-
-      {/* Header */}
+      </Head>      {/* Header */}
       <header className="bg-[url('/images/darkwood.jpg')] text-white p-4 shadow-md">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full">
-          <h1 className="text-2xl sm:text-3xl font-bold text-amber-300 mb-4 md:mb-0">BOOKS STORE</h1>
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full p-4">
+  <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
+    <button
+      onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      className="mr-2 p-2 hover:bg-amber-800 rounded-md transition-all"
+      aria-label="Toggle sidebar"
+    >
+      <Menu size={24} className="text-amber-300" />
+    </button>
+    <h1 className="text-2xl sm:text-3xl font-bold text-amber-300">BOOKS STORE</h1>
+  </div>
 
-          {/* Search bar in the center */}
-          <div className="mx-2 md:mx-4 ">
-            <input
-              type="text"
-              placeholder="Search for books..."
-              className="md:w-96  w-auto  p-2 rounded-md bg-white text-black"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
+  {/* Search bar */}
+  <div className="w-full md:w-auto mt-4 md:mt-0">
+    <input
+      type="text"
+      placeholder="Search for books..."
+      className="w-full sm:w-64 md:w-96 p-2 rounded-md bg-white text-black"
+      value={searchInput}
+      onChange={(e) => setSearchInput(e.target.value)}
+    />
+  </div>
+</div>
+          {/* Sidebar */}
+        <div 
+          ref={sidebarRef}
+          className={`fixed top-0 left-0 h-full bg-[url('/images/darkwood.jpg')] text-white w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+            isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          <div className="p-4 flex flex-col h-full">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-amber-300">Book Categories</h2>
+              <button 
+                onClick={() => setIsSidebarOpen(false)}
+                className="p-1 hover:bg-amber-800 rounded-full transition-all"
+                aria-label="Close sidebar"
+              >
+                <X size={20} className="text-amber-300" />
+              </button>
+            </div>
+            
+            <div className="overflow-y-auto flex-grow">
+              <ul className="space-y-2">
+                <li className="py-2 border-b border-amber-800/30">
+                  <button 
+                    className="flex items-center w-full hover:text-amber-300 transition-colors"
+                    onClick={() => {
+                      setFilteredBooks([])
+                      setShowMainContent(true)
+                      setIsSidebarOpen(false)
+                      // Scroll to Quran section
+                      document.getElementById('book-container')?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  >
+                    <BookOpen size={18} className="mr-2" />
+                    <span>Quran</span>
+                  </button>
+                </li>
+                
+                {bookCategories.map((category) => (
+                  <li key={category.id} className="py-2 border-b border-amber-800/30">
+                    <button
+                      className="flex items-center w-full hover:text-amber-300 transition-colors"
+                      onClick={() => {
+                        setFilteredBooks([])
+                        setShowMainContent(true)
+                        setIsSidebarOpen(false)
+                        // Find and scroll to the specific category
+                        setTimeout(() => {
+                          const element = document.querySelector(`[data-category-id="${category.id}"]`)
+                          element?.scrollIntoView({ behavior: 'smooth' })
+                        }, 100)
+                      }}
+                    >
+                      {getCategoryIcon(category.id)}
+                      <span>{category.title}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
+        
+        {/* Overlay when sidebar is open */}
+        {isSidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
       </header>
 
       <main className="min-h-screen sm:px-24 md:px-16 px-2">
@@ -194,11 +312,9 @@ export default function BooksPage() {
                   />
                 </div>
               </div>
-            </div>
-
-            {/* Book Categories */}
+            </div>            {/* Book Categories */}
             {bookCategories.map((category) => ( 
-              <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" key={category.id}>
+              <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" key={category.id} data-category-id={category.id}>
                 <div className="wooden-text relative w-full flex justify-center mb-8">
                   <div className="relative">
                     <h3 className="absolute inset-0 text-[#230b08] flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-3xl">
@@ -360,6 +476,37 @@ const bookCategories: BookCategory[] = [
         ],
         "readLinks": [
           "https://drive.google.com/file/d/1FCibkYzM9Dd_2mgrotjg4aTvCaTn5vWm/view?usp=drive_link"
+        ]
+      },
+      {
+        "id": "Tafseer E Qurtubi",
+        "title": "Tafseer E Qurtubi",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/tafseerEqurtubi.jpg",
+        "volumes": 10,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/128DNqL307sWZtc4mNMrsXIPU33UGOcc_/view?usp=drive_link", //1
+          "https://drive.google.com/file/d/1iGZwbodj0E6X-AvqzKW59pcdC32dvsEk/view?usp=drive_link", //2
+          "https://drive.google.com/file/d/1RO9G_qfhrZDO7edSofLed1F7_kIDCg8U/view?usp=drive_link", //3
+          "https://drive.google.com/file/d/1A4Z55dEuqEoBZNldb2oIRxaYJalC9ASa/view?usp=drive_link", //4
+          "https://drive.google.com/file/d/1Gs49dzUV99Haru6Z40N83g0QS2_DwDog/view?usp=drive_link", //5
+          "https://drive.google.com/file/d/19xoqCgvW6uGHxjDGpoll1sdMIum2xFl2/view?usp=drive_link", //6
+          "https://drive.google.com/file/d/1MEgKvo9A4c95pbVrAR9JGQzYloiWAORq/view?usp=drive_link", //7
+          "https://drive.google.com/file/d/1Ya7jfMZGdzM_t-2zMXcZNasQs6D9iSfr/view?usp=drive_link", //8
+          "https://drive.google.com/file/d/1NPEPZ7RIkWplsYFri8UHae8YuZtH_0DB/view?usp=drive_link", //9
+          "https://drive.google.com/file/d/1TKZ0EfMVvkkeVnj7q_TjO-YeSFIUcpXg/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/128DNqL307sWZtc4mNMrsXIPU33UGOcc_/view?usp=drive_link", //1
+          "https://drive.google.com/file/d/1iGZwbodj0E6X-AvqzKW59pcdC32dvsEk/view?usp=drive_link", //2
+          "https://drive.google.com/file/d/1RO9G_qfhrZDO7edSofLed1F7_kIDCg8U/view?usp=drive_link", //3
+          "https://drive.google.com/file/d/1A4Z55dEuqEoBZNldb2oIRxaYJalC9ASa/view?usp=drive_link", //4
+          "https://drive.google.com/file/d/1Gs49dzUV99Haru6Z40N83g0QS2_DwDog/view?usp=drive_link", //5
+          "https://drive.google.com/file/d/19xoqCgvW6uGHxjDGpoll1sdMIum2xFl2/view?usp=drive_link", //6
+          "https://drive.google.com/file/d/1MEgKvo9A4c95pbVrAR9JGQzYloiWAORq/view?usp=drive_link", //7
+          "https://drive.google.com/file/d/1Ya7jfMZGdzM_t-2zMXcZNasQs6D9iSfr/view?usp=drive_link", //8
+          "https://drive.google.com/file/d/1NPEPZ7RIkWplsYFri8UHae8YuZtH_0DB/view?usp=drive_link", //9
+          "https://drive.google.com/file/d/1TKZ0EfMVvkkeVnj7q_TjO-YeSFIUcpXg/view?usp=drive_link"
         ]
       }
     ]
@@ -729,6 +876,61 @@ const bookCategories: BookCategory[] = [
     ]
   },
   {
+    "id": "Theology/Mysticism",
+    "title": "Theology/Mysticism",
+    "books": [
+      {
+        "id": "SharahAlMaqasid",
+        "title": "Sharah alMaqasid",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/sharahalmaqasid.jpeg",
+        "volumes": 5,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
+          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
+          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
+          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
+          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
+          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
+          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
+          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
+          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
+        ]
+      },
+      {
+        "id": "Kitab al-Irshad",
+        "title": "Kitāb al-Irshād ilā Qawāṭiʿ al-Adillah fī Uṣūl al-Iʿtiqād",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/kitabalirshad.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
+
+        ]
+      },
+      {
+        "id": "Creed of tahawiyyah",
+        "title": "al-ʻAqīdah al-Ṭaḥāwīyah",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/aqidaetahawiya.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
+
+        ]
+      },
+    ]
+  },
+  {
     "id": "sahaba",
     "title": "Sahaba Books",
     "books": [
@@ -955,7 +1157,34 @@ const bookCategories: BookCategory[] = [
         "readLinks": [
           "https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
         ]
-      }
+      },
+      {
+        "id": "Inchorence of philosophy",
+        "title": "The Incoherence of Philosophy",
+        "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
+        "coverImage": "/images/incoherenceofphilosophy.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1ic7jIMnTybMlYztaSgWYN5jfJ97fKKY3/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1ic7jIMnTybMlYztaSgWYN5jfJ97fKKY3/view?usp=drive_link"
+        ]
+      },
+      {
+        "id": "SharahAlMukhtasar",
+        "title": "Sharah al-mukhtasar",
+        "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
+        "coverImage": "/images/sharahalmukhtasar.png",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1HvK07vDhWaXkXbiVJ2MNR9r8IiznxBnM/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1HvK07vDhWaXkXbiVJ2MNR9r8IiznxBnM/view?usp=drive_link"
+
+        ]
+      },
     ]
   },
   {
