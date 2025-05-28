@@ -181,7 +181,7 @@ export default function BooksPage() {
   }
 
   return (
-    <div className="bg-amber-50 min-h-screen" style={{ background: "url(/images/background.jpg)" }}>
+    <div className="bg-amber-50 min-h-screen" style={{ background: "url(/images/background.webp)" }}>
       <Head>
         <title>Islamic Book Store</title>
         <meta name="description" content="Islamic Book Store - Collection of Islamic books" />
@@ -194,7 +194,7 @@ export default function BooksPage() {
           rel="stylesheet"
         />
       </Head>      {/* Header */}
-      <header className="bg-[url('/images/darkwood.jpg')] text-white p-4 shadow-md">
+      <header className="bg-[url('/images/darkwood.webp')] text-white p-4 shadow-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full p-4">
   <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
     <button
@@ -221,7 +221,7 @@ export default function BooksPage() {
           {/* Sidebar */}
         <div 
           ref={sidebarRef}
-          className={`fixed top-0 left-0 h-full bg-[url('/images/darkwood.jpg')] text-white w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+          className={`fixed top-0 left-0 h-full bg-[url('/images/darkwood.webp')] text-white w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
             isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -348,7 +348,7 @@ export default function BooksPage() {
       {selectedBook && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="w-full max-w-4xl">
-            <div className="relative bg-[url('/images/bgforcard2.jpg')] rounded bg-cover bg-center shadow-xl overflow-hidden flex flex-col md:flex-row">
+            <div className="relative bg-[url('/images/bgforcard2.webp')] rounded bg-cover bg-center shadow-xl overflow-hidden flex flex-col md:flex-row">
               {/* Left side - Book cover image */}
               <div className="w-full md:w-1/3 flex justify-center p-4">
                 <div className="w-32 sm:w-40 md:w-full h-48 sm:h-56 md:h-auto relative">
@@ -426,7 +426,7 @@ const bookCategories: BookCategory[] = [
         "id": "tafsir-ibn-abbas",
         "title": "Tafsir Ibn-'Abbas",
         "description": "Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet. Ibn Abbas (may Allah be pleased with him) said, The Holy Prophet (peace be upon him) placed his hand on my head and then prayed, O Allah, grant him understanding in religion",
-        "coverImage": "/images/tafseeribnabbasimg.jpg",
+        "coverImage": "/images/tafseeribnabbasimg.webp",
         "volumes": 3,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=18FMFR5sCwRoiK-rgZEeEGojfSbNINM-1",
@@ -482,7 +482,7 @@ const bookCategories: BookCategory[] = [
         "id": "Tafseer E Qurtubi",
         "title": "Tafseer E Qurtubi",
         "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/tafseerEqurtubi.jpg",
+        "coverImage": "/images/tafseerEqurtubi.webp",
         "volumes": 10,
         "downloadLinks": [
           "https://drive.google.com/file/d/128DNqL307sWZtc4mNMrsXIPU33UGOcc_/view?usp=drive_link", //1
@@ -508,7 +508,32 @@ const bookCategories: BookCategory[] = [
           "https://drive.google.com/file/d/1NPEPZ7RIkWplsYFri8UHae8YuZtH_0DB/view?usp=drive_link", //9
           "https://drive.google.com/file/d/1TKZ0EfMVvkkeVnj7q_TjO-YeSFIUcpXg/view?usp=drive_link"
         ]
-      }
+      },
+      {
+        "id": "bayan-ul-quran",
+        "title": "Bayan-ul-Quran -Dr Israr Ahmed",
+        "description": "Dr. Israr Ahmed (1932–2010) was a renowned Pakistani Islamic scholar, theologian, and philosopher who dedicated over four decades of his life to reviving the Quranic-centered Islamic worldview. His monumental work, Bayan-ul-Quran, is a comprehensive series of lectures and a seven-volume Urdu tafsir (exegesis) of the Holy Quran, blending translation, commentary, and practical insights. Delivered with intellectual depth and a reality-centric approach, this work aims to elucidate the Quran’s teachings, emphasizing its role as a guide for establishing a just Islamic society and fostering personal and collective transformation. Dr. Israr Ahmed, founder of Tanzeem-e-Islami, drew upon the Quran, Hadith, Seerah, historical examples, and even Allama Iqbal’s poetry to make the divine message accessible and relevant to contemporary life.",
+        "coverImage": "/images/bayanulquran.webp",
+        "volumes": 7,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/19i7UKQBNPSHZh64KFVxkHgbiUuyLqtQv/view?usp=drive_link",
+          "https://drive.google.com/file/d/1spuF67HZy0V9EocuwtyxROT3buBcswrW/view?usp=drive_link",
+          "https://drive.google.com/file/d/1sLE0xE96c8caNz-fRpWa5lWSpj_y9w8N/view?usp=drive_link",
+          "https://drive.google.com/file/d/1vFTvwSFVmkYyXoEM91ZeY8-w85If4w-u/view?usp=drive_link",
+          "https://drive.google.com/file/d/1aXZGKU45Wf-eySmWn8PjHDCeROYlBV3o/view?usp=drive_link",
+          "https://drive.google.com/file/d/1Jfl5nqW8tiQUj3IcughfGyPa2f04M9qz/view?usp=drive_link",
+          "https://drive.google.com/file/d/1NmiUp_qQHgq37Ao6m7mzBkmocu3Mz0jn/view?usp=drive_link"
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/19i7UKQBNPSHZh64KFVxkHgbiUuyLqtQv/view?usp=drive_link",
+          "https://drive.google.com/file/d/1spuF67HZy0V9EocuwtyxROT3buBcswrW/view?usp=drive_link",
+          "https://drive.google.com/file/d/1sLE0xE96c8caNz-fRpWa5lWSpj_y9w8N/view?usp=drive_link",
+          "https://drive.google.com/file/d/1vFTvwSFVmkYyXoEM91ZeY8-w85If4w-u/view?usp=drive_link",
+          "https://drive.google.com/file/d/1aXZGKU45Wf-eySmWn8PjHDCeROYlBV3o/view?usp=drive_link",
+          "https://drive.google.com/file/d/1Jfl5nqW8tiQUj3IcughfGyPa2f04M9qz/view?usp=drive_link",
+          "https://drive.google.com/file/d/1NmiUp_qQHgq37Ao6m7mzBkmocu3Mz0jn/view?usp=drive_link"
+        ]
+      },
     ]
   },
   {
@@ -519,7 +544,7 @@ const bookCategories: BookCategory[] = [
         "id": "sahih-al-bukhari",
         "title": "Sahih al-Bukhari",
         "description": "Compiled by Imam Muhammad al-Bukhari, this collection is considered the most authentic book of Hadith in Sunni Islam, second only to the Quran. It contains over 7,000 Hadiths, rigorously verified for authenticity, covering various aspects of Islamic life, including theology, jurisprudence, ethics, and social conduct. Sahih al-Bukhari is highly revered for its precision and reliability, making it a fundamental resource for understanding the teachings of Prophet Muhammad (PBUH).",
-        "coverImage": "/images/sahihbhukari.jpg",
+        "coverImage": "/images/sahihbhukari.webp",
         "volumes": 8,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1wTbznFvrM6C1OTbk0AQA6y2pI-wUtYVr",
@@ -561,7 +586,7 @@ const bookCategories: BookCategory[] = [
         "id": "tafsir-ibn-abbas",
         "title": "Tafsir Ibn-'Abbas",
         "description": "Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet.",
-        "coverImage": "/images/al-muwatta.jpg",
+        "coverImage": "/images/al-muwatta.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq"
@@ -593,7 +618,7 @@ const bookCategories: BookCategory[] = [
         "id": "sunan-ibn-majah",
         "title": "Sunan Ibn Majah",
         "description": "Compiled by Imam Ibn Majah, Sunan Ibn Majah is one of the six major Hadith collections in Sunni Islam. It contains around 4,341 Hadiths, dealing with various aspects of Islamic life, such as prayer, fasting, marriage, inheritance, and commercial transactions. While Sunan Ibn Majah is an important work, it includes some Hadiths of weaker authenticity compared to other collections like Sahih Bukhari or Sahih Muslim. Nonetheless, it remains a valuable resource for scholars due to its coverage of Hadiths that are not found in other major compilations. The collection is particularly significant for students and researchers in the field of Hadith sciences, as it offers insights into the diversity of narrations and the challenges of Hadith verification.",
-        "coverImage": "/images/sunanibnmajah.jpg",
+        "coverImage": "/images/sunanibnmajah.webp",
         "volumes": 6,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1CFyl8Q91UYc6vrQ5gY2k0ykGhtGcP6Dz",
@@ -787,7 +812,7 @@ const bookCategories: BookCategory[] = [
         "id": "prophet-of-mercy",
         "title": "Prophet of Mercy",
         "description": "This book paints a vivid portrait of the compassion and mercy embodied by Prophet Muhammad (PBUH). Through various anecdotes and stories, the author highlights how the Prophet addressed conflicts, extended kindness to others, and upheld justice in his community. The narrative emphasizes the relevance of his teachings in contemporary society, inspiring readers to adopt his principles of empathy and understanding in their daily lives.",
-        "coverImage": "/images/ProphetOfMercy.jpg",
+        "coverImage": "/images/ProphetOfMercy.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1rwf1M-8S4beHpYrdPzdo195pcryDxtE5"
@@ -813,7 +838,7 @@ const bookCategories: BookCategory[] = [
         "id": "seeratunnabi",
         "title": "Seeratunnabi",
         "description": "This extensive multi-volume work provides an in-depth exploration of the life and teachings of Prophet Muhammad (PBUH). Each volume is dedicated to specific periods of his life, from his early childhood to his prophethood and the establishment of the Islamic state. The text is enriched with authentic narrations and historical accounts, making it an essential reference for those seeking to understand the Prophet's impact on humanity.",
-        "coverImage": "/images/seeratunnabi.jpg",
+        "coverImage": "/images/seeratunnabi.webp",
         "volumes": 7,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1WVz0Wk7e0xX37dsywtA_4TY0x0blRRsa",
@@ -838,7 +863,7 @@ const bookCategories: BookCategory[] = [
         "id": "sirat-ibn-hisham",
         "title": "Sirat Ibn Hisham",
         "description": "A classic biography compiled by Ibn Hisham, this book is based on the earlier works of Ibn Ishaq and serves as a vital resource for understanding the life of Prophet Muhammad (PBUH). It meticulously documents significant events and milestones, providing context and insights into the socio-cultural backdrop of the time. The narrative not only focuses on the Prophet's public life but also offers glimpses into his personal relationships and character.",
-        "coverImage": "/images/Sirat Ibn Hisham Biography of the Prophet by Abdus Salim pdf free download.jpg",
+        "coverImage": "/images/Sirat Ibn Hisham Biography of the Prophet by Abdus Salim pdf free download.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=19-gD6C6UWQjs0byzTQjY5VcvgHIgB64Y"
@@ -904,7 +929,7 @@ const bookCategories: BookCategory[] = [
         "id": "Kitab al-Irshad",
         "title": "Kitāb al-Irshād ilā Qawāṭiʿ al-Adillah fī Uṣūl al-Iʿtiqād",
         "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/kitabalirshad.jpg",
+        "coverImage": "/images/kitabalirshad.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
@@ -918,7 +943,7 @@ const bookCategories: BookCategory[] = [
         "id": "Creed of tahawiyyah",
         "title": "al-ʻAqīdah al-Ṭaḥāwīyah",
         "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/aqidaetahawiya.jpg",
+        "coverImage": "/images/aqidaetahawiya.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
@@ -1052,7 +1077,7 @@ const bookCategories: BookCategory[] = [
         "id": "khilafate-usmania",
         "title": "Khilafate Usmania",
         "description": "Khilafate Usmania (Ottoman Caliphate) provides an in-depth historical account of the rise and fall of the Ottoman Empire, which ruled much of the Islamic world for centuries. The book highlights the significant achievements, governance, military prowess, and cultural contributions of the Ottoman Caliphs. It also explores the eventual decline of the empire and its impact on the modern Middle East, offering a detailed narrative on the political, social, and religious factors that shaped this powerful caliphate.",
-        "coverImage": "/images/khilafateusmania.jpg",
+        "coverImage": "/images/khilafateusmania.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download%id=1MlH5gmBhGz-omoWn8dihDEGNtr622Erf"
@@ -1065,7 +1090,7 @@ const bookCategories: BookCategory[] = [
         "id": "khilafat-e-rashida",
         "title": "Khilafat-e-Rashida",
         "description": "Khilafat-e-Rashida details the era of the Rightly Guided Caliphs, the first four successors of Prophet Muhammad (PBUH) who led the Muslim world after his passing. This book covers the leadership of Abu Bakr, Umar, Uthman, and Ali, focusing on their governance, justice, military conquests, and challenges. It highlights their dedication to the principles of Islam, offering insights into their contributions to the expansion and consolidation of the Islamic state.",
-        "coverImage": "/images/khilafat_e_rashida.jpg",
+        "coverImage": "/images/khilafat_e_rashida.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5"
@@ -1078,7 +1103,7 @@ const bookCategories: BookCategory[] = [
         "id": "the-caliphate-of-banu-umayyah-",
         "title": "The Caliphate of Banu Umayyah ",
         "description": "In The Caliphate of Banu Umayyah, Ibn Kathir offers a thorough analysis of the Umayyad Dynasty, which was the first hereditary Islamic caliphate. The book provides an account of the political, military, and cultural developments during this period, examining the caliphs' roles in expanding the Islamic empire. It also discusses the internal struggles, conflicts with external empires, and the eventual decline of Umayyad rule, offering readers a historical perspective on this critical era of Islamic history.",
-        "coverImage": "/images/banu-umayyah.jpg",
+        "coverImage": "/images/banu-umayyah.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN"
@@ -1123,7 +1148,7 @@ const bookCategories: BookCategory[] = [
         "id": "-alchemy-of-happiness",
         "title": " Alchemy of Happiness",
         "description": "Written by the renowned Persian philosopher Al-Ghazali, The Alchemy of Happiness is a spiritual guide that focuses on achieving true happiness through self-awareness and the pursuit of inner purity. It delves into the nature of the soul, the importance of religious practice, and the realization of divine love. Ghazali's work teaches the balance between worldly life and spiritual growth, offering wisdom that encourages a deep connection with God while navigating life's challenges.",
-        "coverImage": "/images/alchemyofhappiness.jpg",
+        "coverImage": "/images/alchemyofhappiness.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link"
@@ -1136,7 +1161,7 @@ const bookCategories: BookCategory[] = [
         "id": "the-perfect-state",
         "title": "The Perfect State",
         "description": "Authored by the philosopher Al-Farabi, The Perfect State is a pioneering work in political philosophy, discussing the ideal society governed by virtuous and wise leadership. Al-Farabi merges Islamic and Greek philosophical ideas to outline a vision where justice, ethics, and intellect reign supreme. He describes the characteristics of a ruler who embodies knowledge and righteousness, promoting a utopian vision of governance that inspires order, peace, and moral excellence.",
-        "coverImage": "/images/perfect-state.jpg",
+        "coverImage": "/images/perfect-state.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link"
@@ -1149,7 +1174,7 @@ const bookCategories: BookCategory[] = [
         "id": "-minhaj-al-abideen",
         "title": " Minhaj Al-Abideen",
         "description": "Minhaj Al-Abideen is a profound guide by Imam Al-Ghazali, outlining the spiritual path of worship and devotion to Allah. The book is structured around the stages and obstacles that believers face in their journey towards spiritual fulfillment. It provides practical advice on overcoming worldly distractions, improving one's character, and attaining closeness to God. Al-Ghazali emphasizes sincerity, humility, and perseverance as essential qualities for spiritual progress.",
-        "coverImage": "/images/minhaj-abideen.jpg",
+        "coverImage": "/images/minhaj-abideen.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
@@ -1162,7 +1187,7 @@ const bookCategories: BookCategory[] = [
         "id": "Inchorence of philosophy",
         "title": "The Incoherence of Philosophy",
         "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
-        "coverImage": "/images/incoherenceofphilosophy.jpg",
+        "coverImage": "/images/incoherenceofphilosophy.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/file/d/1ic7jIMnTybMlYztaSgWYN5jfJ97fKKY3/view?usp=drive_link"
@@ -1221,7 +1246,7 @@ const bookCategories: BookCategory[] = [
         "id": "shikwa-jawab-e-shikwa",
         "title": "Shikwa Jawab-e-Shikwa",
         "description": "Shikwa (The Complaint) and Jawab-e-Shikwa (The Answer to the Complaint) are two interconnected poems that present a unique dialogue between a disillusioned Muslim and Allah. In Shikwa, Iqbal expresses the frustration and disappointment of Muslims, questioning why they suffer despite being faithful. The poem articulates the grievances of the Muslim community, lamenting their fallen state in the world. Jawab-e-Shikwa is Allah’s response, delivered in majestic and empowering language. Iqbal’s Allah tells the Muslim world that their downfall is not due to divine abandonment but their own neglect of the principles of Islam. He emphasizes that Muslims must reclaim their position by embodying the virtues of courage, unity, and hard work. These two poems resonate with powerful emotions and remain some of Iqbal’s most celebrated works, touching on the themes of divine justice, human responsibility, and the revival of the Islamic spirit.",
-        "coverImage": "/images/shikwa.jpg",
+        "coverImage": "/images/shikwa.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1wIkk_b845XRTxJ_OQXS0Xd7HaNJSJ66a"
@@ -1247,7 +1272,7 @@ const bookCategories: BookCategory[] = [
         "id": "zarb-e-kaleem",
         "title": "Zarb-e-Kaleem",
         "description": "Zarb-e-Kaleem (The Rod of Moses) is one of Allama Iqbal’s most significant works, written as a philosophical response to the various challenges facing the Muslim world in the 20th century. This collection of poetry is a passionate critique of Western materialism and the weakening state of Muslim societies. Iqbal uses the metaphor of Moses' Rod, symbolizing a tool of transformation and deliverance, to encourage Muslims to awaken from their slumber and lead a moral and spiritual revolution. The themes in Zarb-e-Kaleem emphasize the importance of self-awareness, the need for a new moral order, and the revitalization of the Muslim Ummah through action and faith. This work serves as a call to Muslims to resist external domination and internal decay by adhering to the true principles of Islam.",
-        "coverImage": "/images/zarbekaleem.jpg",
+        "coverImage": "/images/zarbekaleem.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=1ExIM2ZrEwxp5LapjK5P8mGJjlcrNfXty"
@@ -1413,7 +1438,7 @@ const bookCategories: BookCategory[] = [
         "id": "tafsir-ibn-abbas",
         "title": "Tafsir Ibn-'Abbas",
         "description": "Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet.",
-        "coverImage": "/images/al-muwatta.jpg",
+        "coverImage": "/images/al-muwatta.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq"
@@ -1452,7 +1477,7 @@ const bookCategories: BookCategory[] = [
         "id": "-faiz-ul-bari",
         "title": " Faiz-ul-Bari",
         "description": "Faiz-ul-Bari is a comprehensive commentary on the Sahih al-Bukhari, one of the most authoritative collections of Hadith in Sunni Islam. Written by the renowned scholar Anwar Shah Kashmiri, this book offers a deep analysis of the Hadith, explaining their meanings, context, and significance in Islamic jurisprudence and theology. The commentary provides critical insights into the methodology of Hadith transmission and interpretation, while also addressing various legal and spiritual aspects of Islam. Known for its scholarly depth and clarity, Faiz-ul-Bari is an essential work for students and scholars of Islamic studies, helping to bridge the gap between traditional Hadith scholarship and modern thought.",
-        "coverImage": "/images/Faiz-ul-Bari.jpg",
+        "coverImage": "/images/Faiz-ul-Bari.webp",
         "volumes": 1,
         "downloadLinks": [
           "https://drive.google.com/uc?export=download&id=15HUnhL6TsyS5qACXNTTjrUf_gWgy4sGJ"

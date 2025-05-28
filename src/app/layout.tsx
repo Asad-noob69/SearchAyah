@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" >
-      <body className="min-h-screen flex flex-col bg-[url('/images/bg2.png')] bg-cover bg-no-repeat bg-center bg-fixed">
+      <body className="min-h-screen flex flex-col bg-[url('/images/bg2.webp')] bg-cover bg-no-repeat bg-center bg-fixed">
         {children}
       </body>
     </html>
