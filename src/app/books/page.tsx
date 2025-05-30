@@ -5,6 +5,7 @@ import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { X, Menu, Book, BookOpen, BookCopy, Library, BookMarked, Bookmark, BookText } from "lucide-react"
+import Sidebar from "./../../components/Sidebar"
 
 // Book interface
 interface Book {
@@ -194,8 +195,8 @@ export default function BooksPage() {
           rel="stylesheet"
         />
       </Head>      {/* Header */}
-      <header className="bg-[url('/images/darkwood.webp')] text-white p-4 shadow-md">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center w-full p-4">
+      <header className="bg-[url('/images/darkwood.webp')] text-white p-8 shadow-md">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center px-4">
   <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
     <button
       onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -218,67 +219,8 @@ export default function BooksPage() {
     />
   </div>
 </div>
-          {/* Sidebar */}
-        <div 
-          ref={sidebarRef}
-          className={`fixed top-0 left-0 h-full bg-[url('/images/darkwood.webp')] text-white w-64 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
-            isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          }`}
-        >
-          <div className="p-4 flex flex-col h-full">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-amber-300">Book Categories</h2>
-              <button 
-                onClick={() => setIsSidebarOpen(false)}
-                className="p-1 hover:bg-amber-800 rounded-full transition-all"
-                aria-label="Close sidebar"
-              >
-                <X size={20} className="text-amber-300" />
-              </button>
-            </div>
-            
-            <div className="overflow-y-auto flex-grow">
-              <ul className="space-y-2">
-                <li className="py-2 border-b border-amber-800/30">
-                  <button 
-                    className="flex items-center w-full hover:text-amber-300 transition-colors"
-                    onClick={() => {
-                      setFilteredBooks([])
-                      setShowMainContent(true)
-                      setIsSidebarOpen(false)
-                      // Scroll to Quran section
-                      document.getElementById('book-container')?.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                  >
-                    <BookOpen size={18} className="mr-2" />
-                    <span>Quran</span>
-                  </button>
-                </li>
-                
-                {bookCategories.map((category) => (
-                  <li key={category.id} className="py-2 border-b border-amber-800/30">
-                    <button
-                      className="flex items-center w-full hover:text-amber-300 transition-colors"
-                      onClick={() => {
-                        setFilteredBooks([])
-                        setShowMainContent(true)
-                        setIsSidebarOpen(false)
-                        // Find and scroll to the specific category
-                        setTimeout(() => {
-                          const element = document.querySelector(`[data-category-id="${category.id}"]`)
-                          element?.scrollIntoView({ behavior: 'smooth' })
-                        }, 100)
-                      }}
-                    >
-                      {getCategoryIcon(category.id)}
-                      <span>{category.title}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+          {/* Use Sidebar component */}
+        <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         
         {/* Overlay when sidebar is open */}
         {isSidebarOpen && (
@@ -312,7 +254,8 @@ export default function BooksPage() {
                   />
                 </div>
               </div>
-            </div>            {/* Book Categories */}
+            </div>            
+            {/* Book Categories */}
             {bookCategories.map((category) => ( 
               <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" key={category.id} data-category-id={category.id}>
                 <div className="wooden-text relative w-full flex justify-center mb-8">
@@ -406,7 +349,6 @@ export default function BooksPage() {
   )
 }
 
-// Sample data - In a real app, this would come from an API or database
 const quranBook: Book = {
   id: "quran",
   title: "The Noble Quran",
@@ -416,7 +358,6 @@ const quranBook: Book = {
   readLinks: ["https://drive.google.com/file/d/1dIbBpAzk_xjNfyVJ1xGUnqC_7EdvZFQN/preview"],
 }
 
-// Sample book categories with books
 const bookCategories: BookCategory[] = [
   {
     "id": "tafseer",
@@ -900,61 +841,7 @@ const bookCategories: BookCategory[] = [
       }
     ]
   },
-  {
-    "id": "Theology/Mysticism",
-    "title": "Theology/Mysticism",
-    "books": [
-      {
-        "id": "SharahAlMaqasid",
-        "title": "Sharah alMaqasid",
-        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/sharahalmaqasid.jpeg",
-        "volumes": 5,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
-          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
-          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
-          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
-          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
-          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
-          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
-          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
-          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "Kitab al-Irshad",
-        "title": "Kitāb al-Irshād ilā Qawāṭiʿ al-Adillah fī Uṣūl al-Iʿtiqād",
-        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/kitabalirshad.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
-
-        ]
-      },
-      {
-        "id": "Creed of tahawiyyah",
-        "title": "al-ʻAqīdah al-Ṭaḥāwīyah",
-        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/aqidaetahawiya.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
-
-        ]
-      },
-    ]
-  },
+  
   {
     "id": "sahaba",
     "title": "Sahaba Books",
@@ -1069,259 +956,8 @@ const bookCategories: BookCategory[] = [
       }
     ]
   },
-  {
-    "id": "khilafat",
-    "title": "Khilafat Books",
-    "books": [
-      {
-        "id": "khilafate-usmania",
-        "title": "Khilafate Usmania",
-        "description": "Khilafate Usmania (Ottoman Caliphate) provides an in-depth historical account of the rise and fall of the Ottoman Empire, which ruled much of the Islamic world for centuries. The book highlights the significant achievements, governance, military prowess, and cultural contributions of the Ottoman Caliphs. It also explores the eventual decline of the empire and its impact on the modern Middle East, offering a detailed narrative on the political, social, and religious factors that shaped this powerful caliphate.",
-        "coverImage": "/images/khilafateusmania.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download%id=1MlH5gmBhGz-omoWn8dihDEGNtr622Erf"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1MlH5gmBhGz-omoWn8dihDEGNtr622Erf/preview"
-        ]
-      },
-      {
-        "id": "khilafat-e-rashida",
-        "title": "Khilafat-e-Rashida",
-        "description": "Khilafat-e-Rashida details the era of the Rightly Guided Caliphs, the first four successors of Prophet Muhammad (PBUH) who led the Muslim world after his passing. This book covers the leadership of Abu Bakr, Umar, Uthman, and Ali, focusing on their governance, justice, military conquests, and challenges. It highlights their dedication to the principles of Islam, offering insights into their contributions to the expansion and consolidation of the Islamic state.",
-        "coverImage": "/images/khilafat_e_rashida.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1wNljGzb0H2_sYprjdpHRmpznC9hkJYF5/preview"
-        ]
-      },
-      {
-        "id": "the-caliphate-of-banu-umayyah-",
-        "title": "The Caliphate of Banu Umayyah ",
-        "description": "In The Caliphate of Banu Umayyah, Ibn Kathir offers a thorough analysis of the Umayyad Dynasty, which was the first hereditary Islamic caliphate. The book provides an account of the political, military, and cultural developments during this period, examining the caliphs' roles in expanding the Islamic empire. It also discusses the internal struggles, conflicts with external empires, and the eventual decline of Umayyad rule, offering readers a historical perspective on this critical era of Islamic history.",
-        "coverImage": "/images/banu-umayyah.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1bc9oIJTyhCxWql-MawE3Q0YEWNB7vhCN/preview"
-        ]
-      },
-      {
-        "id": "khilafat-o-malukiyat",
-        "title": "Khilafat o Malukiyat",
-        "description": "Khilafat o Malukiyat explores the transition from the Islamic caliphate system to monarchical rule within Islamic history, particularly focusing on the Umayyad dynasty. The author delves into the differences between the principles of caliphate governance and the monarchical practices that followed. It presents a critical look at the political shifts, the change in leadership styles, and the influence this transition had on the Muslim world, highlighting the tension between ideal Islamic governance and the realities of power politics.",
-        "coverImage": "/images/khilafatomalukiyat.jpeg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1WckGZvYvRxQ7E4I1Xh9MM-_3Y2ThdjUG/preview"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "philosophy",
-    "title": "Philosophical Books",
-    "books": [
-      {
-        "id": "reconstruction-of-religious-thought-in-islam",
-        "title": "Reconstruction of Religious Thought in Islam",
-        "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
-        "coverImage": "/images/reconstruction-of-religious-thoughts.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1Ea_UKYhdYuk87qbUJbcDC6xFMs5y5KdK/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "-alchemy-of-happiness",
-        "title": " Alchemy of Happiness",
-        "description": "Written by the renowned Persian philosopher Al-Ghazali, The Alchemy of Happiness is a spiritual guide that focuses on achieving true happiness through self-awareness and the pursuit of inner purity. It delves into the nature of the soul, the importance of religious practice, and the realization of divine love. Ghazali's work teaches the balance between worldly life and spiritual growth, offering wisdom that encourages a deep connection with God while navigating life's challenges.",
-        "coverImage": "/images/alchemyofhappiness.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1E6DMOZ8W9ivF3WBGJYTffnqY2MvWxBRY/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "the-perfect-state",
-        "title": "The Perfect State",
-        "description": "Authored by the philosopher Al-Farabi, The Perfect State is a pioneering work in political philosophy, discussing the ideal society governed by virtuous and wise leadership. Al-Farabi merges Islamic and Greek philosophical ideas to outline a vision where justice, ethics, and intellect reign supreme. He describes the characteristics of a ruler who embodies knowledge and righteousness, promoting a utopian vision of governance that inspires order, peace, and moral excellence.",
-        "coverImage": "/images/perfect-state.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1rDq7o1QS-HcRqNEcSoIQCWaF8B1d6o8d/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "-minhaj-al-abideen",
-        "title": " Minhaj Al-Abideen",
-        "description": "Minhaj Al-Abideen is a profound guide by Imam Al-Ghazali, outlining the spiritual path of worship and devotion to Allah. The book is structured around the stages and obstacles that believers face in their journey towards spiritual fulfillment. It provides practical advice on overcoming worldly distractions, improving one's character, and attaining closeness to God. Al-Ghazali emphasizes sincerity, humility, and perseverance as essential qualities for spiritual progress.",
-        "coverImage": "/images/minhaj-abideen.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1_F1yiH3-9fEMn901kxWAth9lNwRxHjoB/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "Inchorence of philosophy",
-        "title": "The Incoherence of Philosophy",
-        "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
-        "coverImage": "/images/incoherenceofphilosophy.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1ic7jIMnTybMlYztaSgWYN5jfJ97fKKY3/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1ic7jIMnTybMlYztaSgWYN5jfJ97fKKY3/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "SharahAlMukhtasar",
-        "title": "Sharah al-mukhtasar",
-        "description": "This work by Muhammad Iqbal re-examines traditional Islamic thought through the lens of modern philosophy and science. Iqbal explores the relationship between faith, reason, and knowledge, advocating for a revitalized understanding of Islam that harmonizes with contemporary issues. The book emphasizes dynamic change, spiritual development, and the integration of Islamic principles with modernity, challenging outdated interpretations and promoting intellectual growth in the Muslim world.",
-        "coverImage": "/images/sharahalmukhtasar.png",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1HvK07vDhWaXkXbiVJ2MNR9r8IiznxBnM/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1HvK07vDhWaXkXbiVJ2MNR9r8IiznxBnM/view?usp=drive_link"
-
-        ]
-      },
-    ]
-  },
-  {
-    "id": "iqbal",
-    "title": "Iqbal Books",
-    "books": [
-      {
-        "id": "-bang-e-dara",
-        "title": " Bang-e-Dara",
-        "description": "Bang-e-Dara (The Call of the Marching Bell) is a collection of poems by the renowned philosopher and poet Allama Muhammad Iqbal. Written over a span of several years, the poems are a mix of personal reflections and nationalistic aspirations. The early poems in the collection are marked by a deep connection to Iqbal's homeland and contain verses on nature, love, and human emotions. However, as the collection progresses, Iqbal’s poetry shifts toward awakening the Muslim Ummah from its slumber. In these poems, he laments the decline of Islamic civilization and calls for a revival through self-awareness, action, and unity. Bang-e-Dara is a timeless masterpiece that continues to inspire individuals striving for intellectual and spiritual growth.",
-        "coverImage": "/images/bangedara.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1fIX03tsiIX2Wx1yCJyeqjb0olQufnBZR"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1fIX03tsiIX2Wx1yCJyeqjb0olQufnBZR/preview"
-        ]
-      },
-      {
-        "id": "-baal-e-jibreel",
-        "title": " Baal-e-Jibreel",
-        "description": "Baal-e-Jibreel (Gabriel's Wing) is a profound poetic work by Allama Iqbal that delves into the themes of selfhood, spirituality, and the pursuit of higher ideals. The book is divided into three sections, each reflecting Iqbal’s deep philosophical musings on life, faith, and human potential. The first section, written in Persian, invokes the spirit of Gabriel, symbolizing divine inspiration and guidance. The Urdu section focuses on the Muslim world's need for self-realization and resilience. Throughout the work, Iqbal urges Muslims to awaken from their slumber, break free from complacency, and reclaim their lost glory through strength, wisdom, and faith. The final section speaks to the timeless values of courage, justice, and perseverance. Baal-e-Jibreel is not only a call to action but also a profound meditation on human potential and the spiritual journey.",
-        "coverImage": "/images/baalejibreal.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&pid=1wli8OnPHsAjolpxjb582D-BplsIkF1pW"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1wli8OnPHsAjolpxjb582D-BplsIkF1pW/preview"
-        ]
-      },
-      {
-        "id": "shikwa-jawab-e-shikwa",
-        "title": "Shikwa Jawab-e-Shikwa",
-        "description": "Shikwa (The Complaint) and Jawab-e-Shikwa (The Answer to the Complaint) are two interconnected poems that present a unique dialogue between a disillusioned Muslim and Allah. In Shikwa, Iqbal expresses the frustration and disappointment of Muslims, questioning why they suffer despite being faithful. The poem articulates the grievances of the Muslim community, lamenting their fallen state in the world. Jawab-e-Shikwa is Allah’s response, delivered in majestic and empowering language. Iqbal’s Allah tells the Muslim world that their downfall is not due to divine abandonment but their own neglect of the principles of Islam. He emphasizes that Muslims must reclaim their position by embodying the virtues of courage, unity, and hard work. These two poems resonate with powerful emotions and remain some of Iqbal’s most celebrated works, touching on the themes of divine justice, human responsibility, and the revival of the Islamic spirit.",
-        "coverImage": "/images/shikwa.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1wIkk_b845XRTxJ_OQXS0Xd7HaNJSJ66a"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1wIkk_b845XRTxJ_OQXS0Xd7HaNJSJ66a/preview"
-        ]
-      },
-      {
-        "id": "reconstruction-of-religious-thought-in-islam",
-        "title": "Reconstruction of Religious Thought in Islam",
-        "description": "In The Reconstruction of Religious Thought in Islam, Allama Iqbal offers a groundbreaking analysis of Islamic philosophy in the modern age. This collection of essays reflects Iqbal’s efforts to reconcile Islamic teachings with contemporary intellectual challenges. Iqbal explores subjects such as the role of reason in Islam, the nature of reality, and the relationship between religion and science. He critiques traditional Islamic theology for becoming stagnant and calls for a dynamic, evolving understanding of the faith. Iqbal argues that Islamic thought must be reconstructed to meet the demands of modern life, and he emphasizes the importance of ijtihad (independent reasoning) in this process. This book is a profound contribution to Islamic philosophy and is essential reading for those seeking to engage with the intellectual and spiritual dimensions of Islam in a modern context.                ",
-        "coverImage": "/images/reconstruction-of-religious-thoughts.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1nHNj2F883pJ0xu8Sghy8tZhidyd9Z-7N"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1nHNj2F883pJ0xu8Sghy8tZhidyd9Z-7N/preview"
-        ]
-      },
-      {
-        "id": "zarb-e-kaleem",
-        "title": "Zarb-e-Kaleem",
-        "description": "Zarb-e-Kaleem (The Rod of Moses) is one of Allama Iqbal’s most significant works, written as a philosophical response to the various challenges facing the Muslim world in the 20th century. This collection of poetry is a passionate critique of Western materialism and the weakening state of Muslim societies. Iqbal uses the metaphor of Moses' Rod, symbolizing a tool of transformation and deliverance, to encourage Muslims to awaken from their slumber and lead a moral and spiritual revolution. The themes in Zarb-e-Kaleem emphasize the importance of self-awareness, the need for a new moral order, and the revitalization of the Muslim Ummah through action and faith. This work serves as a call to Muslims to resist external domination and internal decay by adhering to the true principles of Islam.",
-        "coverImage": "/images/zarbekaleem.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1ExIM2ZrEwxp5LapjK5P8mGJjlcrNfXty"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1ExIM2ZrEwxp5LapjK5P8mGJjlcrNfXty/preview"
-        ]
-      },
-      {
-        "id": "javed-nama",
-        "title": "Javed Nama",
-        "description": "Javed Nama is often regarded as one of Allama Iqbal’s most ambitious works, taking the form of a spiritual journey akin to Dante’s Divine Comedy. Written in Persian, Javed Nama chronicles Iqbal’s celestial journey through the spheres of the universe, where he meets great historical and spiritual figures who impart their wisdom. The journey is named after Iqbal’s son, Javed, symbolizing the transmission of wisdom to future generations. Throughout this allegorical journey, Iqbal addresses the themes of selfhood, immortality, and the eternal struggle between good and evil. The work explores Islamic, Sufi, and philosophical concepts, blending them into a powerful narrative that encourages Muslims to seek knowledge, cultivate their inner strength, and contribute to the betterment of humanity.",
-        "coverImage": "/images/javednama.jpeg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1vEzz0DRssHO4MZ2S5lpB0mXsIOmmVnjU"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1vEzz0DRssHO4MZ2S5lpB0mXsIOmmVnjU/preview"
-        ]
-      },
-      {
-        "id": "kulyat-e-iqba",
-        "title": "Kulyat-e-Iqba",
-        "description": "Kulyat-e-Iqbal is a comprehensive collection of Allama Muhammad Iqbal’s Urdu and Persian poetry, encompassing his major poetic works. The collection brings together his profound thoughts on philosophy, religion, selfhood, and society. Iqbal's poetry resonates with themes of spiritual awakening, the quest for freedom, and the realization of human potential. His works such as Bang-e-Dara, Baal-e-Jibreel, Zarb-e-Kaleem, and Asrar-e-Khudi are all included in this volume, reflecting his deep concern for the Muslim Ummah and humanity as a whole. Kulyat-e-Iqbal offers readers a complete picture of Iqbal’s literary genius, providing insights into his intellectual journey, his thoughts on the human condition, and his vision for a just and enlightened world. This collection is a treasure trove for those seeking to explore the depth of Iqbal’s poetic universe.                ",
-        "coverImage": "/images/kulyateiqbal.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1xSguMdTt3lAy2TqQNTH6x8fqOvLBJPLp"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1xSguMdTt3lAy2TqQNTH6x8fqOvLBJPLp/preview"
-        ]
-      },
-      {
-        "id": "aaina-e-haram",
-        "title": "Aaina-e-Haram",
-        "description": "Aaina-e-Haram (The Mirror of the Sacred) is a poetic work that addresses the relationship between the Muslim individual and the broader community, urging introspection and moral rejuvenation. Iqbal, in this collection, reflects on the struggles of the Muslim world and calls for a return to the true essence of Islam. He emphasizes that Muslims must examine their inner selves, just as one looks into a mirror, to recognize their shortcomings and reclaim their spiritual and intellectual heritage. Aaina-e-Haram focuses on moral reform, personal accountability, and the importance of unity among Muslims. This work is another of Iqbal’s powerful reminders that self-improvement is key to overcoming the challenges faced by the Ummah.",
-        "coverImage": "/images/ainaeharam.jpg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=15vH9tchHp97AT1SQi-VVBcZ7oKlTaoCP"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/15vH9tchHp97AT1SQi-VVBcZ7oKlTaoCP/preview"
-        ]
-      }
-    ]
-  },
+  
+  
   {
     "id": "other",
     "title": "Other Islamic Books",
@@ -1340,9 +976,9 @@ const bookCategories: BookCategory[] = [
         ]
       },
       {
-        "id": "dhul-qarnayn-and-yajooj-and-majooj-explores-the-fascinating-story-of-dhul-qarnayn-a-righteous-ruler-mentioned-in-the-quran-and-the-mysterious-tribes-of-yajooj-and-majooj-gog-and-magog-the-book-provides-an-in-depth-analysis-of-dhul-qarnayns-journey-his-encounters-with-various-civilizations-and-his-efforts-to-contain-the-destructive-forces-of-yajooj-and-majooj-behind-a-great-barrier-it-also-delves-into-the-eschatological-significance-of-yajooj-and-majooj-in-islamic-tradition-particularly-their-role-in-the-events-leading-up-to-the-day-of-judgment-the-book-offers-insights-into-historical-interpretations-religious-prophecies-and-the-spiritual-lessons-drawn-from-this-captivating-narrative",
-        "title": "Dhul-Qarnayn and Yajooj and Majooj explores the fascinating story of Dhul-Qarnayn, a righteous ruler mentioned in the Quran, and the mysterious tribes of Yajooj and Majooj (Gog and Magog). The book provides an in-depth analysis of Dhul-Qarnayn's journey, his encounters with various civilizations, and his efforts to contain the destructive forces of Yajooj and Majooj behind a great barrier. It also delves into the eschatological significance of Yajooj and Majooj in Islamic tradition, particularly their role in the events leading up to the Day of Judgment. The book offers insights into historical interpretations, religious prophecies, and the spiritual lessons drawn from this captivating narrative.",
-        "description": "Dhul-Qarnayn and Yajooj Majooj explores the historical and spiritual significance of these figures in Islamic tradition.",
+        "id": "dhul-qarnayn-and-yajooj-and-majooj",
+        "title": "Dhul-Qarnayn and Yajooj and Majooj",
+        "description": "Dhul-Qarnayn and Yajooj Majooj explores the historical and spiritual significance of these figures in Islamic tradition.  explores the fascinating story of Dhul-Qarnayn, a righteous ruler mentioned in the Quran, and the mysterious tribes of Yajooj and Majooj (Gog and Magog). The book provides an in-depth analysis of Dhul-Qarnayn's journey, his encounters with various civilizations, and his efforts to contain the destructive forces of Yajooj and Majooj behind a great barrier. It also delves into the eschatological significance of Yajooj and Majooj in Islamic tradition, particularly their role in the events leading up to the Day of Judgment. The book offers insights into historical interpretations, religious prophecies, and the spiritual lessons drawn from this captivating narrative.",
         "coverImage": "/images/dulqarnain and yajooj majooj.png",
         "volumes": 1,
         "downloadLinks": [
@@ -1365,19 +1001,7 @@ const bookCategories: BookCategory[] = [
           "https://drive.google.com/file/d/1Hyu_04F9uyjj2NnXvrVeeBvV00mj_gJK/preview"
         ]
       },
-      {
-        "id": "in-the-shadow-of-the-sword",
-        "title": "In the Shadow of the Sword",
-        "description": "In the Shadow of the Sword: The Birth of Islam and the Rise of the Global Arab Empire offers a captivating historical narrative that delves into the origins of Islam and the subsequent expansion of the Arab Empire. This work explores the socio-political dynamics that facilitated the rapid spread of Islam, analyzing key events, figures, and movements that shaped early Islamic history. The author investigates how the teachings of the Prophet Muhammad (peace be upon him) and the early caliphs influenced the establishment of a vast empire, which laid the foundations for future civilizations. By weaving together historical facts and engaging storytelling, this book provides readers with a nuanced understanding of the transformative impact of Islam on the world stage and the enduring legacy of the Arab Empire.",
-        "coverImage": "/images/In the Shadow of the Sword_ The Birth of Islam and the Rise of the Global Arab Empire.jpeg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1PPpHBMIOUKLHN0f_fUIrIRAIUFAbVgeX/preview"
-        ]
-      },
+     
       {
         "id": "hayatussahaba",
         "title": "HayatUsSahaba",
@@ -1395,19 +1019,7 @@ const bookCategories: BookCategory[] = [
           "https://drive.google.com/file/d/119Yu7IuV7hf6EWmIHb1597vnh1qB0CXt/preview"
         ]
       },
-      {
-        "id": "great-women-of-islam",
-        "title": "Great Women of Islam",
-        "description": "Great Women of Islam showcases the inspiring stories and contributions of influential women from the time of the Prophet Muhammad (PBUH). The book highlights the vital roles these women played in shaping Islamic history, emphasizing their strength, wisdom, and resilience. Through engaging narratives, it sheds light on their significant achievements in various fields, such as education, community service, and social reform. The work serves as a tribute to these remarkable women, offering readers valuable insights into their legacies and the lessons that can be learned from their lives.",
-        "coverImage": "/images/Great Women of Islam (Paperback).jpeg",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1hLtwF_EVQK5ZFxYaVkbfYkcj7CdeE5LZ/preview"
-        ]
-      },
+      
       {
         "id": "dont-be-sad",
         "title": "Don't Be Sad",
