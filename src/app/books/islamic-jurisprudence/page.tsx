@@ -230,8 +230,10 @@ export default function PhilosophyPage() {
               <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" key={category.id} data-category-id={category.id}>
                 <div className="wooden-text relative w-full flex justify-center mb-8">
                   <div className="relative">
-                    <h3 className="absolute inset-0 text-[#230b08] flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-3xl">
-                      {category.title}
+                    <h3 className="absolute inset-0 text-[#230b08] flex items-center justify-center text-xl sm:text-xl md:text-2xl lg:text-3xl text-center">
+                      {category.title.split("</br>").map((part, i) => (
+                        i === 0 ? part : <><br key={i} />{part}</>
+                      ))}
                     </h3>
                   </div>
                 </div>
@@ -320,10 +322,305 @@ export default function PhilosophyPage() {
 }
 
 // Philosophy books data (filtered from bookCategories)
-const bookCategories: BookCategory[] = [
-    {
-    "id": "Theology/Mysticism",
-    "title": "Theology/Mysticism",
+const bookCategories: BookCategory[] = [    {
+    "id": "usul-al-fiqh",
+    "title": "Foundation of Fiqh </br> (Usul al-Fiqh)",
+    "books": [
+      {
+        "id": "SharahAlMaqasssid",
+        "title": "Sharah alMaqasidss",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/sharahalmaqasid.jpeg",
+        "volumes": 5,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
+         
+        ]
+      },
+      
+    ]
+  },
+  {
+    "id": "usul-al-hanafi",
+    "title": "Foundation of Hanafi Jurisprudence </br> (Usul al-Fiqh al-Hanafi)",
+    "books": [
+      {
+        "id": "Mukhtasar-al-quduri",
+        "title": "The Mukhtasar Al-Quduri",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/mukhtasar.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://ia801906.us.archive.org/27/items/quduri.....-eng..-ahmad-ibn-muh/Quduri.....Eng..Ahmad%20Ibn%20Muh.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://ia801906.us.archive.org/27/items/quduri.....-eng..-ahmad-ibn-muh/Quduri.....Eng..Ahmad%20Ibn%20Muh.pdf", //1
+         
+        ]
+      },
+      {
+        "id": "al-hidaya",
+        "title": "Al-Hidayah",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/alhidayah.jpeg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/12uk5bsgD__X2U4_ahTLv_z2sdUXbbvsa/view?usp=drive_link", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/12uk5bsgD__X2U4_ahTLv_z2sdUXbbvsa/view?usp=drive_link", //1
+         
+        ]
+      },
+      {
+        "id": "al-figh-al-muyassur",
+        "title": "Al-Fiqh-Ul-Muyassar",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/fiqhalmuyassar.jpeg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://dn790006.ca.archive.org/0/items/al-fiqh-ul-muyassar-urdu/AL-FIQH-UL-MUYASSAR-URDU.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://dn790006.ca.archive.org/0/items/al-fiqh-ul-muyassar-urdu/AL-FIQH-UL-MUYASSAR-URDU.pdf", //1
+         
+        ]
+      },
+      {
+        "id": "ascent-to-felicity",
+        "title": "Ascent To Felicity (Maraqi al-Sa‘adat)",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/acsenttofecility.webp",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://ia801806.us.archive.org/29/items/ascent-to-felicity/Ascent%20to%20Felicity.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://ia801806.us.archive.org/29/items/ascent-to-felicity/Ascent%20to%20Felicity.pdf", //1
+         
+        ]
+      },
+      {
+        "id": "umdat-ul-fiqh",
+        "title": "Umdat ul Fiqh",
+        "description": "by Sayyid Zawwar Hussain Shah Naqshbandi (d. 1981): A comprehensive, well-organized four-volume set covering the five pillars of Islam (beliefs, purification, prayer, zakat, fasting, and hajj). It’s detailed yet accessible for laypeople, making it a highly recommended resource for Urdu readers. Available through publishers in Pakistan, such as Mohra Sharif.",
+        "coverImage": "/images/umdatulfiqh.jpg",
+        "volumes": 3,
+        "downloadLinks": [
+          "https://ia801304.us.archive.org/2/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-1.pdf", //1
+          "https://dn790002.ca.archive.org/0/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-2.pdf",
+          "https://dn790002.ca.archive.org/0/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-3.pdf"
+          
+        ],
+        "readLinks": [
+          "https://ia801304.us.archive.org/2/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-1.pdf", //1
+          "https://dn790002.ca.archive.org/0/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-2.pdf",
+          "https://dn790002.ca.archive.org/0/items/Umdat-ul-fiqhUrduHanafi/Umdat-ul-Fiqh-3.pdf"
+         
+        ]
+      },
+      {
+        "id": "zubdat-ul-fiqh",
+        "title": "Zubdat Ul Fiqh",
+        "description": "by Sayyid Zawwar Hussain Shah Naqshbandi: A summarized version of Umdat-ul-Fiqh, offering detailed Hanafi fiqh with proofs. It’s concise, beginner-friendly, and ideal for those seeking a balance between depth and simplicity. Available through Maktabah Mujaddidiyah.",
+        "coverImage": "/images/zubdatulfiqh.webp",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://ia801708.us.archive.org/21/items/Zubdat-ul-fiqhhanafiUrdu/Zubdat-ul-Fiqh.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://ia801708.us.archive.org/21/items/Zubdat-ul-fiqhhanafiUrdu/Zubdat-ul-Fiqh.pdf", //1
+         
+        ]
+      },
+      {
+        "id": "bahar-e-shariat",
+        "title": "Bahar e Shariat",
+        "description": "by Sayyid Zawwar Hussain Shah Naqshbandi: A summarized version of Umdat-ul-Fiqh, offering detailed Hanafi fiqh with proofs. It’s concise, beginner-friendly, and ideal for those seeking a balance between depth and simplicity. Available through Maktabah Mujaddidiyah.",
+        "coverImage": "/images/bahareshariat.jpeg",
+        "volumes": 6,
+        "downloadLinks": [
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-1-a.pdf", //1
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-1-b.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-2-a.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-2-b%20%281%29.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-3-a.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-3-b.pdf"
+          
+        ],
+        "readLinks": [
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-1-a.pdf", //1
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-1-b.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-2-a.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-2-b%20%281%29.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-3-a.pdf",
+          "https://dn720004.ca.archive.org/0/items/bahar-e-shariat-jild-1-a/bahar-e-shariat-jild-3-b.pdf"
+        ]
+      },
+      {
+        "id": "fiqh-e-hanafi",
+        "title": "Fiqh e Hanafi",
+        "description": "by Sayyid Zawwar Hussain Shah Naqshbandi: A summarized version of Umdat-ul-Fiqh, offering detailed Hanafi fiqh with proofs. It’s concise, beginner-friendly, and ideal for those seeking a balance between depth and simplicity. Available through Maktabah Mujaddidiyah.",
+        "coverImage": "/images/fiqhehanafi.jpeg",
+        "volumes": 3,
+        "downloadLinks": [
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%201.pdf",
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%202.pdf",
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%203.pdf"
+          
+        ],
+        "readLinks": [
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%201.pdf",
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%202.pdf",
+          "https://ia801408.us.archive.org/27/items/FiqhHanafiQuran/Fiqh%20Hanafi%203.pdf"
+        ]
+      },
+    ]
+  },
+   {
+    "id": "usul-al-maliki",
+    "title": "Foundation of Maliki Jurisprudence </br> (Usul al-Fiqh al-Maliki)",
+    "books": [
+      {
+        "id": "al-muqaddimat-al-izziyat",
+        "title": "Al-Muqaddimat-Al-Izziyat",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/almuqaddimah.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1RBdE3uRDFCddxr-rurFMA74BTgTKmm8J/view?usp=drive_link", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1RBdE3uRDFCddxr-rurFMA74BTgTKmm8J/view?usp=drive_link", //1
+         
+        ]
+      },
+      {
+        "id": "al-murshad-al-muin",
+        "title": "Al-Murshad-Al-Muin",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/almurshid.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1aZ-RbwgWo1LUgLBbXYlMwyi0cFP3yKLe/view?usp=drive_link", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1aZ-RbwgWo1LUgLBbXYlMwyi0cFP3yKLe/view?usp=drive_link", //1
+         
+        ]
+      },
+      {
+        "id": "akhdari",
+        "title": "Mukhtasar Al-Akhdari",
+        "description": "The understanding of the acts of worship according to the Maliki school of Islamic law. Imam al-Akhdari . He is an Algerian scholar whose full name is Abū Yazīd ʿAbdur Raḥmān bin Muḥammad al-Ṣaghīr bin Muḥammad bin ʿĀmir.",
+        "coverImage": "/images/almukhtasar.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/1OcYzt4ZlwYamCq5At_wJt5CegQbF_pWr/view?usp=drive_link", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/1OcYzt4ZlwYamCq5At_wJt5CegQbF_pWr/view?usp=drive_link", //1
+         
+        ]
+      },
+      {
+        "id": "al-muwatta",
+        "title": "Al-Muwatta",
+        "description": "A foundational hadith collection and fiqh text by Imam Malik himself, it’s advanced but essential for understanding Maliki rulings. Beginners should avoid studying it without a teacher due to its complexity. English translations, like Aisha Bewley’s, are available.",
+        "coverImage": "/images/al-muwatta.webp",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://drive.google.com/file/d/15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq/edit", //1
+          
+        ],
+        "readLinks": [
+          "https://drive.google.com/file/d/15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq/edit", //1
+         
+        ]
+      },
+    ]
+  },
+   {
+    "id": "usul-al-shafi'i",
+    "title": "Foundation of Shafi'i Jurisprudence </br> (Usul al-Fiqh al-Shafi'i)",
+    "books": [
+      {
+        "id": "SharahAlMaqasid",
+        "title": "Sharah Al Maqasid",
+        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
+        "coverImage": "/images/almaqasid.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://ia802801.us.archive.org/4/items/al-maqasid-121117002304-phpapp02/al-maqasid-121117002304-phpapp02.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://ia802801.us.archive.org/4/items/al-maqasid-121117002304-phpapp02/al-maqasid-121117002304-phpapp02.pdf", //1
+         
+        ]
+      },
+       {
+        "id": "safinat-al-najah",
+        "title": "Safinat Al-Naja",
+        "description": "A concise Shafi’i fiqh text focusing on worship (purification, prayer, fasting, zakat). It’s widely used in Shafi’i curricula and suitable for beginners.",
+        "coverImage": "/images/safinatalnaja.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://data.nur.nu/Kutub/English/Shafi3i-fiqh_Safinat-al-naja.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://data.nur.nu/Kutub/English/Shafi3i-fiqh_Safinat-al-naja.pdf", //1
+         
+        ]
+      },
+       {
+        "id": "safinat-al-najah",
+        "title": "Safinat Al-Naja",
+        "description": "A concise Shafi’i fiqh text focusing on worship (purification, prayer, fasting, zakat). It’s widely used in Shafi’i curricula and suitable for beginners.",
+        "coverImage": "/images/safinatalnaja.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://data.nur.nu/Kutub/English/Shafi3i-fiqh_Safinat-al-naja.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://data.nur.nu/Kutub/English/Shafi3i-fiqh_Safinat-al-naja.pdf", //1
+         
+        ]
+      },
+       {
+        "id": "The Reliance of the Traveller",
+        "title": "The Reliance of the Traveller",
+        "description": "The Reliance of the Traveller (Umdat as-Salik) is a classical manual of Islamic jurisprudence (fiqh) according to the Shafi'i school, translated and annotated by Nuh Ha Mim Keller. This authoritative work covers a wide range of topics, including acts of worship, marriage, business transactions, criminal law, and much more, providing practical guidelines for Muslims on how to lead a life in accordance with Islamic principles. The book is not only a legal guide but also a spiritual manual, combining legal rulings with moral and ethical teachings. It has become a widely referenced text for both scholars and laypersons, offering a clear and concise path for adhering to Islamic law and maintaining personal piety.",
+        "coverImage": "/images/reliance-of-traveller.jpg",
+        "volumes": 1,
+        "downloadLinks": [
+          "https://dn790002.ca.archive.org/0/items/sharia-reliance-of-the-traveller/Sharia%20-%20Reliance%20Of%20The%20Traveller.pdf", //1
+          
+        ],
+        "readLinks": [
+          "https://dn790002.ca.archive.org/0/items/sharia-reliance-of-the-traveller/Sharia%20-%20Reliance%20Of%20The%20Traveller.pdf", //1
+         
+        ]
+      },
+    ]
+  },
+   {
+    "id": "usul-al-hanbali",
+    "title": "Foundation of Hanbali Jurisprudence </br> (Usul al-Fiqh al-Hanbali)",
     "books": [
       {
         "id": "SharahAlMaqasid",
@@ -333,45 +630,11 @@ const bookCategories: BookCategory[] = [
         "volumes": 5,
         "downloadLinks": [
           "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
-          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
-          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
-          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
-          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
+          
         ],
         "readLinks": [
           "https://drive.google.com/file/d/1k_xOIQIPBfzBKafgDPzF6qSHVRobkvrr/view?usp=drive_link", //1
-          "https://drive.google.com/file/d/1hAW_0sXH8UV6nRm8qeyJarb8yx89wq8v/view?usp=drive_link", //2
-          "https://drive.google.com/file/d/1wjImGWZQnLCnsIyCM8d8z6PD0MR2OUPu/view?usp=drive_link", //3
-          "https://drive.google.com/file/d/1ePXeDb2ntjmFROTmqDE9nsTvMQXNTTFx/view?usp=drive_link", //4
-          "https://drive.google.com/file/d/12-BZYmLElmoEXyi1HbGhqncXBccLsybJ/view?usp=drive_link"
-        ]
-      },
-      {
-        "id": "Kitab al-Irshad",
-        "title": "Kitāb al-Irshād ilā Qawāṭiʿ al-Adillah fī Uṣūl al-Iʿtiqād",
-        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/kitabalirshad.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1ata_idEYfdAuAz_znIxBLcRRap-3IYe_/view?usp=drive_link"
-
-        ]
-      },
-      {
-        "id": "Creed of tahawiyyah",
-        "title": "al-ʻAqīdah al-Ṭaḥāwīyah",
-        "description": "Compiled by Imam al-Tirmidhi, this Hadith collection is unique in that it not only presents the Hadiths but also includes Imam al-Tirmidhi's commentary on the reliability of each Hadith. Jami' at-Tirmidhi contains approximately 3,956 Hadiths and covers a wide range of topics, including Islamic theology, jurisprudence, ethics, and eschatology. Imam al-Tirmidhi's approach to Hadith classification makes this collection particularly useful for scholars, as it offers a clear distinction between strong, weak, and acceptable narrations. The Hadiths are organized into thematic chapters, making it a practical guide for understanding Islamic rulings and the Prophet's teachings. Additionally, Jami' at-Tirmidhi includes rare Hadiths not found in other major collections, making it a valuable resource for scholars.\n\n                ",
-        "coverImage": "/images/aqidaetahawiya.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/1IXu9JBl8sGQo5xcTkxKXNScwquI0p0Sl/view?usp=drive_link"
-
+         
         ]
       },
     ]
