@@ -524,9 +524,9 @@ const bookCategories: BookCategory[] = [
         ]
       },
       {
-        "id": "tafsir-ibn-abbas",
-        "title": "Tafsir Ibn-'Abbas",
-        "description": "Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet.",
+        "id": "al-muwatta",
+        "title": "Al Muwatta",
+        "description": "Al-Muwaṭṭaʾ or Muwatta Imam Malik of Imam Malik written in the 8th-century, is one of the earliest collections of hadith texts comprising the subjects of Islamic law, compiled by the Imam, Malik ibn Anas.",
         "coverImage": "/images/al-muwatta.webp",
         "volumes": 1,
         "downloadLinks": [
@@ -1046,19 +1046,7 @@ const bookCategories: BookCategory[] = [
           "https://drive.google.com/file/d/1BcQCl4pItcrVYvcaMENlDHH9c0McLqe5/preview"
         ]
       },
-      {
-        "id": "tafsir-ibn-abbas",
-        "title": "Tafsir Ibn-'Abbas",
-        "description": "Tafseer Ibn Abbas is one of the earliest Quranic commentaries, attributed to Abdullah ibn Abbas, a cousin of Prophet Muhammad (PBUH). Known for its concise and insightful explanations, it provides context, meanings, and interpretations of Quranic verses, reflecting Ibn Abbas's profound knowledge and close connection to the Prophet.",
-        "coverImage": "/images/al-muwatta.webp",
-        "volumes": 1,
-        "downloadLinks": [
-          "https://drive.google.com/uc?export=download&id=15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq"
-        ],
-        "readLinks": [
-          "https://drive.google.com/file/d/15AaEOd_KXsQUYN7b8r-fgcXXyJPxjIoq/preview"
-        ]
-      },
+      
       {
         "id": "the-reliance-of-the-traveller",
         "title": "The Reliance of the Traveller",
