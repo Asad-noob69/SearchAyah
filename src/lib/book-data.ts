@@ -1,4 +1,5 @@
 // lib/book-data.ts
+import { quranBook, bookCategories, allBooks } from "./mainpage-book";
 
 export type Book = {
   id: string;
@@ -703,3 +704,6 @@ export const iqbal = (): BookCategory => ({
   title: "Allama Iqbal Books",
   books: iqbalBooks,
 })
+
+// ✅ Exporting mainpage books for sitemap
+export const mainpageBooks = (): Book[] => [quranBook, ...bookCategories.flatMap((category) => category.books)];

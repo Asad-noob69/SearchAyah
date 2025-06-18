@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "sitemap": "next-sitemap",
+    "postbuild": "tsc -p tsconfig.sitemap.json && next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },

@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://searchayah.com
+
+# Sitemaps
 Sitemap: https://searchayah.com/sitemap.xml
