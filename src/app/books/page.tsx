@@ -183,18 +183,7 @@ export default function BooksPage() {
 
   return (
     <div className="bg-amber-50 min-h-screen" style={{ background: "url(/images/background.webp)" }}>
-      <Head>
-        <title>Islamic Book Store</title>
-        <meta name="description" content="Islamic Book Store - Collection of Islamic books" />
-        <meta
-          name="keywords"
-          content="Islamic books, Quran, Hadith, buy Islamic books, Islamic bookstore, Sahih Bukhari, Islamic history books, Islamic studies"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>      {/* Header */}
+       {/* Header */}
       <header className="bg-[url('/images/darkwood.webp')] text-white p-8 shadow-md">
         <div className="w-full flex flex-col md:flex-row justify-between items-center px-4">
   <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
