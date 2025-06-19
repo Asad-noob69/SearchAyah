@@ -4,7 +4,7 @@ import Footer from "../../components/Footer"
 
 // ✅ Metadata API for SEO in App Router
 export const metadata = {
-  title: "SearchAyah: Search The Hadith",
+  title: "Hadith Search: SearchAyah",
   description:
     "Search any hadith from 7 different books with a single word. Matching words will appear in suggestions, helping users find Hadith quickly and easily.",
   keywords: [

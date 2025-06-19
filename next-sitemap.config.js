@@ -16,67 +16,62 @@ module.exports = {
   sitemapSize: 7000,
 
   additionalPaths: async () => {
-    const paths = []
+    const paths = [];
 
-    // 1. Iqbal Books
-    iqbal().books.forEach((book) => {
-      paths.push({
-        loc: `/books/iqbal/${book.id}`,
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      })
-    })
+    const addBookPath = (basePath, book) => {
+      if (!book || !book.id) return;
 
-    // 2. History Books
-    historyCategory().books.forEach((book) => {
-      paths.push({
-        loc: `/books/islamic-history/${book.id}`,
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      })
-    })
+      const cover = book.coverImage?.trim?.();
+      const hasValidImage =
+        typeof cover === "string" &&
+        cover !== "" &&
+        cover !== "undefined" &&
+        !cover.includes("undefined");
 
-    // 3. Philosophy Books
-    philosophyCategory().books.forEach((book) => {
-      paths.push({
-        loc: `/books/philosophy/${book.id}`,
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      })
-    })
+      let imageUrl = null;
 
-    // 4. Theology & Mysticism Books
-    TheologyMysticismCategory().books.forEach((book) => {
-      paths.push({
-        loc: `/books/theologynmysticism/${book.id}`,
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
-      })
-    })
+      if (hasValidImage) {
+        const rawUrl = cover.startsWith("http")
+          ? cover
+          : `https://searchayah.com${cover}`;
+        imageUrl = encodeURI(rawUrl); // <<--- KEY FIX HERE
+      }
 
-    // 5. Islamic Jurisprudence Books
-    islamicJurisprudenceCategory().books.forEach((book) => {
+      console.log(`Processing book ${book.id}, image: ${imageUrl || "no image"}`);
+
       paths.push({
-        loc: `/books/islamic-jurisprudence/${book.id}`,
+        loc: `${basePath}/${book.id}`,
         changefreq: "monthly",
         priority: 0.6,
         lastmod: new Date().toISOString(),
-      })
-    })
-    // 6. Mainpage Books
-    mainpageBooks().forEach((book) => {
-      paths.push({
-        loc: `/books/${book.id}`, // 🔁 Adjust this path if needed
-        changefreq: "monthly",
-        priority: 0.6,
-        lastmod: new Date().toISOString(),
+        images: imageUrl
+          ? [
+              {
+                loc: { href: imageUrl },
+                title: book.title || "Untitled",
+                caption: book.description || "",
+              },
+            ]
+          : [],
       });
-    });
+    };
 
-    return paths
+    // Process each book category
+    iqbal().books.forEach((book) => addBookPath("/books/iqbal", book));
+    historyCategory().books.forEach((book) =>
+      addBookPath("/books/islamic-history", book)
+    );
+    philosophyCategory().books.forEach((book) =>
+      addBookPath("/books/philosophy", book)
+    );
+    TheologyMysticismCategory().books.forEach((book) =>
+      addBookPath("/books/theologynmysticism", book)
+    );
+    islamicJurisprudenceCategory().books.forEach((book) =>
+      addBookPath("/books/islamic-jurisprudence", book)
+    );
+    mainpageBooks().forEach((book) => addBookPath("/books", book));
+
+    return paths;
   },
-}
+};

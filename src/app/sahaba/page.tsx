@@ -4,7 +4,7 @@ import SahabaSearch from "../../components/SahabaSearch"
 
 // ✅ Metadata for SEO using Next.js App Router
 export const metadata = {
-  title: "SearchAyah: Search The Sahaba",
+    title: "Sahaba Search: SearchAyah",
   description:
     "Search any Sahaba using the search bar and get redirected to their respective Wikipedia pages by name.",
   keywords: [
