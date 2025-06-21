@@ -1,32 +1,34 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { BookModel } from '@/models/Books';
-
-interface Params {
-  id: string;
-}
+import { NextRequest, NextResponse } from "next/server";
+import { BookModel } from "@/models/Books";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const book = await BookModel.findById(params.id);
-    
+    const { id } = params;
+
+    // Fetch book by ID
+    const book = await BookModel.findById(id);
+
     if (!book) {
       return NextResponse.json(
-        { success: false, error: 'Book not found' },
+        { success: false, error: "Book not found" },
         { status: 404 }
       );
     }
 
     return NextResponse.json({
       success: true,
-      data: book
+      data: book,
     });
   } catch (error) {
-    console.error('Error fetching book:', error);
+    console.error("Error fetching book:", error);
     return NextResponse.json(
-      { success: false, error: error instanceof Error ? error.message : 'Failed to fetch book' },
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to fetch book",
+      },
       { status: 500 }
     );
   }
@@ -34,63 +36,65 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = params;
     const body = await request.json();
     const { title, description, category, imageUrl, keywords, volumes } = body;
 
-    if (keywords && (!Array.isArray(keywords) || keywords.some((k: string) => !k.trim()))) {
+    // Validate required fields
+    if (!title || !description || !category || !imageUrl || !volumes || !Array.isArray(volumes)) {
       return NextResponse.json(
-        { success: false, error: 'Keywords must be an array of non-empty strings' },
+        {
+          success: false,
+          error:
+            "Missing required fields (title, description, category, imageUrl, volumes)",
+        },
         { status: 400 }
       );
     }
 
-    const updatedBook = await BookModel.update(params.id, body);
-    
-    if (!updatedBook) {
+    if (!keywords || !Array.isArray(keywords) || keywords.some((k: string) => !k.trim())) {
       return NextResponse.json(
-        { success: false, error: 'Book not found' },
-        { status: 404 }
+        { success: false, error: "Keywords must be an array of non-empty strings" },
+        { status: 400 }
       );
     }
 
-    return NextResponse.json({
-      success: true,
-      data: updatedBook
-    });
-  } catch (error) {
-    console.error('Error updating book:', error);
-    return NextResponse.json(
-      { success: false, error: error instanceof Error ? error.message : 'Failed to update book' },
-      { status: 500 }
+    // Update book
+    const book = await BookModel.findByIdAndUpdate(
+      id,
+      {
+        title,
+        description,
+        category,
+        imageUrl,
+        keywords,
+        volumes,
+        updatedAt: new Date(),
+      },
+      { new: true, runValidators: true }
     );
-  }
-}
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: Params }
-) {
-  try {
-    const deleted = await BookModel.delete(params.id);
-    
-    if (!deleted) {
+    if (!book) {
       return NextResponse.json(
-        { success: false, error: 'Book not found' },
+        { success: false, error: "Book not found" },
         { status: 404 }
       );
     }
 
     return NextResponse.json({
       success: true,
-      message: 'Book deleted successfully'
+      data: book,
     });
   } catch (error) {
-    console.error('Error deleting book:', error);
+    console.error("Error updating book:", error);
     return NextResponse.json(
-      { success: false, error: error instanceof Error ? error.message : 'Failed to delete book' },
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to update book",
+      },
       { status: 500 }
     );
   }
