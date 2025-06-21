@@ -7,7 +7,7 @@ interface Params {
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: Params }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json();
