@@ -35,7 +35,7 @@ export class BookModel {
     return null;
   }
 
-  static async findAll(limit = 10, page = 1) {
+  static async findAll(limit = 1000, page = 1) {
     const collection = await this.getCollection();
     const skip = (page - 1) * limit;
     
@@ -69,7 +69,7 @@ export class BookModel {
     return await this.findById(id);
   }
 
-  static async findByCategory(category: string, limit = 10, page = 1) {
+  static async findByCategory(category: string, limit = 1000, page = 1) {
     const collection = await this.getCollection();
     const skip = (page - 1) * limit;
     
@@ -89,7 +89,7 @@ export class BookModel {
     return categories.filter(Boolean).sort();
   }
 
-  static async searchBooks(query: string, category?: string, limit = 10, page = 1) {
+  static async searchBooks(query: string, category?: string, limit = 1000, page = 1) {
     const collection = await this.getCollection();
     const skip = (page - 1) * limit;
     

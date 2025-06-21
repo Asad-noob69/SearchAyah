@@ -1,7 +1,7 @@
 const API_BASE_URL = '/api';
 
 export const bookApi = {
-  getBooks: async (page = 1, limit = 10000, category?: string, search?: string) => {
+  getBooks: async (page = 1, limit = 1000, category?: string, search?: string) => {
     let url = `${API_BASE_URL}/books?page=${page}&limit=${limit}`;
     if (category) url += `&category=${encodeURIComponent(category)}`;
     if (search) url += `&search=${encodeURIComponent(search)}`;
@@ -13,7 +13,7 @@ export const bookApi = {
     return response.json();
   },
 
-  getBooksByCategory: async (category: string, page = 1, limit = 10000) => {
+  getBooksByCategory: async (category: string, page = 1, limit = 1000) => {
     const response = await fetch(`${API_BASE_URL}/books?category=${encodeURIComponent(category)}&page=${page}&limit=${limit}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -21,7 +21,7 @@ export const bookApi = {
     return response.json();
   },
 
-  searchBooks: async (query: string, category?: string, page = 1, limit = 10000) => {
+  searchBooks: async (query: string, category?: string, page = 1, limit = 1000) => {
     let url = `${API_BASE_URL}/books?search=${encodeURIComponent(query)}&page=${page}&limit=${limit}`;
     if (category) url += `&category=${encodeURIComponent(category)}`;
     
