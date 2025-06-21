@@ -12,11 +12,11 @@ export async function GET(request: NextRequest) {
     let books;
 
     if (search) {
-      books = await BookModel.searchBooks(search, category || undefined, limit, page);
+      books = await BookModel.searchBooks(search, category || undefined);
     } else if (category) {
-      books = await BookModel.findByCategory(category, limit, page);
+      books = await BookModel.findByCategory(category);
     } else {
-      books = await BookModel.findAll(limit, page);
+      books = await BookModel.findAll();
     }
     
     return NextResponse.json({
