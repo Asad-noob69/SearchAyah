@@ -253,7 +253,7 @@ export default function AdminDashboard() {
         volumes: volumes.filter((vol) => vol.downloadUrl),
       };
 
-      let response;
+      let response: { success: boolean; data?: any; error?: string };
       if (editingBookId) {
         response = await bookApi.updateBook(editingBookId, bookData);
         if (response.success) {

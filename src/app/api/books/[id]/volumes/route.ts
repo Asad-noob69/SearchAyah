@@ -20,10 +20,11 @@ export async function POST(
       );
     }
 
-    const success = await BookModel.addVolume(params.id, {
+    const success = await BookModel.findByIdAndUpdate((await params).id, {
+      $push: { volumes: {
       volumeNumber,
       downloadUrl
-    });
+    }}});
 
     if (!success) {
       return NextResponse.json(
