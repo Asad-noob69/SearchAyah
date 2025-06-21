@@ -63,7 +63,7 @@ export async function PUT(
     }
 
     // Update book
-    const book = await BookModel.findByIdAndUpdate(
+    const book = await BookModel.update( // Changed from findByIdAndUpdate
       id,
       {
         title,
@@ -74,7 +74,6 @@ export async function PUT(
         volumes,
         updatedAt: new Date(),
       },
-      { new: true, runValidators: true }
     );
 
     if (!book) {
@@ -94,6 +93,40 @@ export async function PUT(
       {
         success: false,
         error: error instanceof Error ? error.message : "Failed to update book",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+
+    // Delete book by ID
+    const deletedBook = await BookModel.delete(id);
+
+    if (!deletedBook) {
+      return NextResponse.json(
+        { success: false, error: "Book not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Book deleted successfully",
+      data: deletedBook,
+    });
+  } catch (error) {
+    console.error("Error deleting book:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to delete book",
       },
       { status: 500 }
     );

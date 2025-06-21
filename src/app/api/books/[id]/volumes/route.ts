@@ -20,7 +20,7 @@ export async function POST(
       );
     }
 
-    const success = await BookModel.findByIdAndUpdate((await params).id, {
+    const success = await BookModel.update((await params).id, {
       $push: { volumes: {
       volumeNumber,
       downloadUrl

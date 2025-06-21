@@ -3,7 +3,7 @@ import { BookModel } from '@/models/Books';
 
 export async function GET(request: NextRequest) {
   try {
-    const categories = await BookModel.distinct('category');
+    const categories = await BookModel.getCategories();
     
     return NextResponse.json({
       success: true,
