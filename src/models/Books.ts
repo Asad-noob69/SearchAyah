@@ -35,14 +35,12 @@ export class BookModel {
     return null;
   }
 
-  static async findAll(limit = 1000, page = 1) {
+  static async findAll() {
     const collection = await this.getCollection();
-    const skip = (page - 1) * limit;
     
     const books = await collection
       .find({})
-      .skip(skip)
-      .limit(limit)
+      .limit(1000)
       .sort({ createdAt: -1 })
       .toArray();
 
@@ -69,14 +67,12 @@ export class BookModel {
     return await this.findById(id);
   }
 
-  static async findByCategory(category: string, limit = 1000, page = 1) {
+  static async findByCategory(category: string) {
     const collection = await this.getCollection();
-    const skip = (page - 1) * limit;
     
     const books = await collection
       .find({ category: { $regex: category, $options: 'i' } })
-      .skip(skip)
-      .limit(limit)
+      .limit(1000)
       .sort({ createdAt: -1 })
       .toArray();
 
@@ -89,9 +85,8 @@ export class BookModel {
     return categories.filter(Boolean).sort();
   }
 
-  static async searchBooks(query: string, category?: string, limit = 1000, page = 1) {
+  static async searchBooks(query: string, category?: string) {
     const collection = await this.getCollection();
-    const skip = (page - 1) * limit;
     
     const searchFilter: any = {
       $or: [
@@ -106,8 +101,7 @@ export class BookModel {
 
     const books = await collection
       .find(searchFilter)
-      .skip(skip)
-      .limit(limit)
+      .limit(1000)
       .sort({ createdAt: -1 })
       .toArray();
 
