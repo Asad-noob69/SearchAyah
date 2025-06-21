@@ -70,7 +70,7 @@ export default function AdminDashboard() {
       setAuthError("Username is required");
       return;
     }
-    if (authPasscode !== "ASAD_BILAL_SEARCHAYAH") {
+    if (authPasscode !== "rosopak01") {
       setAuthError("Invalid passcode");
       return;
     }
