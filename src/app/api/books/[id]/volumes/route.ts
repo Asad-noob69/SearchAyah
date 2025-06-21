@@ -19,12 +19,11 @@ export async function POST(
         { status: 400 }
       );
     }
+    const book = await BookModel.findById((await params).id);
 
     const success = await BookModel.update((await params).id, {
-      $push: { volumes: {
-      volumeNumber,
-      downloadUrl
-    }}});
+      volumes: [...(book?.volumes || []), { volumeNumber, downloadUrl }],
+    });
 
     if (!success) {
       return NextResponse.json(
