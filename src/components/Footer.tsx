@@ -18,14 +18,6 @@ export default function Footer() {
           </div>
           <div className="text-center space-y-2">
             <p className="text-sm">Copyright © {new Date().getFullYear()} | All rights reserved!</p>
-            <div className="space-x-4 flex items-center justify-center">
-            <span>Developed by</span>
-        <a href="https://www.rosopak.com/" target="_blank" rel="noopener noreferrer" className="relative rounded-full overflow-hidden">
-          <Image src={rosopak} alt="Logo" className="object-cover" priority width={30} height={30}/>
-        </a>
-            
-              
-            </div>
           </div>
           <div className="flex justify-center space-x-6">
             <a href="https://x.com/asadaliabbasi_" className="text-gray-400 hover:text-white transition-colors">
