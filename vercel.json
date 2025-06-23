@@ -2,5 +2,24 @@
     "rewrites": [
       { "source": "/:path*", "destination": "/:path*" },
       { "source": "/(.*)", "destination": "/" }
-    ]
+    ],
+    "functions": {
+    "app/api/books/route.ts": {
+      "maxDuration": 10
+    },
+    "app/api/books/[id]/route.ts": {
+      "maxDuration": 5
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=300, stale-while-revalidate=600"
+        }
+      ]
+    }
+  ]
   }
