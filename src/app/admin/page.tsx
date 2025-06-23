@@ -128,7 +128,7 @@ export default function AdminDashboard() {
       description: book.description,
       category: book.category,
       newCategory: "",
-      keywords: book.keywords.join(", "),
+      keywords: book.keywords?.join(",") || "",
       imageUrl: book.imageUrl,
     });
     setVolumes(

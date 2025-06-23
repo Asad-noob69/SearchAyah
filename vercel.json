@@ -1,6 +1,56 @@
 {
-    "rewrites": [
-      { "source": "/:path*", "destination": "/:path*" },
-      { "source": "/(.*)", "destination": "/" }
-    ]
-  }
+  "rewrites": [
+    { "source": "/:path*", "destination": "/:path*" },
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "functions": {
+    "app/api/books/route.ts": {
+      "maxDuration": 10
+    },
+    "app/api/books/[id]/route.ts": {
+      "maxDuration": 5
+    },
+    "app/api/books/categories/route.ts": {
+      "maxDuration": 8
+    },
+    "app/api/books/search/route.ts": {
+      "maxDuration": 15
+    },
+    "app/api/books/[id]/volumes/route.ts": {
+      "maxDuration": 8
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=300, stale-while-revalidate=600"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    },
+    {
+      "source": "/api/books/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=600, stale-while-revalidate=1200"
+        }
+      ]
+    }
+  ],
+  "regions": ["sin1", "hnd1"]
+}
