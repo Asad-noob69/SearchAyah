@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Plus, Trash2, Upload, Book, Image as ImageIcon, X, Pencil, LogOut } from "lucide-react";
+import { Plus, Trash2, Upload, Book, Image as ImageIcon, X, Pencil, LogOut, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,7 @@ interface BookType {
 
 export default function AdminDashboard() {
   const [books, setBooks] = useState<BookType[]>([]);
+  const [filteredBooks, setFilteredBooks] = useState<BookType[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     title: "",
@@ -47,6 +48,7 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [editingBookId, setEditingBookId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   
   // Authentication state
@@ -95,12 +97,12 @@ export default function AdminDashboard() {
       try {
         const booksResponse = await bookApi.getBooks();
         if (booksResponse.success) {
-          setBooks(
-            booksResponse.data.map((book: BookType) => ({
-              ...book,
-              createdAt: new Date(book.createdAt),
-            }))
-          );
+          const fetchedBooks = booksResponse.data.map((book: BookType) => ({
+            ...book,
+            createdAt: new Date(book.createdAt),
+          }));
+          setBooks(fetchedBooks);
+          setFilteredBooks(fetchedBooks);
         } else {
           setError(booksResponse.error || "Failed to fetch books");
         }
@@ -119,6 +121,14 @@ export default function AdminDashboard() {
     };
     fetchData();
   }, [isAuthenticated]);
+
+  // Handle search input change
+  useEffect(() => {
+    const filtered = books.filter((book) =>
+      book.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredBooks(filtered);
+  }, [searchQuery, books]);
 
   // Populate form with book data for editing
   const handleEditBook = (book: BookType) => {
@@ -257,18 +267,20 @@ export default function AdminDashboard() {
       if (editingBookId) {
         response = await bookApi.updateBook(editingBookId, bookData);
         if (response.success) {
-          setBooks(
-            books.map((book) =>
-              book._id === editingBookId
-                ? { ...response.data, createdAt: new Date(response.data.createdAt) }
-                : book
-            )
+          const updatedBooks = books.map((book) =>
+            book._id === editingBookId
+              ? { ...response.data, createdAt: new Date(response.data.createdAt) }
+              : book
           );
+          setBooks(updatedBooks);
+          setFilteredBooks(updatedBooks);
         }
       } else {
         response = await bookApi.createBook(bookData);
         if (response.success) {
-          setBooks([...books, { ...response.data, createdAt: new Date(response.data.createdAt) }]);
+          const newBooks = [...books, { ...response.data, createdAt: new Date(response.data.createdAt) }];
+          setBooks(newBooks);
+          setFilteredBooks(newBooks);
         }
       }
 
@@ -288,6 +300,7 @@ export default function AdminDashboard() {
         setImagePreview("");
         setUploadedImage(null);
         setEditingBookId(null);
+        setSearchQuery("");
         if (fileInputRef.current) {
           fileInputRef.current.value = "";
         }
@@ -308,7 +321,9 @@ export default function AdminDashboard() {
     try {
       const response = await bookApi.deleteBook(id);
       if (response.success) {
-        setBooks(books.filter((book) => book._id !== id));
+        const updatedBooks = books.filter((book) => book._id !== id);
+        setBooks(updatedBooks);
+        setFilteredBooks(updatedBooks);
       } else {
         setError(response.error || "Failed to delete book");
       }
@@ -772,6 +787,7 @@ export default function AdminDashboard() {
                       setImagePreview("");
                       setUploadedImage(null);
                       setEditingBookId(null);
+                      setSearchQuery("");
                       if (fileInputRef.current) {
                         fileInputRef.current.value = "";
                       }
@@ -811,17 +827,36 @@ export default function AdminDashboard() {
                   color: "#67b2b4",
                 }}
               >
-                Total: {books.length}
+                Total: {filteredBooks.length}
               </Badge>
             </CardTitle>
             <CardDescription className="text-white/90">Manage your uploaded books</CardDescription>
           </CardHeader>
           <CardContent className="p-6">
+            <div className="mb-6">
+              <div className="relative">
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search books by title..."
+                  className="pl-10 focus:ring-2"
+                  style={
+                    {
+                      border: "1px solid #8cc5c7",
+                      "--tw-ring-color": "rgba(103, 178, 180, 0.2)",
+                    } as React.CSSProperties
+                  }
+                  onFocus={(e) => (e.target.style.borderColor = "#67b2b4")}
+                  onBlur={(e) => (e.target.style.borderColor = "#8cc5c7")}
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              </div>
+            </div>
             {isLoading ? (
               <div className="text-center py-12" style={{ color: "#67b2b4" }}>
                 <p className="text-lg font-medium font-[Josefin_Sans]">Loading books...</p>
               </div>
-            ) : books.length === 0 ? (
+            ) : filteredBooks.length === 0 ? (
               <div className="text-center py-12" style={{ color: "#67b2b4" }}>
                 <div
                   className="p-6 rounded-full w-24 h-24 mx-auto mb-6 flex items-center justify-center"
@@ -829,8 +864,12 @@ export default function AdminDashboard() {
                 >
                   <Book className="h-12 w-12" style={{ color: "#67b2b4" }} />
                 </div>
-                <p className="text-lg font-medium font-[Josefin_Sans]">No books uploaded yet</p>
-                <p className="text-sm mt-2">Upload your first book using the form above</p>
+                <p className="text-lg font-medium font-[Josefin_Sans]">
+                  {searchQuery ? "No books match your search" : "No books uploaded yet"}
+                </p>
+                <p className="text-sm mt-2">
+                  {searchQuery ? "Try a different search term" : "Upload your first book using the form above"}
+                </p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -864,7 +903,7 @@ export default function AdminDashboard() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {books.map((book) => (
+                    {filteredBooks.map((book) => (
                       <TableRow
                         key={book._id}
                         className="transition-colors"
