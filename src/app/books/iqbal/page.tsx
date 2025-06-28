@@ -4,17 +4,21 @@ import { useState, useEffect } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { X, Menu } from "lucide-react"
+import { X, Menu, Loader2 } from "lucide-react"
 import Sidebar from "../../../components/Sidebar"
-import { Book, BookCategory, iqbal } from "@/lib/book-data"
+import { bookApi } from "@/utils/api"
+import { Book } from "@/lib/book-data"
+import { cloudinaryLoader } from "@/utils/cloudinaryLoader"
 
 export default function IqbalBooksPage() {
-  const iqbalCategory: BookCategory = iqbal()
+  const [books, setBooks] = useState<Book[]>([])
   const [searchInput, setSearchInput] = useState("")
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
   const [showMainContent, setShowMainContent] = useState(true)
   const [windowWidth, setWindowWidth] = useState(0)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -23,20 +27,47 @@ export default function IqbalBooksPage() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        setIsLoading(true)
+        const response = await bookApi.getBooksByCategory('iqbal')
+        
+        if (response.success) {
+          // Convert database books to frontend format
+          const formattedBooks = response.data.map((book: any) => 
+            bookApi.formatBookForFrontend(book)
+          )
+          setBooks(formattedBooks)
+          setFilteredBooks(formattedBooks)
+        } else {
+          setError('Failed to load books')
+        }
+      } catch (err) {
+        console.error('Error fetching books:', err)
+        setError('Failed to load books')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchBooks()
+  }, [])
+
   const getBooksPerRow = () => (windowWidth < 640 ? 2 : windowWidth < 768 ? 3 : 4)
 
   useEffect(() => {
     if (searchInput) {
-      const filtered = iqbalCategory.books.filter((book) =>
+      const filtered = books.filter((book) =>
         book.title.toLowerCase().includes(searchInput.toLowerCase())
       )
       setFilteredBooks(filtered)
       setShowMainContent(filtered.length === 0)
     } else {
-      setFilteredBooks(iqbalCategory.books)
+      setFilteredBooks(books)
       setShowMainContent(true)
     }
-  }, [searchInput])
+  }, [searchInput, books])
 
   const renderBooksInRows = (books: Book[]) => {
     const booksPerRow = getBooksPerRow()
@@ -55,9 +86,13 @@ export default function IqbalBooksPage() {
                 <meta itemProp="author" content="Allama Iqbal" />
 
                 <div className="w-24 sm:w-28 md:w-32 lg:w-36 h-36 sm:h-40 md:h-48 lg:h-52 relative">
-                  <Link href={`/books/iqbal/${book.id}`} aria-label={`Read more about ${book.title}`}>
+                  <Link href={`/books/iqbal/${book.slug}`} aria-label={`Read more about ${book.title}`}>
                     <Image
-                      src={book.coverImage || "/placeholder.svg"}
+                      loader={cloudinaryLoader}
+                      src={book.coverImage.replace(
+                        "https://res.cloudinary.com/dppbxvjbg/image/upload/",
+                        ""
+                      )}
                       alt={`Cover image of ${book.title}`}
                       fill
                       className="book-cover object-contain transform hover:-translate-y-2 transition duration-200 cursor-pointer"
@@ -97,7 +132,7 @@ export default function IqbalBooksPage() {
             "@type": "CollectionPage",
             "name": "Allama Iqbal Books",
             "description": "Explore our curated collection of Allama Iqbal's philosophical and poetic works.",
-            "hasPart": iqbalCategory.books.map((book) => ({
+            "hasPart": books.map((book) => ({
               "@type": "Book",
               "name": book.title,
               "description": book.description.slice(0, 160),
@@ -139,7 +174,15 @@ export default function IqbalBooksPage() {
       </header>
 
       <main className="min-h-screen sm:px-24 md:px-16 px-2" role="main">
-        {showMainContent ? (
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <Loader2 size={48} className="animate-spin text-amber-800" />
+          </div>
+        ) : error ? (
+          <div className="flex justify-center items-center h-64">
+            <p className="text-red-500 text-xl">{error}</p>
+          </div>
+        ) : showMainContent ? (
           <div className="flex flex-col items-center py-12 md:py-24" id="book-container">
             <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" data-category-id="iqbal">
               <header className="wooden-text relative w-full flex justify-center mb-8">
@@ -148,7 +191,9 @@ export default function IqbalBooksPage() {
                 </h2>
               </header>
               <section className="w-full px-2 sm:px-4 md:px-8" aria-label="Book list">
-                {renderBooksInRows(iqbalCategory.books)}
+                {books.length > 0 ? renderBooksInRows(books) : (
+                  <p className="text-center text-gray-500 py-12">No books found in this category.</p>
+                )}
               </section>
             </div>
           </div>

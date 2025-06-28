@@ -27,6 +27,7 @@ interface BookType {
   imageUrl: string;
   keywords: string[];
   volumes: Volume[];
+  school?: string;
   createdAt: Date;
 }
 
@@ -41,6 +42,7 @@ export default function AdminDashboard() {
     newCategory: "",
     keywords: "",
     imageUrl: "",
+    school: "",
   });
   const [volumes, setVolumes] = useState<Volume[]>([{ volumeNumber: 1, downloadUrl: "" }]);
   const [imagePreview, setImagePreview] = useState<string>("");
@@ -140,6 +142,7 @@ export default function AdminDashboard() {
       newCategory: "",
       keywords: book.keywords?.join(",") || "",
       imageUrl: book.imageUrl,
+      school: book.school || "",
     });
     setVolumes(
       book.volumes.length > 0
@@ -295,6 +298,7 @@ export default function AdminDashboard() {
           newCategory: "",
           keywords: "",
           imageUrl: "",
+          school: "",
         });
         setVolumes([{ volumeNumber: 1, downloadUrl: "" }]);
         setImagePreview("");
@@ -541,6 +545,40 @@ export default function AdminDashboard() {
                   </Select>
                 </div>
 
+                 {/* this is for school field in islamic jurisprudence category */}
+                 
+                {formData.category === "Islamic Jurisprudence" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="school" className="font-medium" style={{ color: "#4d8c8e" }}>
+                      School of Thought (optional)
+                    </Label>
+                    <Select
+                      value={formData.school}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, school: value })
+                      }
+                    >
+                      <SelectTrigger
+                        className="focus:ring-2"
+                        style={{
+                          border: "1px solid #8cc5c7",
+                          "--tw-ring-color": "rgba(103, 178, 180, 0.2)",
+                        }}
+                      >
+                        <SelectValue placeholder="Select school (if applicable)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {["Hanafi", "Shafi'i", "Maliki", "Hanbali"].map((school) => (
+                          <SelectItem key={school} value={school}>
+                            {school}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+
                 <div className="space-y-2">
                   <Label htmlFor="keywords" className="font-medium" style={{ color: "#4d8c8e" }}>
                     Keywords *
@@ -782,6 +820,7 @@ export default function AdminDashboard() {
                         newCategory: "",
                         keywords: "",
                         imageUrl: "",
+                        school: "",
                       });
                       setVolumes([{ volumeNumber: 1, downloadUrl: "" }]);
                       setImagePreview("");

@@ -6,6 +6,7 @@ export type Book = {
   title: string;
   description: string;
   coverImage: string;
+  slug: string //for SEO URL
   downloadLinks: string[];
   readLinks: string[];
   volumes?: number;

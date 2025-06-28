@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^16.6.0",
     "lucide-react": "^0.474.0",
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.0",

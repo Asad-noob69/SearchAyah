@@ -1,5 +1,14 @@
 const API_BASE_URL = '/api';
 
+// utils/api.ts (or wherever your file is)
+
+function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 export const bookApi = {
   getBooks: async (category?: string, search?: string) => {
     let url = `${API_BASE_URL}/books`;
@@ -45,6 +54,23 @@ export const bookApi = {
     }
     return response.json();
   },
+  
+  // Convert database book format to frontend book format
+  formatBookForFrontend: (dbBook: any) => {
+    return {
+      id: dbBook._id.toString(),
+      title: dbBook.title,
+      description: dbBook.description,
+      coverImage: dbBook.imageUrl,
+      slug: dbBook.slug || slugify(dbBook.title),
+      downloadLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl) || [],
+      readLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl.replace('uc?export=download&id=', 'file/d/').concat('/preview')) || [],
+      volumes: dbBook.volumes?.length || 1,
+      keywords: dbBook.keywords || []
+    };
+  },
+  
+
 
   getBook: async (id: string) => {
     const response = await fetch(`${API_BASE_URL}/books/${id}`);

@@ -4,17 +4,21 @@ import { useState, useEffect } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { X, Menu } from "lucide-react"
+import { Menu, Loader2 } from "lucide-react"
 import Sidebar from "../../../components/Sidebar"
-import { Book, BookCategory, philosophyCategory } from "@/lib/book-data"
+import { bookApi } from "@/utils/api"
+import { Book } from "@/lib/book-data"
+import { cloudinaryLoader } from "@/utils/cloudinaryLoader"
 
 export default function PhilosophyBooksPage() {
-  const philosophy: BookCategory = philosophyCategory()
+  const [books, setBooks] = useState<Book[]>([])
   const [searchInput, setSearchInput] = useState("")
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
   const [showMainContent, setShowMainContent] = useState(true)
   const [windowWidth, setWindowWidth] = useState(0)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -23,20 +27,46 @@ export default function PhilosophyBooksPage() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        setIsLoading(true)
+        const response = await bookApi.getBooksByCategory("philosophy")
+
+        if (response.success) {
+          const formattedBooks = response.data.map((book: any) =>
+            bookApi.formatBookForFrontend(book)
+          )
+          setBooks(formattedBooks)
+          setFilteredBooks(formattedBooks)
+        } else {
+          setError("Failed to load books")
+        }
+      } catch (err) {
+        console.error("Error fetching books:", err)
+        setError("Failed to load books")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchBooks()
+  }, [])
+
   const getBooksPerRow = () => (windowWidth < 640 ? 2 : windowWidth < 768 ? 3 : 4)
 
   useEffect(() => {
     if (searchInput) {
-      const filtered = philosophy.books.filter((book) =>
+      const filtered = books.filter((book) =>
         book.title.toLowerCase().includes(searchInput.toLowerCase())
       )
       setFilteredBooks(filtered)
       setShowMainContent(filtered.length === 0)
     } else {
-      setFilteredBooks(philosophy.books)
+      setFilteredBooks(books)
       setShowMainContent(true)
     }
-  }, [searchInput])
+  }, [searchInput, books])
 
   const renderBooksInRows = (books: Book[]) => {
     const booksPerRow = getBooksPerRow()
@@ -48,16 +78,25 @@ export default function PhilosophyBooksPage() {
         <div key={`row-${i}`} aria-label={`Book row ${i / booksPerRow + 1}`}>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center">
             {rowBooks.map((book) => (
-              <article key={book.id} className="relative flex flex-col items-center" itemScope itemType="https://schema.org/Book">
+              <article
+                key={book.id}
+                className="relative flex flex-col items-center"
+                itemScope
+                itemType="https://schema.org/Book"
+              >
                 <meta itemProp="name" content={book.title} />
                 <meta itemProp="description" content={book.description.slice(0, 160)} />
                 <meta itemProp="image" content={`https://searchayah.com${book.coverImage}`} />
                 <meta itemProp="author" content="Philosophy Books Collection Pdf" />
 
                 <div className="w-24 sm:w-28 md:w-32 lg:w-36 h-36 sm:h-40 md:h-48 lg:h-52 relative">
-                  <Link href={`/books/philosophy/${book.id}`} aria-label={`Read more about ${book.title}`}>
+                  <Link href={`/books/philosophy/${book.slug}`} aria-label={`Read more about ${book.title}`}>
                     <Image
-                      src={book.coverImage || "/placeholder.svg"}
+                      loader={cloudinaryLoader}
+                      src={book.coverImage.replace(
+                        "https://res.cloudinary.com/dppbxvjbg/image/upload/",
+                        ""
+                      )}
                       alt={`Cover image of ${book.title}`}
                       fill
                       className="book-cover object-contain transform hover:-translate-y-2 transition duration-200 cursor-pointer"
@@ -88,21 +127,28 @@ export default function PhilosophyBooksPage() {
   return (
     <div className="bg-amber-50 min-h-screen" style={{ background: "url(/images/background.webp)" }}>
       <Head>
-        <title>Islamic Philosophy - Islamic Book Store</title>
-        <meta name="description"  content="Explore our collection of classical and contemporary Islamic philosophy books including metaphysics, ethics, and rational theology." />
-        <meta name="keywords" content="Islamic philosophy, metaphysics, Islamic ethics, Kalam, Mulla Sadra, Ibn Sina, Al-Farabi, Al-Ghazali, Islamic rationalism" />
+        <title>Islamic Philosophy Books - Islamic Book Store</title>
+        <meta
+          name="description"
+          content="Explore our collection of classical and contemporary Islamic philosophy books including metaphysics, ethics, and rational theology."
+        />
+        <meta
+          name="keywords"
+          content="Islamic philosophy, metaphysics, Islamic ethics, Kalam, Mulla Sadra, Ibn Sina, Al-Farabi, Al-Ghazali, Islamic rationalism"
+        />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Islamic Philosophy Books",
-            "description": "A curated collection of Islamic philosophy books exploring metaphysics, ethics, and rational thought in the Islamic tradition.",
-            "hasPart": philosophy.books.map((book) => ({
+            "description":
+              "A curated collection of Islamic philosophy books exploring metaphysics, ethics, and rational thought in the Islamic tradition.",
+            "hasPart": books.map((book) => ({
               "@type": "Book",
               "name": book.title,
               "description": book.description.slice(0, 160),
               "image": `https://searchayah.com${book.coverImage}`,
-              "url": `https://searchayah.com/books/philosophy/${book.id}`
+              "url": `https://searchayah.com/books/philosophy/${book.slug}`
             }))
           })}
         </script>
@@ -123,7 +169,7 @@ export default function PhilosophyBooksPage() {
           <div className="w-full md:w-auto mt-4 md:mt-0">
             <input
               type="text"
-              placeholder="Search Philosophy books..."
+              placeholder="Search philosophy books..."
               className="w-full sm:w-64 md:w-96 p-2 rounded-md bg-white text-black"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
@@ -134,21 +180,35 @@ export default function PhilosophyBooksPage() {
 
         <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         {isSidebarOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)} aria-label="Sidebar overlay" />
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setIsSidebarOpen(false)}
+            aria-label="Sidebar overlay"
+          />
         )}
       </header>
 
       <main className="min-h-screen sm:px-24 md:px-16 px-2" role="main">
-        {showMainContent ? (
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <Loader2 size={48} className="animate-spin text-amber-800" />
+          </div>
+        ) : error ? (
+          <div className="flex justify-center items-center h-64">
+            <p className="text-red-500 text-xl">{error}</p>
+          </div>
+        ) : showMainContent ? (
           <div className="flex flex-col items-center py-12 md:py-24" id="book-container">
-            <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" data-category-id="Philosophy">
+            <div className="flex flex-col gap-28 mt-16 md:mt-24 w-full" data-category-id="philosophy">
               <header className="wooden-text relative w-full flex justify-center mb-8">
                 <h2 className="text-[#230b08] text-xl sm:text-xl md:text-2xl lg:text-3xl">
                   Philosophy
                 </h2>
               </header>
               <section className="w-full px-2 sm:px-4 md:px-8" aria-label="Book list">
-                {renderBooksInRows(philosophy.books)}
+                {books.length > 0 ? renderBooksInRows(books) : (
+                  <p className="text-center text-gray-500 py-12">No books found in this category.</p>
+                )}
               </section>
             </div>
           </div>
