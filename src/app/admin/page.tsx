@@ -563,7 +563,9 @@ export default function AdminDashboard() {
                         style={{
                           border: "1px solid #8cc5c7",
                           "--tw-ring-color": "rgba(103, 178, 180, 0.2)",
-                        }}
+                        } as React.CSSProperties & Record<string, string>} // ← fix here
+                        onFocus={(e) => (e.target.style.borderColor = "#67b2b4")}
+                        onBlur={(e) => (e.target.style.borderColor = "#8cc5c7")}
                       >
                         <SelectValue placeholder="Select school (if applicable)" />
                       </SelectTrigger>
