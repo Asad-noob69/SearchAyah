@@ -6,7 +6,7 @@ export type Book = {
   title: string;
   description: string;
   coverImage: string;
-  slug: string //for SEO URL
+  slug?: string //for SEO URL
   school?: string; //for jurisprudence school
   downloadLinks: string[];
   readLinks: string[];
