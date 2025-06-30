@@ -62,7 +62,7 @@ export default function BookPopup({ book }: BookProps) {
           "@context": "https://schema.org",
           "@type": "Book",
           "name": book.title,
-          "author": "Allama Iqbal",
+          "author": "Islamic Scholars",
           "image": `https://searchayah.com${book.coverImage}`,
           "description": book.description.slice(0, 160),
         })}

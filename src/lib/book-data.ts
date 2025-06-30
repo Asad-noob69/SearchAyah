@@ -168,7 +168,7 @@ const philosophyBooks: Book [] = [
       },
       {
         "id": "minhaj-al-abideen",
-        "title": " Minhaj Al-Abideen",
+        "title": " Minhaj Al-Abeen",
         "description": "Minhaj Al-Abideen is a profound guide by Imam Al-Ghazali, outlining the spiritual path of worship and devotion to Allah. The book is structured around the stages and obstacles that believers face in their journey towards spiritual fulfillment. It provides practical advice on overcoming worldly distractions, improving one's character, and attaining closeness to God. Al-Ghazali emphasizes sincerity, humility, and perseverance as essential qualities for spiritual progress.",
         "coverImage": "/images/minhaj-abideen.webp",
         "volumes": 1,
@@ -569,7 +569,7 @@ const iqbalBooks: Book[] = [
       },
       {
         "id": "kulyat-e-iqba",
-        "title": "Kulyat-e-Iqba",
+        "title": "Kulyat-e-Ial",
         "description": "Kulyat-e-Iqbal is a comprehensive collection of Allama Muhammad Iqbal’s Urdu and Persian poetry, encompassing his major poetic works. The collection brings together his profound thoughts on philosophy, religion, selfhood, and society. Iqbal's poetry resonates with themes of spiritual awakening, the quest for freedom, and the realization of human potential. His works such as Bang-e-Dara, Baal-e-Jibreel, Zarb-e-Kaleem, and Asrar-e-Khudi are all included in this volume, reflecting his deep concern for the Muslim Ummah and humanity as a whole. Kulyat-e-Iqbal offers readers a complete picture of Iqbal’s literary genius, providing insights into his intellectual journey, his thoughts on the human condition, and his vision for a just and enlightened world. This collection is a treasure trove for those seeking to explore the depth of Iqbal’s poetic universe.                ",
         "coverImage": "/images/kulyateiqbal.jpg",
         "volumes": 1,
