@@ -47,7 +47,7 @@ const nextConfig: NextConfig = {
   experimental: {
     fallbackNodePolyfills: false,
     // You may comment this out if it causes build issues
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-select', '@radix-ui/react-tabs'],
+    // optimizePackageImports: ['lucide-react', '@radix-ui/react-select', '@radix-ui/react-tabs'],
     optimizeCss: true,
   },
 
