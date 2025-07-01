@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Menu, Loader2 } from "lucide-react"
 import debounce from "lodash.debounce"
-import Sidebar from "../../../components/Sidebar"
+import BookHeader from "@/components/BookHeader"
 import { bookApi } from "@/utils/api"
 import { cloudinaryLoader } from "@/utils/cloudinaryLoader"
 
@@ -232,34 +232,7 @@ export default function IslamicJurisprudenceBooksPage() {
         }} />
       </Head>
 
-      <header className="bg-[url('/images/darkwood.webp')] text-white p-8 shadow-md">
-        <div className="w-full flex flex-col md:flex-row justify-between items-center px-4">
-          <div className="flex items-center w-full md:w-auto justify-between md:justify-start">
-            <button
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="mr-2 p-2 hover:bg-amber-800 rounded-md transition-all"
-              aria-label="Toggle sidebar"
-            >
-              <Menu size={24} className="text-amber-300" />
-            </button>
-            <h1 className="text-2xl sm:text-3xl font-bold text-amber-300">BOOKS STORE</h1>
-          </div>
-          <div className="w-full md:w-auto mt-4 md:mt-0">
-            <input
-              type="text"
-              placeholder="Search jurisprudence books..."
-              className="w-full sm:w-64 md:w-96 p-2 rounded-md bg-white text-black"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              aria-label="Search books"
-            />
-          </div>
-        </div>
-        <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-        {isSidebarOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsSidebarOpen(false)} />
-        )}
-      </header>
+      <BookHeader searchInput={searchInput} setSearchInput={setSearchInput} />
 
       <main className="min-h-screen sm:px-24 md:px-16 px-2 py-8">
         {isLoading ? (

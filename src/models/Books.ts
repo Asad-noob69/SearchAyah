@@ -7,7 +7,8 @@ export class BookModel {
   
   // In-memory cache for ultra-fast responses
   private static cache = new Map<string, { data: any; timestamp: number }>();
-  private static CACHE_TTL = 300000; // 5 minutes cache
+  private static CACHE_TTL = 3600000; // 1 hour cache for regular queries
+  private static LONG_CACHE_TTL = 86400000; // 24 hours cache for rarely changing data like categories
   
   static async getCollection() {
     const client = await clientPromise;
@@ -22,22 +23,44 @@ export class BookModel {
 
   private static getFromCache(key: string): any | null {
     const cached = this.cache.get(key);
-    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
+    if (!cached) return null;
+    
+    // Use longer TTL for category data and other rarely changing data
+    const ttl = key.includes('getCategories') ? this.LONG_CACHE_TTL : this.CACHE_TTL;
+    
+    if (Date.now() - cached.timestamp < ttl) {
       return cached.data;
     }
+    
+    // Remove expired cache entry
     this.cache.delete(key);
     return null;
   }
 
-  private static setCache(key: string, data: any): void {
+  private static setCache(key: string, data: any, longTerm: boolean = false): void {
     this.cache.set(key, { data, timestamp: Date.now() });
     
-    // Auto-cleanup: remove old entries when cache gets too large
-    if (this.cache.size > 50) {
+    // Auto-cleanup: more aggressive cache management
+    if (this.cache.size > 100) {
       const now = Date.now();
-      for (const [k, v] of this.cache.entries()) {
-        if (now - v.timestamp > this.CACHE_TTL) {
+      const entries = Array.from(this.cache.entries());
+      
+      // Sort by age (oldest first)
+      entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
+      
+      // Remove expired entries first
+      for (const [k, v] of entries) {
+        const ttl = k.includes('getCategories') ? this.LONG_CACHE_TTL : this.CACHE_TTL;
+        if (now - v.timestamp > ttl) {
           this.cache.delete(k);
+        }
+      }
+      
+      // If still too many entries, remove oldest ones
+      if (this.cache.size > 80) {
+        const entriesToRemove = Math.floor(this.cache.size * 0.2); // Remove 20% of oldest entries
+        for (let i = 0; i < entriesToRemove && i < entries.length; i++) {
+          this.cache.delete(entries[i][0]);
         }
       }
     }
@@ -160,14 +183,18 @@ export class BookModel {
 
   static async getCategories() {
     const cacheKey = this.getCacheKey('getCategories');
-    const cached = this.getFromCache(cacheKey);
-    if (cached) return cached;
+    
+    // Check for cached categories with longer TTL
+    const cached = this.cache.get(cacheKey);
+    if (cached && Date.now() - cached.timestamp < this.LONG_CACHE_TTL) {
+      return cached.data;
+    }
 
     const collection = await this.getCollection();
     const categories = await collection.distinct('category');
     const result = categories.filter(Boolean).sort();
     
-    // Cache categories for longer since they change less frequently
+    // Cache categories with the longer TTL
     this.cache.set(cacheKey, { data: result, timestamp: Date.now() });
     return result;
   }
