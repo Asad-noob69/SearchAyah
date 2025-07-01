@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    minimumCacheTTL: 31536000, // 1 year in seconds
+    minimumCacheTTL: 31536000, // 1 year
   },
 
   optimizeFonts: true,
@@ -45,10 +45,14 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    fallbackNodePolyfills: false,
-    // You may comment this out if it causes build issues
+    // 👇 REMOVE this — `fallbackNodePolyfills` can break Vercel builds in App Router
+    // fallbackNodePolyfills: false,
+
+    // 👇 KEEP THIS OFF for now — it triggers critters and may break during static export
+    optimizeCss: false,
+
+    // 👇 Leave this commented out unless you're sure your packages support it
     // optimizePackageImports: ['lucide-react', '@radix-ui/react-select', '@radix-ui/react-tabs'],
-    optimizeCss: true,
   },
 
   compiler: {
