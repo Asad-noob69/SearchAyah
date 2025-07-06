@@ -101,6 +101,62 @@ export class BookModel {
     return result;
   }
 
+  static async findBySlug(slug: string) {
+    const cacheKey = this.getCacheKey('findBySlug', { slug });
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    const collection = await this.getCollection();
+    
+    // Try exact match first
+    let book = await collection.findOne({ slug });
+    
+    // If no exact match, try case-insensitive match
+    if (!book) {
+      book = await collection.findOne({ 
+        slug: { $regex: new RegExp(`^${slug}$`, 'i') } 
+      });
+    }
+
+    // Try matching on slug without the ID suffix (if it exists)
+    if (!book) {
+      // Match patterns like "book-title-12345" where we want to find just "book-title"
+      const baseSlug = slug.replace(/-[0-9a-f]{24}$/, '');
+      if (baseSlug !== slug) {
+        book = await collection.findOne({ 
+          slug: { $regex: new RegExp(`^${baseSlug}`, 'i') }
+        });
+      }
+    }
+    
+    // If still no match, try searching by title-based slug
+    if (!book) {
+      // Clean up slug for title search (remove IDs, normalize dashes)
+      const cleanSlug = slug.replace(/-[0-9a-f]{24}$/, '').replace(/-/g, ' ').trim();
+      
+      // First try exact title match
+      book = await collection.findOne({
+        title: { $regex: new RegExp(`^${cleanSlug}$`, 'i') }
+      });
+      
+      // Then try partial title match
+      if (!book && cleanSlug.length > 3) {
+        const slugParts = cleanSlug.split(' ').filter(part => part.length > 2);
+        if (slugParts.length > 0) {
+          // Create a regex that looks for books where title contains key words from the slug
+          const regexPattern = slugParts.join('|');  // Match any of the significant words
+          book = await collection.findOne({
+            title: { $regex: new RegExp(regexPattern, 'i') }
+          });
+        }
+      }
+    }
+    
+    const result = book ? { ...book, _id: book._id.toString() } : null;
+    this.setCache(cacheKey, result);
+    return result;
+  }
+
   static async findAll() {
     const cacheKey = this.getCacheKey('findAll');
     const cached = this.getFromCache(cacheKey);

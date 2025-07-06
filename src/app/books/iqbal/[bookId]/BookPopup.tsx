@@ -1,8 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import type { Book } from "@/lib/book-data" // <-- import Book type here
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
+import type { Book } from "@/lib/book-data"
+import { optimizeBookCover } from "@/utils/imageOptimization"
 
 interface BookProps {
   book: Book
@@ -10,6 +12,15 @@ interface BookProps {
 
 export default function BookPopup({ book }: BookProps) {
   const [activeVolume, setActiveVolume] = useState(1)
+  const router = useRouter()
+  const { bookId } = useParams() as { bookId: string }
+
+  // Canonical slug enforcement (for SEO)
+  useEffect(() => {
+    if (book.slug && book.slug !== bookId && book.slug !== "") {
+      router.replace(`/books/iqbal/${book.slug}`, { scroll: false })
+    }
+  }, [book.slug, bookId, router])
 
   const generateVolumeButtons = () => {
     return Array.from({ length: book.volumes || 1 }, (_, i) => (
@@ -62,7 +73,7 @@ export default function BookPopup({ book }: BookProps) {
           "@context": "https://schema.org",
           "@type": "Book",
           "name": book.title,
-          "author": "Islamic Scholars",
+          "author": "Allama Iqbal",
           "image": `https://searchayah.com${book.coverImage}`,
           "description": book.description.slice(0, 160),
         })}
@@ -75,12 +86,12 @@ export default function BookPopup({ book }: BookProps) {
           <section className="max-w-md w-full md:w-1/4 h-auto flex justify-center items-center" aria-label="Book cover">
             <div className="relative w-40 h-56">
               <Image
-                src={book.coverImage}
+                src={optimizeBookCover(book.coverImage, { width: 320, height: 480, quality: 90 })}
                 alt={`Cover image of ${book.title}`}
                 fill
                 className="object-contain"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 256px"
+                priority
+                sizes="(max-width: 768px) 160px, 256px"
               />
             </div>
           </section>

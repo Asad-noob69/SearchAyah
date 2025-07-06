@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { BookModel } from "@/models/Books";
+import { ObjectId } from "mongodb";
+import { getIdFromSlug } from "@/utils/slugUtils";
 
 export async function GET(
   request: NextRequest,
@@ -7,9 +9,28 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-
-    // Fetch book by ID
-    const book = await BookModel.findById(id);
+    let book;
+    
+    // First, try to find by slug (clean URL approach)
+    book = await BookModel.findBySlug(id);
+    
+    // If not found by slug, check if it's a valid MongoDB ObjectId
+    if (!book) {
+      const isValidObjectId = ObjectId.isValid(id) && String(new ObjectId(id)) === id;
+      
+      if (isValidObjectId) {
+        // Fetch book by ID
+        book = await BookModel.findById(id);
+      } else {
+        // Check if id might be a slug with an embedded ID (for backward compatibility)
+        const extractedId = getIdFromSlug(id);
+        
+        if (extractedId && ObjectId.isValid(extractedId)) {
+          // Try to find by extracted ID
+          book = await BookModel.findById(extractedId);
+        }
+      }
+    }
 
     if (!book) {
       return NextResponse.json(

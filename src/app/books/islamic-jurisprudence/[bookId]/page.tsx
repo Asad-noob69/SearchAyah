@@ -7,13 +7,13 @@ export async function generateMetadata({ params }: { params: Promise<{ bookId: s
   
   try {
     // Ensure the bookId is properly formatted for the API call
-    const bookId = resolvedParams.bookId
-    if (!bookId) {
-      throw new Error("Book ID is missing")
+    const bookIdOrSlug = resolvedParams.bookId
+    if (!bookIdOrSlug) {
+      throw new Error("Book ID or slug is missing")
     }
     
     // Construct a valid URL with proper error handling
-    const apiUrl = new URL(`/api/books/${bookId}`, process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000')
+    const apiUrl = new URL(`/api/books/${encodeURIComponent(bookIdOrSlug)}`, process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000')
     
     // Fetch the book from the API using absolute URL
     const response = await fetch(apiUrl.toString(), {
@@ -59,13 +59,13 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
   
   try {
     // Ensure the bookId is properly formatted for the API call
-    const bookId = resolvedParams.bookId
-    if (!bookId) {
-      throw new Error("Book ID is missing")
+    const bookIdOrSlug = resolvedParams.bookId
+    if (!bookIdOrSlug) {
+      throw new Error("Book ID or slug is missing")
     }
     
     // Construct a valid URL with proper error handling
-    const apiUrl = new URL(`/api/books/${bookId}`, process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000')
+    const apiUrl = new URL(`/api/books/${encodeURIComponent(bookIdOrSlug)}`, process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000')
     
     console.log('Fetching book from URL:', apiUrl.toString())
     

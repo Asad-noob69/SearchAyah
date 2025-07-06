@@ -11,6 +11,7 @@ const {
 module.exports = {
   siteUrl: "https://searchayah.com",
   generateRobotsTxt: true,
+  exclude: ['/admin'],
   changefreq: "weekly",
   priority: 0.7,
   sitemapSize: 7000,

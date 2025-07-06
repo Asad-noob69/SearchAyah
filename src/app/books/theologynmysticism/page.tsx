@@ -4,9 +4,8 @@ import { useState, useEffect, useMemo } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import debounce from "lodash.debounce"
-import Sidebar from "../../../components/Sidebar"
 import BookHeader from "@/components/BookHeader"
 import { bookApi } from "@/utils/api"
 import { cloudinaryLoader } from "@/utils/cloudinaryLoader"
@@ -28,7 +27,6 @@ export default function TheologyMysticismPage() {
   const [books, setBooks] = useState<Book[]>([])
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
   const [searchInput, setSearchInput] = useState("")
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [windowWidth, setWindowWidth] = useState(0)
@@ -109,7 +107,7 @@ export default function TheologyMysticismPage() {
               "name": book.title,
               "description": book.description.slice(0, 160),
               "image": `https://searchayah.com${book.coverImage}`,
-              "url": `https://searchayah.com/books/theologynmysticism/${book.id}`
+              "url": `https://searchayah.com/books/theologynmysticism/${book.slug}`
             }))
           })
         }} />
@@ -130,7 +128,7 @@ export default function TheologyMysticismPage() {
           <div className="flex flex-col items-center">
             <header className="wooden-text relative w-full flex justify-center mb-8 mt-8 md:mt-16">
               <h2 className="text-[#230b08] text-xl sm:text-xl md:text-2xl lg:text-3xl">
-                Theology & Mysticism
+                Theology & Mysticism Books
               </h2>
             </header>
 
@@ -144,15 +142,12 @@ export default function TheologyMysticismPage() {
                           <meta itemProp="name" content={book.title} />
                           <meta itemProp="description" content={book.description.slice(0, 160)} />
                           <meta itemProp="image" content={`https://searchayah.com${book.coverImage}`} />
-                          <meta itemProp="author" content="Unknown Author" />
+                          <meta itemProp="author" content="Islamic Scholars and Sufis" />
 
-                          <Link href={`/books/theologynmysticism/${book.id}`} className="relative block w-28 sm:w-32 md:w-36 lg:w-40 h-40 sm:h-48 md:h-56 lg:h-60">
+                          <Link href={`/books/theologynmysticism/${book.slug}`} className="relative block w-28 sm:w-32 md:w-36 lg:w-40 h-40 sm:h-48 md:h-56 lg:h-60">
                             <Image
                               loader={cloudinaryLoader}
-                              src={book.coverImage.replace(
-                                "https://res.cloudinary.com/dppbxvjbg/image/upload/",
-                                ""
-                              )}
+                              src={book.coverImage.replace("https://res.cloudinary.com/dppbxvjbg/image/upload/", "")}
                               alt={`Cover image of ${book.title}`}
                               fill
                               className="object-contain hover:-translate-y-2 transition duration-200 rounded"

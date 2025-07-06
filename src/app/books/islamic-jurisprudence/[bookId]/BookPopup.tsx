@@ -1,8 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import type { Book } from "@/lib/book-data" // <-- import Book type here
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
+import type { Book } from "@/lib/book-data"
+import { optimizeBookCover } from "@/utils/imageOptimization"
 
 interface BookProps {
   book: Book
@@ -10,6 +12,17 @@ interface BookProps {
 
 export default function BookPopup({ book }: BookProps) {
   const [activeVolume, setActiveVolume] = useState(1)
+  const router = useRouter()
+  const { bookId } = useParams() as { bookId: string }
+
+  // Ensure we're using the canonical slug URL for SEO
+  useEffect(() => {
+    // If the book has a slug and it's different from the current URL
+    if (book.slug && book.slug !== bookId && book.slug !== "") {
+      // Replace the current URL with the canonical one
+      router.replace(`/books/islamic-jurisprudence/${book.slug}`, { scroll: false })
+    }
+  }, [book.slug, bookId, router])
 
   const generateVolumeButtons = () => {
     return Array.from({ length: book.volumes || 1 }, (_, i) => (
@@ -75,12 +88,12 @@ export default function BookPopup({ book }: BookProps) {
           <section className="max-w-md w-full md:w-1/4 h-auto flex justify-center items-center" aria-label="Book cover">
             <div className="relative w-40 h-56">
               <Image
-                src={book.coverImage}
+                src={optimizeBookCover(book.coverImage, { width: 320, height: 480, quality: 90 })}
                 alt={`Cover image of ${book.title}`}
                 fill
                 className="object-contain"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 256px"
+                priority
+                sizes="(max-width: 768px) 160px, 256px"
               />
             </div>
           </section>

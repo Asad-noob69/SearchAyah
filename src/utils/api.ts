@@ -2,12 +2,7 @@ const API_BASE_URL = '/api';
 
 // utils/api.ts (or wherever your file is)
 
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
+import { createSlug, createSlugWithId } from './slugUtils';
 
 export const bookApi = {
   getBooks: async (category?: string, search?: string) => {
@@ -57,12 +52,15 @@ export const bookApi = {
   
   // Convert database book format to frontend book format
   formatBookForFrontend: (dbBook: any) => {
+    const id = dbBook._id.toString();
     return {
-      id: dbBook._id.toString(),
+      id: id,
       title: dbBook.title,
       description: dbBook.description,
       coverImage: dbBook.imageUrl,
-      slug: dbBook.slug || slugify(dbBook.title),
+      // Generate a slug with ID to ensure uniqueness
+      slug: dbBook.slug || createSlugWithId(dbBook.title, id),
+      school: dbBook.school || '',
       downloadLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl) || [],
       readLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl.replace('uc?export=download&id=', 'file/d/').concat('/preview')) || [],
       volumes: dbBook.volumes?.length || 1,
@@ -72,12 +70,22 @@ export const bookApi = {
   
 
 
-  getBook: async (id: string) => {
-    const response = await fetch(`${API_BASE_URL}/books/${id}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+  getBook: async (idOrSlug: string) => {
+    try {
+      // Encode the ID or slug to handle special characters
+      const encoded = encodeURIComponent(idOrSlug);
+      console.log(`Fetching book from URL: ${API_BASE_URL}/books/${encoded}`);
+      
+      const response = await fetch(`${API_BASE_URL}/books/${encoded}`);
+      if (!response.ok) {
+        console.error(`API response not OK: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error("Error fetching book:", error);
+      throw error;
     }
-    return response.json();
   },
 
   createBook: async (bookData: any) => {

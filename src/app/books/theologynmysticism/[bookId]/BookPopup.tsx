@@ -1,8 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import type { Book } from "@/lib/book-data" // <-- import Book type here
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
+import type { Book } from "@/lib/book-data"
+import { optimizeBookCover } from "@/utils/imageOptimization"
 
 interface BookProps {
   book: Book
@@ -10,6 +12,15 @@ interface BookProps {
 
 export default function BookPopup({ book }: BookProps) {
   const [activeVolume, setActiveVolume] = useState(1)
+  const router = useRouter()
+  const { bookId } = useParams() as { bookId: string }
+
+  // Canonical slug enforcement (SEO friendly URL)
+  useEffect(() => {
+    if (book.slug && book.slug !== bookId && book.slug !== "") {
+      router.replace(`/books/theologynmysticism/${book.slug}`, { scroll: false })
+    }
+  }, [book.slug, bookId, router])
 
   const generateVolumeButtons = () => {
     return Array.from({ length: book.volumes || 1 }, (_, i) => (
@@ -70,23 +81,23 @@ export default function BookPopup({ book }: BookProps) {
 
       {/* Main Content */}
       <main className="min-h-screen flex items-center justify-center p-4">
-        <article className="w-full max-w-6xl flex flex-col md:flex-row bg-transparent">
+        <article className="w-full max-w-6xl flex flex-col md:flex-row gap-2 sm:gap-6 bg-transparent">
           {/* Book Image */}
-          <section className="w-full md:w-1/3 flex justify-center p-6" aria-label="Book cover">
+          <section className="max-w-md w-full md:w-1/4 h-auto flex justify-center items-center" aria-label="Book cover">
             <div className="relative w-40 h-56">
               <Image
-                src={book.coverImage}
+                src={optimizeBookCover(book.coverImage, { width: 320, height: 480, quality: 90 })}
                 alt={`Cover image of ${book.title}`}
                 fill
                 className="object-contain"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 256px"
+                priority
+                sizes="(max-width: 768px) 160px, 256px"
               />
             </div>
           </section>
 
           {/* Book Content */}
-          <section className="w-full md:w-2/3 p-6 flex flex-col text-white" aria-label="Book details">
+          <section className="w-full md:w-2/3 flex flex-col text-white p-6" aria-label="Book details">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#430000]">
               {book.title}
             </h1>

@@ -6,7 +6,8 @@ export interface Book {
   imageUrl: string;        // Changed from coverImage to imageUrl
   keywords: string[];      // Added keywords array
   volumes: Volume[];
-  school?: string
+  school?: string;
+  slug?: string;          // Added slug field
   createdAt: Date;
   updatedAt: Date;
 }
