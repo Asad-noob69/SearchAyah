@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "sitemap": "next-sitemap",
-    "postbuild": "tsc -p tsconfig.sitemap.json && next-sitemap",
+    "postbuild": "node scripts/fetch-sitemap-data.js && next-sitemap",
+    "generate-sitemap": "node scripts/fetch-sitemap-data.js && next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
