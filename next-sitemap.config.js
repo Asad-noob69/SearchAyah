@@ -122,10 +122,5 @@ module.exports = {
         allow: '/',
       },
     ],
-    additionalSitemaps: [
-      'https://searchayah.com/sitemap.xml',
-      'https://searchayah.com/sitemap-0.xml',
-
-    ],
   },
 };
