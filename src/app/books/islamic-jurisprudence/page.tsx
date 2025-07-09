@@ -35,9 +35,9 @@ const BookGrid = ({ books, title }: { books: Book[]; title: string }) => {
   return (
     <div className="flex flex-col gap-16 w-full">
       <header className="wooden-text relative w-full flex justify-center mt-12">
-        <h3 className="text-[#230b08] text-lg sm:text-xl md:text-2xl lg:text-3xl">
+        <h2 className="text-[#230b08] text-xl sm:text-xl md:text-2xl lg:text-3xl">
           {title}
-        </h3>
+        </h2>
       </header>
       <section className="w-full px-2 sm:px-4 md:px-8" aria-label={`${title} books`}>
         {rows.map((row, i) => (

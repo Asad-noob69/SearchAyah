@@ -62,7 +62,7 @@ export const bookApi = {
       slug: dbBook.slug || createSlugWithId(dbBook.title, id),
       school: dbBook.school || '',
       downloadLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl) || [],
-      readLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl.replace('uc?export=download&id=', 'file/d/').concat('/preview')) || [],
+      readLinks: dbBook.volumes?.map((vol: any) => vol.downloadUrl.replace('uc?export=download&id=', 'file/d/') ) || [],
       volumes: dbBook.volumes?.length || 1,
       keywords: dbBook.keywords || []
     };

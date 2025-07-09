@@ -264,6 +264,7 @@ export default function AdminDashboard() {
         imageUrl: formData.imageUrl,
         keywords: keywordsArray,
         volumes: volumes.filter((vol) => vol.downloadUrl),
+        school: formData.category === "Islamic Jurisprudence" ? formData.school : undefined
       };
 
       let response: { success: boolean; data?: any; error?: string };

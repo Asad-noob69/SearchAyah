@@ -62,7 +62,7 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { title, description, category, imageUrl, keywords, volumes } = body;
+    const { title, description, category, imageUrl, keywords, volumes, school } = body;
 
     // Validate required fields
     if (!title || !description || !category || !imageUrl || !volumes || !Array.isArray(volumes)) {
@@ -93,6 +93,7 @@ export async function PUT(
         imageUrl,
         keywords,
         volumes,
+        school,
         updatedAt: new Date(),
       },
     );

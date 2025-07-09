@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, description, category, imageUrl, keywords, volumes } = body;
+    const { title, description, category, imageUrl, keywords, volumes, school } = body;
 
     if (!title || !description || !category || !imageUrl || !volumes || !Array.isArray(volumes)) {
       return NextResponse.json(
@@ -55,7 +55,8 @@ export async function POST(request: NextRequest) {
       category,
       imageUrl,
       keywords,
-      volumes
+      volumes,
+      school
     });
 
     return NextResponse.json({
