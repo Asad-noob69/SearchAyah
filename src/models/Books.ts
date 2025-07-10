@@ -228,6 +228,7 @@ export class BookModel {
         imageUrl: 1,      // Changed from coverImage to imageUrl
         keywords: 1,      // Added keywords field
         volumes: 1,
+        school: 1,        // Added school field
         createdAt: 1
       })
       .toArray();
