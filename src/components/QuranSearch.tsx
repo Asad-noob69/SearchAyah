@@ -78,7 +78,7 @@ interface ChapterData {
 
 // Translation IDs for the Quran API
 const TRANSLATION_IDS = {
-  english: 20,
+  english: 19,
   urdu: 97,
   indonesian: 33,
   turkish: 77,
@@ -383,9 +383,12 @@ export default function QuranBrowse() {
 
       const matches = quranData.filter((ayah) => {
         const searchLower = query.toLowerCase()
-        return ayah.text.includes(query) || ayah.translations[language].toLowerCase().includes(searchLower)
-      })
+        const translationText = ayah.translations[language] || ""
 
+        // Search in Arabic text (exact match for Arabic characters)
+        // Search in translation (case-insensitive)
+        return ayah.text.includes(query) || translationText.toLowerCase().includes(searchLower)
+      })
       setSearchResults(matches)
       setCurrentPage(1)
       setIsSearching(false)
@@ -467,33 +470,57 @@ export default function QuranBrowse() {
 
   // Modify the renderVerseContent function to support highlighting
   const renderVerseContent = (verse: Verse, highlight = false) => {
-  const completeArabicText = verse.words.map((word) => word.text_uthmani).join(" ");
-  const translationClass = language === "urdu" ? "font-urdu text-right" : "text-left";
+    const completeArabicText = verse.words.map((word) => word.text_uthmani).join(" ");
+    const translationClass = language === "urdu" ? "font-urdu text-right" : "text-left";
 
-  // Safely access translations with a fallback
-  const translation =
-    verse.translations && Array.isArray(verse.translations)
-      ? verse.translations.find((t) => t.language === (language === "urdu" ? "ur" : "en"))?.text ||
+    // Safely access translations with a fallback
+    const translation =
+      verse.translations && Array.isArray(verse.translations)
+        ? verse.translations.find((t) => t.language === (language === "urdu" ? "ur" : "en"))?.text ||
         verse.translations[0]?.text ||
         "Translation not available"
-      : "Translation not available";
+        : "Translation not available";
 
-  if (isWordByWord) {
+    if (isWordByWord) {
+      return (
+        <>
+          <div className="flex flex-wrap flex-row-reverse gap-2">
+            {verse.words.map((word, index) => (
+              <div key={index} className="word-wrap flex flex-col items-center p-3 bg-gray-50 rounded-lg">
+                <span className="text-lg sm:text-xl md:text-2xl mb-2 font-arabic text-cyan-900">
+                  {word.text_uthmani}
+                </span>
+                <span className={`text-base py-2 text-gray-600 ${language === "urdu" ? "font-urdu" : ""}`}>
+                  {word.translation.text || "-"}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            <p
+              className={`text-cyan-900 ${translationClass}`}
+              dangerouslySetInnerHTML={{
+                __html: highlight
+                  ? highlightSearchTerm(cleanTranslation(translation, showFootnotes), searchTerm)
+                  : cleanTranslation(translation, showFootnotes),
+              }}
+            />
+          </div>
+        </>
+      );
+    }
+
     return (
       <>
-        <div className="flex flex-wrap flex-row-reverse gap-2">
-          {verse.words.map((word, index) => (
-            <div key={index} className="word-wrap flex flex-col items-center p-3 bg-gray-50 rounded-lg">
-              <span className="text-lg sm:text-xl md:text-2xl mb-2 font-arabic text-cyan-900">
-                {word.text_uthmani}
-              </span>
-              <span className={`text-base py-2 text-gray-600 ${language === "urdu" ? "font-urdu" : ""}`}>
-                {word.translation.text || "-"}
-              </span>
-            </div>
-          ))}
+        <div className="mb-4">
+          <p
+            className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
+            dangerouslySetInnerHTML={{
+              __html: highlight ? highlightSearchTerm(completeArabicText, searchTerm) : completeArabicText,
+            }}
+          />
         </div>
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+        <div className="p-4 bg-gray-50 rounded-lg">
           <p
             className={`text-cyan-900 ${translationClass}`}
             dangerouslySetInnerHTML={{
@@ -505,31 +532,7 @@ export default function QuranBrowse() {
         </div>
       </>
     );
-  }
-
-  return (
-    <>
-      <div className="mb-4">
-        <p
-          className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
-          dangerouslySetInnerHTML={{
-            __html: highlight ? highlightSearchTerm(completeArabicText, searchTerm) : completeArabicText,
-          }}
-        />
-      </div>
-      <div className="p-4 bg-gray-50 rounded-lg">
-        <p
-          className={`text-cyan-900 ${translationClass}`}
-          dangerouslySetInnerHTML={{
-            __html: highlight
-              ? highlightSearchTerm(cleanTranslation(translation, showFootnotes), searchTerm)
-              : cleanTranslation(translation, showFootnotes),
-          }}
-        />
-      </div>
-    </>
-  );
-};
+  };
 
   // Load initial verses
   useEffect(() => {
@@ -732,44 +735,44 @@ export default function QuranBrowse() {
             <div className="mt-8 space-y-4">
               {searchResults.length > 0
                 ? getPaginatedResults().map((result, index) => (
-                    <div key={`search-${index}`} className="overflow-hidden border border-[#67b2b4] rounded-lg">
-                      <div className="bg-[#67b2b4] py-2 px-4">
-                        <h3 className="text-white text-sm font-semibold">
-                          {result.surah.englishName} {result.numberInSurah}
-                        </h3>
+                  <div key={`search-${index}`} className="overflow-hidden border border-[#67b2b4] rounded-lg">
+                    <div className="bg-[#67b2b4] py-2 px-4">
+                      <h3 className="text-white text-sm font-semibold">
+                        {result.surah.englishName} {result.numberInSurah}
+                      </h3>
+                    </div>
+                    <div className="px-4 pb-4 pt-8">
+                      <div className="mb-4">
+                        <p
+                          className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
+                          dangerouslySetInnerHTML={{
+                            __html: highlightSearchTerm(result.text, searchTerm),
+                          }}
+                        />
                       </div>
-                      <div className="px-4 pb-4 pt-8">
-                        <div className="mb-4">
-                          <p
-                            className="text-lg sm:text-xl md:text-2xl font-arabic text-cyan-900 text-right leading-[3.5rem]"
-                            dangerouslySetInnerHTML={{
-                              __html: highlightSearchTerm(result.text, searchTerm),
-                            }}
-                          />
-                        </div>
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <p
-                            className={`text-cyan-900 ${language === "urdu" ? "font-urdu text-right" : "text-left"}`}
-                            dir={language === "urdu" ? "rtl" : "ltr"}
-                            dangerouslySetInnerHTML={{
-                              __html: highlightSearchTerm(result.translations[language], searchTerm),
-                            }}
-                          />
-                        </div>
+                      <div className="p-4 bg-gray-50 rounded-lg">
+                        <p
+                          className={`text-cyan-900 ${language === "urdu" ? "font-urdu text-right" : "text-left"}`}
+                          dir={language === "urdu" ? "rtl" : "ltr"}
+                          dangerouslySetInnerHTML={{
+                            __html: highlightSearchTerm(result.translations[language], searchTerm),
+                          }}
+                        />
                       </div>
                     </div>
-                  ))
+                  </div>
+                ))
                 : verses.map((verse, index) => (
-                    <div
-                      key={`verse-${verse.verse_key}-${index}`}
-                      className="overflow-hidden border border-[#67b2b4] rounded-lg"
-                    >
-                      <div className="bg-[#67b2b4] py-2 px-4">
-                        <h3 className="text-white text-sm font-semibold">Verse {verse.verse_key}</h3>
-                      </div>
-                      <div className="px-4 pb-4 pt-8">{renderVerseContent(verse)}</div>
+                  <div
+                    key={`verse-${verse.verse_key}-${index}`}
+                    className="overflow-hidden border border-[#67b2b4] rounded-lg"
+                  >
+                    <div className="bg-[#67b2b4] py-2 px-4">
+                      <h3 className="text-white text-sm font-semibold">Verse {verse.verse_key}</h3>
                     </div>
-                  ))}
+                    <div className="px-4 pb-4 pt-8">{renderVerseContent(verse)}</div>
+                  </div>
+                ))}
             </div>
 
             {searchResults.length > 0 && searchResults.length > currentPage * resultsPerPage && (
